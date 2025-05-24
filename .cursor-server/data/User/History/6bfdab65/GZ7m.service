@@ -1,0 +1,37 @@
+[Unit]
+Description=Zoho Books to Odoo One-Way Synchronization Service
+Documentation=https://github.com/your-repo/zoho-odoo-sync
+Wants=network-online.target
+After=network-online.target
+StartLimitIntervalSec=30
+StartLimitBurst=3
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/opt/odoo/migration
+ExecStart=/usr/bin/python3 /opt/odoo/migration/zoho_odoo_sync_service.py
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+RestartSec=10
+TimeoutStartSec=30
+TimeoutStopSec=30
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/opt/odoo/migration
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=zoho-odoo-sync
+
+# Environment
+Environment=PYTHONPATH=/opt/odoo/migration
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target 

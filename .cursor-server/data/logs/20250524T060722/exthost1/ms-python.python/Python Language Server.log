@@ -1,0 +1,21 @@
+2025-05-24 06:07:45.868 [info] (Client) Pylance async client (2024.8.1) started with python extension (2024.12.3)
+2025-05-24 06:07:46.974 [info] [Info  - 6:07:46 AM] (133170) Pylance language server 2024.8.1 (pyright version 1.1.373, commit ee424479) starting
+2025-05-24 06:07:46.974 [info] [Info  - 6:07:46 AM] (133170) Server root directory: file:///root/.cursor-server/extensions/ms-python.vscode-pylance-2024.8.1/dist
+2025-05-24 06:07:47.282 [info] [Info  - 6:07:47 AM] (133170) Starting service instance "root"
+2025-05-24 06:07:48.761 [info] [Info  - 6:07:48 AM] (133170) Setting pythonPath for service "root": "/bin/python3"
+2025-05-24 06:07:48.828 [info] [Info  - 6:07:48 AM] (133170) Setting environmentName for service "root": "3.12.3 (global)"
+2025-05-24 06:07:48.903 [info] [Info  - 6:07:48 AM] (133170) No include entries specified; assuming /root
+2025-05-24 06:07:48.921 [info] [Info  - 6:07:48 AM] (133170) Auto-excluding **/node_modules
+2025-05-24 06:07:48.927 [info] [Info  - 6:07:48 AM] (133170) Auto-excluding **/__pycache__
+2025-05-24 06:07:48.930 [info] [Info  - 6:07:48 AM] (133170) Auto-excluding **/.*
+2025-05-24 06:07:49.256 [info] [Info  - 6:07:49 AM] (133170) Assuming Python version 3.12.3.final.0
+2025-05-24 06:07:49.776 [info] [Info  - 6:07:49 AM] (133170) No source files found.
+2025-05-24 06:07:52.214 [info] [Info  - 6:07:52 AM] (133170) Background analysis(1) root directory: file:///root/.cursor-server/extensions/ms-python.vscode-pylance-2024.8.1/dist
+2025-05-24 06:07:52.215 [info] [Info  - 6:07:52 AM] (133170) Background analysis(1) started
+2025-05-24 06:07:54.004 [info] [Info  - 6:07:54 AM] (133170) Indexer background runner(2) root directory: file:///root/.cursor-server/extensions/ms-python.vscode-pylance-2024.8.1/dist (index)
+2025-05-24 06:07:54.005 [info] [Info  - 6:07:54 AM] (133170) Indexing(2) started
+2025-05-24 06:07:56.861 [info] [Info  - 6:07:56 AM] (133170) [BG(1)] Long operation: SemanticTokens full at file:///opt/odoo/migration/product_sync_scheduler.py (4758ms)
+2025-05-24 06:07:57.043 [info] [Info  - 6:07:57 AM] (133170) [IDX(2)] Long operation: scan packages file:///root (2379ms)
+2025-05-24 06:07:57.043 [info] [Info  - 6:07:57 AM] (133170) scanned(2) 93 files over 1 exec env
+2025-05-24 06:07:58.766 [info] [Info  - 6:07:58 AM] (133170) indexed(2) 57 files over 1 exec env
+2025-05-24 06:07:58.949 [info] [Info  - 6:07:58 AM] (133170) Indexing finished(2).

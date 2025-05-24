@@ -1,0 +1,382 @@
+2025-05-24 16:24:58.610 [error] Git command failed: git config --get remote.origin.url Command failed: git config --get remote.origin.url
+
+2025-05-24 16:24:58.610 [error] Error getting repo info: Command failed: git config --get remote.origin.url
+
+2025-05-24 16:24:58.610 [error] Error: Command failed: git config --get remote.origin.url
+
+	at genericNodeError (node:internal/errors:984:15)
+	at wrappedFn (node:internal/errors:538:14)
+	at ChildProcess.exithandler (node:child_process:423:12)
+	at ChildProcess.emit (node:events:518:28)
+	at maybeClose (node:internal/child_process:1104:16)
+	at Socket.<anonymous> (node:internal/child_process:456:11)
+	at Socket.emit (node:events:518:28)
+	at Pipe.<anonymous> (node:net:343:12)
+2025-05-24 16:24:58.610 [info] Creating Indexing Repo client:  https://repo42.cursor.sh
+2025-05-24 16:24:58.610 [info] Creating repo client with backend url: https://repo42.cursor.sh
+2025-05-24 16:24:58.808 [info] Using existing keys for an index
+2025-05-24 16:24:58.809 [info] InternalRepoInfo constructor with preferredEmbeddingModel 0
+2025-05-24 16:24:58.911 [info] Using existing keys for an index
+2025-05-24 16:24:58.912 [info] InternalRepoInfo constructor with preferredEmbeddingModel 0
+2025-05-24 16:24:58.912 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 16:24:59.032 [error] We currently do not allow indexing the home directory.
+2025-05-24 16:24:59.032 [info] Indexing job successfully done or aborted.
+2025-05-24 16:25:12.203 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 16:27:01.426 [warning] Failed to get symbolic ref: Failed to execute git
+2025-05-24 16:27:01.427 [warning] Failed to read .git/HEAD: A system error occurred (ENOENT: no such file or directory, open '/root/.git/HEAD')
+2025-05-24 16:27:01.567 [warning] Failed to get branches from remote: Failed to execute git
+2025-05-24 16:27:01.600 [warning] Failed to get default branch from git config: Failed to execute git
+2025-05-24 16:29:38.868 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 16:29:59.034 [info] multiCodebaseIndexingJob dispose
+2025-05-24 16:29:59.034 [info] Aborting indexing job.
+2025-05-24 16:29:59.034 [error] We currently do not allow indexing the home directory.
+2025-05-24 16:29:59.034 [info] Indexing job successfully done or aborted.
+2025-05-24 16:34:37.922 [error] Git command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)" Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 16:34:37.922 [error] Error getting user commits: Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 16:34:38.727 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 16:34:59.033 [info] multiCodebaseIndexingJob dispose
+2025-05-24 16:34:59.033 [info] Aborting indexing job.
+2025-05-24 16:34:59.033 [error] We currently do not allow indexing the home directory.
+2025-05-24 16:34:59.033 [info] Indexing job successfully done or aborted.
+2025-05-24 16:39:38.741 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 16:39:59.033 [info] multiCodebaseIndexingJob dispose
+2025-05-24 16:39:59.033 [info] Aborting indexing job.
+2025-05-24 16:39:59.033 [error] We currently do not allow indexing the home directory.
+2025-05-24 16:39:59.033 [info] Indexing job successfully done or aborted.
+2025-05-24 16:44:37.907 [error] Git command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)" Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 16:44:37.908 [error] Error getting user commits: Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 16:44:38.727 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 16:44:59.034 [info] multiCodebaseIndexingJob dispose
+2025-05-24 16:44:59.034 [info] Aborting indexing job.
+2025-05-24 16:44:59.034 [error] We currently do not allow indexing the home directory.
+2025-05-24 16:44:59.034 [info] Indexing job successfully done or aborted.
+2025-05-24 16:48:19.229 [warning] Failed to get symbolic ref: Failed to execute git
+2025-05-24 16:48:19.233 [warning] Failed to read .git/HEAD: A system error occurred (ENOENT: no such file or directory, open '/root/.git/HEAD')
+2025-05-24 16:48:19.348 [warning] Failed to get branches from remote: Failed to execute git
+2025-05-24 16:48:19.430 [warning] Failed to get default branch from git config: Failed to execute git
+2025-05-24 16:49:38.709 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 16:49:59.034 [info] multiCodebaseIndexingJob dispose
+2025-05-24 16:49:59.034 [info] Aborting indexing job.
+2025-05-24 16:49:59.034 [error] We currently do not allow indexing the home directory.
+2025-05-24 16:49:59.034 [info] Indexing job successfully done or aborted.
+2025-05-24 16:54:04.912 [info] Search by message took 42.65623499988578ms for query "zoho"
+2025-05-24 16:54:04.916 [info] Search by sha took 26.94150900002569ms for query "zoho"
+2025-05-24 16:54:37.904 [error] Git command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)" Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 16:54:37.905 [error] Error getting user commits: Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 16:54:38.725 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 16:54:59.034 [info] multiCodebaseIndexingJob dispose
+2025-05-24 16:54:59.034 [info] Aborting indexing job.
+2025-05-24 16:54:59.034 [error] We currently do not allow indexing the home directory.
+2025-05-24 16:54:59.034 [info] Indexing job successfully done or aborted.
+2025-05-24 16:59:38.719 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 16:59:59.033 [info] multiCodebaseIndexingJob dispose
+2025-05-24 16:59:59.033 [info] Aborting indexing job.
+2025-05-24 16:59:59.033 [error] We currently do not allow indexing the home directory.
+2025-05-24 16:59:59.033 [info] Indexing job successfully done or aborted.
+2025-05-24 17:02:55.351 [warning] Failed to get symbolic ref: Failed to execute git
+2025-05-24 17:02:55.352 [warning] Failed to read .git/HEAD: A system error occurred (ENOENT: no such file or directory, open '/root/.git/HEAD')
+2025-05-24 17:02:55.415 [warning] Failed to get branches from remote: Failed to execute git
+2025-05-24 17:02:55.451 [warning] Failed to get default branch from git config: Failed to execute git
+2025-05-24 17:03:00.295 [warning] Failed to get symbolic ref: Failed to execute git
+2025-05-24 17:03:00.296 [warning] Failed to read .git/HEAD: A system error occurred (ENOENT: no such file or directory, open '/root/.git/HEAD')
+2025-05-24 17:03:00.483 [warning] Failed to get branches from remote: Failed to execute git
+2025-05-24 17:03:00.558 [warning] Failed to get default branch from git config: Failed to execute git
+2025-05-24 17:03:18.179 [warning] Failed to get symbolic ref: Failed to execute git
+2025-05-24 17:03:18.180 [warning] Failed to read .git/HEAD: A system error occurred (ENOENT: no such file or directory, open '/root/.git/HEAD')
+2025-05-24 17:03:18.407 [warning] Failed to get branches from remote: Failed to execute git
+2025-05-24 17:03:18.478 [warning] Failed to get default branch from git config: Failed to execute git
+2025-05-24 17:04:37.902 [error] Git command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)" Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 17:04:37.902 [error] Error getting user commits: Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 17:04:38.716 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 17:04:59.033 [info] multiCodebaseIndexingJob dispose
+2025-05-24 17:04:59.035 [info] Aborting indexing job.
+2025-05-24 17:04:59.035 [error] We currently do not allow indexing the home directory.
+2025-05-24 17:04:59.035 [info] Indexing job successfully done or aborted.
+2025-05-24 17:09:38.732 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 17:09:59.034 [info] multiCodebaseIndexingJob dispose
+2025-05-24 17:09:59.035 [info] Aborting indexing job.
+2025-05-24 17:09:59.036 [error] We currently do not allow indexing the home directory.
+2025-05-24 17:09:59.036 [info] Indexing job successfully done or aborted.
+2025-05-24 17:14:37.949 [error] Git command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)" Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 17:14:37.949 [error] Error getting user commits: Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 17:14:38.735 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 17:14:59.037 [info] multiCodebaseIndexingJob dispose
+2025-05-24 17:14:59.037 [info] Aborting indexing job.
+2025-05-24 17:14:59.037 [error] We currently do not allow indexing the home directory.
+2025-05-24 17:14:59.037 [info] Indexing job successfully done or aborted.
+2025-05-24 17:19:38.715 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 17:19:59.038 [info] multiCodebaseIndexingJob dispose
+2025-05-24 17:19:59.038 [info] Aborting indexing job.
+2025-05-24 17:19:59.038 [error] We currently do not allow indexing the home directory.
+2025-05-24 17:19:59.038 [info] Indexing job successfully done or aborted.
+2025-05-24 17:24:37.918 [error] Git command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)" Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 17:24:37.922 [error] Error getting user commits: Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 17:24:38.711 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 17:24:59.038 [info] multiCodebaseIndexingJob dispose
+2025-05-24 17:24:59.042 [info] Aborting indexing job.
+2025-05-24 17:24:59.043 [error] We currently do not allow indexing the home directory.
+2025-05-24 17:24:59.043 [info] Indexing job successfully done or aborted.
+2025-05-24 17:29:38.716 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 17:29:59.038 [info] multiCodebaseIndexingJob dispose
+2025-05-24 17:29:59.039 [info] Aborting indexing job.
+2025-05-24 17:29:59.040 [error] We currently do not allow indexing the home directory.
+2025-05-24 17:29:59.040 [info] Indexing job successfully done or aborted.
+2025-05-24 17:34:37.898 [error] Git command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)" Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 17:34:37.898 [error] Error getting user commits: Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 17:34:38.730 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 17:34:59.039 [info] multiCodebaseIndexingJob dispose
+2025-05-24 17:34:59.039 [info] Aborting indexing job.
+2025-05-24 17:34:59.039 [error] We currently do not allow indexing the home directory.
+2025-05-24 17:34:59.039 [info] Indexing job successfully done or aborted.
+2025-05-24 17:39:38.781 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 17:39:59.039 [info] multiCodebaseIndexingJob dispose
+2025-05-24 17:39:59.041 [info] Aborting indexing job.
+2025-05-24 17:39:59.041 [error] We currently do not allow indexing the home directory.
+2025-05-24 17:39:59.041 [info] Indexing job successfully done or aborted.
+2025-05-24 17:44:37.969 [error] Git command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)" Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 17:44:37.969 [error] Error getting user commits: Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 17:44:38.702 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 17:44:59.042 [info] multiCodebaseIndexingJob dispose
+2025-05-24 17:44:59.042 [info] Aborting indexing job.
+2025-05-24 17:44:59.042 [error] We currently do not allow indexing the home directory.
+2025-05-24 17:44:59.042 [info] Indexing job successfully done or aborted.
+2025-05-24 17:49:38.708 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 17:49:59.042 [info] multiCodebaseIndexingJob dispose
+2025-05-24 17:49:59.043 [info] Aborting indexing job.
+2025-05-24 17:49:59.044 [error] We currently do not allow indexing the home directory.
+2025-05-24 17:49:59.044 [info] Indexing job successfully done or aborted.
+2025-05-24 17:54:37.931 [error] Git command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)" Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 17:54:37.931 [error] Error getting user commits: Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 17:54:38.709 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 17:54:59.059 [info] multiCodebaseIndexingJob dispose
+2025-05-24 17:54:59.064 [info] Aborting indexing job.
+2025-05-24 17:54:59.064 [error] We currently do not allow indexing the home directory.
+2025-05-24 17:54:59.064 [info] Indexing job successfully done or aborted.
+2025-05-24 17:59:38.704 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 17:59:43.362 [warning] Failed to get symbolic ref: Failed to execute git
+2025-05-24 17:59:43.365 [warning] Failed to read .git/HEAD: A system error occurred (ENOENT: no such file or directory, open '/root/.git/HEAD')
+2025-05-24 17:59:43.705 [warning] Failed to get branches from remote: Failed to execute git
+2025-05-24 17:59:43.835 [warning] Failed to get default branch from git config: Failed to execute git
+2025-05-24 17:59:51.247 [warning] Failed to get symbolic ref: Failed to execute git
+2025-05-24 17:59:51.251 [warning] Failed to read .git/HEAD: A system error occurred (ENOENT: no such file or directory, open '/root/.git/HEAD')
+2025-05-24 17:59:51.642 [warning] Failed to get branches from remote: Failed to execute git
+2025-05-24 17:59:51.717 [warning] Failed to get default branch from git config: Failed to execute git
+2025-05-24 17:59:55.000 [warning] Failed to get symbolic ref: Failed to execute git
+2025-05-24 17:59:55.000 [warning] Failed to read .git/HEAD: A system error occurred (ENOENT: no such file or directory, open '/root/.git/HEAD')
+2025-05-24 17:59:55.322 [warning] Failed to get branches from remote: Failed to execute git
+2025-05-24 17:59:55.463 [warning] Failed to get default branch from git config: Failed to execute git
+2025-05-24 17:59:59.056 [info] multiCodebaseIndexingJob dispose
+2025-05-24 17:59:59.056 [info] Aborting indexing job.
+2025-05-24 17:59:59.056 [error] We currently do not allow indexing the home directory.
+2025-05-24 17:59:59.056 [info] Indexing job successfully done or aborted.
+2025-05-24 18:00:02.144 [warning] Failed to get symbolic ref: Failed to execute git
+2025-05-24 18:00:02.153 [warning] Failed to read .git/HEAD: A system error occurred (ENOENT: no such file or directory, open '/root/.git/HEAD')
+2025-05-24 18:00:02.886 [warning] Failed to get branches from remote: Failed to execute git
+2025-05-24 18:00:03.056 [warning] Failed to get default branch from git config: Failed to execute git
+2025-05-24 18:00:06.376 [warning] Failed to get symbolic ref: Failed to execute git
+2025-05-24 18:00:06.385 [warning] Failed to read .git/HEAD: A system error occurred (ENOENT: no such file or directory, open '/root/.git/HEAD')
+2025-05-24 18:00:07.161 [warning] Failed to get branches from remote: Failed to execute git
+2025-05-24 18:00:07.475 [warning] Failed to get default branch from git config: Failed to execute git
+2025-05-24 18:00:08.835 [warning] Failed to get symbolic ref: Failed to execute git
+2025-05-24 18:00:08.843 [warning] Failed to read .git/HEAD: A system error occurred (ENOENT: no such file or directory, open '/root/.git/HEAD')
+2025-05-24 18:00:09.571 [warning] Failed to get branches from remote: Failed to execute git
+2025-05-24 18:00:09.738 [warning] Failed to get default branch from git config: Failed to execute git
+2025-05-24 18:04:37.908 [error] Git command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)" Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 18:04:37.909 [error] Error getting user commits: Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 18:04:38.690 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 18:04:59.059 [info] multiCodebaseIndexingJob dispose
+2025-05-24 18:04:59.059 [info] Aborting indexing job.
+2025-05-24 18:04:59.059 [error] We currently do not allow indexing the home directory.
+2025-05-24 18:04:59.059 [info] Indexing job successfully done or aborted.
+2025-05-24 18:09:38.740 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 18:09:59.063 [info] multiCodebaseIndexingJob dispose
+2025-05-24 18:09:59.068 [info] Aborting indexing job.
+2025-05-24 18:09:59.068 [error] We currently do not allow indexing the home directory.
+2025-05-24 18:09:59.068 [info] Indexing job successfully done or aborted.
+2025-05-24 18:14:37.891 [error] Git command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)" Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 18:14:37.891 [error] Error getting user commits: Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 18:14:38.683 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 18:14:59.063 [info] multiCodebaseIndexingJob dispose
+2025-05-24 18:14:59.063 [info] Aborting indexing job.
+2025-05-24 18:14:59.063 [error] We currently do not allow indexing the home directory.
+2025-05-24 18:14:59.063 [info] Indexing job successfully done or aborted.
+2025-05-24 18:19:38.684 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 18:19:59.064 [info] multiCodebaseIndexingJob dispose
+2025-05-24 18:19:59.069 [info] Aborting indexing job.
+2025-05-24 18:19:59.069 [error] We currently do not allow indexing the home directory.
+2025-05-24 18:19:59.069 [info] Indexing job successfully done or aborted.
+2025-05-24 18:24:37.871 [error] Git command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)" Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 18:24:37.871 [error] Error getting user commits: Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 18:24:38.717 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 18:24:59.168 [info] multiCodebaseIndexingJob dispose
+2025-05-24 18:24:59.171 [info] Aborting indexing job.
+2025-05-24 18:24:59.171 [error] We currently do not allow indexing the home directory.
+2025-05-24 18:24:59.171 [info] Indexing job successfully done or aborted.
+2025-05-24 18:29:38.685 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 18:29:59.172 [info] multiCodebaseIndexingJob dispose
+2025-05-24 18:29:59.172 [info] Aborting indexing job.
+2025-05-24 18:29:59.172 [error] We currently do not allow indexing the home directory.
+2025-05-24 18:29:59.172 [info] Indexing job successfully done or aborted.
+2025-05-24 18:34:37.886 [error] Git command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)" Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 18:34:37.892 [error] Error getting user commits: Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 18:34:38.686 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 18:34:59.169 [info] multiCodebaseIndexingJob dispose
+2025-05-24 18:34:59.169 [info] Aborting indexing job.
+2025-05-24 18:34:59.169 [error] We currently do not allow indexing the home directory.
+2025-05-24 18:34:59.169 [info] Indexing job successfully done or aborted.
+2025-05-24 18:39:38.683 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 18:39:59.168 [info] multiCodebaseIndexingJob dispose
+2025-05-24 18:39:59.168 [info] Aborting indexing job.
+2025-05-24 18:39:59.168 [error] We currently do not allow indexing the home directory.
+2025-05-24 18:39:59.168 [info] Indexing job successfully done or aborted.
+2025-05-24 18:44:37.876 [error] Git command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)" Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 18:44:37.876 [error] Error getting user commits: Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 18:44:38.659 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 18:44:59.170 [info] multiCodebaseIndexingJob dispose
+2025-05-24 18:44:59.172 [info] Aborting indexing job.
+2025-05-24 18:44:59.173 [error] We currently do not allow indexing the home directory.
+2025-05-24 18:44:59.173 [info] Indexing job successfully done or aborted.
+2025-05-24 18:49:59.169 [info] multiCodebaseIndexingJob dispose
+2025-05-24 18:49:59.172 [info] Aborting indexing job.
+2025-05-24 18:49:59.172 [error] We currently do not allow indexing the home directory.
+2025-05-24 18:49:59.172 [info] Indexing job successfully done or aborted.
+2025-05-24 18:51:01.462 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 18:54:59.169 [info] multiCodebaseIndexingJob dispose
+2025-05-24 18:54:59.172 [info] Aborting indexing job.
+2025-05-24 18:54:59.172 [error] We currently do not allow indexing the home directory.
+2025-05-24 18:54:59.172 [info] Indexing job successfully done or aborted.
+2025-05-24 18:56:01.525 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 18:56:01.555 [error] Git command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)" Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 18:56:01.555 [error] Error getting user commits: Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 18:59:38.676 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 18:59:59.171 [info] multiCodebaseIndexingJob dispose
+2025-05-24 18:59:59.175 [info] Aborting indexing job.
+2025-05-24 18:59:59.176 [error] We currently do not allow indexing the home directory.
+2025-05-24 18:59:59.176 [info] Indexing job successfully done or aborted.
+2025-05-24 19:04:37.858 [error] Git command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)" Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 19:04:37.859 [error] Error getting user commits: Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 19:04:38.663 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 19:04:59.172 [info] multiCodebaseIndexingJob dispose
+2025-05-24 19:04:59.172 [info] Aborting indexing job.
+2025-05-24 19:04:59.172 [error] We currently do not allow indexing the home directory.
+2025-05-24 19:04:59.172 [info] Indexing job successfully done or aborted.
+2025-05-24 19:09:38.655 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 19:09:59.173 [info] multiCodebaseIndexingJob dispose
+2025-05-24 19:09:59.175 [info] Aborting indexing job.
+2025-05-24 19:09:59.175 [error] We currently do not allow indexing the home directory.
+2025-05-24 19:09:59.175 [info] Indexing job successfully done or aborted.
+2025-05-24 19:14:37.918 [error] Git command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)" Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 19:14:37.921 [error] Error getting user commits: Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: not a git repository (or any of the parent directories): .git
+
+2025-05-24 19:14:38.699 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 19:14:59.178 [info] multiCodebaseIndexingJob dispose
+2025-05-24 19:14:59.178 [info] Aborting indexing job.
+2025-05-24 19:14:59.178 [error] We currently do not allow indexing the home directory.
+2025-05-24 19:14:59.178 [info] Indexing job successfully done or aborted.
+2025-05-24 19:19:38.661 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 19:19:59.177 [info] multiCodebaseIndexingJob dispose
+2025-05-24 19:19:59.177 [info] Aborting indexing job.
+2025-05-24 19:19:59.177 [error] We currently do not allow indexing the home directory.
+2025-05-24 19:19:59.177 [info] Indexing job successfully done or aborted.
+2025-05-24 19:24:19.533 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 19:24:37.856 [error] Git command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)" Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: your current branch 'master' does not have any commits yet
+
+2025-05-24 19:24:37.857 [error] Error getting user commits: Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: your current branch 'master' does not have any commits yet
+
+2025-05-24 19:24:38.647 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 19:24:59.181 [info] multiCodebaseIndexingJob dispose
+2025-05-24 19:24:59.181 [info] Aborting indexing job.
+2025-05-24 19:24:59.181 [error] We currently do not allow indexing the home directory.
+2025-05-24 19:24:59.181 [info] Indexing job successfully done or aborted.
+2025-05-24 19:29:38.695 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 19:29:59.183 [info] multiCodebaseIndexingJob dispose
+2025-05-24 19:29:59.183 [info] Aborting indexing job.
+2025-05-24 19:29:59.183 [error] We currently do not allow indexing the home directory.
+2025-05-24 19:29:59.183 [info] Indexing job successfully done or aborted.
+2025-05-24 19:34:37.846 [error] Git command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)" Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: your current branch 'main' does not have any commits yet
+
+2025-05-24 19:34:37.855 [error] Error getting user commits: Command failed: git log --pretty=format:"%H<|ENT|><|RY|>%s<|COM|><|MIT|>" -n 10 --author="$(git config user.email || git config user.name || whoami)"
+fatal: your current branch 'main' does not have any commits yet
+
+2025-05-24 19:34:38.644 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 19:34:59.182 [info] multiCodebaseIndexingJob dispose
+2025-05-24 19:34:59.182 [info] Aborting indexing job.
+2025-05-24 19:34:59.183 [error] We currently do not allow indexing the home directory.
+2025-05-24 19:34:59.183 [info] Indexing job successfully done or aborted.
+2025-05-24 19:39:38.632 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 19:39:56.332 [info] Search by message took 95.7529389988631ms for query "git"
+2025-05-24 19:39:56.343 [info] Search by sha took 63.264722000807524ms for query "git"
+2025-05-24 19:39:59.185 [info] multiCodebaseIndexingJob dispose
+2025-05-24 19:39:59.185 [info] Aborting indexing job.
+2025-05-24 19:39:59.185 [error] We currently do not allow indexing the home directory.
+2025-05-24 19:39:59.185 [info] Indexing job successfully done or aborted.

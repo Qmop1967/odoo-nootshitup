@@ -1,0 +1,23 @@
+2025-05-24 08:56:02.392 [info] Experiment 'pythonTerminalEnvVarActivation' is active
+2025-05-24 08:56:02.392 [warning] Dir "/root/.pixi/envs" is not watchable (directory does not exist)
+2025-05-24 08:56:02.392 [info] Python interpreter path: /bin/python3
+2025-05-24 08:56:02.392 [info] > pyenv which python
+2025-05-24 08:56:02.392 [info] cwd: .
+2025-05-24 08:56:05.806 [info] Starting Pylance language server.
+2025-05-24 09:04:54.185 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service_immediate.py
+2025-05-24 09:05:55.493 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/sync_manager_immediate.py
+2025-05-24 09:07:21.568 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/fix_sync_issues_now.py
+2025-05-24 09:07:43.311 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/quick_diagnosis.py
+2025-05-24 09:13:25.644 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/sync_manager_immediate.py
+2025-05-24 09:14:34.877 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/sync_manager_immediate.py
+2025-05-24 09:20:32.650 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/check_specific_item.py
+2025-05-24 09:21:24.651 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/immediate_sync_fix.py
+2025-05-24 09:22:06.003 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/prevent_sync_issues.py
+2025-05-24 09:26:46.265 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/sync_manager_immediate.py
+2025-05-24 09:26:46.603 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/prevent_sync_issues.py
+2025-05-24 09:26:47.562 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service_immediate.py
+2025-05-24 09:26:48.075 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/sync_manager_immediate.py
+2025-05-24 09:26:51.430 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/check_specific_item.py
+2025-05-24 09:27:00.723 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/immediate_sync_fix.py
+2025-05-24 09:27:01.447 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/immediate_sync_fix.py
+2025-05-24 09:28:15.549 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/continuous_sync_server_enhanced.py

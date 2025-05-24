@@ -1,0 +1,33 @@
+2025-05-24 06:20:32.890 [info] (Client) Pylance async client (2024.8.1) started with python extension (2024.12.3)
+2025-05-24 06:20:35.206 [info] [Info  - 6:20:35 AM] (134047) Pylance language server 2024.8.1 (pyright version 1.1.373, commit ee424479) starting
+2025-05-24 06:20:35.212 [info] [Info  - 6:20:35 AM] (134047) Server root directory: file:///root/.cursor-server/extensions/ms-python.vscode-pylance-2024.8.1/dist
+2025-05-24 06:20:35.266 [info] [Info  - 6:20:35 AM] (134047) Starting service instance "root"
+2025-05-24 06:20:38.127 [info] [Info  - 6:20:38 AM] (134047) Setting pythonPath for service "root": "/bin/python3"
+2025-05-24 06:20:38.162 [info] [Info  - 6:20:38 AM] (134047) Setting environmentName for service "root": "3.12.3 (global)"
+2025-05-24 06:20:38.264 [info] [Info  - 6:20:38 AM] (134047) No include entries specified; assuming /root
+2025-05-24 06:20:38.565 [info] [Info  - 6:20:38 AM] (134047) Auto-excluding **/node_modules
+2025-05-24 06:20:38.682 [info] [Info  - 6:20:38 AM] (134047) Auto-excluding **/__pycache__
+2025-05-24 06:20:38.939 [info] [Info  - 6:20:38 AM] (134047) Auto-excluding **/.*
+2025-05-24 06:20:39.127 [info] [Info  - 6:20:39 AM] (134047) Assuming Python version 3.12.3.final.0
+2025-05-24 06:20:39.175 [info] [Info  - 6:20:39 AM] (134047) No source files found.
+2025-05-24 06:20:40.733 [info] [Info  - 6:20:40 AM] (134047) Background analysis(1) root directory: file:///root/.cursor-server/extensions/ms-python.vscode-pylance-2024.8.1/dist
+2025-05-24 06:20:40.744 [info] [Info  - 6:20:40 AM] (134047) Background analysis(1) started
+2025-05-24 06:20:43.338 [info] [Info  - 6:20:43 AM] (134047) Indexer background runner(2) root directory: file:///root/.cursor-server/extensions/ms-python.vscode-pylance-2024.8.1/dist (index)
+2025-05-24 06:20:43.341 [info] [Info  - 6:20:43 AM] (134047) Indexing(2) started
+2025-05-24 06:20:47.997 [info] [Info  - 6:20:47 AM] (134047) [IDX(2)] Long operation: scan packages file:///root (3927ms)
+2025-05-24 06:20:48.002 [info] [Info  - 6:20:48 AM] (134047) scanned(2) 93 files over 1 exec env
+2025-05-24 06:20:49.455 [info] [Info  - 6:20:49 AM] (134047) [BG(1)] Long operation: SemanticTokens full at file:///opt/odoo/migration/product_sync_scheduler.py (7014ms)
+2025-05-24 06:20:49.701 [info] [Info  - 6:20:49 AM] (134047) indexed(2) 57 files over 1 exec env
+2025-05-24 06:20:49.973 [info] [Info  - 6:20:49 AM] (134047) Indexing finished(2).
+2025-05-24 06:58:13.561 [info] [Info  - 6:58:13 AM] (134047) [BG(1)] Long operation: checking: file:///opt/odoo/migration/zoho_odoo_sync_service.py (2132ms)
+2025-05-24 06:58:13.562 [info] [Info  - 6:58:13 AM] (134047) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/zoho_odoo_sync_service.py (2250ms)
+2025-05-24 07:05:08.854 [info] [Info  - 7:05:08 AM] (134047) [BG(1)] Long operation: checking: file:///opt/odoo/migration/zoho_odoo_sync_service_with_images.py (4298ms)
+2025-05-24 07:05:08.855 [info] [Info  - 7:05:08 AM] (134047) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/zoho_odoo_sync_service_with_images.py (4630ms)
+2025-05-24 07:38:32.870 [info] [Info  - 7:38:32 AM] (134047) [BG(1)] Long operation: checking: file:///opt/odoo/migration/zoho_odoo_sync_service_with_images_fixed.py (2181ms)
+2025-05-24 07:38:32.871 [info] [Info  - 7:38:32 AM] (134047) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/zoho_odoo_sync_service_with_images_fixed.py (2264ms)
+2025-05-24 07:40:16.808 [info] [Info  - 7:40:16 AM] (134047) [BG(1)] Long operation: checking: file:///opt/odoo/migration/zoho_odoo_sync_service_with_images_fixed.py (3200ms)
+2025-05-24 07:40:16.811 [info] [Info  - 7:40:16 AM] (134047) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/zoho_odoo_sync_service_with_images_fixed.py (3200ms)
+2025-05-24 07:42:08.485 [info] [Info  - 7:42:08 AM] (134047) [BG(1)] Long operation: checking: file:///opt/odoo/migration/sync_service_manager_fixed.py (2418ms)
+2025-05-24 07:42:08.488 [info] [Info  - 7:42:08 AM] (134047) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/sync_service_manager_fixed.py (2627ms)
+2025-05-24 07:48:29.140 [info] [Info  - 7:48:29 AM] (134047) [BG(1)] Long operation: checking: file:///opt/odoo/migration/zoho_odoo_sync_final.py (2121ms)
+2025-05-24 07:48:29.140 [info] [Info  - 7:48:29 AM] (134047) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/zoho_odoo_sync_final.py (2201ms)

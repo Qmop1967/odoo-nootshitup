@@ -1,0 +1,32 @@
+2025-05-24 06:07:44.345 [info] Experiment 'pythonTerminalEnvVarActivation' is active
+2025-05-24 06:07:44.345 [error] Reading directory to watch failed [Error: ENOENT: no such file or directory, scandir '/root/.pixi/envs'
+	at Object.readdirSync (node:fs:1508:26)
+	at /root/.cursor-server/extensions/ms-python.python-2024.12.3/out/client/extension.js:2:586747
+	at /root/.cursor-server/extensions/ms-python.python-2024.12.3/out/client/extension.js:2:586938
+	at Array.map (<anonymous>)
+	at d.initWatchers (/root/.cursor-server/extensions/ms-python.python-2024.12.3/out/client/extension.js:2:586656)
+	at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+	at async d.ensureWatchersReady (/root/.cursor-server/extensions/ms-python.python-2024.12.3/out/client/extension.js:2:543067)] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'scandir',
+  path: '/root/.pixi/envs'
+}
+2025-05-24 06:07:44.345 [error] Dir "/root/.pixi/envs" is not watchable (directory does not exist)
+2025-05-24 06:07:44.345 [info] Default formatter is set to null for workspace /root
+2025-05-24 06:07:44.345 [info] Python interpreter path: /bin/python3
+2025-05-24 06:07:44.562 [info] > pyenv which python
+2025-05-24 06:07:44.562 [info] cwd: .
+2025-05-24 06:07:44.804 [info] > pixi --version
+2025-05-24 06:07:44.805 [error] [Error: spawn pixi ENOENT
+	at ChildProcess._handle.onexit (node:internal/child_process:285:19)
+	at onErrorNT (node:internal/child_process:483:16)
+	at process.processTicksAndRejections (node:internal/process/task_queues:82:21)] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'spawn pixi',
+  path: 'pixi',
+  spawnargs: [ '--version' ]
+}
+2025-05-24 06:07:44.805 [warning] could not find a pixi interpreter for the interpreter at /bin/python3
+2025-05-24 06:07:47.356 [info] Starting Pylance language server.

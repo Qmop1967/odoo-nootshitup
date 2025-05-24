@@ -1,0 +1,14 @@
+2025-05-23 11:56:23.526 [info] (Client) Pylance async client (2024.8.1) started with python extension (2024.12.3)
+2025-05-23 11:56:27.465 [info] [Info  - 11:56:27 AM] (60294) Pylance language server 2024.8.1 (pyright version 1.1.373, commit ee424479) starting
+2025-05-23 11:56:27.471 [info] [Info  - 11:56:27 AM] (60294) Server root directory: file:///root/.cursor-server/extensions/ms-python.vscode-pylance-2024.8.1/dist
+2025-05-23 11:56:27.814 [info] [Info  - 11:56:27 AM] (60294) Starting service instance "root"
+2025-05-23 11:56:28.506 [info] [Info  - 11:56:28 AM] (60294) Setting pythonPath for service "root": "/bin/python3"
+2025-05-23 11:56:28.506 [info] [Info  - 11:56:28 AM] (60294) Setting environmentName for service "root": "3.12.3 (global)"
+2025-05-23 11:56:28.516 [info] [Info  - 11:56:28 AM] (60294) No include entries specified; assuming /root
+2025-05-23 11:56:28.529 [info] [Info  - 11:56:28 AM] (60294) Auto-excluding **/node_modules
+2025-05-23 11:56:28.529 [info] [Info  - 11:56:28 AM] (60294) Auto-excluding **/__pycache__
+2025-05-23 11:56:28.538 [info] [Info  - 11:56:28 AM] (60294) Auto-excluding **/.*
+2025-05-23 11:56:28.880 [info] [Info  - 11:56:28 AM] (60294) Assuming Python version 3.12.3.final.0
+2025-05-23 11:56:29.611 [info] [Info  - 11:56:29 AM] (60294) No source files found.
+2025-05-23 11:56:32.000 [info] [Info  - 11:56:32 AM] (60294) Background analysis(1) root directory: file:///root/.cursor-server/extensions/ms-python.vscode-pylance-2024.8.1/dist
+2025-05-23 11:56:32.025 [info] [Info  - 11:56:32 AM] (60294) Background analysis(1) started

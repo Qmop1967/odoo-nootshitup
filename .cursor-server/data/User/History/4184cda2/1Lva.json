@@ -1,0 +1,12 @@
+{
+    "window.commandCenter": 1,
+    "workbench.colorTheme": "Visual Studio Light",
+    "remote.SSH.remotePlatform": {
+        "alias": "linux",
+        "GoGo": "linux"
+    },
+    "cursor.composer.shouldAllowCustomModes": true,
+    "cursor.composer.shouldChimeAfterChatFinishes": true,
+    "git.openRepositoryInParentFolders": "always",
+    "diffEditor.ignoreTrimWhitespace": false
+}

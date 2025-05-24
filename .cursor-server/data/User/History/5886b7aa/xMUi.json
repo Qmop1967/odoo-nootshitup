@@ -1,0 +1,158 @@
+{
+  "customers": {
+    "zoho_books": {
+      "contact_name": "name",
+      "company_name": "parent_name",
+      "email": "email", 
+      "phone": "phone",
+      "mobile": "mobile",
+      "website": "website",
+      "billing_address": {
+        "address": "street",
+        "city": "city",
+        "state": "state_id",
+        "zip": "zip",
+        "country": "country_id"
+      },
+      "shipping_address": {
+        "address": "street2", 
+        "city": "city",
+        "state": "state_id",
+        "zip": "zip",
+        "country": "country_id"
+      },
+      "currency_id": "currency_id",
+      "payment_terms": "property_payment_term_id",
+      "credit_limit": "credit_limit"
+    },
+    "odoo_model": "res.partner",
+    "required_fields": ["name", "email"],
+    "default_values": {
+      "customer_rank": 1,
+      "is_company": true
+    }
+  },
+  "vendors": {
+    "zoho_books": {
+      "vendor_name": "name",
+      "email": "email",
+      "phone": "phone", 
+      "website": "website",
+      "billing_address": {
+        "address": "street",
+        "city": "city", 
+        "state": "state_id",
+        "zip": "zip",
+        "country": "country_id"
+      },
+      "currency_id": "currency_id",
+      "payment_terms": "property_supplier_payment_term_id"
+    },
+    "odoo_model": "res.partner",
+    "required_fields": ["name"],
+    "default_values": {
+      "supplier_rank": 1,
+      "is_company": true
+    }
+  },
+  "products": {
+    "zoho_books": {
+      "item_name": "name",
+      "sku": "default_code",
+      "description": "description",
+      "rate": "list_price",
+      "purchase_rate": "standard_price",
+      "item_type": "type",
+      "category": "categ_id",
+      "unit": "uom_id",
+      "tax_id": "taxes_id",
+      "purchase_account": "property_account_expense_id",
+      "sales_account": "property_account_income_id"
+    },
+    "zoho_inventory": {
+      "stock_on_hand": "qty_available",
+      "warehouse_id": "warehouse_id",
+      "reorder_level": "reordering_min_qty",
+      "maximum_level": "reordering_max_qty"
+    },
+    "odoo_model": "product.template",
+    "required_fields": ["name"],
+    "default_values": {
+      "type": "product",
+      "invoice_policy": "order"
+    }
+  },
+  "invoices": {
+    "zoho_books": {
+      "invoice_number": "name",
+      "customer_id": "partner_id",
+      "invoice_date": "invoice_date",
+      "due_date": "invoice_date_due", 
+      "reference": "ref",
+      "total": "amount_total",
+      "status": "state",
+      "currency_id": "currency_id",
+      "line_items": {
+        "item_id": "product_id",
+        "name": "name",
+        "description": "name",
+        "quantity": "quantity", 
+        "rate": "price_unit",
+        "tax_id": "tax_ids",
+        "amount": "price_subtotal"
+      }
+    },
+    "odoo_model": "account.move",
+    "required_fields": ["partner_id", "invoice_date"],
+    "default_values": {
+      "move_type": "out_invoice"
+    }
+  },
+  "bills": {
+    "zoho_books": {
+      "bill_number": "name",
+      "vendor_id": "partner_id", 
+      "bill_date": "invoice_date",
+      "due_date": "invoice_date_due",
+      "reference_number": "ref",
+      "total": "amount_total",
+      "status": "state",
+      "currency_id": "currency_id"
+    },
+    "odoo_model": "account.move", 
+    "required_fields": ["partner_id", "invoice_date"],
+    "default_values": {
+      "move_type": "in_invoice"
+    }
+  },
+  "chart_of_accounts": {
+    "zoho_books": {
+      "account_name": "name",
+      "account_code": "code",
+      "account_type": "user_type_id",
+      "description": "name",
+      "parent_account_id": "parent_id"
+    },
+    "odoo_model": "account.account",
+    "required_fields": ["name", "code"],
+    "account_type_mapping": {
+      "asset": "asset_receivable",
+      "liability": "liability_payable", 
+      "equity": "equity",
+      "income": "income",
+      "expense": "expense"
+    }
+  },
+  "taxes": {
+    "zoho_books": {
+      "tax_name": "name",
+      "tax_percentage": "amount",
+      "tax_type": "type_tax_use"
+    },
+    "odoo_model": "account.tax",
+    "required_fields": ["name", "amount"],
+    "default_values": {
+      "type_tax_use": "sale"
+    }
+  }
+} 

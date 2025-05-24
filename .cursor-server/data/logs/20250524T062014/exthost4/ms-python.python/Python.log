@@ -1,0 +1,26 @@
+2025-05-24 16:24:57.859 [info] Experiment 'pythonRecommendTensorboardExt' is active
+2025-05-24 16:24:57.859 [info] Experiment 'pythonTerminalEnvVarActivation' is active
+2025-05-24 16:24:57.859 [warning] Dir "/root/.pixi/envs" is not watchable (directory does not exist)
+2025-05-24 16:24:57.859 [info] Python interpreter path: /bin/python3
+2025-05-24 16:24:58.416 [info] > pyenv which python
+2025-05-24 16:24:58.417 [info] cwd: .
+2025-05-24 16:25:01.698 [info] Starting Pylance language server.
+2025-05-24 17:12:17.888 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service_final.py
+2025-05-24 17:12:37.464 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/create_zoho_field.py
+2025-05-24 17:13:10.383 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service_final.py
+2025-05-24 17:18:08.858 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service_final.py
+2025-05-24 17:18:29.954 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service_final.py
+2025-05-24 17:20:14.132 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service_final.py
+2025-05-24 17:20:16.622 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service_final.py
+2025-05-24 17:20:34.775 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service_final.py
+2025-05-24 17:21:17.008 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service_final.py
+2025-05-24 17:25:37.078 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service_final.py
+2025-05-24 17:25:54.881 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service_final.py
+2025-05-24 17:29:05.084 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service_final.py
+2025-05-24 17:31:05.150 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service_final.py
+2025-05-24 17:43:56.976 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service_final.py
+2025-05-24 17:44:00.547 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service_final.py
+2025-05-24 17:52:27.832 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service_final.py
+2025-05-24 17:54:41.970 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service_final.py
+2025-05-24 17:55:33.593 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service_final.py
+2025-05-24 17:59:38.460 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service_final.py

@@ -1,0 +1,44 @@
+2025-05-24 08:55:47.060 [info] Extension host with pid 197682 started
+2025-05-24 08:55:47.060 [error] Error: EEXIST: file already exists, open '/root/.cursor-server/data/User/workspaceStorage/ee7f017c01fb0193db8b9eb3af703749/vscode.lock'
+2025-05-24 08:55:47.060 [info] Lock '/root/.cursor-server/data/User/workspaceStorage/ee7f017c01fb0193db8b9eb3af703749/vscode.lock': Could not acquire lock, checking if the file is stale.
+2025-05-24 08:55:47.060 [info] Lock '/root/.cursor-server/data/User/workspaceStorage/ee7f017c01fb0193db8b9eb3af703749/vscode.lock': The lock does not look stale, elapsed: 345 ms, giving up.
+2025-05-24 08:55:47.077 [info] Lock '/root/.cursor-server/data/User/workspaceStorage/ee7f017c01fb0193db8b9eb3af703749-1/vscode.lock': Lock acquired.
+2025-05-24 08:55:49.327 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-05-24 08:55:49.331 [info] ExtensionService#_doActivateExtension kilocode.kilo-code, startup: false, activationEvent: 'onLanguage'
+2025-05-24 08:55:49.331 [info] ExtensionService#_doActivateExtension vscode.tunnel-forwarding, startup: false, activationEvent: 'onTunnel'
+2025-05-24 08:55:49.332 [info] ExtensionService#_doActivateExtension ms-python.python, startup: false, activationEvent: 'onLanguage:python', root cause: ms-python.debugpy
+2025-05-24 08:55:51.830 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2025-05-24 08:55:53.473 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2025-05-24 08:55:53.474 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-05-24 08:55:54.524 [info] ExtensionService#_doActivateExtension ms-python.debugpy, startup: false, activationEvent: 'onLanguage:python'
+2025-05-24 08:55:54.525 [info] ExtensionService#_doActivateExtension ms-python.vscode-pylance, startup: false, activationEvent: 'onLanguage:python'
+2025-05-24 08:55:55.462 [info] Eager extensions activated
+2025-05-24 08:55:55.470 [info] ExtensionService#_doActivateExtension anysphere.cursor-retrieval, startup: false, activationEvent: 'onStartupFinished'
+2025-05-24 08:55:55.472 [info] ExtensionService#_doActivateExtension anysphere.cursor-shadow-workspace, startup: false, activationEvent: 'onStartupFinished'
+2025-05-24 08:55:55.480 [info] ExtensionService#_doActivateExtension anysphere.cursor-tokenize, startup: false, activationEvent: 'onStartupFinished'
+2025-05-24 08:55:55.482 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-05-24 08:55:55.482 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-05-24 08:56:02.857 [error] TypeError: Cannot read properties of undefined (reading 'toString')
+	at /root/.cursor-server/extensions/ms-python.debugpy-2025.8.0-linux-x64/dist/extension.js:2:849866
+	at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:52:12)
+2025-05-24 09:00:16.227 [info] ExtensionService#_doActivateExtension vscode.extension-editing, startup: false, activationEvent: 'onLanguage:markdown'
+2025-05-24 09:00:16.227 [info] ExtensionService#_doActivateExtension vscode.markdown-language-features, startup: false, activationEvent: 'onLanguage:markdown'
+2025-05-24 09:05:02.496 [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-05-24 09:05:02.496 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-05-24 09:05:02.497 [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-05-24 09:08:31.301 [info] ExtensionService#_doActivateExtension vscode.npm, startup: false, activationEvent: 'onTerminalQuickFixRequest:ms-vscode.npm-command'
+2025-05-24 09:11:56.321 [warning] vscode.json-language-features - Code actions of kind 'quickfix' requested but returned code action is of kind 'source.sort.json'. Code action will be dropped. Please check 'CodeActionContext.only' to only return requested code actions.
+2025-05-24 16:25:05.743 [info] Extension host terminating: renderer disconnected for too long (2)
+2025-05-24 16:25:05.744 [info] Lock '/root/.cursor-server/data/User/workspaceStorage/ee7f017c01fb0193db8b9eb3af703749-1/vscode.lock': Marking the lockfile as scheduled to be released in 6000 ms.
+2025-05-24 16:25:06.499 [error] Canceled: Canceled
+	at new sNt (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/workbench/api/node/extensionHostProcess.js:42:157312)
+	at met.U (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/workbench/api/node/extensionHostProcess.js:42:161950)
+	at n.<computed>.a.charCodeAt.n.<computed> (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/workbench/api/node/extensionHostProcess.js:42:159442)
+	at Omt.setValue (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/workbench/api/node/extensionHostProcess.js:133:5434)
+	at file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/workbench/api/node/extensionHostProcess.js:133:6059
+	at on.a (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/workbench/api/node/extensionHostProcess.js:133:6177)
+	at on.h (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/workbench/api/node/extensionHostProcess.js:28:75824)
+	at on.g (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/workbench/api/node/extensionHostProcess.js:28:75808)
+	at listOnTimeout (node:internal/timers:581:17)
+	at process.processTimers (node:internal/timers:519:7)
+2025-05-24 16:25:06.574 [info] Extension host with pid 197682 exiting with code 0

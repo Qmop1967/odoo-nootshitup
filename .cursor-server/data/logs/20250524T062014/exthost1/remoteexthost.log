@@ -1,0 +1,36 @@
+2025-05-24 06:20:20.497 [info] Extension host with pid 133751 started
+2025-05-24 06:20:20.527 [info] Lock '/root/.cursor-server/data/User/workspaceStorage/ee7f017c01fb0193db8b9eb3af703749/vscode.lock': Lock acquired.
+2025-05-24 06:20:20.820 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-05-24 06:20:20.828 [info] ExtensionService#_doActivateExtension kilocode.kilo-code, startup: false, activationEvent: 'onLanguage'
+2025-05-24 06:20:20.828 [info] ExtensionService#_doActivateExtension vscode.tunnel-forwarding, startup: false, activationEvent: 'onTunnel'
+2025-05-24 06:20:20.829 [info] ExtensionService#_doActivateExtension ms-python.python, startup: false, activationEvent: 'onLanguage:python', root cause: ms-python.debugpy
+2025-05-24 06:20:25.847 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2025-05-24 06:20:26.499 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2025-05-24 06:20:26.500 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-05-24 06:20:27.109 [info] ExtensionService#_doActivateExtension ms-python.debugpy, startup: false, activationEvent: 'onLanguage:python'
+2025-05-24 06:20:27.109 [info] ExtensionService#_doActivateExtension ms-python.vscode-pylance, startup: false, activationEvent: 'onLanguage:python'
+2025-05-24 06:20:28.190 [info] Eager extensions activated
+2025-05-24 06:20:28.190 [info] ExtensionService#_doActivateExtension anysphere.cursor-retrieval, startup: false, activationEvent: 'onStartupFinished'
+2025-05-24 06:20:28.193 [info] ExtensionService#_doActivateExtension anysphere.cursor-shadow-workspace, startup: false, activationEvent: 'onStartupFinished'
+2025-05-24 06:20:28.194 [info] ExtensionService#_doActivateExtension anysphere.cursor-tokenize, startup: false, activationEvent: 'onStartupFinished'
+2025-05-24 06:20:28.194 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-05-24 06:20:28.194 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-05-24 06:58:26.593 [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-05-24 06:58:26.593 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-05-24 06:58:26.593 [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-05-24 07:07:49.034 [info] ExtensionService#_doActivateExtension vscode.extension-editing, startup: false, activationEvent: 'onLanguage:markdown'
+2025-05-24 07:07:49.035 [info] ExtensionService#_doActivateExtension vscode.markdown-language-features, startup: false, activationEvent: 'onLanguage:markdown'
+2025-05-24 09:00:39.405 [info] Extension host terminating: renderer disconnected for too long (2)
+2025-05-24 09:00:39.407 [info] Lock '/root/.cursor-server/data/User/workspaceStorage/ee7f017c01fb0193db8b9eb3af703749/vscode.lock': Marking the lockfile as scheduled to be released in 6000 ms.
+2025-05-24 09:00:39.513 [error] Canceled: Canceled
+	at new sNt (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/workbench/api/node/extensionHostProcess.js:42:157312)
+	at met.U (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/workbench/api/node/extensionHostProcess.js:42:161950)
+	at n.<computed>.a.charCodeAt.n.<computed> (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/workbench/api/node/extensionHostProcess.js:42:159442)
+	at Omt.setValue (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/workbench/api/node/extensionHostProcess.js:133:5434)
+	at file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/workbench/api/node/extensionHostProcess.js:133:6059
+	at on.a (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/workbench/api/node/extensionHostProcess.js:133:6177)
+	at on.h (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/workbench/api/node/extensionHostProcess.js:28:75824)
+	at on.g (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/workbench/api/node/extensionHostProcess.js:28:75808)
+	at listOnTimeout (node:internal/timers:581:17)
+	at process.processTimers (node:internal/timers:519:7)
+2025-05-24 09:00:39.520 [info] Extension host with pid 133751 exiting with code 0

@@ -1,0 +1,6 @@
+Listening on 127.0.0.1:39287
+[2025-05-24 06:07:21] info Disposed of connection to running server.
+[2025-05-24 06:07:22] info Checking /root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/log.txt and /root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/pid.txt for a running server...
+[2025-05-24 06:07:22] info Starting server...
+[2025-05-24 06:07:22] info Server started
+[2025-05-24 06:19:15] info Disposed of connection to running server.

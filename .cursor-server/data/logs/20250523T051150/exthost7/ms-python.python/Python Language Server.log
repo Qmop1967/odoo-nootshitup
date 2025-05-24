@@ -1,0 +1,83 @@
+2025-05-23 11:59:35.766 [info] (Client) Pylance async client (2024.8.1) started with python extension (2024.12.3)
+2025-05-23 11:59:39.512 [info] [Info  - 11:59:39 AM] (60848) Pylance language server 2024.8.1 (pyright version 1.1.373, commit ee424479) starting
+2025-05-23 11:59:39.512 [info] [Info  - 11:59:39 AM] (60848) Server root directory: file:///root/.cursor-server/extensions/ms-python.vscode-pylance-2024.8.1/dist
+2025-05-23 11:59:39.599 [info] [Info  - 11:59:39 AM] (60848) Starting service instance "root"
+2025-05-23 11:59:40.113 [info] [Info  - 11:59:40 AM] (60848) Setting pythonPath for service "root": "/bin/python3"
+2025-05-23 11:59:40.114 [info] [Info  - 11:59:40 AM] (60848) Setting environmentName for service "root": "3.12.3 (global)"
+2025-05-23 11:59:40.121 [info] [Info  - 11:59:40 AM] (60848) No include entries specified; assuming /root
+2025-05-23 11:59:40.126 [info] [Info  - 11:59:40 AM] (60848) Auto-excluding **/node_modules
+2025-05-23 11:59:40.127 [info] [Info  - 11:59:40 AM] (60848) Auto-excluding **/__pycache__
+2025-05-23 11:59:40.138 [info] [Info  - 11:59:40 AM] (60848) Auto-excluding **/.*
+2025-05-23 11:59:40.430 [info] [Info  - 11:59:40 AM] (60848) Assuming Python version 3.12.3.final.0
+2025-05-23 11:59:41.002 [info] [Info  - 11:59:41 AM] (60848) No source files found.
+2025-05-23 11:59:43.394 [info] [Info  - 11:59:43 AM] (60848) Background analysis(1) root directory: file:///root/.cursor-server/extensions/ms-python.vscode-pylance-2024.8.1/dist
+2025-05-23 11:59:43.416 [info] [Info  - 11:59:43 AM] (60848) Background analysis(1) started
+2025-05-23 12:00:21.598 [info] [Info  - 12:00:21 PM] (60848) Indexer background runner(2) root directory: file:///root/.cursor-server/extensions/ms-python.vscode-pylance-2024.8.1/dist (index)
+2025-05-23 12:00:21.598 [info] [Info  - 12:00:21 PM] (60848) Indexing(2) started
+2025-05-23 12:00:26.154 [info] [Info  - 12:00:26 PM] (60848) [IDX(2)] Long operation: scan packages file:///root (4022ms)
+2025-05-23 12:00:26.161 [info] [Info  - 12:00:26 PM] (60848) scanned(2) 92 files over 1 exec env
+2025-05-23 12:00:34.122 [info] [Info  - 12:00:34 PM] (60848) [IDX(2)] Long operation: indexing: file:///root/.cursor-server/extensions/ms-python.vscode-pylance-2024.8.1/dist/typeshed-fallback/stubs/networkx/networkx/__init__.pyi (3726ms)
+2025-05-23 12:00:41.693 [info] [Info  - 12:00:41 PM] (60848) [IDX(2)] Long operation: index execution environment file:///root (13725ms)
+2025-05-23 12:00:41.849 [info] [Info  - 12:00:41 PM] (60848) [IDX(2)] Long operation: index packages file:///root (13934ms)
+2025-05-23 12:00:41.849 [info] [Info  - 12:00:41 PM] (60848) indexed(2) 56 files over 1 exec env
+2025-05-23 12:00:42.350 [info] [Info  - 12:00:42 PM] (60848) Indexing finished(2).
+2025-05-23 12:09:50.206 [info] [Info  - 12:09:50 PM] (60848) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/extract_zoho_data.py (2060ms)
+2025-05-23 12:10:18.166 [info] [Info  - 12:10:18 PM] (60848) [BG(1)] Long operation: checking: file:///opt/odoo/migration/test_product_migration.py (4421ms)
+2025-05-23 12:10:18.166 [info] [Info  - 12:10:18 PM] (60848) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/test_product_migration.py (4573ms)
+2025-05-23 12:14:34.182 [info] [Info  - 12:14:34 PM] (60848) [BG(1)] Long operation: checking: file:///opt/odoo/migration/migrate_products_only.py (4636ms)
+2025-05-23 12:14:34.182 [info] [Info  - 12:14:34 PM] (60848) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/migrate_products_only.py (4718ms)
+2025-05-23 13:24:30.334 [info] [Info  - 1:24:30 PM] (60848) [BG(1)] Long operation: checking: file:///opt/odoo/migration/change_currency_to_iqd.py (3186ms)
+2025-05-23 13:24:30.343 [info] [Info  - 1:24:30 PM] (60848) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/change_currency_to_iqd.py (3246ms)
+2025-05-23 13:25:51.487 [info] [Info  - 1:25:51 PM] (60848) [BG(1)] Long operation: checking: file:///opt/odoo/migration/change_currency_to_iqd_fixed.py (2775ms)
+2025-05-23 13:25:51.487 [info] [Info  - 1:25:51 PM] (60848) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/change_currency_to_iqd_fixed.py (2813ms)
+2025-05-23 13:28:27.941 [info] [Info  - 1:28:27 PM] (60848) [BG(1)] Long operation: checking: file:///opt/odoo/migration/complete_migration_with_iqd.py (3782ms)
+2025-05-23 13:28:27.941 [info] [Info  - 1:28:27 PM] (60848) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/complete_migration_with_iqd.py (3853ms)
+2025-05-23 14:04:10.801 [info] [Info  - 2:04:10 PM] (60848) [BG(1)] Long operation: checking: file:///opt/odoo/migration/enhanced_product_migrator.py (4630ms)
+2025-05-23 14:04:10.801 [info] [Info  - 2:04:10 PM] (60848) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/enhanced_product_migrator.py (4723ms)
+2025-05-23 14:16:22.442 [info] [Info  - 2:16:22 PM] (60848) [BG(1)] Long operation: checking: file:///opt/odoo/migration/check_migration_progress.py (2150ms)
+2025-05-23 14:16:22.442 [info] [Info  - 2:16:22 PM] (60848) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/check_migration_progress.py (2176ms)
+2025-05-23 15:34:20.621 [info] [Info  - 3:34:20 PM] (60848) [BG(1)] Long operation: checking: file:///opt/odoo/migration/migrate_contacts_enhanced.py (3130ms)
+2025-05-23 15:34:20.621 [info] [Info  - 3:34:20 PM] (60848) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/migrate_contacts_enhanced.py (3130ms)
+2025-05-23 15:39:03.431 [info] [Info  - 3:39:03 PM] (60848) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/migrate_contacts_enhanced.py (2248ms)
+2025-05-23 15:39:22.080 [info] [Info  - 3:39:22 PM] (60848) [BG(1)] Long operation: checking: file:///opt/odoo/migration/migrate_contacts_enhanced.py (2786ms)
+2025-05-23 15:39:22.080 [info] [Info  - 3:39:22 PM] (60848) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/migrate_contacts_enhanced.py (2786ms)
+2025-05-23 17:06:42.889 [info] [Info  - 5:06:42 PM] (60848) [BG(1)] Long operation: checking: file:///opt/odoo/migration/fix_duplicate_contacts.py (2737ms)
+2025-05-23 17:06:42.889 [info] [Info  - 5:06:42 PM] (60848) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/fix_duplicate_contacts.py (3050ms)
+2025-05-23 17:08:02.676 [info] [Info  - 5:08:02 PM] (60848) [BG(1)] Long operation: checking: file:///opt/odoo/migration/migrate_contacts_no_duplicates.py (2413ms)
+2025-05-23 17:08:02.676 [info] [Info  - 5:08:02 PM] (60848) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/migrate_contacts_no_duplicates.py (2588ms)
+2025-05-23 17:08:05.038 [info] [Info  - 5:08:05 PM] (60848) [BG(1)] Long operation: checking: file:///opt/odoo/migration/migrate_contacts_no_duplicates.py (2357ms)
+2025-05-23 17:08:05.038 [info] [Info  - 5:08:05 PM] (60848) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/migrate_contacts_no_duplicates.py (2357ms)
+2025-05-23 17:12:46.495 [info] [Info  - 5:12:46 PM] (60848) [BG(1)] Long operation: checking: file:///opt/odoo/migration/resolve_duplicates_interactive.py (2105ms)
+2025-05-23 17:12:46.495 [info] [Info  - 5:12:46 PM] (60848) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/resolve_duplicates_interactive.py (2186ms)
+2025-05-23 17:35:29.914 [info] [Info  - 5:35:29 PM] (60848) [BG(1)] Long operation: checking: file:///opt/odoo/migration/zoho_product_sync.py (4710ms)
+2025-05-23 17:35:29.914 [info] [Info  - 5:35:29 PM] (60848) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/zoho_product_sync.py (4932ms)
+2025-05-23 17:49:23.170 [info] [Info  - 5:49:23 PM] (60848) [BG(1)] Long operation: checking: file:///opt/odoo/migration/product_sync_scheduler.py (2874ms)
+2025-05-23 17:49:23.170 [info] [Info  - 5:49:23 PM] (60848) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/product_sync_scheduler.py (2941ms)
+2025-05-23 17:50:03.903 [info] [Info  - 5:50:03 PM] (60848) [BG(1)] Long operation: checking: file:///opt/odoo/migration/check_migration_progress.py (3151ms)
+2025-05-23 17:50:03.903 [info] [Info  - 5:50:03 PM] (60848) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/check_migration_progress.py (3994ms)
+2025-05-23 17:50:04.832 [info] [Info  - 5:50:04 PM] (60848) Indexer background runner(3) root directory: file:///root/.cursor-server/extensions/ms-python.vscode-pylance-2024.8.1/dist (refresh)
+2025-05-23 17:50:04.842 [info] [Info  - 5:50:04 PM] (60848) Indexing(3) started
+2025-05-23 17:50:06.557 [info] [Info  - 5:50:06 PM] (60848) [BG(1)] Long operation: checking: file:///opt/odoo/migration/resolve_duplicates_interactive.py (2575ms)
+2025-05-23 17:50:06.557 [info] [Info  - 5:50:06 PM] (60848) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/resolve_duplicates_interactive.py (2615ms)
+2025-05-23 17:50:10.496 [info] [Info  - 5:50:10 PM] (60848) [IDX(3)] Long operation: scan packages file:///root (4855ms)
+2025-05-23 17:50:10.496 [info] [Info  - 5:50:10 PM] (60848) scanned(3) 93 files over 1 exec env
+2025-05-23 17:50:12.769 [info] [Info  - 5:50:12 PM] (60848) [BG(1)] Long operation: checking: file:///opt/odoo/migration/zoho_product_sync.py (3536ms)
+2025-05-23 17:50:12.769 [info] [Info  - 5:50:12 PM] (60848) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/zoho_product_sync.py (3620ms)
+2025-05-23 17:50:14.543 [info] [Info  - 5:50:14 PM] (60848) indexed(3) 57 files over 1 exec env
+2025-05-23 17:50:14.903 [info] [Info  - 5:50:14 PM] (60848) Indexing finished(3).
+2025-05-23 17:50:15.379 [info] [Info  - 5:50:15 PM] (60848) [BG(1)] Long operation: checking: file:///opt/odoo/migration/product_sync_scheduler.py (2534ms)
+2025-05-23 17:50:15.379 [info] [Info  - 5:50:15 PM] (60848) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/product_sync_scheduler.py (2601ms)
+2025-05-23 19:37:56.288 [info] [Info  - 7:37:56 PM] (60848) [BG(1)] Long operation: checking: file:///opt/odoo/migration/fix_product_migration_issues.py (2227ms)
+2025-05-23 19:37:56.288 [info] [Info  - 7:37:56 PM] (60848) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/fix_product_migration_issues.py (2423ms)
+2025-05-23 19:39:41.677 [info] [Info  - 7:39:41 PM] (60848) [BG(1)] Long operation: checking: file:///opt/odoo/migration/zoho_product_sync_enhanced.py (4102ms)
+2025-05-23 19:39:41.677 [info] [Info  - 7:39:41 PM] (60848) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/zoho_product_sync_enhanced.py (4327ms)
+2025-05-23 20:37:12.437 [info] [Info  - 8:37:12 PM] (60848) [BG(1)] Long operation: checking: file:///opt/odoo/migration/zoho_product_sync_enhanced.py (2464ms)
+2025-05-23 20:37:12.437 [info] [Info  - 8:37:12 PM] (60848) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/zoho_product_sync_enhanced.py (2579ms)
+2025-05-23 20:37:16.185 [info] [Info  - 8:37:16 PM] (60848) [BG(1)] Long operation: checking: file:///opt/odoo/migration/zoho_product_sync_enhanced.py (2172ms)
+2025-05-23 20:37:16.185 [info] [Info  - 8:37:16 PM] (60848) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/zoho_product_sync_enhanced.py (2172ms)
+2025-05-23 20:50:28.720 [info] [Info  - 8:50:28 PM] (60848) [BG(1)] Long operation: checking: file:///opt/odoo/migration/continuous_sync_server.py (2833ms)
+2025-05-23 20:50:28.720 [info] [Info  - 8:50:28 PM] (60848) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/continuous_sync_server.py (2967ms)
+2025-05-23 21:01:02.877 [info] [Info  - 9:01:02 PM] (60848) [BG(1)] Long operation: checking: file:///opt/odoo/migration/continuous_sync_server_enhanced.py (5490ms)
+2025-05-23 21:01:02.883 [info] [Info  - 9:01:02 PM] (60848) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/continuous_sync_server_enhanced.py (5726ms)
+2025-05-23 21:13:16.183 [info] [Info  - 9:13:16 PM] (60848) [BG(1)] Long operation: checking: file:///opt/odoo/migration/sync_active_pricelists_only.py (2803ms)
+2025-05-23 21:13:16.183 [info] [Info  - 9:13:16 PM] (60848) [BG(1)] Long operation: analyzing: file:///opt/odoo/migration/sync_active_pricelists_only.py (2992ms)

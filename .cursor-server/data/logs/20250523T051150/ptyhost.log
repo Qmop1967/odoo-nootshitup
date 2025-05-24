@@ -1,0 +1,124 @@
+2025-05-23 05:11:53.624 [warning] Shell integration cannot be enabled for executable "/bin/sh" and args ["-c","wget --version > /dev/null\nif [ $? -eq 0 ]\nthen\n\twget --no-config --connect-timeout=7 --tries=1 --dns-timeout=7 -q --header='Metadata:true' -O - http://169.254.169.254/metadata/instance?api-version=2019-03-11\nelse\n\tcurl --version > /dev/null\n\tif [ $? -eq 0 ]\n\tthen\n\t\tcurl --disable --connect-timeout 7 -s --header='Metadata:true' http://169.254.169.254/metadata/instance?api-version=2019-03-11\n\tfi\nfi\nexit 0"]
+2025-05-23 05:11:53.647 [warning] Shell integration cannot be enabled for executable "/bin/sh" and args ["-c","wget --version > /dev/null\nif [ $? -eq 0 ]\nthen\n\twget --no-config --connect-timeout=7 --tries=1 --dns-timeout=7 -q  -O - http://169.254.169.254/latest/meta-data/instance-id\nelse\n\tcurl --version > /dev/null\n\tif [ $? -eq 0 ]\n\tthen\n\t\tcurl --disable --connect-timeout 7 -s  http://169.254.169.254/latest/meta-data/instance-id\n\tfi\nfi\nexit 0"]
+2025-05-23 05:11:53.652 [warning] Shell integration cannot be enabled for executable "/bin/sh" and args ["-c","wget --version > /dev/null\nif [ $? -eq 0 ]\nthen\n\twget --no-config --connect-timeout=7 --tries=1 --dns-timeout=7 -q  -O - http://169.254.169.254/metadata/v1/id\nelse\n\tcurl --version > /dev/null\n\tif [ $? -eq 0 ]\n\tthen\n\t\tcurl --disable --connect-timeout 7 -s  http://169.254.169.254/metadata/v1/id\n\tfi\nfi\nexit 0"]
+2025-05-23 05:11:53.658 [warning] Shell integration cannot be enabled for executable "/bin/sh" and args ["-c","wget --version > /dev/null\nif [ $? -eq 0 ]\nthen\n\twget --no-config --connect-timeout=7 --tries=1 --dns-timeout=7 -q --header='Metadata-Flavor:Google' -O - http://metadata.google.internal/computeMetadata/v1/instance/id\nelse\n\tcurl --version > /dev/null\n\tif [ $? -eq 0 ]\n\tthen\n\t\tcurl --disable --connect-timeout 7 -s --header='Metadata-Flavor:Google' http://metadata.google.internal/computeMetadata/v1/instance/id\n\tfi\nfi\nexit 0"]
+2025-05-23 05:12:38.768 [warning] Shell integration cannot be enabled for executable "/bin/sh" and args ["-c","wget --version > /dev/null\nif [ $? -eq 0 ]\nthen\n\twget --no-config --connect-timeout=7 --tries=1 --dns-timeout=7 -q --header='Metadata:true' -O - http://169.254.169.254/metadata/instance?api-version=2019-03-11\nelse\n\tcurl --version > /dev/null\n\tif [ $? -eq 0 ]\n\tthen\n\t\tcurl --disable --connect-timeout 7 -s --header='Metadata:true' http://169.254.169.254/metadata/instance?api-version=2019-03-11\n\tfi\nfi\nexit 0"]
+2025-05-23 05:12:38.862 [warning] Shell integration cannot be enabled for executable "/bin/sh" and args ["-c","wget --version > /dev/null\nif [ $? -eq 0 ]\nthen\n\twget --no-config --connect-timeout=7 --tries=1 --dns-timeout=7 -q  -O - http://169.254.169.254/latest/meta-data/instance-id\nelse\n\tcurl --version > /dev/null\n\tif [ $? -eq 0 ]\n\tthen\n\t\tcurl --disable --connect-timeout 7 -s  http://169.254.169.254/latest/meta-data/instance-id\n\tfi\nfi\nexit 0"]
+2025-05-23 05:12:38.867 [warning] Shell integration cannot be enabled for executable "/bin/sh" and args ["-c","wget --version > /dev/null\nif [ $? -eq 0 ]\nthen\n\twget --no-config --connect-timeout=7 --tries=1 --dns-timeout=7 -q  -O - http://169.254.169.254/metadata/v1/id\nelse\n\tcurl --version > /dev/null\n\tif [ $? -eq 0 ]\n\tthen\n\t\tcurl --disable --connect-timeout 7 -s  http://169.254.169.254/metadata/v1/id\n\tfi\nfi\nexit 0"]
+2025-05-23 05:12:38.873 [warning] Shell integration cannot be enabled for executable "/bin/sh" and args ["-c","wget --version > /dev/null\nif [ $? -eq 0 ]\nthen\n\twget --no-config --connect-timeout=7 --tries=1 --dns-timeout=7 -q --header='Metadata-Flavor:Google' -O - http://metadata.google.internal/computeMetadata/v1/instance/id\nelse\n\tcurl --version > /dev/null\n\tif [ $? -eq 0 ]\n\tthen\n\t\tcurl --disable --connect-timeout 7 -s --header='Metadata-Flavor:Google' http://metadata.google.internal/computeMetadata/v1/instance/id\n\tfi\nfi\nexit 0"]
+2025-05-23 05:12:39.214 [error] [RPC Response] PtyService#resize Could not find pty 7 on pty host
+2025-05-23 05:12:39.215 [error] [RPC Response] PtyService#resize Could not find pty 8 on pty host
+2025-05-23 05:12:39.215 [error] [RPC Response] PtyService#resize Could not find pty 9 on pty host
+2025-05-23 05:13:13.113 [warning] Shell integration cannot be enabled for executable "/bin/sh" and args ["-c","wget --version > /dev/null\nif [ $? -eq 0 ]\nthen\n\twget --no-config --connect-timeout=7 --tries=1 --dns-timeout=7 -q --header='Metadata:true' -O - http://169.254.169.254/metadata/instance?api-version=2019-03-11\nelse\n\tcurl --version > /dev/null\n\tif [ $? -eq 0 ]\n\tthen\n\t\tcurl --disable --connect-timeout 7 -s --header='Metadata:true' http://169.254.169.254/metadata/instance?api-version=2019-03-11\n\tfi\nfi\nexit 0"]
+2025-05-23 05:13:13.122 [warning] Shell integration cannot be enabled for executable "/bin/sh" and args ["-c","wget --version > /dev/null\nif [ $? -eq 0 ]\nthen\n\twget --no-config --connect-timeout=7 --tries=1 --dns-timeout=7 -q  -O - http://169.254.169.254/latest/meta-data/instance-id\nelse\n\tcurl --version > /dev/null\n\tif [ $? -eq 0 ]\n\tthen\n\t\tcurl --disable --connect-timeout 7 -s  http://169.254.169.254/latest/meta-data/instance-id\n\tfi\nfi\nexit 0"]
+2025-05-23 05:13:13.124 [warning] Shell integration cannot be enabled for executable "/bin/sh" and args ["-c","wget --version > /dev/null\nif [ $? -eq 0 ]\nthen\n\twget --no-config --connect-timeout=7 --tries=1 --dns-timeout=7 -q  -O - http://169.254.169.254/metadata/v1/id\nelse\n\tcurl --version > /dev/null\n\tif [ $? -eq 0 ]\n\tthen\n\t\tcurl --disable --connect-timeout 7 -s  http://169.254.169.254/metadata/v1/id\n\tfi\nfi\nexit 0"]
+2025-05-23 05:13:13.137 [warning] Shell integration cannot be enabled for executable "/bin/sh" and args ["-c","wget --version > /dev/null\nif [ $? -eq 0 ]\nthen\n\twget --no-config --connect-timeout=7 --tries=1 --dns-timeout=7 -q --header='Metadata-Flavor:Google' -O - http://metadata.google.internal/computeMetadata/v1/instance/id\nelse\n\tcurl --version > /dev/null\n\tif [ $? -eq 0 ]\n\tthen\n\t\tcurl --disable --connect-timeout 7 -s --header='Metadata-Flavor:Google' http://metadata.google.internal/computeMetadata/v1/instance/id\n\tfi\nfi\nexit 0"]
+2025-05-23 05:15:06.381 [warning] Shell integration cannot be enabled for executable "/bin/sh" and args ["-c","wget --version > /dev/null\nif [ $? -eq 0 ]\nthen\n\twget --no-config --connect-timeout=7 --tries=1 --dns-timeout=7 -q --header='Metadata:true' -O - http://169.254.169.254/metadata/instance?api-version=2019-03-11\nelse\n\tcurl --version > /dev/null\n\tif [ $? -eq 0 ]\n\tthen\n\t\tcurl --disable --connect-timeout 7 -s --header='Metadata:true' http://169.254.169.254/metadata/instance?api-version=2019-03-11\n\tfi\nfi\nexit 0"]
+2025-05-23 05:15:06.385 [warning] Shell integration cannot be enabled for executable "/bin/sh" and args ["-c","wget --version > /dev/null\nif [ $? -eq 0 ]\nthen\n\twget --no-config --connect-timeout=7 --tries=1 --dns-timeout=7 -q  -O - http://169.254.169.254/latest/meta-data/instance-id\nelse\n\tcurl --version > /dev/null\n\tif [ $? -eq 0 ]\n\tthen\n\t\tcurl --disable --connect-timeout 7 -s  http://169.254.169.254/latest/meta-data/instance-id\n\tfi\nfi\nexit 0"]
+2025-05-23 05:15:06.399 [warning] Shell integration cannot be enabled for executable "/bin/sh" and args ["-c","wget --version > /dev/null\nif [ $? -eq 0 ]\nthen\n\twget --no-config --connect-timeout=7 --tries=1 --dns-timeout=7 -q  -O - http://169.254.169.254/metadata/v1/id\nelse\n\tcurl --version > /dev/null\n\tif [ $? -eq 0 ]\n\tthen\n\t\tcurl --disable --connect-timeout 7 -s  http://169.254.169.254/metadata/v1/id\n\tfi\nfi\nexit 0"]
+2025-05-23 05:15:06.416 [warning] Shell integration cannot be enabled for executable "/bin/sh" and args ["-c","wget --version > /dev/null\nif [ $? -eq 0 ]\nthen\n\twget --no-config --connect-timeout=7 --tries=1 --dns-timeout=7 -q --header='Metadata-Flavor:Google' -O - http://metadata.google.internal/computeMetadata/v1/instance/id\nelse\n\tcurl --version > /dev/null\n\tif [ $? -eq 0 ]\n\tthen\n\t\tcurl --disable --connect-timeout 7 -s --header='Metadata-Flavor:Google' http://metadata.google.internal/computeMetadata/v1/instance/id\n\tfi\nfi\nexit 0"]
+2025-05-23 11:55:40.769 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-21 -> new id 106
+2025-05-23 11:55:40.771 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-22 -> new id 107
+2025-05-23 11:55:40.771 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-24 -> new id 108
+2025-05-23 11:55:40.771 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-25 -> new id 109
+2025-05-23 11:55:40.771 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-26 -> new id 110
+2025-05-23 11:55:40.771 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-27 -> new id 111
+2025-05-23 11:55:40.771 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-28 -> new id 112
+2025-05-23 11:55:40.771 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-29 -> new id 113
+2025-05-23 11:55:40.771 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-30 -> new id 114
+2025-05-23 11:55:40.771 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-31 -> new id 115
+2025-05-23 11:55:40.771 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-33 -> new id 116
+2025-05-23 11:55:40.771 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-34 -> new id 117
+2025-05-23 11:55:40.771 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-35 -> new id 118
+2025-05-23 11:55:40.771 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-36 -> new id 119
+2025-05-23 11:55:40.771 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-40 -> new id 120
+2025-05-23 11:55:40.771 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-41 -> new id 121
+2025-05-23 11:55:40.771 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-42 -> new id 122
+2025-05-23 11:55:40.771 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-43 -> new id 123
+2025-05-23 11:55:40.771 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-46 -> new id 124
+2025-05-23 11:55:40.771 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-47 -> new id 125
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-48 -> new id 126
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-49 -> new id 127
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-51 -> new id 128
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-52 -> new id 129
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-53 -> new id 130
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-54 -> new id 131
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-55 -> new id 132
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-56 -> new id 133
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-57 -> new id 134
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-58 -> new id 135
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-59 -> new id 136
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-60 -> new id 137
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-61 -> new id 138
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-62 -> new id 139
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-63 -> new id 140
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-64 -> new id 141
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-65 -> new id 142
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-66 -> new id 143
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-67 -> new id 144
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-68 -> new id 145
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-69 -> new id 146
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-70 -> new id 147
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-71 -> new id 148
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-72 -> new id 149
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-73 -> new id 150
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-74 -> new id 151
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-75 -> new id 152
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-76 -> new id 153
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-77 -> new id 154
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-78 -> new id 155
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-79 -> new id 156
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-80 -> new id 157
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-81 -> new id 158
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-82 -> new id 159
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-83 -> new id 160
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-84 -> new id 161
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-85 -> new id 162
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-86 -> new id 163
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-87 -> new id 164
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-88 -> new id 165
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-89 -> new id 166
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-90 -> new id 167
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-91 -> new id 168
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-92 -> new id 169
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-93 -> new id 170
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-94 -> new id 171
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-95 -> new id 172
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-96 -> new id 173
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-97 -> new id 174
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-98 -> new id 175
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-99 -> new id 176
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-100 -> new id 177
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-101 -> new id 178
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-102 -> new id 179
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-103 -> new id 180
+2025-05-23 11:55:40.772 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-105 -> new id 181
+2025-05-23 11:55:41.460 [info] Expanding terminal instance, old id ee7f017c01fb0193db8b9eb3af703749-105 -> new id 181
+2025-05-23 11:55:42.184 [warning] Shell integration cannot be enabled for executable "/bin/sh" and args ["-c","wget --version > /dev/null\nif [ $? -eq 0 ]\nthen\n\twget --no-config --connect-timeout=7 --tries=1 --dns-timeout=7 -q --header='Metadata:true' -O - http://169.254.169.254/metadata/instance?api-version=2019-03-11\nelse\n\tcurl --version > /dev/null\n\tif [ $? -eq 0 ]\n\tthen\n\t\tcurl --disable --connect-timeout 7 -s --header='Metadata:true' http://169.254.169.254/metadata/instance?api-version=2019-03-11\n\tfi\nfi\nexit 0"]
+2025-05-23 11:55:42.196 [warning] Shell integration cannot be enabled for executable "/bin/sh" and args ["-c","wget --version > /dev/null\nif [ $? -eq 0 ]\nthen\n\twget --no-config --connect-timeout=7 --tries=1 --dns-timeout=7 -q  -O - http://169.254.169.254/latest/meta-data/instance-id\nelse\n\tcurl --version > /dev/null\n\tif [ $? -eq 0 ]\n\tthen\n\t\tcurl --disable --connect-timeout 7 -s  http://169.254.169.254/latest/meta-data/instance-id\n\tfi\nfi\nexit 0"]
+2025-05-23 11:55:42.216 [warning] Shell integration cannot be enabled for executable "/bin/sh" and args ["-c","wget --version > /dev/null\nif [ $? -eq 0 ]\nthen\n\twget --no-config --connect-timeout=7 --tries=1 --dns-timeout=7 -q  -O - http://169.254.169.254/metadata/v1/id\nelse\n\tcurl --version > /dev/null\n\tif [ $? -eq 0 ]\n\tthen\n\t\tcurl --disable --connect-timeout 7 -s  http://169.254.169.254/metadata/v1/id\n\tfi\nfi\nexit 0"]
+2025-05-23 11:55:42.226 [warning] Shell integration cannot be enabled for executable "/bin/sh" and args ["-c","wget --version > /dev/null\nif [ $? -eq 0 ]\nthen\n\twget --no-config --connect-timeout=7 --tries=1 --dns-timeout=7 -q --header='Metadata-Flavor:Google' -O - http://metadata.google.internal/computeMetadata/v1/instance/id\nelse\n\tcurl --version > /dev/null\n\tif [ $? -eq 0 ]\n\tthen\n\t\tcurl --disable --connect-timeout 7 -s --header='Metadata-Flavor:Google' http://metadata.google.internal/computeMetadata/v1/instance/id\n\tfi\nfi\nexit 0"]
+2025-05-23 11:55:46.525 [warning] Persistent process "181": Process had no disconnect runners but was an orphan
+2025-05-23 11:55:46.526 [info] Persistent process reconnection "181"
+2025-05-23 11:55:46.990 [info] Persistent process "181": Replaying 708 chars and 1 size events
+2025-05-23 11:58:38.321 [warning] Shell integration cannot be enabled for executable "/bin/sh" and args ["-c","wget --version > /dev/null\nif [ $? -eq 0 ]\nthen\n\twget --no-config --connect-timeout=7 --tries=1 --dns-timeout=7 -q --header='Metadata:true' -O - http://169.254.169.254/metadata/instance?api-version=2019-03-11\nelse\n\tcurl --version > /dev/null\n\tif [ $? -eq 0 ]\n\tthen\n\t\tcurl --disable --connect-timeout 7 -s --header='Metadata:true' http://169.254.169.254/metadata/instance?api-version=2019-03-11\n\tfi\nfi\nexit 0"]
+2025-05-23 11:58:38.339 [warning] Shell integration cannot be enabled for executable "/bin/sh" and args ["-c","wget --version > /dev/null\nif [ $? -eq 0 ]\nthen\n\twget --no-config --connect-timeout=7 --tries=1 --dns-timeout=7 -q  -O - http://169.254.169.254/latest/meta-data/instance-id\nelse\n\tcurl --version > /dev/null\n\tif [ $? -eq 0 ]\n\tthen\n\t\tcurl --disable --connect-timeout 7 -s  http://169.254.169.254/latest/meta-data/instance-id\n\tfi\nfi\nexit 0"]
+2025-05-23 11:58:38.365 [warning] Shell integration cannot be enabled for executable "/bin/sh" and args ["-c","wget --version > /dev/null\nif [ $? -eq 0 ]\nthen\n\twget --no-config --connect-timeout=7 --tries=1 --dns-timeout=7 -q  -O - http://169.254.169.254/metadata/v1/id\nelse\n\tcurl --version > /dev/null\n\tif [ $? -eq 0 ]\n\tthen\n\t\tcurl --disable --connect-timeout 7 -s  http://169.254.169.254/metadata/v1/id\n\tfi\nfi\nexit 0"]
+2025-05-23 11:58:38.380 [warning] Shell integration cannot be enabled for executable "/bin/sh" and args ["-c","wget --version > /dev/null\nif [ $? -eq 0 ]\nthen\n\twget --no-config --connect-timeout=7 --tries=1 --dns-timeout=7 -q --header='Metadata-Flavor:Google' -O - http://metadata.google.internal/computeMetadata/v1/instance/id\nelse\n\tcurl --version > /dev/null\n\tif [ $? -eq 0 ]\n\tthen\n\t\tcurl --disable --connect-timeout 7 -s --header='Metadata-Flavor:Google' http://metadata.google.internal/computeMetadata/v1/instance/id\n\tfi\nfi\nexit 0"]
+2025-05-23 11:58:38.958 [error] [RPC Response] PtyService#resize Could not find pty 187 on pty host
+2025-05-23 11:58:38.982 [error] [RPC Response] PtyService#resize Could not find pty 188 on pty host
+2025-05-23 11:58:38.996 [error] [RPC Response] PtyService#resize Could not find pty 189 on pty host
+2025-05-23 11:58:38.996 [error] [RPC Response] PtyService#resize Could not find pty 190 on pty host
+2025-05-23 11:58:58.373 [info] Revived process, old id ee7f017c01fb0193db8b9eb3af703749-181 -> new id 192
+2025-05-23 11:58:58.668 [info] Expanding terminal instance, old id ee7f017c01fb0193db8b9eb3af703749-181 -> new id 192
+2025-05-23 11:59:00.527 [warning] Shell integration cannot be enabled for executable "/bin/sh" and args ["-c","wget --version > /dev/null\nif [ $? -eq 0 ]\nthen\n\twget --no-config --connect-timeout=7 --tries=1 --dns-timeout=7 -q --header='Metadata:true' -O - http://169.254.169.254/metadata/instance?api-version=2019-03-11\nelse\n\tcurl --version > /dev/null\n\tif [ $? -eq 0 ]\n\tthen\n\t\tcurl --disable --connect-timeout 7 -s --header='Metadata:true' http://169.254.169.254/metadata/instance?api-version=2019-03-11\n\tfi\nfi\nexit 0"]
+2025-05-23 11:59:00.555 [warning] Shell integration cannot be enabled for executable "/bin/sh" and args ["-c","wget --version > /dev/null\nif [ $? -eq 0 ]\nthen\n\twget --no-config --connect-timeout=7 --tries=1 --dns-timeout=7 -q  -O - http://169.254.169.254/latest/meta-data/instance-id\nelse\n\tcurl --version > /dev/null\n\tif [ $? -eq 0 ]\n\tthen\n\t\tcurl --disable --connect-timeout 7 -s  http://169.254.169.254/latest/meta-data/instance-id\n\tfi\nfi\nexit 0"]
+2025-05-23 11:59:00.587 [warning] Shell integration cannot be enabled for executable "/bin/sh" and args ["-c","wget --version > /dev/null\nif [ $? -eq 0 ]\nthen\n\twget --no-config --connect-timeout=7 --tries=1 --dns-timeout=7 -q  -O - http://169.254.169.254/metadata/v1/id\nelse\n\tcurl --version > /dev/null\n\tif [ $? -eq 0 ]\n\tthen\n\t\tcurl --disable --connect-timeout 7 -s  http://169.254.169.254/metadata/v1/id\n\tfi\nfi\nexit 0"]
+2025-05-23 11:59:00.611 [warning] Shell integration cannot be enabled for executable "/bin/sh" and args ["-c","wget --version > /dev/null\nif [ $? -eq 0 ]\nthen\n\twget --no-config --connect-timeout=7 --tries=1 --dns-timeout=7 -q --header='Metadata-Flavor:Google' -O - http://metadata.google.internal/computeMetadata/v1/instance/id\nelse\n\tcurl --version > /dev/null\n\tif [ $? -eq 0 ]\n\tthen\n\t\tcurl --disable --connect-timeout 7 -s --header='Metadata-Flavor:Google' http://metadata.google.internal/computeMetadata/v1/instance/id\n\tfi\nfi\nexit 0"]
+2025-05-23 11:59:01.943 [error] [RPC Response] PtyService#resize Could not find pty 193 on pty host
+2025-05-23 11:59:01.943 [error] [RPC Response] PtyService#resize Could not find pty 194 on pty host
+2025-05-23 11:59:01.944 [error] [RPC Response] PtyService#resize Could not find pty 195 on pty host
+2025-05-23 11:59:01.944 [error] [RPC Response] PtyService#resize Could not find pty 196 on pty host
+2025-05-23 11:59:02.993 [warning] Persistent process "192": Process had no disconnect runners but was an orphan
+2025-05-23 11:59:02.993 [info] Persistent process reconnection "192"
+2025-05-23 11:59:03.170 [info] Persistent process "192": Replaying 768 chars and 1 size events

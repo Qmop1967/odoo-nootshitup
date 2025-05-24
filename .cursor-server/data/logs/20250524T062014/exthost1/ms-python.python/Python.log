@@ -1,0 +1,76 @@
+2025-05-24 06:20:30.595 [info] Experiment 'pythonTerminalEnvVarActivation' is active
+2025-05-24 06:20:30.595 [error] Reading directory to watch failed [Error: ENOENT: no such file or directory, scandir '/root/.pixi/envs'
+	at Object.readdirSync (node:fs:1508:26)
+	at /root/.cursor-server/extensions/ms-python.python-2024.12.3/out/client/extension.js:2:586747
+	at /root/.cursor-server/extensions/ms-python.python-2024.12.3/out/client/extension.js:2:586938
+	at Array.map (<anonymous>)
+	at d.initWatchers (/root/.cursor-server/extensions/ms-python.python-2024.12.3/out/client/extension.js:2:586656)
+	at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+	at async d.ensureWatchersReady (/root/.cursor-server/extensions/ms-python.python-2024.12.3/out/client/extension.js:2:543067)] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'scandir',
+  path: '/root/.pixi/envs'
+}
+2025-05-24 06:20:30.595 [error] Dir "/root/.pixi/envs" is not watchable (directory does not exist)
+2025-05-24 06:20:30.595 [info] Default formatter is set to null for workspace /root
+2025-05-24 06:20:30.595 [info] Python interpreter path: /bin/python3
+2025-05-24 06:20:30.595 [info] > pyenv which python
+2025-05-24 06:20:30.595 [info] cwd: .
+2025-05-24 06:20:31.532 [info] > pixi --version
+2025-05-24 06:20:31.535 [error] [Error: spawn pixi ENOENT
+	at ChildProcess._handle.onexit (node:internal/child_process:285:19)
+	at onErrorNT (node:internal/child_process:483:16)
+	at process.processTicksAndRejections (node:internal/process/task_queues:82:21)] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'spawn pixi',
+  path: 'pixi',
+  spawnargs: [ '--version' ]
+}
+2025-05-24 06:20:31.539 [warning] could not find a pixi interpreter for the interpreter at /bin/python3
+2025-05-24 06:20:32.059 [info] Discover tests for workspace name: root - uri: /root/.cursor-server/extensions/.8d5eb3c1-99b8-4bba-9715-d4662f27cdfd/python_files/pyproject.toml
+2025-05-24 06:20:33.635 [info] Discover tests for workspace name: root - uri: /root/.cursor-server/extensions/.8d5eb3c1-99b8-4bba-9715-d4662f27cdfd/python_files/.vscode/settings.json
+2025-05-24 06:20:35.437 [info] Starting Pylance language server.
+2025-05-24 06:25:02.874 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/run_sync_once.py
+2025-05-24 06:45:36.835 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/simple_product_sync.py
+2025-05-24 06:47:08.448 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/check_products.py
+2025-05-24 06:47:43.826 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/check_zoho_products.py
+2025-05-24 06:48:56.156 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/monitor_sync.py
+2025-05-24 06:58:12.556 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service.py
+2025-05-24 06:58:27.559 [info] Discover tests for workspace name: undefined - uri: c:/Users/kha89/AppData/Roaming/Cursor/User/settings.json
+2025-05-24 06:59:58.723 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/sync_service_manager.py
+2025-05-24 07:00:20.155 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/add_zoho_field.py
+2025-05-24 07:00:49.931 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/add_zoho_field.py
+2025-05-24 07:00:57.801 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/add_zoho_field.py
+2025-05-24 07:01:03.394 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/add_zoho_field.py
+2025-05-24 07:01:31.781 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service.py
+2025-05-24 07:01:38.512 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service.py
+2025-05-24 07:01:45.136 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service.py
+2025-05-24 07:01:53.405 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service.py
+2025-05-24 07:02:00.661 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service.py
+2025-05-24 07:02:09.460 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service.py
+2025-05-24 07:05:05.537 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service_with_images.py
+2025-05-24 07:06:16.426 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/sync_service_manager_images.py
+2025-05-24 07:22:59.796 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/product_sync_scheduler.py
+2025-05-24 07:23:10.893 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/product_sync_scheduler.py
+2025-05-24 07:23:17.188 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/product_sync_scheduler.py
+2025-05-24 07:23:21.186 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/product_sync_scheduler.py
+2025-05-24 07:35:46.130 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/test_zoho_api.py
+2025-05-24 07:38:31.881 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service_with_images_fixed.py
+2025-05-24 07:39:07.820 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/test_fixed_sync.py
+2025-05-24 07:40:04.017 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service_with_images_fixed.py
+2025-05-24 07:40:20.962 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service_with_images_fixed.py
+2025-05-24 07:42:07.272 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/sync_service_manager_fixed.py
+2025-05-24 07:48:28.856 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_final.py
+2025-05-24 07:58:16.701 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/test_final_service.py
+2025-05-24 07:58:43.857 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service_with_images_fixed.py
+2025-05-24 07:59:06.484 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/zoho_odoo_sync_service_with_images_fixed.py
+2025-05-24 08:17:44.599 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/check_field.py
+2025-05-24 08:18:26.289 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/create_zoho_field.py
+2025-05-24 08:20:57.119 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/simple_sync_test.py
+2025-05-24 08:22:27.345 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/fix_sync_issue.py
+2025-05-24 08:25:26.934 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/match_products.py
+2025-05-24 08:31:29.540 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/clean_import_safe.py
+2025-05-24 08:45:58.715 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/delete_specific_product.py
+2025-05-24 08:46:57.419 [info] Discover tests for workspace name: undefined - uri: /opt/odoo/migration/check_current_products.py

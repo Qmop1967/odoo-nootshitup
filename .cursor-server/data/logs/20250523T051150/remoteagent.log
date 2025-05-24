@@ -1,0 +1,312 @@
+2025-05-23 05:11:50.894 [info] 
+
+
+
+
+2025-05-23 05:11:50.907 [info] Extension host agent started.
+2025-05-23 05:11:50.931 [info] Started initializing default profile extensions in extensions installation folder. file:///root/.cursor-server/extensions
+2025-05-23 05:11:50.948 [info] Completed initializing default profile extensions in extensions installation folder. file:///root/.cursor-server/extensions
+2025-05-23 05:11:51.185 [info] [<unknown>][5a0e0c57][ManagementConnection] New connection established.
+2025-05-23 05:11:51.188 [info] [<unknown>][1d3f835d][ExtensionHostConnection] New connection established.
+2025-05-23 05:11:51.276 [info] [<unknown>][1d3f835d][ExtensionHostConnection] <1419> Launched Extension Host Process.
+2025-05-23 05:12:29.800 [info] [<unknown>][5a0e0c57][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+2025-05-23 05:12:29.845 [info] [<unknown>][1d3f835d][ExtensionHostConnection] <1419> Extension Host Process exited with code: 0, signal: null.
+2025-05-23 05:12:29.846 [info] Cancelling previous shutdown timeout
+2025-05-23 05:12:29.846 [info] Last EH closed, waiting before shutting down
+2025-05-23 05:12:36.736 [info] [<unknown>][a30c9413][ExtensionHostConnection] New connection established.
+2025-05-23 05:12:36.740 [info] [<unknown>][a30c9413][ExtensionHostConnection] <1617> Launched Extension Host Process.
+2025-05-23 05:12:36.742 [info] [<unknown>][bbd3a16a][ManagementConnection] New connection established.
+2025-05-23 05:12:40.244 [error] CodeExpectedError: Could not find pty 7 on pty host
+    at A.W (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:12235)
+    at A.resize (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:8775)
+    at N.s.<computed> (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:2962)
+    at Object.call (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:28:4203)
+    at Qc.s (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:81166)
+    at Qc.q (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80689)
+    at ds.value (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80091)
+    at _.B (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2373)
+    at _.fire (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2591)
+    at process.w (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:24:29161)
+    at process.emit (node:events:518:28)
+    at emit (node:internal/child_process:950:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+2025-05-23 05:12:40.248 [error] CodeExpectedError: Could not find pty 8 on pty host
+    at A.W (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:12235)
+    at A.resize (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:8775)
+    at N.s.<computed> (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:2962)
+    at Object.call (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:28:4203)
+    at Qc.s (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:81166)
+    at Qc.q (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80689)
+    at ds.value (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80091)
+    at _.B (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2373)
+    at _.fire (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2591)
+    at process.w (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:24:29161)
+    at process.emit (node:events:518:28)
+    at emit (node:internal/child_process:950:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+2025-05-23 05:12:40.248 [error] CodeExpectedError: Could not find pty 9 on pty host
+    at A.W (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:12235)
+    at A.resize (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:8775)
+    at N.s.<computed> (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:2962)
+    at Object.call (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:28:4203)
+    at Qc.s (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:81166)
+    at Qc.q (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80689)
+    at ds.value (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80091)
+    at _.B (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2373)
+    at _.fire (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2591)
+    at process.w (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:24:29161)
+    at process.emit (node:events:518:28)
+    at emit (node:internal/child_process:950:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+2025-05-23 05:13:04.818 [info] [<unknown>][bbd3a16a][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+2025-05-23 05:13:04.869 [info] [<unknown>][a30c9413][ExtensionHostConnection] <1617> Extension Host Process exited with code: 0, signal: null.
+2025-05-23 05:13:04.870 [info] Cancelling previous shutdown timeout
+2025-05-23 05:13:04.870 [info] Last EH closed, waiting before shutting down
+2025-05-23 05:13:11.147 [info] [<unknown>][90f69fc4][ManagementConnection] New connection established.
+2025-05-23 05:13:11.147 [info] [<unknown>][ac4edc56][ExtensionHostConnection] New connection established.
+2025-05-23 05:13:11.152 [info] [<unknown>][ac4edc56][ExtensionHostConnection] <1782> Launched Extension Host Process.
+2025-05-23 05:14:57.118 [info] [<unknown>][90f69fc4][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+2025-05-23 05:14:57.123 [error] Error: Unexpected SIGPIPE
+    at process.<anonymous> (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/server-main.js:178:1060)
+    at process.emit (node:events:530:35)
+2025-05-23 05:14:57.162 [info] [<unknown>][ac4edc56][ExtensionHostConnection] <1782> Extension Host Process exited with code: 0, signal: null.
+2025-05-23 05:14:57.163 [info] Cancelling previous shutdown timeout
+2025-05-23 05:14:57.163 [info] Last EH closed, waiting before shutting down
+2025-05-23 05:15:04.277 [info] [<unknown>][b46bf92f][ExtensionHostConnection] New connection established.
+2025-05-23 05:15:04.282 [info] [<unknown>][b46bf92f][ExtensionHostConnection] <2026> Launched Extension Host Process.
+2025-05-23 05:15:04.284 [info] [<unknown>][0280f432][ManagementConnection] New connection established.
+2025-05-23 05:19:57.164 [info] New EH opened, aborting shutdown
+2025-05-23 05:58:19.781 [warning] [File Watcher (node.js)] Watcher shutdown because watched path got deleted
+2025-05-23 06:29:28.945 [info] Getting Manifest... kilocode.kilo-code
+2025-05-23 06:29:30.213 [info] Installing extension: kilocode.kilo-code {"isMachineScoped":false,"installPreReleaseVersion":false,"donotVerifySignature":true,"pinned":false,"context":{"clientTargetPlatform":"win32-x64"},"installOnlyNewlyAddedFromExtensionPack":true,"isApplicationScoped":false,"profileLocation":{"$mid":1,"fsPath":"/root/.cursor-server/extensions/extensions.json","external":"file:///root/.cursor-server/extensions/extensions.json","path":"/root/.cursor-server/extensions/extensions.json","scheme":"file"},"productVersion":{"version":"0.50.5","date":"2025-05-18T04:17:40.742Z","vscodeVersion":"1.96.2"}}
+2025-05-23 06:29:30.270 [info] Started downloading extension: kilocode.kilo-code 4.28.1 file:///root/.cursor-server/data/CachedExtensionVSIXs/cursor-kilocode.kilo-code-4.28.1
+2025-05-23 06:29:33.630 [info] Extracted extension to file:///root/.cursor-server/extensions/kilocode.kilo-code-4.28.1: kilocode.kilo-code
+2025-05-23 06:29:33.707 [info] Renamed to /root/.cursor-server/extensions/kilocode.kilo-code-4.28.1
+2025-05-23 06:29:33.727 [info] Extension installed successfully: kilocode.kilo-code file:///root/.cursor-server/extensions/extensions.json
+2025-05-23 06:47:09.261 [error] AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1122:18)
+    at afterConnectMultiple (node:net:1689:7)
+2025-05-23 06:47:09.325 [error] AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1122:18)
+    at afterConnectMultiple (node:net:1689:7)
+2025-05-23 06:47:09.477 [error] AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1122:18)
+    at afterConnectMultiple (node:net:1689:7)
+2025-05-23 07:33:56.524 [info] Getting Manifest... ms-python.python
+2025-05-23 07:33:56.945 [info] Installing extension: ms-python.python {"isMachineScoped":false,"installOnlyNewlyAddedFromExtensionPack":true,"isApplicationScoped":false,"profileLocation":{"$mid":1,"fsPath":"/root/.cursor-server/extensions/extensions.json","external":"file:///root/.cursor-server/extensions/extensions.json","path":"/root/.cursor-server/extensions/extensions.json","scheme":"file"},"productVersion":{"version":"0.50.5","date":"2025-05-18T04:17:40.742Z","vscodeVersion":"1.96.2"}}
+2025-05-23 07:34:00.426 [info] Getting Manifest... ms-python.python
+2025-05-23 07:34:00.965 [info] Extension is already requested to install ms-python.python file:///root/.cursor-server/extensions/extensions.json
+2025-05-23 07:34:02.404 [info] Getting Manifest... ms-python.vscode-pylance
+2025-05-23 07:34:02.864 [info] Getting Manifest... ms-python.debugpy
+2025-05-23 07:34:03.602 [info] Installing extension: ms-python.vscode-pylance {"isMachineScoped":false,"installOnlyNewlyAddedFromExtensionPack":true,"isApplicationScoped":false,"profileLocation":{"$mid":1,"fsPath":"/root/.cursor-server/extensions/extensions.json","external":"file:///root/.cursor-server/extensions/extensions.json","path":"/root/.cursor-server/extensions/extensions.json","scheme":"file"},"productVersion":{"version":"0.50.5","date":"2025-05-18T04:17:40.742Z","vscodeVersion":"1.96.2"},"context":{"dependecyOrPackExtensionInstall":true}}
+2025-05-23 07:34:03.603 [info] Installing extension: ms-python.debugpy {"isMachineScoped":false,"installOnlyNewlyAddedFromExtensionPack":true,"isApplicationScoped":false,"profileLocation":{"$mid":1,"fsPath":"/root/.cursor-server/extensions/extensions.json","external":"file:///root/.cursor-server/extensions/extensions.json","path":"/root/.cursor-server/extensions/extensions.json","scheme":"file"},"productVersion":{"version":"0.50.5","date":"2025-05-18T04:17:40.742Z","vscodeVersion":"1.96.2"},"context":{"dependecyOrPackExtensionInstall":true}}
+2025-05-23 07:34:03.614 [info] Started downloading extension: ms-python.python 2024.12.3 file:///root/.cursor-server/data/CachedExtensionVSIXs/cursor-ms-python.python-2024.12.3-linux-x64
+2025-05-23 07:34:03.615 [info] Started downloading extension: ms-python.vscode-pylance 2024.8.1 file:///root/.cursor-server/data/CachedExtensionVSIXs/cursor-ms-python.vscode-pylance-2024.8.1
+2025-05-23 07:34:03.619 [info] Started downloading extension: ms-python.debugpy 2024.6.0 file:///root/.cursor-server/data/CachedExtensionVSIXs/cursor-ms-python.debugpy-2024.6.0-linux-x64
+2025-05-23 07:34:06.043 [info] Extracted extension to file:///root/.cursor-server/extensions/ms-python.debugpy-2024.6.0-linux-x64: ms-python.debugpy
+2025-05-23 07:34:06.074 [info] Renamed to /root/.cursor-server/extensions/ms-python.debugpy-2024.6.0-linux-x64
+2025-05-23 07:34:07.932 [info] Extracted extension to file:///root/.cursor-server/extensions/ms-python.python-2024.12.3-linux-x64: ms-python.python
+2025-05-23 07:34:08.086 [info] Renamed to /root/.cursor-server/extensions/ms-python.python-2024.12.3-linux-x64
+2025-05-23 07:34:13.739 [info] Extracted extension to file:///root/.cursor-server/extensions/ms-python.vscode-pylance-2024.8.1: ms-python.vscode-pylance
+2025-05-23 07:34:14.288 [info] Renamed to /root/.cursor-server/extensions/ms-python.vscode-pylance-2024.8.1
+2025-05-23 07:34:14.319 [info] Extension installed successfully: ms-python.debugpy file:///root/.cursor-server/extensions/extensions.json
+2025-05-23 07:34:14.320 [info] Extension installed successfully: ms-python.python file:///root/.cursor-server/extensions/extensions.json
+2025-05-23 07:34:14.320 [info] Extension installed successfully: ms-python.vscode-pylance file:///root/.cursor-server/extensions/extensions.json
+2025-05-23 07:34:57.003 [info] Downloaded extension to file:///root/.cursor-server/data/CachedExtensionVSIXs/b4f48c59-d57c-46ae-9d2a-5cbe9a02e46b
+2025-05-23 07:34:57.524 [info] Installing extension: ms-python.vscode-pylance {"installPreReleaseVersion":false,"donotVerifySignature":true,"donotIncludePackAndDependencies":true,"keepExisting":true,"installOnlyNewlyAddedFromExtensionPack":false,"isApplicationScoped":false,"profileLocation":{"$mid":1,"fsPath":"/root/.cursor-server/extensions/extensions.json","external":"file:///root/.cursor-server/extensions/extensions.json","path":"/root/.cursor-server/extensions/extensions.json","scheme":"file"},"productVersion":{"version":"0.50.5","date":"2025-05-18T04:17:40.742Z","vscodeVersion":"1.96.2"}}
+2025-05-23 07:34:57.526 [info] Installing the extension without checking dependencies and pack ms-python.vscode-pylance
+2025-05-23 07:34:57.554 [info] Deleted existing extension from disk ms-python.vscode-pylance /root/.cursor-server/extensions/ms-python.vscode-pylance-2024.8.1
+2025-05-23 07:35:04.887 [info] Extracted extension to file:///root/.cursor-server/extensions/ms-python.vscode-pylance-2024.8.1: ms-python.vscode-pylance
+2025-05-23 07:35:05.614 [info] Renamed to /root/.cursor-server/extensions/ms-python.vscode-pylance-2024.8.1
+2025-05-23 07:35:05.646 [info] Extension installed successfully: ms-python.vscode-pylance file:///root/.cursor-server/extensions/extensions.json
+2025-05-23 07:35:17.782 [info] Downloaded extension to file:///root/.cursor-server/data/CachedExtensionVSIXs/415e4e1a-544f-4d6c-93f3-62ee0f27b6aa
+2025-05-23 07:35:17.808 [info] Installing extension: ms-python.debugpy {"installPreReleaseVersion":false,"donotVerifySignature":true,"donotIncludePackAndDependencies":true,"keepExisting":true,"installOnlyNewlyAddedFromExtensionPack":false,"isApplicationScoped":false,"profileLocation":{"$mid":1,"fsPath":"/root/.cursor-server/extensions/extensions.json","external":"file:///root/.cursor-server/extensions/extensions.json","path":"/root/.cursor-server/extensions/extensions.json","scheme":"file"},"productVersion":{"version":"0.50.5","date":"2025-05-18T04:17:40.742Z","vscodeVersion":"1.96.2"}}
+2025-05-23 07:35:17.810 [info] Installing the extension without checking dependencies and pack ms-python.debugpy
+2025-05-23 07:35:17.823 [info] Deleted existing extension from disk ms-python.debugpy /root/.cursor-server/extensions/ms-python.debugpy-2024.6.0-linux-x64
+2025-05-23 07:35:18.260 [info] Extracted extension to file:///root/.cursor-server/extensions/ms-python.debugpy-2024.6.0: ms-python.debugpy
+2025-05-23 07:35:18.283 [info] Renamed to /root/.cursor-server/extensions/ms-python.debugpy-2024.6.0
+2025-05-23 07:35:18.294 [info] Extension not found at the location file:///root/.cursor-server/extensions/ms-python.debugpy-2024.6.0-linux-x64
+2025-05-23 07:35:18.302 [info] Extension installed successfully: ms-python.debugpy file:///root/.cursor-server/extensions/extensions.json
+2025-05-23 07:35:18.373 [info] Extensions added from another source ms-python.debugpy file:///root/.cursor-server/extensions/extensions.json
+2025-05-23 07:35:32.013 [info] Downloaded extension to file:///root/.cursor-server/data/CachedExtensionVSIXs/7db9ff31-2028-4829-bb0c-26a85a21ccf5
+2025-05-23 07:35:32.019 [info] Installing extension: ms-python.python {"installPreReleaseVersion":false,"donotVerifySignature":true,"donotIncludePackAndDependencies":true,"keepExisting":true,"installOnlyNewlyAddedFromExtensionPack":false,"isApplicationScoped":false,"profileLocation":{"$mid":1,"fsPath":"/root/.cursor-server/extensions/extensions.json","external":"file:///root/.cursor-server/extensions/extensions.json","path":"/root/.cursor-server/extensions/extensions.json","scheme":"file"},"productVersion":{"version":"0.50.5","date":"2025-05-18T04:17:40.742Z","vscodeVersion":"1.96.2"}}
+2025-05-23 07:35:32.020 [info] Installing the extension without checking dependencies and pack ms-python.python
+2025-05-23 07:35:32.077 [info] Deleted existing extension from disk ms-python.python /root/.cursor-server/extensions/ms-python.python-2024.12.3-linux-x64
+2025-05-23 07:35:34.441 [info] Extracted extension to file:///root/.cursor-server/extensions/ms-python.python-2024.12.3: ms-python.python
+2025-05-23 07:35:34.643 [info] Renamed to /root/.cursor-server/extensions/ms-python.python-2024.12.3
+2025-05-23 07:35:34.717 [info] Extension not found at the location file:///root/.cursor-server/extensions/ms-python.python-2024.12.3-linux-x64
+2025-05-23 07:35:34.733 [info] Extension installed successfully: ms-python.python file:///root/.cursor-server/extensions/extensions.json
+2025-05-23 07:35:34.797 [info] Extensions added from another source ms-python.python file:///root/.cursor-server/extensions/extensions.json
+2025-05-23 07:57:29.783 [error] AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1122:18)
+    at afterConnectMultiple (node:net:1689:7)
+2025-05-23 07:57:29.868 [error] AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1122:18)
+    at afterConnectMultiple (node:net:1689:7)
+2025-05-23 07:57:29.944 [error] AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1122:18)
+    at afterConnectMultiple (node:net:1689:7)
+2025-05-23 08:48:32.196 [error] AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1122:18)
+    at afterConnectMultiple (node:net:1689:7)
+2025-05-23 08:48:32.210 [error] AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1122:18)
+    at afterConnectMultiple (node:net:1689:7)
+2025-05-23 08:48:32.394 [error] AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1122:18)
+    at afterConnectMultiple (node:net:1689:7)
+2025-05-23 09:33:24.382 [warning] [File Watcher (node.js)] Watcher shutdown because watched path got deleted
+2025-05-23 09:43:10.544 [warning] [File Watcher (node.js)] Watcher shutdown because watched path got deleted
+2025-05-23 10:16:24.401 [error] AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1122:18)
+    at afterConnectMultiple (node:net:1689:7)
+2025-05-23 10:16:24.412 [error] AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1122:18)
+    at afterConnectMultiple (node:net:1689:7)
+2025-05-23 10:16:24.661 [error] AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1122:18)
+    at afterConnectMultiple (node:net:1689:7)
+2025-05-23 11:00:55.631 [error] AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1122:18)
+    at afterConnectMultiple (node:net:1689:7)
+2025-05-23 11:00:55.644 [error] AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1122:18)
+    at afterConnectMultiple (node:net:1689:7)
+2025-05-23 11:00:55.879 [error] AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1122:18)
+    at afterConnectMultiple (node:net:1689:7)
+2025-05-23 11:05:56.708 [info] [<unknown>][0280f432][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...
+2025-05-23 11:55:38.948 [info] [<unknown>][0280f432][ManagementConnection] Another client has connected, will shorten the wait for reconnection 5m before disposing...
+2025-05-23 11:55:38.949 [info] [<unknown>][1101d78a][ManagementConnection] New connection established.
+2025-05-23 11:55:38.962 [info] [<unknown>][f2130d91][ExtensionHostConnection] New connection established.
+2025-05-23 11:55:39.006 [info] [<unknown>][f2130d91][ExtensionHostConnection] <60041> Launched Extension Host Process.
+2025-05-23 11:58:35.463 [info] [<unknown>][709a07f2][ManagementConnection] New connection established.
+2025-05-23 11:58:35.475 [info] [<unknown>][6f8a0037][ExtensionHostConnection] New connection established.
+2025-05-23 11:58:35.505 [info] [<unknown>][6f8a0037][ExtensionHostConnection] <60418> Launched Extension Host Process.
+2025-05-23 11:58:40.058 [error] CodeExpectedError: Could not find pty 187 on pty host
+    at A.W (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:12235)
+    at A.resize (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:8775)
+    at N.s.<computed> (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:2962)
+    at Object.call (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:28:4203)
+    at Qc.s (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:81166)
+    at Qc.q (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80689)
+    at ds.value (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80091)
+    at _.B (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2373)
+    at _.fire (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2591)
+    at process.w (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:24:29161)
+    at process.emit (node:events:518:28)
+    at emit (node:internal/child_process:950:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+2025-05-23 11:58:40.066 [error] CodeExpectedError: Could not find pty 188 on pty host
+    at A.W (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:12235)
+    at A.resize (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:8775)
+    at N.s.<computed> (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:2962)
+    at Object.call (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:28:4203)
+    at Qc.s (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:81166)
+    at Qc.q (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80689)
+    at ds.value (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80091)
+    at _.B (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2373)
+    at _.fire (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2591)
+    at process.w (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:24:29161)
+    at process.emit (node:events:518:28)
+    at emit (node:internal/child_process:950:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+2025-05-23 11:58:40.066 [error] CodeExpectedError: Could not find pty 189 on pty host
+    at A.W (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:12235)
+    at A.resize (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:8775)
+    at N.s.<computed> (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:2962)
+    at Object.call (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:28:4203)
+    at Qc.s (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:81166)
+    at Qc.q (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80689)
+    at ds.value (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80091)
+    at _.B (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2373)
+    at _.fire (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2591)
+    at process.w (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:24:29161)
+    at process.emit (node:events:518:28)
+    at emit (node:internal/child_process:950:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+2025-05-23 11:58:40.075 [error] CodeExpectedError: Could not find pty 190 on pty host
+    at A.W (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:12235)
+    at A.resize (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:8775)
+    at N.s.<computed> (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:2962)
+    at Object.call (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:28:4203)
+    at Qc.s (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:81166)
+    at Qc.q (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80689)
+    at ds.value (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80091)
+    at _.B (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2373)
+    at _.fire (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2591)
+    at process.w (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:24:29161)
+    at process.emit (node:events:518:28)
+    at emit (node:internal/child_process:950:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+2025-05-23 11:58:51.087 [info] [<unknown>][709a07f2][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+2025-05-23 11:58:56.584 [info] [<unknown>][6f8a0037][ExtensionHostConnection] <60418> Extension Host Process exited with code: 0, signal: null.
+2025-05-23 11:58:58.075 [info] [<unknown>][1101d78a][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...
+2025-05-23 11:58:58.149 [info] [<unknown>][1101d78a][ManagementConnection] Another client has connected, will shorten the wait for reconnection 5m before disposing...
+2025-05-23 11:58:58.152 [info] [<unknown>][84bb0214][ManagementConnection] New connection established.
+2025-05-23 11:58:58.159 [info] [<unknown>][9877e7d2][ExtensionHostConnection] New connection established.
+2025-05-23 11:58:58.200 [info] [<unknown>][9877e7d2][ExtensionHostConnection] <60599> Launched Extension Host Process.
+2025-05-23 11:59:02.965 [error] CodeExpectedError: Could not find pty 193 on pty host
+    at A.W (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:12235)
+    at A.resize (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:8775)
+    at N.s.<computed> (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:2962)
+    at Object.call (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:28:4203)
+    at Qc.s (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:81166)
+    at Qc.q (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80689)
+    at ds.value (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80091)
+    at _.B (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2373)
+    at _.fire (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2591)
+    at process.w (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:24:29161)
+    at process.emit (node:events:518:28)
+    at emit (node:internal/child_process:950:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+2025-05-23 11:59:02.966 [error] CodeExpectedError: Could not find pty 194 on pty host
+    at A.W (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:12235)
+    at A.resize (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:8775)
+    at N.s.<computed> (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:2962)
+    at Object.call (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:28:4203)
+    at Qc.s (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:81166)
+    at Qc.q (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80689)
+    at ds.value (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80091)
+    at _.B (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2373)
+    at _.fire (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2591)
+    at process.w (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:24:29161)
+    at process.emit (node:events:518:28)
+    at emit (node:internal/child_process:950:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+2025-05-23 11:59:02.979 [error] CodeExpectedError: Could not find pty 195 on pty host
+    at A.W (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:12235)
+    at A.resize (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:8775)
+    at N.s.<computed> (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:2962)
+    at Object.call (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:28:4203)
+    at Qc.s (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:81166)
+    at Qc.q (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80689)
+    at ds.value (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80091)
+    at _.B (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2373)
+    at _.fire (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2591)
+    at process.w (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:24:29161)
+    at process.emit (node:events:518:28)
+    at emit (node:internal/child_process:950:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+2025-05-23 11:59:02.980 [error] CodeExpectedError: Could not find pty 196 on pty host
+    at A.W (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:12235)
+    at A.resize (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:8775)
+    at N.s.<computed> (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:45:2962)
+    at Object.call (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:28:4203)
+    at Qc.s (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:81166)
+    at Qc.q (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80689)
+    at ds.value (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80091)
+    at _.B (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2373)
+    at _.fire (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2591)
+    at process.w (file:///root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server/out/vs/platform/terminal/node/ptyHostMain.js:24:29161)
+    at process.emit (node:events:518:28)
+    at emit (node:internal/child_process:950:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+2025-05-23 12:00:40.473 [info] [<unknown>][b46bf92f][ExtensionHostConnection] <2026> Extension Host Process exited with code: 0, signal: null.
+2025-05-23 12:00:41.176 [info] [<unknown>][0280f432][ManagementConnection] The reconnection short grace time of 5m has expired, so the connection will be disposed.
+2025-05-23 12:03:36.443 [info] [<unknown>][f2130d91][ExtensionHostConnection] <60041> Extension Host Process exited with code: 0, signal: null.
+2025-05-23 12:03:59.510 [info] [<unknown>][1101d78a][ManagementConnection] The reconnection short grace time of 5m has expired, so the connection will be disposed.
+2025-05-23 21:19:40.729 [info] [<unknown>][84bb0214][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+2025-05-23 21:19:41.593 [info] [<unknown>][9877e7d2][ExtensionHostConnection] <60599> Extension Host Process exited with code: 0, signal: null.
+2025-05-23 21:19:41.596 [info] Last EH closed, waiting before shutting down
+2025-05-23 21:24:41.597 [info] Last EH closed, shutting down

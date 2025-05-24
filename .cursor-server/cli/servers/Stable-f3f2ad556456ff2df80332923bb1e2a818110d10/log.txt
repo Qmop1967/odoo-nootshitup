@@ -1,0 +1,163 @@
+Server bound to /tmp/cursor-165a2304-d555-4631-8b19-7fe263610f4e
+Extension host agent listening on /tmp/cursor-165a2304-d555-4631-8b19-7fe263610f4e
+
+[06:20:14] 
+
+
+
+
+[06:20:14] Extension host agent started.
+[06:20:14] [<unknown>][69484fe0][ExtensionHostConnection] New connection established.
+[06:20:14] [<unknown>][39d7befb][ManagementConnection] New connection established.
+[06:20:15] [<unknown>][69484fe0][ExtensionHostConnection] <133751> Launched Extension Host Process.
+[06:20:27] Getting Manifest... ms-python.debugpy
+[06:20:27] Getting Manifest... ms-python.python
+[06:20:28] Installing extension: ms-python.debugpy {
+  productVersion: {
+    version: '0.50.6',
+    date: '2025-05-23T02:42:52.592Z',
+    vscodeVersion: '1.96.2'
+  },
+  donotVerifySignature: true,
+  pinned: false,
+  operation: 3,
+  isApplicationScoped: false,
+  context: { clientTargetPlatform: 'win32-x64' },
+  installOnlyNewlyAddedFromExtensionPack: true,
+  profileLocation: vr {
+    scheme: 'file',
+    authority: '',
+    path: '/root/.cursor-server/extensions/extensions.json',
+    query: '',
+    fragment: '',
+    _formatted: 'file:///root/.cursor-server/extensions/extensions.json',
+    _fsPath: '/root/.cursor-server/extensions/extensions.json'
+  }
+}
+[06:20:28] Installing extension: ms-python.python {
+  productVersion: {
+    version: '0.50.6',
+    date: '2025-05-23T02:42:52.592Z',
+    vscodeVersion: '1.96.2'
+  },
+  donotVerifySignature: true,
+  pinned: false,
+  operation: 3,
+  isApplicationScoped: false,
+  context: { clientTargetPlatform: 'win32-x64' },
+  installOnlyNewlyAddedFromExtensionPack: true,
+  profileLocation: vr {
+    scheme: 'file',
+    authority: '',
+    path: '/root/.cursor-server/extensions/extensions.json',
+    query: '',
+    fragment: '',
+    _formatted: 'file:///root/.cursor-server/extensions/extensions.json',
+    _fsPath: '/root/.cursor-server/extensions/extensions.json'
+  }
+}
+[06:20:28] Started downloading extension: ms-python.python 2025.6.1 file:///root/.cursor-server/data/CachedExtensionVSIXs/cursor-ms-python.python-2025.6.1-linux-x64
+[06:20:30] Getting Manifest... ms-python.python
+[06:20:31] Started downloading extension: ms-python.debugpy 2025.8.0 file:///root/.cursor-server/data/CachedExtensionVSIXs/cursor-ms-python.debugpy-2025.8.0-linux-x64
+[06:20:46] Extracted extension to file:///root/.cursor-server/extensions/ms-python.debugpy-2025.8.0-linux-x64: ms-python.debugpy
+[06:20:46] Renamed to /root/.cursor-server/extensions/ms-python.debugpy-2025.8.0-linux-x64
+[06:20:46] Marked extension as uninstalled ms-python.debugpy-2024.6.0
+[06:20:46] Extension installed successfully: ms-python.debugpy file:///root/.cursor-server/extensions/extensions.json
+[06:20:52] Extracted extension to file:///root/.cursor-server/extensions/ms-python.python-2025.6.1-linux-x64: ms-python.python
+[06:20:52] Renamed to /root/.cursor-server/extensions/ms-python.python-2025.6.1-linux-x64
+[06:20:52] Marked extension as uninstalled ms-python.python-2024.12.3
+[06:20:52] Extension installed successfully: ms-python.python file:///root/.cursor-server/extensions/extensions.json
+New EH opened, aborting shutdown
+[06:25:14] New EH opened, aborting shutdown
+[08:55:30] [<unknown>][39d7befb][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...
+[08:55:39] [<unknown>][39d7befb][ManagementConnection] Another client has connected, will shorten the wait for reconnection 5m before disposing...
+[08:55:39] [<unknown>][083d7b0a][ManagementConnection] New connection established.
+[08:55:39] [<unknown>][79dc48bb][ExtensionHostConnection] New connection established.
+[08:55:39] [<unknown>][79dc48bb][ExtensionHostConnection] <197682> Launched Extension Host Process.
+rejected promise not handled within 1 second: CodeExpectedError: Could not find pty 62 on pty host
+stack trace: CodeExpectedError: Could not find pty 62 on pty host
+    at A.W (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:45:12235)
+    at A.resize (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:45:8775)
+    at N.s.<computed> (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:45:2962)
+    at Object.call (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:28:4203)
+    at Qc.s (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:81166)
+    at Qc.q (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80689)
+    at ds.value (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80091)
+    at _.B (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2373)
+    at _.fire (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2591)
+    at process.w (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:24:29161)
+    at process.emit (node:events:518:28)
+    at emit (node:internal/child_process:950:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+[08:55:51] Error [CodeExpectedError]: Could not find pty 62 on pty host
+    at A.W (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:45:12235)
+    at A.resize (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:45:8775)
+    at N.s.<computed> (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:45:2962)
+    at Object.call (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:28:4203)
+    at Qc.s (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:81166)
+    at Qc.q (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80689)
+    at ds.value (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80091)
+    at _.B (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2373)
+    at _.fire (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2591)
+    at process.w (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:24:29161)
+    at process.emit (node:events:518:28)
+    at emit (node:internal/child_process:950:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+rejected promise not handled within 1 second: CodeExpectedError: Could not find pty 63 on pty host
+stack trace: CodeExpectedError: Could not find pty 63 on pty host
+    at A.W (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:45:12235)
+    at A.resize (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:45:8775)
+    at N.s.<computed> (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:45:2962)
+    at Object.call (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:28:4203)
+    at Qc.s (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:81166)
+    at Qc.q (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80689)
+    at ds.value (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80091)
+    at _.B (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2373)
+    at _.fire (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2591)
+    at process.w (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:24:29161)
+    at process.emit (node:events:518:28)
+    at emit (node:internal/child_process:950:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+[08:55:51] Error [CodeExpectedError]: Could not find pty 63 on pty host
+    at A.W (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:45:12235)
+    at A.resize (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:45:8775)
+    at N.s.<computed> (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:45:2962)
+    at Object.call (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:28:4203)
+    at Qc.s (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:81166)
+    at Qc.q (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80689)
+    at ds.value (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80091)
+    at _.B (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2373)
+    at _.fire (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2591)
+    at process.w (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:24:29161)
+    at process.emit (node:events:518:28)
+    at emit (node:internal/child_process:950:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+rejected promise not handled within 1 second: CodeExpectedError: Could not find pty 61 on pty host
+stack trace: CodeExpectedError: Could not find pty 61 on pty host
+    at A.W (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:45:12235)
+    at A.resize (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:45:8775)
+    at N.s.<computed> (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:45:2962)
+    at Object.call (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:28:4203)
+    at Qc.s (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:81166)
+    at Qc.q (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80689)
+    at ds.value (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80091)
+    at _.B (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2373)
+    at _.fire (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2591)
+    at process.w (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:24:29161)
+    at process.emit (node:events:518:28)
+    at emit (node:internal/child_process:950:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+[08:55:51] Error [CodeExpectedError]: Could not find pty 61 on pty host
+    at A.W (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:45:12235)
+    at A.resize (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:45:8775)
+    at N.s.<computed> (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:45:2962)
+    at Object.call (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:28:4203)
+    at Qc.s (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:81166)
+    at Qc.q (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80689)
+    at ds.value (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:80091)
+    at _.B (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2373)
+    at _.fire (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:26:2591)
+    at process.w (file:///root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server/out/vs/platform/terminal/node/ptyHostMain.js:24:29161)
+    at process.emit (node:events:518:28)
+    at emit (node:internal/child_process:950:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
