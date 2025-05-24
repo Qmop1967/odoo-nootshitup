@@ -386,3 +386,8 @@ fatal: your current branch 'main' does not have any commits yet
 2025-05-24 19:44:59.189 [info] Aborting indexing job.
 2025-05-24 19:44:59.189 [error] We currently do not allow indexing the home directory.
 2025-05-24 19:44:59.189 [info] Indexing job successfully done or aborted.
+2025-05-24 19:49:38.626 [error] Git command failed: git rev-parse --show-toplevel A system error occurred (spawn /bin/sh ENOENT)
+2025-05-24 19:49:59.189 [info] multiCodebaseIndexingJob dispose
+2025-05-24 19:49:59.189 [info] Aborting indexing job.
+2025-05-24 19:49:59.189 [error] We currently do not allow indexing the home directory.
+2025-05-24 19:49:59.189 [info] Indexing job successfully done or aborted.
