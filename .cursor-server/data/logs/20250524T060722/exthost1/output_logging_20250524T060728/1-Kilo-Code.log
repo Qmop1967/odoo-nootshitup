@@ -1,9 +1,0 @@
-Kilo Code extension activated
-Skipping migration of cline_custom_modes.json to custom_modes.json: old file not found
-Skipping migration of cline_mcp_settings.json to mcp_settings.json: old file not found
-ClineProvider instantiated
-First installation detected, opening Kilo Code sidebar!
-Opening Kilo Code walkthrough
-Error during first-time setup: command 'workbench.action.openWalkthrough' not found
-Resolving webview view
-Webview view resolved
