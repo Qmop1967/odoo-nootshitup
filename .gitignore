@@ -3,9 +3,6 @@
 
 # Flutter/Dart/Pub related
 **/doc/api/
-**/ios/Flutter/flutter_assets/
-**/ios/Flutter/flutter_export_environment.sh
-**/ios/Runner/GeneratedPluginRegistrant.*
 .dart_tool/
 .flutter-plugins
 .flutter-plugins-dependencies
@@ -14,18 +11,16 @@
 .pub/
 /build/
 
-# Android related
+# Android related - only exclude generated and build files
 **/android/**/gradle-wrapper.jar
 **/android/.gradle
 **/android/captures/
-**/android/gradlew
-**/android/gradlew.bat
 **/android/local.properties
 **/android/**/GeneratedPluginRegistrant.java
 **/android/key.properties
 *.jks
 
-# iOS related
+# iOS related - only exclude generated and build files
 **/ios/**/*.mode1v3
 **/ios/**/*.mode2v3
 **/ios/**/*.moved-aside
@@ -44,7 +39,6 @@
 **/ios/.generated/
 **/ios/Flutter/App.framework
 **/ios/Flutter/Flutter.framework
-**/ios/Flutter/Flutter.podspec
 **/ios/Flutter/Generated.xcconfig
 **/ios/Flutter/ephemeral/
 **/ios/Flutter/app.flx
@@ -86,7 +80,7 @@ build_output.log
 # Shorebird
 .shorebird/
 
-# Development environment
-.config/
+# Development environment - only cache directories
+.config/shorebird/
 .dartServer/
 .pub-cache/
