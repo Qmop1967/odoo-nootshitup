@@ -1,0 +1,6 @@
+app_id: 12345
+flavors:
+  production:
+    app_id: 12345
+    public_key: placeholder
+auto_update: true 
