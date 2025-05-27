@@ -84,3 +84,33 @@ build_output.log
 .config/shorebird/
 .dartServer/
 .pub-cache/
+
+# System and user files that should not be committed
+.Xauthority
+.bash_history
+.bashrc
+.profile
+.wget-hsts
+.zshrc
+.ssh/
+.cache/
+.local/
+.npm/
+.cursor/
+.flutter
+.config/
+
+# Python scripts (if not part of the main app)
+create_*.py
+delete_*.py
+
+# Documentation files (keep only if they're part of the app)
+BUILD_STATUS.md
+DEVELOPMENT_SETUP.md
+MCP_SETUP_README.md
+ODOO_SETUP_GUIDE.md
+STORE_SUBMISSION_GUIDE.md
+setup_mcp.sh
+
+# Other directories
+zoho-odoo-integration-central/

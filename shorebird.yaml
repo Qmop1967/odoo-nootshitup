@@ -1,6 +1,9 @@
-app_id: 12345
+app_id: tsh-salesperson-app
 flavors:
   production:
-    app_id: 12345
-    public_key: placeholder
+    app_id: tsh-salesperson-app
+    public_key: production_key_placeholder
+  development:
+    app_id: tsh-salesperson-app-dev
+    public_key: dev_key_placeholder
 auto_update: true 

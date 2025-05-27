@@ -13,14 +13,12 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  final OdooService odoo = OdooService('https://your-odoo-domain.com');
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Odoo Sales App',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: SplashScreen(odoo: odoo),
+      home: SplashScreen(),
       routes: {
         '/dashboard': (context) => DashboardPage(),
         '/items': (context) => ItemsPage(),
@@ -34,8 +32,7 @@ class MyApp extends StatelessWidget {
 }
 
 class SplashScreen extends StatefulWidget {
-  final OdooService odoo;
-  const SplashScreen({required this.odoo});
+  const SplashScreen({super.key});
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
@@ -48,8 +45,9 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void _checkSession() async {
-    await widget.odoo.loadSession();
-    if (widget.odoo._sessionId != null) {
+    final odoo = OdooService();
+    await odoo.loadSession();
+    if (odoo.isAuthenticated) {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => DashboardPage()),
