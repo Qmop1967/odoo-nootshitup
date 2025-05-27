@@ -206,6 +206,11 @@ workflows:
           - Code analysis clean ✅
           - Security checks passed ✅
           EOF
+      
+      - name: Post-publish Setup
+        script: |
+          echo "📋 Setting up post-publish script..."
+          chmod +x scripts/codemagic_post_publish.sh
     
     artifacts:
       - build/**/outputs/**/*.apk
@@ -254,6 +259,13 @@ workflows:
         notify:
           success: true
           failure: true
+      
+      # Post-publish script
+      scripts:
+        - name: Post-publish Tasks
+          script: |
+            echo "🚀 Running post-publish script..."
+            ./scripts/codemagic_post_publish.sh
 
   # Hotfix workflow - for urgent fixes
   hotfix:
