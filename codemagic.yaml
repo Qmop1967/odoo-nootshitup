@@ -351,6 +351,153 @@ workflows:
           success: true
           failure: true
 
+  # App Preview workflow - for quick testing and previewing
+  preview:
+    name: App Preview
+    max_build_duration: 45
+    instance_type: mac_mini_m1
+    triggering:
+      events:
+        - push
+        - pull_request
+      branch_patterns:
+        - pattern: 'preview/*'
+          include: true
+          source: true
+        - pattern: 'feature/*'
+          include: true
+          source: true
+        - pattern: 'develop'
+          include: true
+          source: true
+    environment:
+      android_signing:
+        - tsh_keystore
+      groups:
+        - tsh_dev_vars
+      vars:
+        FLUTTER_VERSION: "3.24.5"
+        XCODE_WORKSPACE: "ios/Runner.xcworkspace"
+        XCODE_SCHEME: "Runner"
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Set up local.properties
+        script: |
+          echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
+      
+      - name: Get Flutter packages
+        script: |
+          flutter packages pub get
+      
+      - name: Install CocoaPods dependencies
+        script: |
+          cd ios && pod install
+      
+      - name: Quick Quality Check
+        script: |
+          echo "🔍 Running quick analysis for preview..."
+          flutter analyze --fatal-infos || true
+          flutter test --reporter=compact || true
+      
+      - name: Build Preview Apps
+        script: |
+          echo "📱 Building preview apps..."
+          
+          # Build Android Debug APK for quick testing
+          echo "🤖 Building Android Debug APK..."
+          flutter build apk --debug \
+            --build-name=preview-$CM_BUILD_NUMBER \
+            --build-number=$CM_BUILD_NUMBER
+          
+          # Build iOS Debug for simulator
+          echo "🍎 Building iOS Debug for Simulator..."
+          flutter build ios --debug --simulator \
+            --build-name=preview-$CM_BUILD_NUMBER \
+            --build-number=$CM_BUILD_NUMBER
+          
+          # Build iOS Debug for device (if needed)
+          echo "📱 Building iOS Debug for Device..."
+          flutter build ios --debug --no-codesign \
+            --build-name=preview-$CM_BUILD_NUMBER \
+            --build-number=$CM_BUILD_NUMBER
+      
+      - name: Generate Preview Info
+        script: |
+          echo "📋 Generating preview information..."
+          cat > preview_info.txt << EOF
+          🔍 TSH Salesperson App - Preview Build
+          
+          📱 Build Information:
+          - Build Number: $CM_BUILD_NUMBER
+          - Branch: $CM_BRANCH
+          - Commit: $CM_COMMIT
+          - Build Date: $(date)
+          - Flutter Version: $(flutter --version | head -n1)
+          
+          🚀 Preview Features:
+          - Quick debug builds for testing
+          - No code signing required
+          - Fast build times
+          - Immediate feedback
+          
+          📦 Available Artifacts:
+          - Android Debug APK (ready to install)
+          - iOS Debug App (for simulator/device)
+          
+          🔧 How to Test:
+          1. Download the Android APK and install on device
+          2. Use iOS Simulator or install on registered device
+          3. Test your latest changes immediately
+          EOF
+    
+    artifacts:
+      - build/**/outputs/**/*.apk
+      - build/ios/iphoneos/Runner.app
+      - build/ios/iphonesimulator/Runner.app
+      - preview_info.txt
+      - flutter_drive.log
+    
+    publishing:
+      # Firebase App Distribution for easy preview sharing
+      firebase:
+        firebase_token: $FIREBASE_TOKEN
+        android:
+          app_id: $FIREBASE_ANDROID_APP_ID
+          groups:
+            - tsh-testers
+            - developers
+          release_notes: |
+            🔍 Preview Build - TSH Salesperson App
+            
+            Branch: $CM_BRANCH
+            Commit: $CM_COMMIT
+            
+            This is a preview build for testing latest changes.
+            Please test and provide feedback!
+        ios:
+          app_id: $FIREBASE_IOS_APP_ID
+          groups:
+            - tsh-testers
+            - developers
+      
+      # Email notifications with download links
+      email:
+        recipients:
+          - kha89ahm@gmail.com
+        notify:
+          success: true
+          failure: true
+      
+      # Slack notifications for team
+      slack:
+        channel: '#tsh-previews'
+        notify_on_build_start: true
+        notify:
+          success: true
+          failure: true
+
   # Automated testing workflow
   testing:
     name: Automated Testing
