@@ -1,9 +1,12 @@
+import 'package:flutter/material.dart';
 import '../services/odoo_service.dart';
 
 class SideMenu extends StatelessWidget {
+  const SideMenu({super.key});
+
   @override
   Widget build(BuildContext context) {
-    final odoo = OdooService('https://your-odoo-domain.com');
+    final odoo = OdooService();
     return Drawer(
       child: ListView(
         children: [
