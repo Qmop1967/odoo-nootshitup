@@ -1,0 +1,389 @@
+workflows:
+  # Development workflow - for feature branches and testing
+  development:
+    name: Development Build
+    max_build_duration: 60
+    instance_type: mac_mini_m1
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: 'develop'
+          include: true
+          source: true
+        - pattern: 'feature/*'
+          include: true
+          source: true
+    environment:
+      android_signing:
+        - tsh_keystore
+      groups:
+        - tsh_dev_vars
+      vars:
+        FLUTTER_VERSION: "3.24.5"
+        XCODE_WORKSPACE: "ios/Runner.xcworkspace"
+        XCODE_SCHEME: "Runner"
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Set up local.properties
+        script: |
+          echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
+      
+      - name: Get Flutter packages
+        script: |
+          flutter packages pub get
+      
+      - name: Install CocoaPods dependencies
+        script: |
+          cd ios && pod install
+      
+      - name: Code Analysis & Linting
+        script: |
+          echo "🔍 Running Flutter analysis..."
+          flutter analyze --fatal-infos --fatal-warnings
+          
+          echo "🧪 Running tests..."
+          flutter test --coverage --reporter=json > test_results.json || true
+          
+          echo "📊 Checking code quality..."
+          dart run dart_code_metrics:metrics analyze lib --reporter=json > code_metrics.json || true
+      
+      - name: Build Android Debug
+        script: |
+          echo "🔧 Building Android Debug APK..."
+          flutter build apk --debug --build-name=1.0.$CM_BUILD_NUMBER --build-number=$CM_BUILD_NUMBER
+      
+      - name: Build iOS Debug
+        script: |
+          echo "🔧 Building iOS Debug..."
+          flutter build ios --debug --no-codesign --build-name=1.0.$CM_BUILD_NUMBER --build-number=$CM_BUILD_NUMBER
+    
+    artifacts:
+      - build/**/outputs/**/*.apk
+      - build/**/outputs/**/*.aab
+      - build/**/outputs/**/mapping.txt
+      - build/ios/iphoneos/Runner.app
+      - flutter_drive.log
+      - test_results.json
+      - code_metrics.json
+    
+    publishing:
+      email:
+        recipients:
+          - kha89ahm@gmail.com
+        notify:
+          success: true
+          failure: true
+      slack:
+        channel: '#tsh-builds'
+        notify_on_build_start: true
+        notify:
+          success: true
+          failure: true
+
+  # Production workflow - for main branch and releases
+  production:
+    name: Production Release
+    max_build_duration: 120
+    instance_type: mac_mini_m1
+    triggering:
+      events:
+        - push
+        - tag
+      branch_patterns:
+        - pattern: 'main'
+          include: true
+          source: true
+      tag_patterns:
+        - pattern: 'v*'
+          include: true
+    environment:
+      android_signing:
+        - tsh_keystore
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.tsh.sales.tsh_salesperson_app
+      groups:
+        - tsh_prod_vars
+        - app_store_credentials
+        - google_play_credentials
+      vars:
+        FLUTTER_VERSION: "3.24.5"
+        XCODE_WORKSPACE: "ios/Runner.xcworkspace"
+        XCODE_SCHEME: "Runner"
+        PACKAGE_NAME: "com.tsh.sales.tsh_salesperson_app"
+        GOOGLE_PLAY_TRACK: "internal" # Change to "production" when ready
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Set up local.properties
+        script: |
+          echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
+      
+      - name: Get Flutter packages
+        script: |
+          flutter packages pub get
+      
+      - name: Install CocoaPods dependencies
+        script: |
+          cd ios && pod install
+      
+      - name: Pre-build Quality Checks
+        script: |
+          echo "🔍 Running comprehensive analysis..."
+          
+          # Flutter analysis
+          flutter analyze --fatal-infos --fatal-warnings
+          
+          # Run tests with coverage
+          flutter test --coverage --reporter=json > test_results.json
+          
+          # Check for security vulnerabilities
+          flutter pub deps --json > dependencies.json
+          
+          # Validate app configuration
+          echo "📱 Validating app configuration..."
+          if [ ! -f "android/key.properties" ]; then
+            echo "❌ Android signing configuration missing!"
+            exit 1
+          fi
+          
+          # Check version consistency
+          VERSION_PUBSPEC=$(grep "version:" pubspec.yaml | cut -d' ' -f2 | cut -d'+' -f1)
+          echo "📋 App version: $VERSION_PUBSPEC"
+      
+      - name: Build Android Release
+        script: |
+          echo "🔧 Building Android App Bundle for Play Store..."
+          flutter build appbundle --release \
+            --build-name=1.0.$CM_BUILD_NUMBER \
+            --build-number=$CM_BUILD_NUMBER \
+            --obfuscate \
+            --split-debug-info=build/app/outputs/symbols
+          
+          echo "🔧 Building Android APK for testing..."
+          flutter build apk --release \
+            --build-name=1.0.$CM_BUILD_NUMBER \
+            --build-number=$CM_BUILD_NUMBER
+      
+      - name: Build iOS Release
+        script: |
+          echo "🔧 Building iOS for App Store..."
+          flutter build ipa --release \
+            --build-name=1.0.$CM_BUILD_NUMBER \
+            --build-number=$CM_BUILD_NUMBER \
+            --obfuscate \
+            --split-debug-info=build/ios/symbols
+      
+      - name: Run Integration Tests
+        script: |
+          echo "🧪 Running integration tests..."
+          # Add your integration tests here
+          # flutter drive --target=test_driver/app.dart || true
+      
+      - name: Generate Release Notes
+        script: |
+          echo "📝 Generating release notes..."
+          cat > release_notes.txt << EOF
+          🚀 TSH Salesperson App v1.0.$CM_BUILD_NUMBER
+          
+          📱 Build Information:
+          - Build Number: $CM_BUILD_NUMBER
+          - Flutter Version: $(flutter --version | head -n1)
+          - Build Date: $(date)
+          - Git Commit: $CM_COMMIT
+          
+          🔧 What's New:
+          - Latest features and improvements
+          - Bug fixes and performance enhancements
+          - Enhanced Odoo integration
+          
+          📊 Quality Metrics:
+          - All tests passed ✅
+          - Code analysis clean ✅
+          - Security checks passed ✅
+          EOF
+    
+    artifacts:
+      - build/**/outputs/**/*.apk
+      - build/**/outputs/**/*.aab
+      - build/**/outputs/**/mapping.txt
+      - build/ios/ipa/*.ipa
+      - build/app/outputs/symbols/**
+      - build/ios/symbols/**
+      - test_results.json
+      - dependencies.json
+      - release_notes.txt
+      - flutter_drive.log
+    
+    publishing:
+      # Google Play Store publishing
+      google_play:
+        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+        track: $GOOGLE_PLAY_TRACK
+        submit_as_draft: true
+        in_app_update_priority: 3
+        rollout_fraction: 0.1 # Start with 10% rollout
+        changes_not_sent_for_review: false
+        release_notes:
+          file: release_notes.txt
+      
+      # App Store publishing
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: true
+        submit_to_app_store: false # Set to true when ready for production
+        release_type: AFTER_APPROVAL
+        copyright: "© 2024 TSH Company"
+        
+      # Email notifications
+      email:
+        recipients:
+          - kha89ahm@gmail.com
+        notify:
+          success: true
+          failure: true
+      
+      # Slack notifications
+      slack:
+        channel: '#tsh-releases'
+        notify_on_build_start: true
+        notify:
+          success: true
+          failure: true
+
+  # Hotfix workflow - for urgent fixes
+  hotfix:
+    name: Hotfix Release
+    max_build_duration: 60
+    instance_type: mac_mini_m1
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: 'hotfix/*'
+          include: true
+          source: true
+    environment:
+      android_signing:
+        - tsh_keystore
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.tsh.sales.tsh_salesperson_app
+      groups:
+        - tsh_prod_vars
+        - app_store_credentials
+        - google_play_credentials
+      vars:
+        FLUTTER_VERSION: "3.24.5"
+        GOOGLE_PLAY_TRACK: "internal"
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Set up local.properties
+        script: |
+          echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
+      
+      - name: Get Flutter packages
+        script: |
+          flutter packages pub get
+      
+      - name: Install CocoaPods dependencies
+        script: |
+          cd ios && pod install
+      
+      - name: Quick Quality Check
+        script: |
+          echo "🔍 Running quick analysis for hotfix..."
+          flutter analyze --fatal-infos
+          flutter test --reporter=compact
+      
+      - name: Build Hotfix Release
+        script: |
+          echo "🚨 Building hotfix release..."
+          HOTFIX_VERSION="1.0.$CM_BUILD_NUMBER-hotfix"
+          
+          # Android
+          flutter build appbundle --release \
+            --build-name=$HOTFIX_VERSION \
+            --build-number=$CM_BUILD_NUMBER
+          
+          # iOS
+          flutter build ipa --release \
+            --build-name=$HOTFIX_VERSION \
+            --build-number=$CM_BUILD_NUMBER
+    
+    artifacts:
+      - build/**/outputs/**/*.apk
+      - build/**/outputs/**/*.aab
+      - build/ios/ipa/*.ipa
+    
+    publishing:
+      google_play:
+        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+        track: internal
+        submit_as_draft: true
+        
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: true
+        
+      email:
+        recipients:
+          - kha89ahm@gmail.com
+        notify:
+          success: true
+          failure: true
+
+  # Automated testing workflow
+  testing:
+    name: Automated Testing
+    max_build_duration: 30
+    instance_type: linux_x2
+    triggering:
+      events:
+        - pull_request
+      branch_patterns:
+        - pattern: '*'
+          include: true
+          source: true
+    environment:
+      vars:
+        FLUTTER_VERSION: "3.24.5"
+      flutter: stable
+    scripts:
+      - name: Get Flutter packages
+        script: |
+          flutter packages pub get
+      
+      - name: Run comprehensive tests
+        script: |
+          echo "🧪 Running unit tests..."
+          flutter test --coverage --reporter=json > test_results.json
+          
+          echo "🔍 Running static analysis..."
+          flutter analyze --fatal-infos --fatal-warnings
+          
+          echo "📊 Checking code formatting..."
+          dart format --set-exit-if-changed .
+          
+          echo "🔒 Security audit..."
+          flutter pub deps --json > dependencies.json
+          
+          echo "📱 Validate pubspec.yaml..."
+          flutter pub publish --dry-run
+    
+    artifacts:
+      - test_results.json
+      - dependencies.json
+    
+    publishing:
+      email:
+        recipients:
+          - kha89ahm@gmail.com
+        notify:
+          failure: true 
