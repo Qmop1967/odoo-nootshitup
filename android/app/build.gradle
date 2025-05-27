@@ -18,6 +18,14 @@ if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 }
 
+// Use Codemagic environment variables if available, otherwise use key.properties
+def getKeystoreProperty = { String key, String envVar = null ->
+    if (envVar != null && System.getenv(envVar) != null) {
+        return System.getenv(envVar)
+    }
+    return keystoreProperties[key]
+}
+
 android {
     namespace = "com.tsh.sales.tsh_salesperson_app"
     compileSdk = 35
@@ -43,7 +51,17 @@ android {
 
     signingConfigs {
         release {
-            if (keystoreProperties['keyAlias'] != null) {
+            // Use Codemagic environment variables if available, otherwise use key.properties
+            def useCodemagic = System.getenv("CM_KEYSTORE") != null
+            
+            if (useCodemagic) {
+                // Codemagic signing configuration
+                keyAlias = System.getenv("CM_KEY_ALIAS") ?: "my-key-alias"
+                keyPassword = System.getenv("CM_KEY_PASSWORD")
+                storeFile = file(System.getenv("CM_KEYSTORE"))
+                storePassword = System.getenv("CM_KEYSTORE_PASSWORD")
+            } else if (keystoreProperties['keyAlias'] != null) {
+                // Local development signing configuration
                 keyAlias = keystoreProperties['keyAlias']
                 keyPassword = keystoreProperties['keyPassword']
                 storeFile = file(keystoreProperties['storeFile'])
@@ -54,7 +72,11 @@ android {
 
     buildTypes {
         release {
-            signingConfig = keystoreProperties['keyAlias'] != null ? signingConfigs.release : signingConfigs.debug
+            // Use release signing if either Codemagic env vars or key.properties are available
+            def hasCodemagicSigning = System.getenv("CM_KEYSTORE") != null
+            def hasLocalSigning = keystoreProperties['keyAlias'] != null
+            
+            signingConfig = (hasCodemagicSigning || hasLocalSigning) ? signingConfigs.release : signingConfigs.debug
             minifyEnabled = true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
