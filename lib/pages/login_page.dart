@@ -112,6 +112,7 @@ class _LoginPageState extends State<LoginPage> {
                       child: Column(
                         children: [
                           TextFormField(
+                            key: const Key('server_url_field'),
                             controller: _serverController,
                             decoration: const InputDecoration(
                               labelText: 'Server URL',
@@ -122,6 +123,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           const SizedBox(height: 16),
                           TextFormField(
+                            key: const Key('database_field'),
                             controller: _databaseController,
                             decoration: const InputDecoration(
                               labelText: 'Database',
@@ -132,6 +134,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           const SizedBox(height: 16),
                           TextFormField(
+                            key: const Key('username_field'),
                             controller: _usernameController,
                             decoration: const InputDecoration(
                               labelText: 'Username',
@@ -142,6 +145,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           const SizedBox(height: 16),
                           TextFormField(
+                            key: const Key('password_field'),
                             controller: _passwordController,
                             obscureText: true,
                             decoration: const InputDecoration(
@@ -163,6 +167,7 @@ class _LoginPageState extends State<LoginPage> {
                           SizedBox(
                             width: double.infinity,
                             child: ElevatedButton(
+                              key: const Key('login_button'),
                               onPressed: _isLoading ? null : _login,
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: const Color(0xFF1E88E5),

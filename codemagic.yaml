@@ -181,8 +181,9 @@ workflows:
       - name: Run Integration Tests
         script: |
           echo "🧪 Running integration tests..."
-          # Add your integration tests here
-          # flutter drive --target=test_driver/app.dart || true
+          # Run integration tests using our custom script
+          chmod +x scripts/run_integration_tests.sh
+          ./scripts/run_integration_tests.sh
       
       - name: Generate Release Notes
         script: |
