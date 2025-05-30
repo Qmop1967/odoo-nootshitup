@@ -24,8 +24,8 @@ void main() {
       await tester.pumpWidget(
         const MaterialApp(
           home: Scaffold(
-            body: const SingleChildScrollView(
-              child: const SizedBox(
+            body: SingleChildScrollView(
+              child: SizedBox(
                 height: 800, // Give enough height
                 child: LoginPage(),
               ),
@@ -50,8 +50,8 @@ void main() {
       await tester.pumpWidget(
         const MaterialApp(
           home: Scaffold(
-            body: const SingleChildScrollView(
-              child: const SizedBox(
+            body: SingleChildScrollView(
+              child: SizedBox(
                 height: 800,
                 child: LoginPage(),
               ),
@@ -74,8 +74,8 @@ void main() {
       await tester.pumpWidget(
         const MaterialApp(
           home: Scaffold(
-            body: const SingleChildScrollView(
-              child: const SizedBox(
+            body: SingleChildScrollView(
+              child: SizedBox(
                 height: 800,
                 child: LoginPage(),
               ),
@@ -103,8 +103,8 @@ void main() {
       await tester.pumpWidget(
         const MaterialApp(
           home: Scaffold(
-            body: const SingleChildScrollView(
-              child: const SizedBox(
+            body: SingleChildScrollView(
+              child: SizedBox(
                 height: 800,
                 child: LoginPage(),
               ),

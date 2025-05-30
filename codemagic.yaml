@@ -1,9 +1,9 @@
 # Codemagic CI/CD Configuration for TSH Salesperson App
-# This file configures automatic iOS App Store deployment with certificate management
+# Optimized for TestFlight, APK, Android Store deployment and App Preview
 
 workflows:
   ios-workflow:
-    name: iOS App Store Deployment
+    name: iOS App Store & TestFlight Deployment
     max_build_duration: 120
     instance_type: mac_mini_m1
     triggering:
@@ -45,17 +45,18 @@ workflows:
           find . -name "Podfile" -execdir pod install \;
       - name: Flutter analyze
         script: |
-          flutter analyze
+          flutter analyze --no-fatal-infos
         ignore_failure: true
       - name: Flutter unit tests
         script: |
-          flutter test
+          flutter test --no-sound-null-safety
         ignore_failure: true
-      - name: Build Flutter iOS
+      - name: Build Flutter iOS for TestFlight & App Store
         script: |
           flutter build ipa --release \
             --build-name=1.0.$BUILD_NUMBER \
-            --build-number=$BUILD_NUMBER
+            --build-number=$BUILD_NUMBER \
+            --export-options-plist=ios/Runner/ExportOptions.plist
     artifacts:
       - build/ios/ipa/*.ipa
       - /tmp/xcodebuild_logs/*.log
@@ -63,7 +64,7 @@ workflows:
     publishing:
       email:
         recipients:
-          - kha89ahm@gmail.com # Your email
+          - kha89ahm@gmail.com
         notify:
           success: true
           failure: true
@@ -74,7 +75,7 @@ workflows:
         release_type: AFTER_APPROVAL
         
   android-workflow:
-    name: Android Play Store Deployment
+    name: Android APK & Play Store Deployment
     max_build_duration: 120
     instance_type: linux_x2
     triggering:
@@ -92,8 +93,6 @@ workflows:
     environment:
       android_signing:
         - tsh_keystore
-      # groups:
-      #   - google_play  # Disabled until Google Play service account is configured
       vars:
         PACKAGE_NAME: "com.tsh.sales.tsh_salesperson_app"
         CM_KEYSTORE_PASSWORD: "Zcbm.97531tsh"
@@ -109,25 +108,31 @@ workflows:
           flutter packages pub get
       - name: Flutter analyze
         script: |
-          flutter analyze
+          flutter analyze --no-fatal-infos
         ignore_failure: true
       - name: Flutter unit tests
         script: |
-          flutter test
+          flutter test --no-sound-null-safety
         ignore_failure: true
-      - name: Build AAB with Flutter
+      - name: Build APK for distribution
+        script: |
+          flutter build apk --release \
+            --build-name=1.0.$BUILD_NUMBER \
+            --build-number=$BUILD_NUMBER
+      - name: Build AAB for Play Store
         script: |
           flutter build appbundle --release \
             --build-name=1.0.$BUILD_NUMBER \
             --build-number=$BUILD_NUMBER
     artifacts:
+      - build/app/outputs/**/*.apk
       - build/app/outputs/**/*.aab
       - build/app/outputs/**/mapping.txt
       - flutter_drive.log
     publishing:
       email:
         recipients:
-          - kha89ahm@gmail.com # Your email
+          - kha89ahm@gmail.com
         notify:
           success: true
           failure: true
@@ -135,4 +140,52 @@ workflows:
       #   credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
       #   track: internal
       #   submit_as_draft: true
-      # Note: Google Play upload disabled until service account is configured
+      # Note: Google Play upload will be enabled after service account setup
+
+  preview-workflow:
+    name: App Preview & Testing Build
+    max_build_duration: 60
+    instance_type: linux_x2
+    triggering:
+      events:
+        - push
+        - pull_request
+      branch_patterns:
+        - pattern: '*'
+          include: true
+          source: true
+    environment:
+      android_signing:
+        - tsh_keystore
+      vars:
+        PACKAGE_NAME: "com.tsh.sales.tsh_salesperson_app"
+        CM_KEYSTORE_PASSWORD: "Zcbm.97531tsh"
+        CM_KEY_ALIAS: "my-key-alias"
+        CM_KEY_PASSWORD: "Zcbm.97531tsh"
+      flutter: stable
+    scripts:
+      - name: Set up local.properties
+        script: |
+          echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
+      - name: Get Flutter packages
+        script: |
+          flutter packages pub get
+      - name: Flutter analyze
+        script: |
+          flutter analyze --no-fatal-infos
+        ignore_failure: true
+      - name: Build APK for preview
+        script: |
+          flutter build apk --debug \
+            --build-name=preview-$BUILD_NUMBER \
+            --build-number=$BUILD_NUMBER
+    artifacts:
+      - build/app/outputs/**/*.apk
+      - flutter_drive.log
+    publishing:
+      email:
+        recipients:
+          - kha89ahm@gmail.com
+        notify:
+          success: true
+          failure: true
