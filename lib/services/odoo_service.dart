@@ -19,7 +19,7 @@ class OdooService {
   String? _userEmail;
   bool _isAdmin = false;
   Map<String, dynamic>? _userInfo;
-  Map<String, String> _headers = {'Content-Type': 'application/json'};
+  final Map<String, String> _headers = {'Content-Type': 'application/json'};
 
   // Getters for session status
   bool get isAuthenticated => _sessionId != null && _baseUrl != null;
@@ -68,7 +68,7 @@ class OdooService {
       try {
         _userInfo = jsonDecode(userInfoString);
       } catch (e) {
-        print('Error loading user info: $e');
+        // Error loading user info: $e
       }
     }
     
@@ -140,7 +140,7 @@ class OdooService {
         }
       }
     } catch (e) {
-      print('Login error: $e');
+      // Login error: $e
     }
     
     return false;
@@ -182,7 +182,7 @@ class OdooService {
         }
       }
     } catch (e) {
-      print('Error loading user info: $e');
+      // Error loading user info: $e
       _isAdmin = false;
     }
   }
@@ -265,7 +265,7 @@ class OdooService {
         'products_sold': productData.length,
       };
     } catch (e) {
-      print('Dashboard data error: $e');
+      // Dashboard data error: $e
       // Return mock data if API fails
       return {
         'total_amount': 125000.0,
@@ -313,7 +313,7 @@ class OdooService {
         }
       }
     } catch (e) {
-      print('Search read error: $e');
+      // Search read error: $e
     }
     
     return [];
@@ -345,7 +345,7 @@ class OdooService {
         return data['result'];
       }
     } catch (e) {
-      print('Create error: $e');
+      // Create error: $e
     }
     
     return null;
@@ -374,7 +374,7 @@ class OdooService {
       
       return response.statusCode == 200;
     } catch (e) {
-      print('Write error: $e');
+      // Write error: $e
       return false;
     }
   }
@@ -451,7 +451,7 @@ class OdooService {
       final result = await create('account.payment', paymentData);
       return result != null;
     } catch (e) {
-      print('Error creating payment: $e');
+      // Error creating payment: $e
       return false;
     }
   }
@@ -478,7 +478,7 @@ class OdooService {
       final result = await create('sale.order', orderData);
       return result != null;
     } catch (e) {
-      print('Error creating sale order: $e');
+      // Error creating sale order: $e
       return false;
     }
   }
@@ -507,7 +507,7 @@ class OdooService {
       final result = await create('res.partner', customerData);
       return result != null;
     } catch (e) {
-      print('Error creating customer: $e');
+      // Error creating customer: $e
       return false;
     }
   }
