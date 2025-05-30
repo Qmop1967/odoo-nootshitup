@@ -58,8 +58,6 @@ workflows:
       ios_signing:
         distribution_type: app_store
         bundle_identifier: com.tsh.sales.tsh_salesperson_app
-        xcode_project: ios/Runner.xcodeproj
-        xcode_scheme: Runner
       groups:
         - tsh_prod_vars
         - app_store_credentials
@@ -141,37 +139,6 @@ workflows:
         auth: integration
         submit_to_testflight: true
         submit_to_app_store: false
-      
-      # Webhook for automatic build feedback
-      webhooks:
-        - name: build_status_webhook
-          url: $WEBHOOK_URL
-          headers:
-            Authorization: Bearer $WEBHOOK_TOKEN
-            Content-Type: application/json
-          when:
-            - success
-            - failure
-          payload: |
-            {
-              "build_id": "$CM_BUILD_ID",
-              "build_number": "$CM_BUILD_NUMBER",
-              "app_name": "$CM_PROJECT_NAME",
-              "workflow": "$CM_WORKFLOW_NAME",
-              "branch": "$CM_BRANCH",
-              "commit": "$CM_COMMIT",
-              "commit_message": "$CM_COMMIT_MESSAGE",
-              "status": "$CM_BUILD_STATUS",
-              "build_url": "$CM_BUILD_URL",
-              "artifacts_url": "$CM_ARTIFACTS_URL",
-              "logs_url": "$CM_LOGS_URL",
-              "started_at": "$CM_BUILD_STARTED_AT",
-              "finished_at": "$CM_BUILD_FINISHED_AT",
-              "duration": "$CM_BUILD_DURATION",
-              "instance_type": "$CM_INSTANCE_TYPE",
-              "flutter_version": "$FLUTTER_VERSION",
-              "error_details": "$CM_BUILD_OUTPUT"
-            }
         
       email:
         recipients:
@@ -447,8 +414,6 @@ workflows:
       ios_signing:
         distribution_type: app_store
         bundle_identifier: com.tsh.sales.tsh_salesperson_app
-        xcode_project: ios/Runner.xcodeproj
-        xcode_scheme: Runner
       groups:
         - tsh_prod_vars
         - app_store_credentials
