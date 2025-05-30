@@ -93,6 +93,10 @@ workflows:
         XCODE_SCHEME: "Runner"
         PACKAGE_NAME: "com.tsh.sales.tsh_salesperson_app"
         GOOGLE_PLAY_TRACK: "internal"
+        # iOS Configuration
+        APP_STORE_CONNECT_ISSUER_ID: $APP_STORE_CONNECT_ISSUER_ID
+        APP_STORE_CONNECT_KEY_IDENTIFIER: $APP_STORE_CONNECT_KEY_IDENTIFIER
+        APP_STORE_CONNECT_PRIVATE_KEY: $APP_STORE_CONNECT_PRIVATE_KEY
       flutter: stable
       xcode: latest
       cocoapods: default
@@ -147,7 +151,8 @@ workflows:
           BUILD_NUMBER=${CM_BUILD_NUMBER:-1}
           flutter build ipa --release \
             --build-name=1.0.$BUILD_NUMBER \
-            --build-number=$BUILD_NUMBER
+            --build-number=$BUILD_NUMBER \
+            --export-options-plist=ios/ExportOptions.plist
       
       - name: Generate Release Notes
         script: |
