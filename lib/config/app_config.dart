@@ -4,8 +4,8 @@
 class AppConfig {
   // Odoo Server Configuration
   // TODO: Replace these with your actual Odoo server details
-  static const String odooServerUrl = 'https://your-odoo-server.com';
-  static const String odooDatabaseName = 'your-database-name';
+  static const String odooServerUrl = 'https://demo.odoo.com';
+  static const String odooDatabaseName = 'demo';
   
   // App Information
   static const String appName = 'TSH Salesperson';
