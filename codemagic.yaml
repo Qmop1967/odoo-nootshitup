@@ -139,6 +139,7 @@ workflows:
       - build/**/outputs/**/*.aab
       - build/**/outputs/**/mapping.txt
       - build/ios/ipa/*.ipa
+      - build/ios/archive/*.xcarchive
       - release_notes.txt
       - flutter_drive.log
     
@@ -344,6 +345,7 @@ workflows:
       - build/**/outputs/**/*.aab
       - build/**/outputs/**/mapping.txt
       - build/ios/ipa/*.ipa
+      - build/ios/archive/*.xcarchive
       - release_notes.txt
       - flutter_drive.log
     
