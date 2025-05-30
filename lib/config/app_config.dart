@@ -1,4 +1,12 @@
+/// TSH Salesperson App Configuration
+/// 
+/// Update these values with your actual Odoo server details
 class AppConfig {
+  // Odoo Server Configuration
+  // TODO: Replace these with your actual Odoo server details
+  static const String odooServerUrl = 'https://your-odoo-server.com';
+  static const String odooDatabaseName = 'your-database-name';
+  
   // App Information
   static const String appName = 'TSH Salesperson';
   static const String appVersion = '1.0.0';
@@ -52,4 +60,20 @@ class AppConfig {
   static const String authErrorMessage = 'Authentication failed. Please check your credentials.';
   static const String serverErrorMessage = 'Server error. Please try again later.';
   static const String unknownErrorMessage = 'An unexpected error occurred. Please try again.';
+
+  /// Validates if the configuration is properly set
+  static bool get isConfigured {
+    return odooServerUrl != 'https://your-odoo-server.com' &&
+           odooDatabaseName != 'your-database-name' &&
+           odooServerUrl.isNotEmpty &&
+           odooDatabaseName.isNotEmpty;
+  }
+  
+  /// Returns a user-friendly error message if configuration is incomplete
+  static String get configurationError {
+    if (!isConfigured) {
+      return 'Please update the Odoo server configuration in lib/config/app_config.dart';
+    }
+    return '';
+  }
 }

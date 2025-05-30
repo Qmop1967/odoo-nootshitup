@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../services/odoo_service.dart';
+import '../config/app_config.dart';
 import 'dashboard_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -12,10 +13,9 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
-  final _usernameController = TextEditingController();
+  final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  final _serverController = TextEditingController(text: 'https://demo.odoo.com');
-  final _databaseController = TextEditingController(text: 'demo');
+  
   bool _isLoading = false;
   String? _errorMessage;
 
@@ -23,6 +23,15 @@ class _LoginPageState extends State<LoginPage> {
   void initState() {
     super.initState();
     _checkExistingSession();
+    _checkConfiguration();
+  }
+
+  void _checkConfiguration() {
+    if (!AppConfig.isConfigured) {
+      setState(() {
+        _errorMessage = AppConfig.configurationError;
+      });
+    }
   }
 
   Future<void> _checkExistingSession() async {
@@ -38,6 +47,13 @@ class _LoginPageState extends State<LoginPage> {
   Future<void> _login() async {
     if (!_formKey.currentState!.validate()) return;
 
+    if (!AppConfig.isConfigured) {
+      setState(() {
+        _errorMessage = AppConfig.configurationError;
+      });
+      return;
+    }
+
     setState(() {
       _isLoading = true;
       _errorMessage = null;
@@ -45,9 +61,9 @@ class _LoginPageState extends State<LoginPage> {
 
     try {
       final success = await OdooService().login(
-        _serverController.text,
-        _databaseController.text,
-        _usernameController.text,
+        AppConfig.odooServerUrl,
+        AppConfig.odooDatabaseName,
+        _emailController.text,
         _passwordController.text,
       );
 
@@ -57,12 +73,12 @@ class _LoginPageState extends State<LoginPage> {
         );
       } else {
         setState(() {
-          _errorMessage = 'Invalid credentials or server error';
+          _errorMessage = 'Invalid email or password';
         });
       }
     } catch (e) {
       setState(() {
-        _errorMessage = 'Login failed: $e';
+        _errorMessage = 'Login failed: Please check your connection and try again';
       });
     } finally {
       setState(() {
@@ -104,6 +120,14 @@ class _LoginPageState extends State<LoginPage> {
                       color: Colors.white,
                     ),
                   ),
+                  const SizedBox(height: 16),
+                  const Text(
+                    'Sign in to your account',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white70,
+                    ),
+                  ),
                   const SizedBox(height: 48),
                   Card(
                     elevation: 8,
@@ -112,36 +136,23 @@ class _LoginPageState extends State<LoginPage> {
                       child: Column(
                         children: [
                           TextFormField(
-                            key: const Key('server_url_field'),
-                            controller: _serverController,
+                            key: const Key('email_field'),
+                            controller: _emailController,
+                            keyboardType: TextInputType.emailAddress,
                             decoration: const InputDecoration(
-                              labelText: 'Server URL',
-                              prefixIcon: Icon(Icons.link),
+                              labelText: 'Email',
+                              prefixIcon: Icon(Icons.email),
+                              hintText: 'Enter your email address',
                             ),
-                            validator: (value) =>
-                                value?.isEmpty == true ? 'Required' : null,
-                          ),
-                          const SizedBox(height: 16),
-                          TextFormField(
-                            key: const Key('database_field'),
-                            controller: _databaseController,
-                            decoration: const InputDecoration(
-                              labelText: 'Database',
-                              prefixIcon: Icon(Icons.storage),
-                            ),
-                            validator: (value) =>
-                                value?.isEmpty == true ? 'Required' : null,
-                          ),
-                          const SizedBox(height: 16),
-                          TextFormField(
-                            key: const Key('username_field'),
-                            controller: _usernameController,
-                            decoration: const InputDecoration(
-                              labelText: 'Username',
-                              prefixIcon: Icon(Icons.person),
-                            ),
-                            validator: (value) =>
-                                value?.isEmpty == true ? 'Required' : null,
+                            validator: (value) {
+                              if (value?.isEmpty == true) {
+                                return 'Email is required';
+                              }
+                              if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value!)) {
+                                return 'Please enter a valid email';
+                              }
+                              return null;
+                            },
                           ),
                           const SizedBox(height: 16),
                           TextFormField(
@@ -151,17 +162,34 @@ class _LoginPageState extends State<LoginPage> {
                             decoration: const InputDecoration(
                               labelText: 'Password',
                               prefixIcon: Icon(Icons.lock),
+                              hintText: 'Enter your password',
                             ),
                             validator: (value) =>
-                                value?.isEmpty == true ? 'Required' : null,
+                                value?.isEmpty == true ? 'Password is required' : null,
                           ),
                           const SizedBox(height: 24),
                           if (_errorMessage != null)
                             Padding(
                               padding: const EdgeInsets.only(bottom: 16),
-                              child: Text(
-                                _errorMessage!,
-                                style: const TextStyle(color: Colors.red),
+                              child: Container(
+                                padding: const EdgeInsets.all(12),
+                                decoration: BoxDecoration(
+                                  color: Colors.red.shade50,
+                                  borderRadius: BorderRadius.circular(8),
+                                  border: Border.all(color: Colors.red.shade200),
+                                ),
+                                child: Row(
+                                  children: [
+                                    Icon(Icons.error_outline, color: Colors.red.shade600, size: 20),
+                                    const SizedBox(width: 8),
+                                    Expanded(
+                                      child: Text(
+                                        _errorMessage!,
+                                        style: TextStyle(color: Colors.red.shade600),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           SizedBox(
@@ -173,14 +201,38 @@ class _LoginPageState extends State<LoginPage> {
                                 backgroundColor: const Color(0xFF1E88E5),
                                 foregroundColor: Colors.white,
                                 padding: const EdgeInsets.symmetric(vertical: 16),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
                               ),
                               child: _isLoading
-                                  ? const CircularProgressIndicator(color: Colors.white)
-                                  : const Text('Login'),
+                                  ? const SizedBox(
+                                      height: 20,
+                                      width: 20,
+                                      child: CircularProgressIndicator(
+                                        color: Colors.white,
+                                        strokeWidth: 2,
+                                      ),
+                                    )
+                                  : const Text(
+                                      'Sign In',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
                             ),
                           ),
                         ],
                       ),
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                  const Text(
+                    'Powered by TSH Sales System',
+                    style: TextStyle(
+                      color: Colors.white70,
+                      fontSize: 12,
                     ),
                   ),
                 ],
@@ -194,10 +246,8 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void dispose() {
-    _usernameController.dispose();
+    _emailController.dispose();
     _passwordController.dispose();
-    _serverController.dispose();
-    _databaseController.dispose();
     super.dispose();
   }
 } 

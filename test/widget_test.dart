@@ -39,11 +39,10 @@ void main() {
 
       // Verify that we're on the login page
       expect(find.text('TSH Salesperson'), findsOneWidget);
-      expect(find.text('Server URL'), findsOneWidget);
-      expect(find.text('Database'), findsOneWidget);
-      expect(find.text('Username'), findsOneWidget);
+      expect(find.text('Sign in to your account'), findsOneWidget);
+      expect(find.text('Email'), findsOneWidget);
       expect(find.text('Password'), findsOneWidget);
-      expect(find.text('Login'), findsOneWidget);
+      expect(find.text('Sign In'), findsOneWidget);
     });
 
     testWidgets('Login form fields are accessible', (WidgetTester tester) async {
@@ -65,9 +64,7 @@ void main() {
       await tester.pumpAndSettle();
 
       // Verify form fields can be found by their keys
-      expect(find.byKey(const Key('server_url_field')), findsOneWidget);
-      expect(find.byKey(const Key('database_field')), findsOneWidget);
-      expect(find.byKey(const Key('username_field')), findsOneWidget);
+      expect(find.byKey(const Key('email_field')), findsOneWidget);
       expect(find.byKey(const Key('password_field')), findsOneWidget);
       expect(find.byKey(const Key('login_button')), findsOneWidget);
     });
@@ -91,16 +88,44 @@ void main() {
       await tester.pumpAndSettle();
 
       // Fill in the form with valid data
-      await tester.enterText(find.byKey(const Key('server_url_field')), 'https://test.odoo.com');
-      await tester.enterText(find.byKey(const Key('database_field')), 'test');
-      await tester.enterText(find.byKey(const Key('username_field')), 'testuser');
-      await tester.enterText(find.byKey(const Key('password_field')), 'testpass');
+      await tester.enterText(find.byKey(const Key('email_field')), 'admin@example.com');
+      await tester.enterText(find.byKey(const Key('password_field')), 'password123');
       
       // Verify that the login button is present
       expect(find.byKey(const Key('login_button')), findsOneWidget);
       
       // Note: We don't actually tap login here as it would require network access
       // In a real test environment, you would mock the OdooService
+    });
+
+    testWidgets('Email validation works', (WidgetTester tester) async {
+      // Test the login page
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: SingleChildScrollView(
+              child: SizedBox(
+                height: 800,
+                child: const LoginPage(),
+              ),
+            ),
+          ),
+        ),
+      );
+
+      // Wait for the widget to settle
+      await tester.pumpAndSettle();
+
+      // Enter invalid email
+      await tester.enterText(find.byKey(const Key('email_field')), 'invalid-email');
+      await tester.enterText(find.byKey(const Key('password_field')), 'password123');
+      
+      // Tap the login button
+      await tester.tap(find.byKey(const Key('login_button')));
+      await tester.pumpAndSettle();
+      
+      // Should show email validation error
+      expect(find.text('Please enter a valid email'), findsOneWidget);
     });
 
     testWidgets('App has proper navigation structure', (WidgetTester tester) async {
