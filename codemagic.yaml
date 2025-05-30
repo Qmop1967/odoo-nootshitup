@@ -46,7 +46,8 @@ workflows:
       - name: Build Android Debug
         script: |
           echo "🔧 Building Android Debug APK..."
-          flutter build apk --debug --build-name=1.0.$CM_BUILD_NUMBER --build-number=$CM_BUILD_NUMBER
+          BUILD_NUMBER=${CM_BUILD_NUMBER:-1}
+          flutter build apk --debug --build-name=1.0.$BUILD_NUMBER --build-number=$BUILD_NUMBER
     
     artifacts:
       - build/**/outputs/**/*.apk
@@ -130,21 +131,23 @@ workflows:
       - name: Build Android Release
         script: |
           echo "🔧 Building Android App Bundle for Play Store..."
+          BUILD_NUMBER=${CM_BUILD_NUMBER:-1}
           flutter build appbundle --release \
-            --build-name=1.0.$CM_BUILD_NUMBER \
-            --build-number=$CM_BUILD_NUMBER
+            --build-name=1.0.$BUILD_NUMBER \
+            --build-number=$BUILD_NUMBER
           
           echo "🔧 Building Android APK for testing..."
           flutter build apk --release \
-            --build-name=1.0.$CM_BUILD_NUMBER \
-            --build-number=$CM_BUILD_NUMBER
+            --build-name=1.0.$BUILD_NUMBER \
+            --build-number=$BUILD_NUMBER
       
       - name: Build iOS Release
         script: |
           echo "🔧 Building iOS for App Store..."
+          BUILD_NUMBER=${CM_BUILD_NUMBER:-1}
           flutter build ipa --release \
-            --build-name=1.0.$CM_BUILD_NUMBER \
-            --build-number=$CM_BUILD_NUMBER
+            --build-name=1.0.$BUILD_NUMBER \
+            --build-number=$BUILD_NUMBER
       
       - name: Generate Release Notes
         script: |
