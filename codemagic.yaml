@@ -440,20 +440,6 @@ workflows:
       - flutter_drive.log
     
     publishing:
-      # Firebase App Distribution for easy preview sharing
-      firebase:
-        firebase_token: $FIREBASE_TOKEN
-        android:
-          app_id: $FIREBASE_ANDROID_APP_ID
-          groups:
-            - tsh-testers
-            - developers
-        ios:
-          app_id: $FIREBASE_IOS_APP_ID
-          groups:
-            - tsh-testers
-            - developers
-      
       # Email notifications with download links
       email:
         recipients:
