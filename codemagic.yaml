@@ -35,15 +35,6 @@ workflows:
         script: |
           flutter packages pub get
       
-      - name: Generate iOS Flutter files
-        script: |
-          flutter precache --ios
-          flutter build ios --config-only
-      
-      - name: Install CocoaPods dependencies
-        script: |
-          cd ios && pod install
-      
       - name: Code Analysis & Testing
         script: |
           echo "🔍 Running Flutter analysis..."
@@ -56,17 +47,9 @@ workflows:
         script: |
           echo "🔧 Building Android Debug APK..."
           flutter build apk --debug --build-name=1.0.$CM_BUILD_NUMBER --build-number=$CM_BUILD_NUMBER
-      
-      - name: Build iOS Debug
-        script: |
-          echo "🔧 Building iOS Debug for Simulator (no code signing required)..."
-          flutter build ios --debug --simulator --build-name=1.0.$CM_BUILD_NUMBER --build-number=$CM_BUILD_NUMBER
     
     artifacts:
       - build/**/outputs/**/*.apk
-      - build/**/outputs/**/*.aab
-      - build/**/outputs/**/mapping.txt
-      - build/ios/iphonesimulator/Runner.app
       - flutter_drive.log
     
     publishing:
