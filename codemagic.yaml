@@ -35,6 +35,11 @@ workflows:
         script: |
           flutter packages pub get
       
+      - name: Generate iOS Flutter files
+        script: |
+          flutter precache --ios
+          flutter build ios --config-only
+      
       - name: Install CocoaPods dependencies
         script: |
           cd ios && pod install
@@ -117,6 +122,11 @@ workflows:
       - name: Get Flutter packages
         script: |
           flutter packages pub get
+      
+      - name: Generate iOS Flutter files
+        script: |
+          flutter precache --ios
+          flutter build ios --config-only
       
       - name: Install CocoaPods dependencies
         script: |
@@ -284,6 +294,11 @@ workflows:
         script: |
           flutter packages pub get
       
+      - name: Generate iOS Flutter files
+        script: |
+          flutter precache --ios
+          flutter build ios --config-only
+      
       - name: Install CocoaPods dependencies
         script: |
           cd ios && pod install
@@ -370,6 +385,11 @@ workflows:
       - name: Get Flutter packages
         script: |
           flutter packages pub get
+      
+      - name: Generate iOS Flutter files
+        script: |
+          flutter precache --ios
+          flutter build ios --config-only
       
       - name: Install CocoaPods dependencies
         script: |
