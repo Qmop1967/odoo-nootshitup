@@ -59,14 +59,14 @@ workflows:
       
       - name: Build iOS Debug
         script: |
-          echo "🔧 Building iOS Debug..."
-          flutter build ios --debug --no-codesign --build-name=1.0.$CM_BUILD_NUMBER --build-number=$CM_BUILD_NUMBER
+          echo "🔧 Building iOS Debug for Simulator (no code signing required)..."
+          flutter build ios --debug --simulator --build-name=1.0.$CM_BUILD_NUMBER --build-number=$CM_BUILD_NUMBER
     
     artifacts:
       - build/**/outputs/**/*.apk
       - build/**/outputs/**/*.aab
       - build/**/outputs/**/mapping.txt
-      - build/ios/iphoneos/Runner.app
+      - build/ios/iphonesimulator/Runner.app
       - flutter_drive.log
     
     publishing:
