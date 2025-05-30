@@ -15,15 +15,8 @@
     <key>stripSwiftSymbols</key>
     <true/>
     <key>teamID</key>
-    <string>YOUR_TEAM_ID</string>
-    <key>provisioningProfiles</key>
-    <dict>
-        <key>com.tsh.sales.tsh_salesperson_app</key>
-        <string>TSH Salesperson App Store Profile</string>
-    </dict>
+    <string>38U844SAJ5</string>
     <key>signingStyle</key>
-    <string>manual</string>
-    <key>signingCertificate</key>
-    <string>Apple Distribution</string>
+    <string>automatic</string>
 </dict>
 </plist> 
