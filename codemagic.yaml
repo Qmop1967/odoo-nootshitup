@@ -141,13 +141,13 @@ workflows:
       - flutter_drive.log
     
     publishing:
-      # Google Play Store publishing (RE-ENABLED for dual store publishing)
-      google_play:
-        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
-        track: $GOOGLE_PLAY_TRACK
-        submit_as_draft: false
-        in_app_update_priority: 3
-        changes_not_sent_for_review: false
+      # Google Play Store publishing (TEMPORARILY DISABLED - credentials issue)
+      # google_play:
+      #   credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+      #   track: $GOOGLE_PLAY_TRACK
+      #   submit_as_draft: false
+      #   in_app_update_priority: 3
+      #   changes_not_sent_for_review: false
       
       # App Store publishing (ENABLED for dual store publishing)
       app_store_connect:
@@ -344,13 +344,13 @@ workflows:
       - flutter_drive.log
     
     publishing:
-      # Google Play Store publishing (RE-ENABLED for dual store publishing)
-      google_play:
-        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
-        track: $GOOGLE_PLAY_TRACK
-        submit_as_draft: false
-        in_app_update_priority: 3
-        changes_not_sent_for_review: false
+      # Google Play Store publishing (TEMPORARILY DISABLED - credentials issue)
+      # google_play:
+      #   credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+      #   track: $GOOGLE_PLAY_TRACK
+      #   submit_as_draft: false
+      #   in_app_update_priority: 3
+      #   changes_not_sent_for_review: false
       
       # App Store publishing (ENABLED for dual store publishing)
       app_store_connect:
@@ -479,13 +479,13 @@ workflows:
       - build/ios/ipa/*.ipa
     
     publishing:
-      # Google Play Store publishing (RE-ENABLED for dual store publishing)
-      google_play:
-        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
-        track: $GOOGLE_PLAY_TRACK
-        submit_as_draft: false
-        in_app_update_priority: 3
-        changes_not_sent_for_review: false
+      # Google Play Store publishing (TEMPORARILY DISABLED - credentials issue)
+      # google_play:
+      #   credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+      #   track: $GOOGLE_PLAY_TRACK
+      #   submit_as_draft: false
+      #   in_app_update_priority: 3
+      #   changes_not_sent_for_review: false
       
       # App Store publishing (ENABLED for dual store publishing)
       app_store_connect:
@@ -615,6 +615,19 @@ workflows:
       - flutter_drive.log
     
     publishing:
+      # Google Play Store publishing (TEMPORARILY DISABLED - credentials issue)
+      # google_play:
+      #   credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+      #   track: $GOOGLE_PLAY_TRACK
+      #   submit_as_draft: false
+      #   in_app_update_priority: 3
+      #   changes_not_sent_for_review: false
+      
+      # App Store publishing (ENABLED for dual store publishing)
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: true
+        
       # Email notifications with download links
       email:
         recipients:
