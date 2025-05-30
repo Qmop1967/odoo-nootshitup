@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import '../pages/dashboard_page.dart';
 import '../pages/items_page.dart';
 import '../pages/clients_page.dart';
+import '../pages/sale_orders_page.dart';
+import '../pages/invoices_page.dart';
+import '../pages/payments_page.dart';
 
 class BottomNav extends StatelessWidget {
   final int currentIndex;
@@ -27,6 +30,21 @@ class BottomNav extends StatelessWidget {
           MaterialPageRoute(builder: (context) => const ClientsPage()),
         );
         break;
+      case 3:
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => const SaleOrdersPage()),
+        );
+        break;
+      case 4:
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => const InvoicesPage()),
+        );
+        break;
+      case 5:
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => const PaymentsPage()),
+        );
+        break;
     }
   }
 
@@ -38,6 +56,8 @@ class BottomNav extends StatelessWidget {
       onTap: (index) => _onItemTapped(context, index),
       selectedItemColor: const Color(0xFF1E88E5),
       unselectedItemColor: Colors.grey,
+      selectedFontSize: 12,
+      unselectedFontSize: 10,
       items: const [
         BottomNavigationBarItem(
           icon: Icon(Icons.dashboard),
@@ -45,13 +65,25 @@ class BottomNav extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.inventory_2),
-          label: 'Items',
+          label: 'Products',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.people),
-          label: 'Clients',
+          label: 'Customers',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.shopping_cart),
+          label: 'Orders',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.receipt_long),
+          label: 'Invoices',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.payment),
+          label: 'Payments',
         ),
       ],
     );
   }
-} 
+}

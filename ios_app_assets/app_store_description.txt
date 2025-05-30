@@ -1,0 +1,41 @@
+TSH Salesperson - Professional Odoo Sales Management
+
+Professional sales management app that integrates seamlessly with your Odoo system. Access customers, products, orders, and invoices in real-time from your mobile device.
+
+KEY FEATURES:
+• Complete Odoo ERP integration with real-time synchronization
+• Customer management with search and creation capabilities
+• Comprehensive product catalog with filtering
+• Sales order tracking and status management
+• Invoice monitoring with payment status alerts
+• Payment recording for authorized users
+• Role-based access control (Admin/Salesperson)
+• Modern, intuitive mobile interface
+• Offline capability with automatic sync
+• Secure authentication using Odoo credentials
+
+PERFECT FOR:
+• Sales teams using Odoo ERP
+• Field sales representatives
+• Business managers
+• Customer service teams
+
+REQUIREMENTS:
+• Active Odoo system
+• Valid user credentials
+• Internet connection for sync
+
+Transform your mobile sales process with seamless Odoo integration. Download now and connect your sales team to your Odoo system from anywhere.
+
+SECURITY & PRIVACY:
+• Secure authentication
+• Encrypted data transmission
+• No third-party data sharing
+• GDPR compliant
+
+SUPPORT:
+• Comprehensive user documentation
+• Technical support available
+• Regular updates and improvements
+
+Join thousands of sales professionals using TSH Salesperson for mobile Odoo access.

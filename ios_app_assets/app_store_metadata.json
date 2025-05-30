@@ -1,0 +1,85 @@
+{
+  "app_info": {
+    "name": "TSH Salesperson",
+    "subtitle": "Odoo Sales Management",
+    "bundle_id": "com.tsh.salesperson",
+    "sku": "TSH-SALESPERSON-001",
+    "primary_language": "en-US",
+    "category": "BUSINESS",
+    "subcategory": "PRODUCTIVITY"
+  },
+  "version_info": {
+    "version": "1.0.0",
+    "build_number": "1",
+    "copyright": "2024 TSH Company",
+    "release_notes": "Initial release with complete Odoo integration"
+  },
+  "app_store_description": {
+    "description": "Professional sales management app that integrates seamlessly with your Odoo system. Access customers, products, orders, and invoices in real-time from your mobile device.\n\nKEY FEATURES:\n• Complete Odoo ERP integration with real-time synchronization\n• Customer management with search and creation capabilities\n• Comprehensive product catalog with filtering\n• Sales order tracking and status management\n• Invoice monitoring with payment status alerts\n• Payment recording for authorized users\n• Role-based access control (Admin/Salesperson)\n• Modern, intuitive mobile interface\n• Offline capability with automatic sync\n• Secure authentication using Odoo credentials\n\nPERFECT FOR:\n• Sales teams using Odoo ERP\n• Field sales representatives\n• Business managers\n• Customer service teams\n\nREQUIREMENTS:\n• Active Odoo system\n• Valid user credentials\n• Internet connection for sync\n\nTransform your mobile sales process with seamless Odoo integration.",
+    "keywords": "odoo,sales,crm,erp,business,customers,orders,invoices,payments,mobile,sync",
+    "promotional_text": "Seamless Odoo integration for mobile sales teams. Access customers, orders, and invoices in real-time with secure sync.",
+    "marketing_url": "https://your-website.com/tsh-salesperson",
+    "support_url": "https://your-website.com/support",
+    "privacy_policy_url": "https://your-website.com/privacy"
+  },
+  "age_rating": {
+    "rating": "4+",
+    "content_descriptors": [],
+    "reasons": "No objectionable content"
+  },
+  "pricing": {
+    "price_tier": "0",
+    "availability": "all_countries",
+    "educational_discount": false
+  },
+  "app_review_info": {
+    "contact_email": "support@your-company.com",
+    "contact_phone": "+1-555-0123",
+    "demo_account_required": true,
+    "demo_username": "demo@tsh.com",
+    "demo_password": "demo123",
+    "review_notes": "This app integrates with Odoo ERP systems. Demo credentials provided for testing. The app requires internet connection to sync with Odoo server."
+  },
+  "required_screenshots": {
+    "iphone_67": {
+      "size": "1290x2796",
+      "count": "3-10",
+      "description": "iPhone 14 Pro Max screenshots"
+    },
+    "iphone_65": {
+      "size": "1242x2688", 
+      "count": "3-10",
+      "description": "iPhone 11 Pro Max screenshots"
+    },
+    "iphone_55": {
+      "size": "1242x2208",
+      "count": "3-10", 
+      "description": "iPhone 8 Plus screenshots"
+    },
+    "ipad_129": {
+      "size": "2048x2732",
+      "count": "3-10",
+      "description": "iPad Pro 12.9 inch screenshots"
+    }
+  },
+  "app_icon": {
+    "size": "1024x1024",
+    "format": "PNG",
+    "requirements": "No transparency, no rounded corners, high quality"
+  },
+  "privacy_info": {
+    "data_collection": true,
+    "data_types": [
+      "Contact Info",
+      "User Content", 
+      "Usage Data",
+      "Identifiers"
+    ],
+    "data_usage": [
+      "App Functionality",
+      "Analytics"
+    ],
+    "data_sharing": false,
+    "third_party_sharing": false
+  }
+}

@@ -3,9 +3,9 @@
 /// Update these values with your actual Odoo server details
 class AppConfig {
   // Odoo Server Configuration
-  // TODO: Replace these with your actual Odoo server details
-  static const String odooServerUrl = 'https://demo.odoo.com';
-  static const String odooDatabaseName = 'demo';
+  // TSH Odoo Server Details
+  static const String odooServerUrl = 'http://138.68.89.104:8069';
+  static const String odooDatabaseName = 'odtshbrain';
   
   // App Information
   static const String appName = 'TSH Salesperson';
@@ -13,8 +13,8 @@ class AppConfig {
   static const String appBuildNumber = '1';
 
   // Default Odoo Configuration
-  static const String defaultOdooUrl = 'https://demo.odoo.com';
-  static const String defaultDatabase = 'demo';
+  static const String defaultOdooUrl = 'http://138.68.89.104:8069';
+  static const String defaultDatabase = 'odtshbrain';
 
   // API Configuration
   static const int apiTimeout = 30; // seconds
@@ -63,10 +63,10 @@ class AppConfig {
 
   /// Validates if the configuration is properly set
   static bool get isConfigured {
-    return odooServerUrl != 'https://your-odoo-server.com' &&
-           odooDatabaseName != 'your-database-name' &&
-           odooServerUrl.isNotEmpty &&
-           odooDatabaseName.isNotEmpty;
+    return odooServerUrl.isNotEmpty &&
+           odooDatabaseName.isNotEmpty &&
+           odooServerUrl != 'https://demo.odoo.com' &&
+           odooDatabaseName != 'demo';
   }
   
   /// Returns a user-friendly error message if configuration is incomplete

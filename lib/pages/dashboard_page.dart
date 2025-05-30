@@ -18,6 +18,7 @@ class _DashboardPageState extends State<DashboardPage> {
   bool _isLoading = true;
   Map<String, dynamic> _dashboardData = {};
   final _currencyFormatter = NumberFormat.currency(symbol: '\$');
+  final _odooService = OdooService();
 
   @override
   void initState() {
@@ -29,7 +30,7 @@ class _DashboardPageState extends State<DashboardPage> {
     setState(() => _isLoading = true);
     
     try {
-      final data = await OdooService().getDashboardData();
+      final data = await _odooService.getDashboardData();
       setState(() {
         _dashboardData = data;
         _isLoading = false;
@@ -45,8 +46,7 @@ class _DashboardPageState extends State<DashboardPage> {
   }
 
   Future<void> _logout() async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.clear();
+    await _odooService.logout();
     if (mounted) {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (context) => const LoginPage()),
@@ -59,7 +59,17 @@ class _DashboardPageState extends State<DashboardPage> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        title: const Text('Sales Dashboard'),
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text('Sales Dashboard'),
+            if (_odooService.userEmail != null)
+              Text(
+                _odooService.userEmail!,
+                style: const TextStyle(fontSize: 12, fontWeight: FontWeight.normal),
+              ),
+          ],
+        ),
         backgroundColor: const Color(0xFF1E88E5),
         foregroundColor: Colors.white,
         leading: IconButton(
@@ -67,6 +77,19 @@ class _DashboardPageState extends State<DashboardPage> {
           onPressed: () => _scaffoldKey.currentState?.openDrawer(),
         ),
         actions: [
+          if (_odooService.isAdmin)
+            Container(
+              margin: const EdgeInsets.only(right: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+              decoration: BoxDecoration(
+                color: Colors.orange,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: const Text(
+                'ADMIN',
+                style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+              ),
+            ),
           IconButton(
             icon: const Icon(Icons.refresh),
             onPressed: _loadDashboardData,
@@ -88,6 +111,8 @@ class _DashboardPageState extends State<DashboardPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    _buildUserWelcomeCard(),
+                    const SizedBox(height: 16),
                     _buildMainCard(),
                     const SizedBox(height: 20),
                     const Text(
@@ -106,6 +131,65 @@ class _DashboardPageState extends State<DashboardPage> {
               ),
             ),
       bottomNavigationBar: const BottomNav(currentIndex: 0),
+    );
+  }
+
+  Widget _buildUserWelcomeCard() {
+    final userName = _odooService.userInfo?['name'] ?? _odooService.userEmail ?? 'User';
+    
+    return Card(
+      elevation: 2,
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(
+          children: [
+            CircleAvatar(
+              backgroundColor: const Color(0xFF1E88E5),
+              child: Text(
+                userName.substring(0, 1).toUpperCase(),
+                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              ),
+            ),
+            const SizedBox(width: 16),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Welcome back, $userName!',
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.verified_user,
+                        size: 16,
+                        color: _odooService.isAdmin ? Colors.orange : Colors.green,
+                      ),
+                      const SizedBox(width: 4),
+                      Text(
+                        _odooService.isAdmin ? 'Administrator' : 'Salesperson',
+                        style: TextStyle(
+                          color: _odooService.isAdmin ? Colors.orange : Colors.green,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Icon(
+              Icons.business_center,
+              color: Colors.grey[400],
+            ),
+          ],
+        ),
+      ),
     );
   }
 
@@ -143,7 +227,7 @@ class _DashboardPageState extends State<DashboardPage> {
                   fontSize: 16,
                 ),
               ),
-              Icon(
+              const Icon(
                 Icons.account_balance_wallet,
                 color: Colors.white70,
                 size: 24,
@@ -168,14 +252,14 @@ class _DashboardPageState extends State<DashboardPage> {
                   color: Colors.green.withOpacity(0.2),
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: Row(
+                child: const Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Icon(Icons.trending_up, color: Colors.green, size: 16),
-                    const SizedBox(width: 4),
+                    Icon(Icons.trending_up, color: Colors.green, size: 16),
+                    SizedBox(width: 4),
                     Text(
                       '+12.5%',
-                      style: const TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
+                      style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -196,9 +280,9 @@ class _DashboardPageState extends State<DashboardPage> {
     final regions = _dashboardData['regions'] as List<dynamic>? ?? [];
     
     if (regions.isEmpty) {
-      return Card(
+      return const Card(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsets.all(16.0),
           child: Text('No regional data available'),
         ),
       );
@@ -357,4 +441,4 @@ class _DashboardPageState extends State<DashboardPage> {
       ],
     );
   }
-} 
+}
