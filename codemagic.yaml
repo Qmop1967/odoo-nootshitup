@@ -231,8 +231,6 @@ workflows:
       ios_signing:
         distribution_type: app_store
         bundle_identifier: com.tsh.sales.tsh_salesperson_app
-        xcode_project: ios/Runner.xcodeproj
-        xcode_scheme: Runner
       groups:
         - tsh_prod_vars
         - app_store_credentials
