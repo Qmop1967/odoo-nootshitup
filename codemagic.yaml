@@ -448,14 +448,6 @@ workflows:
           groups:
             - tsh-testers
             - developers
-          release_notes: |
-            🔍 Preview Build - TSH Salesperson App
-            
-            Branch: $CM_BRANCH
-            Commit: $CM_COMMIT
-            
-            This is a preview build for testing latest changes.
-            Please test and provide feedback!
         ios:
           app_id: $FIREBASE_IOS_APP_ID
           groups:
