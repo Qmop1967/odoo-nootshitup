@@ -1,5 +1,5 @@
 workflows:
-  # Simple test workflow - should trigger on any main branch push
+  # Simple test workflow - should trigger on feature branches only
   test-build:
     name: Test Build
     max_build_duration: 30
@@ -8,10 +8,10 @@ workflows:
       events:
         - push
       branch_patterns:
-        - pattern: 'main'
+        - pattern: 'feature/*'
           include: true
           source: true
-        - pattern: 'feature/*'
+        - pattern: 'develop'
           include: true
           source: true
     environment:
@@ -225,19 +225,14 @@ workflows:
           success: true
           failure: true
 
-  # Production workflow - for main branch and releases (FIXED VERSION)
+  # Production workflow - for tagged releases only
   production:
     name: Production Release
     max_build_duration: 120
     instance_type: mac_mini_m1
     triggering:
       events:
-        - push
         - tag
-      branch_patterns:
-        - pattern: 'main'
-          include: true
-          source: true
       tag_patterns:
         - pattern: 'v*'
           include: true
