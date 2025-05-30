@@ -62,7 +62,7 @@ workflows:
     publishing:
       email:
         recipients:
-          - your-email@example.com # Replace with your email
+          - kha89ahm@gmail.com # Your email
         notify:
           success: true
           failure: true
@@ -91,8 +91,8 @@ workflows:
     environment:
       android_signing:
         - tsh_keystore
-      groups:
-        - google_play
+      # groups:
+      #   - google_play  # Disabled until Google Play service account is configured
       vars:
         PACKAGE_NAME: "com.tsh.sales.tsh_salesperson_app"
         CM_KEYSTORE_PASSWORD: "Zcbm.97531tsh"
@@ -125,11 +125,12 @@ workflows:
     publishing:
       email:
         recipients:
-          - your-email@example.com # Replace with your email
+          - kha89ahm@gmail.com # Your email
         notify:
           success: true
           failure: true
-      google_play:
-        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
-        track: internal
-        submit_as_draft: true
+      # google_play:
+      #   credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+      #   track: internal
+      #   submit_as_draft: true
+      # Note: Google Play upload disabled until service account is configured
