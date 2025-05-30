@@ -50,9 +50,9 @@ workflows:
 
   # Default workflow - ensures production workflow is used for main branch
   default-workflow:
-    name: Default Build
+    name: Default Build (Android Only - Temp)
     max_build_duration: 120
-    instance_type: mac_mini_m1
+    instance_type: linux_x2
     triggering:
       events:
         - push
@@ -63,27 +63,14 @@ workflows:
     environment:
       android_signing:
         - tsh_keystore
-      ios_signing:
-        distribution_type: app_store
-        bundle_identifier: com.tsh.sales.tshSalespersonApp
       groups:
         - tsh_prod_vars
-        - app_store_credentials
         - google_play_credentials
       vars:
         FLUTTER_VERSION: "3.24.5"
-        XCODE_WORKSPACE: "ios/Runner.xcworkspace"
-        XCODE_SCHEME: "Runner"
         PACKAGE_NAME: "com.tsh.sales.tsh_salesperson_app"
         GOOGLE_PLAY_TRACK: "internal"
-        APP_STORE_CONNECT_ISSUER_ID: $APP_STORE_CONNECT_ISSUER_ID
-        APP_STORE_CONNECT_KEY_IDENTIFIER: $APP_STORE_CONNECT_KEY_IDENTIFIER
-        APP_STORE_CONNECT_PRIVATE_KEY: $APP_STORE_CONNECT_PRIVATE_KEY
       flutter: stable
-      xcode: latest
-      cocoapods: default
-    integrations:
-      app_store_connect: tsh_app_store_connect
     scripts:
       - name: Set up local.properties
         script: |
@@ -92,15 +79,6 @@ workflows:
       - name: Get Flutter packages
         script: |
           flutter packages pub get
-      
-      - name: Generate iOS Flutter files
-        script: |
-          flutter precache --ios
-          flutter build ios --config-only
-      
-      - name: Install CocoaPods dependencies
-        script: |
-          cd ios && pod install
       
       - name: Quality Checks (Non-blocking)
         script: |
@@ -122,35 +100,19 @@ workflows:
           flutter build apk --release \
             --build-name=1.0.$BUILD_NUMBER \
             --build-number=$BUILD_NUMBER
-      
-      - name: Build iOS Release
-        script: |
-          echo "🔧 Building iOS for App Store..."
-          BUILD_NUMBER=${CM_BUILD_NUMBER:-1}
-          flutter build ipa --release \
-            --build-name=1.0.$BUILD_NUMBER \
-            --build-number=$BUILD_NUMBER \
-            --export-options-plist=ios/ExportOptions.plist
     
     artifacts:
       - build/**/outputs/**/*.apk
       - build/**/outputs/**/*.aab
-      - build/ios/ipa/*.ipa
     
     publishing:
-      # Google Play Store publishing (RE-ENABLED for dual store publishing)
+      # Google Play Store publishing
       google_play:
         credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
         track: $GOOGLE_PLAY_TRACK
         submit_as_draft: false
         in_app_update_priority: 3
         changes_not_sent_for_review: false
-      
-      # App Store publishing (ENABLED for dual store publishing)
-      app_store_connect:
-        auth: integration
-        submit_to_testflight: true
-        submit_to_app_store: false
         
       email:
         recipients:
