@@ -96,8 +96,9 @@ workflows:
       - name: Generate iOS Flutter files
         script: |
           flutter precache --ios
-          # Skip iOS config-only build to avoid development certificate issues
-          echo "iOS Flutter files generated successfully"
+          # Generate iOS configuration files required by CocoaPods
+          flutter build ios --config-only --no-codesign
+          echo "iOS Flutter files and configuration generated successfully"
       
       - name: Install CocoaPods dependencies
         script: |
@@ -274,8 +275,9 @@ workflows:
       - name: Generate iOS Flutter files
         script: |
           flutter precache --ios
-          # Skip iOS config-only build to avoid development certificate issues
-          echo "iOS Flutter files generated successfully"
+          # Generate iOS configuration files required by CocoaPods
+          flutter build ios --config-only --no-codesign
+          echo "iOS Flutter files and configuration generated successfully"
       
       - name: Install CocoaPods dependencies
         script: |
@@ -448,7 +450,9 @@ workflows:
       - name: Generate iOS Flutter files
         script: |
           flutter precache --ios
-          flutter build ios --config-only
+          # Generate iOS configuration files required by CocoaPods
+          flutter build ios --config-only --no-codesign
+          echo "iOS Flutter files and configuration generated successfully"
       
       - name: Install CocoaPods dependencies
         script: |
@@ -546,7 +550,9 @@ workflows:
       - name: Generate iOS Flutter files
         script: |
           flutter precache --ios
-          flutter build ios --config-only
+          # Generate iOS configuration files required by CocoaPods
+          flutter build ios --config-only --no-codesign
+          echo "iOS Flutter files and configuration generated successfully"
       
       - name: Install CocoaPods dependencies
         script: |
