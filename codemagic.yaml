@@ -532,6 +532,8 @@ workflows:
       flutter: stable
       xcode: latest
       cocoapods: default
+    integrations:
+      app_store_connect: tsh_app_store_connect
     scripts:
       - name: Set up local.properties
         script: |
@@ -615,32 +617,10 @@ workflows:
       - flutter_drive.log
     
     publishing:
-      # Google Play Store publishing (RE-ENABLED for dual store publishing)
-      google_play:
-        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
-        track: $GOOGLE_PLAY_TRACK
-        submit_as_draft: false
-        in_app_update_priority: 3
-        changes_not_sent_for_review: false
-      
-      # App Store publishing (ENABLED for dual store publishing)
-      app_store_connect:
-        auth: integration
-        submit_to_testflight: true
-        submit_to_app_store: false
-        
       # Email notifications with download links
       email:
         recipients:
           - kha89ahm@gmail.com
-        notify:
-          success: true
-          failure: true
-      
-      # Slack notifications for team
-      slack:
-        channel: '#tsh-previews'
-        notify_on_build_start: true
         notify:
           success: true
           failure: true 
