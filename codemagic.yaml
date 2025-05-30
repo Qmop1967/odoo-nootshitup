@@ -63,6 +63,9 @@ workflows:
     environment:
       android_signing:
         - tsh_keystore
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.tsh.sales.tsh_salesperson_app
       groups:
         - tsh_prod_vars
         - app_store_credentials
@@ -135,12 +138,15 @@ workflows:
       - build/ios/ipa/*.ipa
     
     publishing:
-      # Google Play publishing (DISABLED temporarily)
-      # google_play:
-      #   credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
-      #   track: $GOOGLE_PLAY_TRACK
-      #   submit_as_draft: false
-        
+      # Google Play Store publishing (RE-ENABLED for dual store publishing)
+      google_play:
+        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+        track: $GOOGLE_PLAY_TRACK
+        submit_as_draft: false
+        in_app_update_priority: 3
+        changes_not_sent_for_review: false
+      
+      # App Store publishing (ENABLED for dual store publishing)
       app_store_connect:
         auth: integration
         submit_to_testflight: true
@@ -234,6 +240,9 @@ workflows:
     environment:
       android_signing:
         - tsh_keystore
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.tsh.sales.tsh_salesperson_app
       groups:
         - tsh_prod_vars
         - app_store_credentials
@@ -336,13 +345,15 @@ workflows:
       - flutter_drive.log
     
     publishing:
-      # Google Play publishing (DISABLED temporarily)
-      # google_play:
-      #   credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
-      #   track: $GOOGLE_PLAY_TRACK
-      #   submit_as_draft: false
+      # Google Play Store publishing (RE-ENABLED for dual store publishing)
+      google_play:
+        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+        track: $GOOGLE_PLAY_TRACK
+        submit_as_draft: false
+        in_app_update_priority: 3
+        changes_not_sent_for_review: false
       
-      # App Store publishing (FIXED)
+      # App Store publishing (ENABLED for dual store publishing)
       app_store_connect:
         auth: integration
         submit_to_testflight: true
@@ -470,12 +481,15 @@ workflows:
       - build/ios/ipa/*.ipa
     
     publishing:
-      # Google Play publishing (DISABLED temporarily)
-      # google_play:
-      #   credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
-      #   track: internal
-      #   submit_as_draft: false
+      # Google Play Store publishing (RE-ENABLED for dual store publishing)
+      google_play:
+        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+        track: $GOOGLE_PLAY_TRACK
+        submit_as_draft: false
+        in_app_update_priority: 3
+        changes_not_sent_for_review: false
       
+      # App Store publishing (ENABLED for dual store publishing)
       app_store_connect:
         auth: integration
         submit_to_testflight: true
@@ -601,6 +615,20 @@ workflows:
       - flutter_drive.log
     
     publishing:
+      # Google Play Store publishing (RE-ENABLED for dual store publishing)
+      google_play:
+        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+        track: $GOOGLE_PLAY_TRACK
+        submit_as_draft: false
+        in_app_update_priority: 3
+        changes_not_sent_for_review: false
+      
+      # App Store publishing (ENABLED for dual store publishing)
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: true
+        submit_to_app_store: false
+        
       # Email notifications with download links
       email:
         recipients:
