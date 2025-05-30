@@ -107,6 +107,8 @@ workflows:
       flutter: stable
       xcode: latest
       cocoapods: default
+    integrations:
+      app_store_connect: tsh_app_store_connect
     scripts:
       - name: Set up local.properties
         script: |
@@ -271,6 +273,8 @@ workflows:
       flutter: stable
       xcode: latest
       cocoapods: default
+    integrations:
+      app_store_connect: tsh_app_store_connect
     scripts:
       - name: Set up local.properties
         script: |
@@ -394,7 +398,7 @@ workflows:
             --build-number=$CM_BUILD_NUMBER
           
           # Build iOS Debug for device (if needed)
-          echo "�� Building iOS Debug for Device..."
+          echo "📱 Building iOS Debug for Device..."
           flutter build ios --debug --no-codesign \
             --build-name=preview-$CM_BUILD_NUMBER \
             --build-number=$CM_BUILD_NUMBER
