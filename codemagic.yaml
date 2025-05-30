@@ -23,10 +23,10 @@ workflows:
     environment:
       ios_signing:
         distribution_type: app_store
-        bundle_identifier: com.tsh.salesperson
+        bundle_identifier: com.tsh.sales.tsh_salesperson_app
       vars:
         APP_NAME: "TSH Salesperson"
-        BUNDLE_ID: "com.tsh.salesperson"
+        BUNDLE_ID: "com.tsh.sales.tsh_salesperson_app"
         APP_STORE_CONNECT_ISSUER_ID: Encrypted(...) # Add your App Store Connect API key
         APP_STORE_CONNECT_KEY_IDENTIFIER: Encrypted(...) # Add your key ID
         APP_STORE_CONNECT_PRIVATE_KEY: Encrypted(...) # Add your private key
@@ -90,11 +90,14 @@ workflows:
           include: true
     environment:
       android_signing:
-        - keystore_reference
+        - tsh_keystore
       groups:
         - google_play
       vars:
-        PACKAGE_NAME: "com.tsh.salesperson"
+        PACKAGE_NAME: "com.tsh.sales.tsh_salesperson_app"
+        CM_KEYSTORE_PASSWORD: "Zcbm.97531tsh"
+        CM_KEY_ALIAS: "my-key-alias"
+        CM_KEY_PASSWORD: "Zcbm.97531tsh"
       flutter: stable
     scripts:
       - name: Set up local.properties
