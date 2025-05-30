@@ -107,7 +107,7 @@ class SideMenu extends StatelessWidget {
           if (odoo.isAdmin) ...[
             const Divider(),
             Container(
-              color: Colors.orange.withOpacity(0.1),
+              color: Colors.orange.withValues(alpha: 0.1),
               child: const ListTile(
                 leading: Icon(Icons.admin_panel_settings, color: Colors.orange),
                 title: Text(
