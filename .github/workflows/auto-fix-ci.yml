@@ -1,0 +1,216 @@
+name: 🤖 Auto-Fix CI/CD Issues
+
+on:
+  # Manual trigger
+  workflow_dispatch:
+    inputs:
+      max_attempts:
+        description: 'Maximum fix attempts'
+        required: false
+        default: '3'
+        type: string
+      force_trigger:
+        description: 'Force trigger new build'
+        required: false
+        default: false
+        type: boolean
+  
+  # Scheduled check every 30 minutes during business hours
+  schedule:
+    - cron: '*/30 9-17 * * 1-5'  # Every 30 min, 9-5 PM, Mon-Fri UTC
+  
+  # Trigger on failed workflow runs
+  workflow_run:
+    workflows: ["*"]
+    types: [completed]
+
+jobs:
+  auto-fix:
+    name: 🔧 Automated CI/CD Fix
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' || (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'failure')
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+      
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: 📦 Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests flask python-dotenv
+      
+      - name: 🔧 Run Automated Fix
+        env:
+          CODEMAGIC_API_TOKEN: ${{ secrets.CODEMAGIC_API_TOKEN }}
+          CODEMAGIC_APP_ID: ${{ secrets.CODEMAGIC_APP_ID }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MAX_ATTEMPTS: ${{ github.event.inputs.max_attempts || '3' }}
+          FORCE_TRIGGER: ${{ github.event.inputs.force_trigger || 'false' }}
+        run: |
+          cd automation
+          python error_handler.py
+      
+      - name: 📊 Upload Logs
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: auto-fix-logs-${{ github.run_number }}
+          path: |
+            automation/*.log
+            automation/fix_report.json
+          retention-days: 30
+      
+      - name: 📧 Notify on Failure
+        if: failure()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const issue_body = `
+            ## 🚨 Automated CI/CD Fix Failed
+            
+            **Run ID:** ${{ github.run_id }}
+            **Trigger:** ${{ github.event_name }}
+            **Time:** ${new Date().toISOString()}
+            
+            The automated CI/CD fix process failed. Manual intervention may be required.
+            
+            ### Next Steps:
+            1. Check the [workflow logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            2. Review CodeMagic build status
+            3. Manually trigger fixes if needed
+            
+            ### Quick Actions:
+            - [Trigger Manual Fix](${{ github.server_url }}/${{ github.repository }}/actions/workflows/auto-fix-ci.yml)
+            - [View CodeMagic Dashboard](https://codemagic.io/apps)
+            
+            /cc @${{ github.actor }}
+            `;
+            
+            // Create or update issue
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['ci-cd-automation', 'bug'],
+              state: 'open'
+            });
+            
+            if (issues.length > 0) {
+              // Update existing issue
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issues[0].number,
+                body: issue_body
+              });
+            } else {
+              // Create new issue
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: '🚨 Automated CI/CD Fix Failed',
+                body: issue_body,
+                labels: ['ci-cd-automation', 'bug', 'high-priority']
+              });
+            }
+
+  health-check:
+    name: 🏥 System Health Check
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule'
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+      
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: 📦 Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+      
+      - name: 🔍 Check CodeMagic Status
+        env:
+          CODEMAGIC_API_TOKEN: ${{ secrets.CODEMAGIC_API_TOKEN }}
+          CODEMAGIC_APP_ID: ${{ secrets.CODEMAGIC_APP_ID }}
+        run: |
+          python -c "
+          import requests
+          import os
+          import json
+          
+          api_token = os.getenv('CODEMAGIC_API_TOKEN')
+          app_id = os.getenv('CODEMAGIC_APP_ID')
+          
+          headers = {'X-Auth-Token': api_token}
+          url = f'https://api.codemagic.io/builds'
+          params = {'appId': app_id, 'limit': 5}
+          
+          response = requests.get(url, headers=headers, params=params)
+          builds = response.json().get('builds', [])
+          
+          print('📊 Recent Build Status:')
+          for build in builds:
+              status = build['status']
+              created = build['createdAt'][:19]
+              workflow = build.get('workflowId', 'unknown')
+              print(f'  {status.upper()}: {workflow} ({created})')
+          
+          # Check for consecutive failures
+          recent_statuses = [b['status'] for b in builds[:3]]
+          if all(s == 'failed' for s in recent_statuses):
+              print('🚨 WARNING: Multiple consecutive build failures detected!')
+              exit(1)
+          else:
+              print('✅ Build health looks good')
+          "
+      
+      - name: 📈 Generate Health Report
+        run: |
+          cat > health_report.md << 'EOF'
+          # 🏥 TSH Salesperson App - CI/CD Health Report
+          
+          **Generated:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          **Repository:** ${{ github.repository }}
+          **Branch:** ${{ github.ref_name }}
+          
+          ## 📊 System Status
+          
+          - ✅ GitHub Actions: Operational
+          - ✅ CodeMagic Integration: Connected
+          - ✅ Automated Fix System: Active
+          
+          ## 🔧 Recent Activity
+          
+          - Last health check: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          - Automation status: Running
+          - Next scheduled check: $(date -u -d "+30 minutes" +"%Y-%m-%d %H:%M:%S UTC")
+          
+          ## 📱 Quick Links
+          
+          - [CodeMagic Dashboard](https://codemagic.io/apps)
+          - [GitHub Actions](https://github.com/${{ github.repository }}/actions)
+          - [Manual Fix Trigger](https://github.com/${{ github.repository }}/actions/workflows/auto-fix-ci.yml)
+          
+          EOF
+          
+          echo "Health report generated:"
+          cat health_report.md
+      
+      - name: 📤 Upload Health Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: health-report-${{ github.run_number }}
+          path: health_report.md
+          retention-days: 7 

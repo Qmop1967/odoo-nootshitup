@@ -1303,3 +1303,30 @@ git tag v1.0.2
 git push origin main
 git push origin v1.0.2
 git log --oneline -5
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+head -20 codemagic.yaml
+git checkout -b feature/test-trigger && git push origin feature/test-trigger
+git add codemagic.yaml && git commit -m "🔧 Add simple test workflow to diagnose build triggering issues" && git push origin feature/test-trigger
+git checkout main && git merge feature/test-trigger && git push origin main
+git add codemagic.yaml && git commit -m "🔧 Fix codemagic.yaml validation errors - Remove xcode_project and xcode_scheme (not permitted) - Remove webhooks from publishing (not permitted) - This should resolve the 3 validation errors preventing builds"
+git push origin main
+git add codemagic.yaml && git commit -m "🔧 Fix remaining validation errors in production workflow - Remove xcode_project and xcode_scheme from production workflow - All validation errors should now be resolved"
+git push origin main
+git add codemagic.yaml && git commit -m "🔧 Simplify iOS signing configuration - Remove iOS signing from YAML, let CodeMagic dashboard handle it - Update test-build to create release APK and AAB - This should resolve iOS provisioning profile issues"
+git push origin main
+git add codemagic.yaml && git commit -m "🔧 Disable Google Play publishing temporarily - Comment out Google Play publishing to avoid credentials error - Builds should now complete successfully - Can re-enable after setting up proper Google Play credentials"
+git push origin main
+git add . && git commit -m "🚀 Enable dual store publishing (iOS App Store + Google Play) - Re-enable Google Play publishing for dual store deployment - Add iOS signing configuration back - Create comprehensive dual store setup guide - Ready for both App Store and Google Play publishing"
+git push origin main
+git log --oneline -3
+sudo cat /etc/ssh/sshd_config | grep -i password
+sudo nano /etc/ssh/sshd_config
+sudo systemctl restart ssh
+sudo service ssh restart
+passwd
+cat ~/.ssh/authorized_keys
+nano ~/.ssh/authorized_keys
+sudo systemctl status ssh
+sudo nano /etc/ssh/sshd_config
+sudo systemctl restart ssh
+sudo ss -tuln | grep :22
