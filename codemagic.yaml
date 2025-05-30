@@ -82,8 +82,6 @@ workflows:
       flutter: stable
       xcode: latest
       cocoapods: default
-      xcode_project: ios/Runner.xcodeproj
-      xcode_scheme: Runner
     integrations:
       app_store_connect: tsh_app_store_connect
     scripts:
@@ -262,8 +260,6 @@ workflows:
       flutter: stable
       xcode: latest
       cocoapods: default
-      xcode_project: ios/Runner.xcodeproj
-      xcode_scheme: Runner
     integrations:
       app_store_connect: tsh_app_store_connect
     scripts:
