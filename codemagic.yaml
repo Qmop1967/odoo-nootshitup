@@ -146,12 +146,12 @@ workflows:
         script: |
           flutter test --no-sound-null-safety
         ignore_failure: true
-      - name: Build APK for distribution
+      - name: Build APK for distribution (without Shorebird)
         script: |
           flutter build apk --release \
             --build-name=1.0.$BUILD_NUMBER \
             --build-number=$BUILD_NUMBER
-      - name: Build AAB for Play Store
+      - name: Build AAB for Play Store (without Shorebird)
         script: |
           flutter build appbundle --release \
             --build-name=1.0.$BUILD_NUMBER \
@@ -212,7 +212,7 @@ workflows:
         script: |
           flutter analyze --no-fatal-infos
         ignore_failure: true
-      - name: Build APK for preview
+      - name: Build APK for preview (without Shorebird)
         script: |
           flutter build apk --debug \
             --build-name=preview-$BUILD_NUMBER \
