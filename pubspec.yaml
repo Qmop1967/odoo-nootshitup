@@ -14,21 +14,16 @@ dependencies:
   provider: ^6.1.2
   shared_preferences: ^2.3.3
   intl: ^0.19.0
-  shorebird_code_push: ^1.1.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
-  flutter_driver:
-    sdk: flutter
   test: ^1.24.0
 
 flutter:
   uses-material-design: true
-  assets:
-    - shorebird.yaml
 
-# Enable Shorebird integration
+# Shorebird disabled for standard Flutter builds
 shorebird:
-  enabled: true 
+  enabled: false 
