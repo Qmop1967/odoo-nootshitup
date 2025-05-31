@@ -1,2 +1,3 @@
+# Shorebird Configuration for TSH Salesperson App
 app_id: com.tsh.sales.tsh_salesperson_app
-auto_update: true
+flavors: 

@@ -14,6 +14,7 @@ dependencies:
   provider: ^6.1.2
   shared_preferences: ^2.3.3
   intl: ^0.19.0
+  shorebird_code_push: ^1.1.4
 
 dev_dependencies:
   flutter_test:
@@ -25,9 +26,9 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  # assets:
-  #   - shorebird.yaml  # Temporarily disabled for build stability
+  assets:
+    - shorebird.yaml
 
-# Explicitly disable Shorebird integration
+# Enable Shorebird integration
 shorebird:
-  enabled: false 
+  enabled: true 
