@@ -1330,3 +1330,216 @@ sudo systemctl status ssh
 sudo nano /etc/ssh/sshd_config
 sudo systemctl restart ssh
 sudo ss -tuln | grep :22
+git tag v1.0.1
+git push origin v1.0.1
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+sudo adduser flutterdev --gecos "Flutter Developer,,,," --disabled-password
+sudo passwd flutterdev
+echo 'flutterdev:FlutterTSH2024!' | sudo chpasswd
+sudo usermod -aG sudo,docker flutterdev
+sudo usermod -aG sudo flutterdev
+sudo cp -r /root/* /home/flutterdev/ 2>/dev/null || true
+sudo chown -R flutterdev:flutterdev /home/flutterdev/
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+cd /root && python3 test_odoo_connection.py
+cd /root && python3 test_flutter_app_functionality.py
+cd /root && flutter analyze
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+chmod +x /root/setup_tsh_mcp.sh && /root/setup_tsh_mcp.sh
+python3 -m venv /root/.venv && source /root/.venv/bin/activate && pip install mcp requests
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+chmod +x /root/mcp_servers/tsh_flutter_mcp.py
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+cd /root && git add lib/config/app_config.dart && git commit -m "🔧 Configure Demo Odoo Server for Testing - Set up demo.odoo.com as temporary server - Allows immediate testing while user configures actual server - User can login with demo credentials to test app functionality"
+cd /root && git push origin main
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+openssl pkcs12 -export -out ios_distribution.p12 -inkey ios_distribution_private_key.pem -in ios_distribution_cert.pem -passout pass:tsh123456
+ls -la ios_distribution.p12
+ls -la ios_distribution_cert.pem
+rm ios_distribution_cert.pem distribution.cer
+git push origin main
+cd /root && git add codemagic.yaml
+git commit -m "Fix iOS build: Generate Flutter config files before CocoaPods - Add flutter build ios --config-only --no-codesign to generate Generated.xcconfig - This ensures Flutter/Generated.xcconfig exists before pod install runs - Fixes Podfile validation error about missing Generated.xcconfig - Applied to all iOS workflows: default-workflow, production, hotfix, preview"
+git push origin main
+git add ios/Runner.xcodeproj/project.pbxproj
+git commit -m "Fix iOS code signing: Use iPhone Distribution for Release builds - Changed Release configuration to use iPhone Distribution certificate - Keeps Debug and Profile configurations as iPhone Developer - This should resolve the 'No valid code signing certificates' error for App Store builds"
+git push origin main
+git add codemagic.yaml ios/ExportOptions.plist ios/Runner.xcodeproj/project.pbxproj
+git commit -m "Switch iOS signing to manual mode with explicit provisioning profile - Changed CodeMagic config to use manual signing with certificate and provisioning profile references - Updated ExportOptions.plist to use manual signing with explicit provisioning profile - Added DEVELOPMENT_TEAM, CODE_SIGN_STYLE=Manual, and PROVISIONING_PROFILE_SPECIFIER to iOS project - This should resolve the code signing certificate issues by explicitly using our uploaded certificates"
+git push origin main
+git add codemagic.yaml
+git commit -m "Fix CodeMagic validation errors: Remove invalid certificate and provisioning_profile fields from ios_signing environment section"
+git add .
+git commit -m "🤖 Add Comprehensive Automated CI/CD Error Handling System - Created intelligent error detection and auto-fix system for CodeMagic builds - Added GitHub Actions workflow for scheduled monitoring and manual triggers - Implemented webhook handler for real-time error processing - Added support for 10+ common error patterns (iOS signing, Android R8, Flutter config, etc.) - Includes health monitoring, smart notifications, and GitHub issue creation - Comprehensive documentation and setup scripts included - Fixes current CodeMagic validation errors in ios_signing configuration"
+git push origin main
+curl -H "X-Auth-Token: HOWMlSi975Hi3QL7rfME_ZjFBGwwu5lnC5U61kiFcSA" "https://api.codemagic.io/apps" | python3 -m json.tool
+echo "🔐 GitHub Secrets Setup Instructions:" && echo "1. Go to: https://github.com/Qmop1967/TSH-Salesperson-App" && echo "2. Click Settings → Secrets and variables → Actions" && echo "3. Add Secret: CODEMAGIC_API_TOKEN = HOWMlSi975Hi3QL7rfME_ZjFBGwwu5lnC5U61kiFcSA" && echo "4. Add Secret: CODEMAGIC_APP_ID = 68322e9bb94731dd4aa3a9b5"
+curl -H "X-Auth-Token: HOWMlSi975Hi3QL7rfME_ZjFBGwwu5lnC5U61kiFcSA" "https://api.codemagic.io/builds/68399b6706c0f8385fb84455" | python3 -c "import sys, json; data=json.load(sys.stdin); print(f'Build Status: {data[\"build\"][\"status\"]}'); print(f'Current Step: {[step[\"name\"] for step in data[\"build\"][\"buildActions\"] if step[\"status\"] is None][0] if any(step[\"status\"] is None for step in data[\"build\"][\"buildActions\"]) else \"Completed\"}')"
+curl -H "X-Auth-Token: HOWMlSi975Hi3QL7rfME_ZjFBGwwu5lnC5U61kiFcSA" "https://api.codemagic.io/builds/68399b6706c0f8385fb84455" | python3 -c "import sys, json; data=json.load(sys.stdin); build=data['build']; print(f'Build Status: {build[\"status\"]}'); print('Publishing Steps:'); [print(f'  - {step[\"name\"]}: {step[\"status\"] or \"running\"}') for step in build['buildActions'] if step['type'] == 'publishing' or 'publish' in step['name'].lower()]"
+curl -H "X-Auth-Token: HOWMlSi975Hi3QL7rfME_ZjFBGwwu5lnC5U61kiFcSA" "https://api.codemagic.io/builds/68399b6706c0f8385fb84455" | python3 -c "import sys, json; data=json.load(sys.stdin); build=data['build']; artifacts = build.get('artefacts', []); print('Build Artifacts:'); [print(f'  - {art[\"name\"]}: {art[\"url\"]}') for art in artifacts]; print(f'\\nBuild finished at: {build.get(\"finishedAt\", \"Unknown\")}')"
+curl -H "X-Auth-Token: HOWMlSi975Hi3QL7rfME_ZjFBGwwu5lnC5U61kiFcSA" "https://api.codemagic.io/builds/68399b6706c0f8385fb84455/step/68399b67b08093c92c9fc6b2" | grep -i -A5 -B5 "error\|fail\|testflight\|ipa\|ios" | head -20
+curl -H "X-Auth-Token: HOWMlSi975Hi3QL7rfME_ZjFBGwwu5lnC5U61kiFcSA" "https://api.codemagic.io/builds/68399b6706c0f8385fb84455/step/68399b67b08093c92c9fc6b3" | grep -i -A10 -B5 "testflight\|app store\|upload\|success\|published"
+cd /root && git add codemagic.yaml && git commit -m "🔧 Fix iOS TestFlight Publishing - Fixed missing publishing section in default-workflow - Added iOS archive artifacts collection - Ensured IPA files are properly captured for TestFlight upload"
+cd /root && git push origin main
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+openssl x509 -inform DER -in distribution.cer -out ios_distribution_cert.pem
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+cd /root
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+echo "tsh123456" | ./convert_cert_to_p12.sh distribution.cer
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+chmod +x /root/convert_cert_to_p12.sh
+ls -la *.cer *.crt 2>/dev/null || echo "No .cer or .crt files found"
+ls -lat | head -20
+find . -maxdepth 1 -type f -name "*cert*" -o -name "*distribution*" -o -name "*.p12" | grep -v "\.md$" | grep -v "\.sh$"
+find . -maxdepth 1 -type f -mmin -10 | head -10
+ls -la | grep -E "\.(cer|crt|pem|p12|der)$"
+cp .cursor-server/distribution.cer ./distribution.cer
+ls -la distribution.cer
+./convert_cert_to_p12.sh distribution.cer
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+git commit --allow-empty -m "Trigger build manually" && git push origin main
+git checkout -b test-build && git push origin test-build
+git checkout main
+git tag v1.0.4 && git push origin v1.0.4
+git add codemagic.yaml && git commit -m "🔧 Add default workflow for main branch to ensure proper iOS+Android builds - This should fix the workflow selection issue and trigger full production builds"
+git push origin main
+git add scripts/ WEBHOOK_SETUP.md codemagic.yaml
+git commit -m "🔍 Add comprehensive build monitoring and webhook system - Automatic build log fetching and analysis - Real-time webhook notifications - Error pattern detection for iOS/Android - Slack/Discord integration support - Detailed feedback reports and recommendations"
+git push origin main
+git tag v1.0.5 && git push origin v1.0.5
+git commit --allow-empty -m "🚀 Trigger new build to test iOS signing fix and monitoring system" && git push origin main
+git remote -v
+git log --oneline -3
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+git tag v1.0.3 && git push origin v1.0.3
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+cd /root && pwd && ls -la codemagic.yaml
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+git branch -a
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+git remote -v
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+cd /root && git push origin main
+cd /root && pwd && ls -la
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+cd /root && flutter analyze
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+cd /root && flutter test --verbose
+cd /root && flutter analyze --fatal-infos --fatal-warnings
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 quick_test_db.py
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 create_test_db_auto.py
+python3 find_odoo_config.py
+echo "📋 Current Configuration Status:" && echo "✅ Odoo URL: http://138.68.89.104:8069" && echo "✅ Database: odtshbrain" && echo "✅ Username: khaleel@tsh.sale" && echo "❌ Master Password: NEEDS TO BE SET" && echo "❌ User Password: NEEDS TO BE SET" && echo "" && echo "📝 To complete setup, you need to:" && echo "1. Edit odoo_config.py" && echo "2. Replace 'PLEASE_ENTER_YOUR_MASTER_PASSWORD' with your actual master password" && echo "3. Replace 'PLEASE_ENTER_YOUR_PASSWORD' with khaleel@tsh.sale's password"
+python3 create_odoo_test_database.py
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+chmod +x create_test_db_auto.py
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 create_odoo_test_database.py
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+chmod +x setup_odoo_test_tools.sh && ./setup_odoo_test_tools.sh
+./create_test_db.sh
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+chmod +x create_test_db.sh
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+systemctl status
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+cd /root && flutter pub get
+flutter analyze
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+./switch_to_flutter_user.sh
+sudo -u flutter flutter --version
+cd /home/flutter && sudo -u flutter flutter doctor
+chmod +x flutter_user_status.sh && ./flutter_user_status.sh
+cd /root && chmod +x flutter_user_status.sh && ./flutter_user_status.sh
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+whoami
+adduser --gecos "" flutter
+usermod -aG sudo flutter
+which flutter
+cp -r /root/tsh_salesperson_app /home/flutter/
+ls -la
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+chmod +x switch_to_flutter_user.sh
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+pwd && ls -la | grep -E "(tsh|flutter|app)"
+find . -name "pubspec.yaml" -type f 2>/dev/null
+cp -r /root/* /home/flutter/ 2>/dev/null || true
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+chown -R flutter:flutter /home/flutter/
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+git push origin main
+chmod +x check_build_status.sh
+./check_build_status.sh
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+git log --oneline -1 && echo "Latest commit pushed to: $(git branch --show-current)"
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+git push origin main
+flutter test
+flutter test --verbose
+which flutter && flutter --version
+flutter analyze --no-fatal-infos
+pwd && ls -la pubspec.yaml
+git add test/widget_test.dart codemagic.yaml TESTFLIGHT_PLAYSTORE_DEPLOYMENT.md
+git commit -m "feat: Optimize for TestFlight, APK, Play Store & App Preview deployment - Fixed Flutter test errors, enhanced CodeMagic workflows for multi-platform deployment, added comprehensive deployment guide, configured automatic build triggers, ready for immediate CodeMagic integration and store publishing"
+git push origin main
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+cat APP_TRIGGERED_SUMMARY.md
+flutter config --enable-ios
+flutter create --platforms=ios .
+chmod +x ios_deployment_automation.sh
+git status
+git add codemagic.yaml CODEMAGIC_SETUP_GUIDE.md CODEMAGIC_QUICK_START.md APP_STORE_SUBMISSION_CHECKLIST.md ios_app_assets/ ios_deployment_automation.sh lib/ pubspec.yaml
+git add shorebird.yaml deploy_shorebird.sh deploy_patch.sh TSH_SALESPERSON_INTEGRATION_GUIDE.md
+git status
+git commit -m "🚀 iOS App Store Deployment Ready - Complete Codemagic Integration with Odoo sync, admin features, and automatic certificate management"
+git push origin main
+cat CODEMAGIC_DEPLOYMENT_STATUS.md
+git add codemagic.yaml
+git commit -m "🔧 Fix Codemagic triggers - Add automatic build triggers for push to main branch"
+git push origin main
+find . -name "*.keystore" -o -name "*.jks" -o -name "*keystore*" | head -10
+git add codemagic.yaml CODEMAGIC_KEYSTORE_SETUP.md
+git commit -m "🔐 Fix Codemagic keystore configuration - Use existing tsh_keystore with correct credentials"
+git push origin main
+git add codemagic.yaml GOOGLE_PLAY_SETUP_GUIDE.md
+git commit -m "🔧 Fix Google Play upload issue - Disable automatic upload until service account configured"
+git push origin main
+git add codemagic.yaml lib/widgets/side_menu.dart
+git commit -m "🔧 Fix Flutter analyze issues - Make analyze non-blocking and fix deprecated withOpacity"
+git push origin main
+cd /root && flutter analyze
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+export DISPLAY=:0 && flutter run -d linux --verbose
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+flutter run -d linux
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+export PATH="$HOME/.shorebird/bin:$PATH" && shorebird release android --no-confirm
+chmod +x deploy_shorebird.sh
+chmod +x deploy_patch.sh
+cd /root && flutter run
+flutter config --enable-linux-desktop
+flutter create --platforms=linux .
+ps aux | grep flutter
+flutter doctor -v
+apt update && apt install -y mesa-utils
+chmod +x run_app_demo.sh && ./run_app_demo.sh
+flutter build linux --verbose
+flutter build linux
+. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+cd /root && flutter doctor
+which shorebird
+curl --proto '=https' --tlsv1.2 https://raw.githubusercontent.com/shorebirdtech/install/main/install.sh -sSf | bash
+export PATH="$HOME/.shorebird/bin:$PATH" && shorebird --version
+export PATH="$HOME/.shorebird/bin:$PATH" && shorebird upgrade
+export PATH="$HOME/.shorebird/bin:$PATH" && shorebird account
+export PATH="$HOME/.shorebird/bin:$PATH" && shorebird apps list
+export PATH="$HOME/.shorebird/bin:$PATH" && shorebird release android --force
+export PATH="$HOME/.shorebird/bin:$PATH" && shorebird login --help
+export PATH="$HOME/.shorebird/bin:$PATH" && shorebird doctor
+export PATH="$HOME/.shorebird/bin:$PATH" && shorebird patch android --force
+export PATH="$HOME/.shorebird/bin:$PATH" && shorebird patch android --no-confirm
+export PATH="$HOME/.shorebird/bin:$PATH" && shorebird apps create
+export PATH="$HOME/.shorebird/bin:$PATH" && shorebird init

@@ -1,11 +1,12 @@
 # Codemagic CI/CD Configuration for TSH Salesperson App
 # Optimized for TestFlight, APK, Android Store deployment and App Preview
+# Updated with Mac Mini M2 and iOS build fixes
 
 workflows:
   ios-workflow:
     name: iOS App Store & TestFlight Deployment
     max_build_duration: 120
-    instance_type: mac_mini_m1
+    instance_type: mac_mini_m2  # Upgraded to Mac Mini M2
     triggering:
       events:
         - push
@@ -27,22 +28,40 @@ workflows:
       vars:
         APP_NAME: "TSH Salesperson"
         BUNDLE_ID: "com.tsh.sales.tsh_salesperson_app"
+        XCODE_WORKSPACE: "ios/Runner.xcworkspace"
+        XCODE_SCHEME: "Runner"
         APP_STORE_CONNECT_ISSUER_ID: Encrypted(...) # Add your App Store Connect API key
         APP_STORE_CONNECT_KEY_IDENTIFIER: Encrypted(...) # Add your key ID
         APP_STORE_CONNECT_PRIVATE_KEY: Encrypted(...) # Add your private key
         CERTIFICATE_PRIVATE_KEY: Encrypted(...) # Add your certificate private key
       flutter: stable
+      xcode: latest
       cocoapods: default
     scripts:
-      - name: Set up code signing settings on Xcode project
+      - name: Set up debug keystore
         script: |
-          xcode-project use-profiles
+          set -ex
+          keytool -genkeypair \
+            -alias androiddebugkey \
+            -keypass android \
+            -keystore ~/.android/debug.keystore \
+            -storepass android \
+            -dname 'CN=Android Debug,O=Android,C=US' \
+            -keyalg 'RSA' \
+            -keysize 2048 \
+            -validity 10000
+      - name: Set up local.properties
+        script: |
+          echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
       - name: Get Flutter packages
         script: |
           flutter packages pub get
       - name: Install CocoaPods dependencies
         script: |
           find . -name "Podfile" -execdir pod install \;
+      - name: Set up code signing settings on Xcode project
+        script: |
+          xcode-project use-profiles
       - name: Flutter analyze
         script: |
           flutter analyze --no-fatal-infos
@@ -56,7 +75,7 @@ workflows:
           flutter build ipa --release \
             --build-name=1.0.$BUILD_NUMBER \
             --build-number=$BUILD_NUMBER \
-            --export-options-plist=ios/Runner/ExportOptions.plist
+            --export-options-plist=ios/ExportOptions.plist
     artifacts:
       - build/ios/ipa/*.ipa
       - /tmp/xcodebuild_logs/*.log
@@ -71,13 +90,13 @@ workflows:
       app_store_connect:
         auth: integration
         submit_to_testflight: true
-        submit_to_app_store: true
+        submit_to_app_store: false  # Set to true when ready for App Store
         release_type: AFTER_APPROVAL
         
   android-workflow:
     name: Android APK & Play Store Deployment
     max_build_duration: 120
-    instance_type: linux_x2
+    instance_type: mac_mini_m2  # Upgraded to Mac Mini M2 for consistency
     triggering:
       events:
         - push

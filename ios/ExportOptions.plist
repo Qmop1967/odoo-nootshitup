@@ -20,7 +20,7 @@
     <string>manual</string>
     <key>provisioningProfiles</key>
     <dict>
-        <key>com.tsh.sales.tshSalespersonApp</key>
+        <key>com.tsh.sales.tsh_salesperson_app</key>
         <string>TSH Salesperson App Store Profile</string>
     </dict>
 </dict>
