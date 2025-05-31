@@ -1,6 +1,6 @@
 # Codemagic CI/CD Configuration for TSH Salesperson App
 # Optimized for TestFlight, APK, Android Store deployment and App Preview
-# Updated with Mac Mini M2 and iOS build fixes
+# Updated with Mac Mini M2 and comprehensive Shorebird disabling
 
 workflows:
   ios-workflow:
@@ -41,10 +41,20 @@ workflows:
         APP_STORE_CONNECT_KEY_IDENTIFIER: Encrypted(...) # Add your key ID
         APP_STORE_CONNECT_PRIVATE_KEY: Encrypted(...) # Add your private key
         CERTIFICATE_PRIVATE_KEY: Encrypted(...) # Add your certificate private key
+        # Disable Shorebird completely
+        SHOREBIRD_ENABLED: "false"
+        CM_SKIP_SHOREBIRD: "true"
+        DISABLE_SHOREBIRD: "true"
+        NO_SHOREBIRD: "true"
       flutter: stable
       xcode: latest
       cocoapods: default
     scripts:
+      - name: Comprehensive Shorebird Disable
+        script: |
+          # Run comprehensive Shorebird disabling script
+          chmod +x scripts/disable_shorebird.sh
+          source scripts/disable_shorebird.sh
       - name: Set up debug keystore
         script: |
           set -ex
@@ -130,8 +140,18 @@ workflows:
         CM_KEYSTORE_PASSWORD: "Zcbm.97531tsh"
         CM_KEY_ALIAS: "my-key-alias"
         CM_KEY_PASSWORD: "Zcbm.97531tsh"
+        # Disable Shorebird completely
+        SHOREBIRD_ENABLED: "false"
+        CM_SKIP_SHOREBIRD: "true"
+        DISABLE_SHOREBIRD: "true"
+        NO_SHOREBIRD: "true"
       flutter: stable
     scripts:
+      - name: Comprehensive Shorebird Disable
+        script: |
+          # Run comprehensive Shorebird disabling script
+          chmod +x scripts/disable_shorebird.sh
+          source scripts/disable_shorebird.sh
       - name: Set up local.properties
         script: |
           echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
@@ -148,11 +168,13 @@ workflows:
         ignore_failure: true
       - name: Build APK for distribution (Standard Flutter)
         script: |
+          # Explicitly use Flutter build without Shorebird
           flutter build apk --release \
             --build-name=1.0.$BUILD_NUMBER \
             --build-number=$BUILD_NUMBER
       - name: Build AAB for Play Store (Standard Flutter)
         script: |
+          # Explicitly use Flutter build without Shorebird
           flutter build appbundle --release \
             --build-name=1.0.$BUILD_NUMBER \
             --build-number=$BUILD_NUMBER
@@ -200,8 +222,18 @@ workflows:
         CM_KEYSTORE_PASSWORD: "Zcbm.97531tsh"
         CM_KEY_ALIAS: "my-key-alias"
         CM_KEY_PASSWORD: "Zcbm.97531tsh"
+        # Disable Shorebird completely
+        SHOREBIRD_ENABLED: "false"
+        CM_SKIP_SHOREBIRD: "true"
+        DISABLE_SHOREBIRD: "true"
+        NO_SHOREBIRD: "true"
       flutter: stable
     scripts:
+      - name: Comprehensive Shorebird Disable
+        script: |
+          # Run comprehensive Shorebird disabling script
+          chmod +x scripts/disable_shorebird.sh
+          source scripts/disable_shorebird.sh
       - name: Set up local.properties
         script: |
           echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
@@ -214,6 +246,7 @@ workflows:
         ignore_failure: true
       - name: Build APK for preview (Standard Flutter)
         script: |
+          # Explicitly use Flutter build without Shorebird
           flutter build apk --debug \
             --build-name=preview-$BUILD_NUMBER \
             --build-number=$BUILD_NUMBER

@@ -1,0 +1,9 @@
+# Disable Shorebird for this project
+# This file tells Shorebird to ignore this project completely
+
+# Ignore all files
+*
+**/*
+
+# Project is configured for standard Flutter builds only
+# Shorebird integration is temporarily disabled 
