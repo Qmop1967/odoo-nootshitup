@@ -21,6 +21,13 @@ workflows:
           include: true
     integrations:
       app_store_connect: codemagic_app_store_connect
+    cache:
+      cache_paths:
+        - $CM_BUILD_DIR/.dart_tool
+        - $HOME/.pub-cache
+        - $CM_BUILD_DIR/ios/Pods
+        - $HOME/.gradle
+        - $CM_BUILD_DIR/android/.gradle
     environment:
       ios_signing:
         distribution_type: app_store
@@ -109,6 +116,12 @@ workflows:
       tag_patterns:
         - pattern: '*'
           include: true
+    cache:
+      cache_paths:
+        - $CM_BUILD_DIR/.dart_tool
+        - $HOME/.pub-cache
+        - $HOME/.gradle
+        - $CM_BUILD_DIR/android/.gradle
     environment:
       android_signing:
         - tsh_keystore
@@ -173,6 +186,12 @@ workflows:
         - pattern: '*'
           include: true
           source: true
+    cache:
+      cache_paths:
+        - $CM_BUILD_DIR/.dart_tool
+        - $HOME/.pub-cache
+        - $HOME/.gradle
+        - $CM_BUILD_DIR/android/.gradle
     environment:
       android_signing:
         - tsh_keystore
