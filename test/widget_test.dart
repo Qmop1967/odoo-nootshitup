@@ -13,7 +13,7 @@ void main() {
   group('TSH Salesperson App Tests', () {
     testWidgets('App starts with splash screen', (WidgetTester tester) async {
       // Build our app and trigger a frame.
-      await tester.pumpWidget(const MyApp());
+      await tester.pumpWidget(MyApp());
 
       // Verify that the splash screen shows a loading indicator
       expect(find.byType(CircularProgressIndicator), findsOneWidget);
@@ -22,7 +22,7 @@ void main() {
     testWidgets('Login page has required elements', (WidgetTester tester) async {
       // Test the login page in a scrollable container to avoid overflow
       await tester.pumpWidget(
-        const MaterialApp(
+        MaterialApp(
           home: Scaffold(
             body: SingleChildScrollView(
               child: SizedBox(
@@ -48,7 +48,7 @@ void main() {
     testWidgets('Login form fields are accessible', (WidgetTester tester) async {
       // Test the login page in a scrollable container
       await tester.pumpWidget(
-        const MaterialApp(
+        MaterialApp(
           home: Scaffold(
             body: SingleChildScrollView(
               child: SizedBox(
@@ -72,7 +72,7 @@ void main() {
     testWidgets('Login form accepts input', (WidgetTester tester) async {
       // Test the login page in a scrollable container
       await tester.pumpWidget(
-        const MaterialApp(
+        MaterialApp(
           home: Scaffold(
             body: SingleChildScrollView(
               child: SizedBox(
@@ -101,7 +101,7 @@ void main() {
     testWidgets('Email validation works', (WidgetTester tester) async {
       // Test the login page
       await tester.pumpWidget(
-        const MaterialApp(
+        MaterialApp(
           home: Scaffold(
             body: SingleChildScrollView(
               child: SizedBox(
@@ -130,7 +130,7 @@ void main() {
 
     testWidgets('App has proper navigation structure', (WidgetTester tester) async {
       // Build our app and verify routes are defined
-      await tester.pumpWidget(const MyApp());
+      await tester.pumpWidget(MyApp());
       
       // Wait for the widget to settle
       await tester.pumpAndSettle();

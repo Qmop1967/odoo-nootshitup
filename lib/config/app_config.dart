@@ -38,7 +38,7 @@ class AppConfig {
   static const bool enableLogging = true;
 
   // Shorebird Configuration
-  static const String shorebirdAppId = 'tsh-salesperson-app';
+  static const String shorebirdAppId = 'com.tsh.sales.tsh_salesperson_app';
   static const bool enableCodePush = true;
 
   // Cache Configuration
