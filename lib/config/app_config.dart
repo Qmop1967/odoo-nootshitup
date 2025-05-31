@@ -37,9 +37,10 @@ class AppConfig {
   static const bool isDebugMode = true; // Set to false for production
   static const bool enableLogging = true;
 
-  // Shorebird Configuration
-  static const String shorebirdAppId = 'com.tsh.sales.tsh_salesperson_app';
-  static const bool enableCodePush = true;
+  // Shorebird Configuration (Temporarily Disabled)
+  // static const String shorebirdAppId = 'com.tsh.sales.tsh_salesperson_app';
+  // static const bool enableCodePush = true;
+  static const bool enableCodePush = false; // Disabled for build stability
 
   // Cache Configuration
   static const int cacheExpirationHours = 24;
