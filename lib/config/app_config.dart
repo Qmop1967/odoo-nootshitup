@@ -7,6 +7,34 @@ class AppConfig {
   static const String odooServerUrl = 'http://138.68.89.104:8069';
   static const String odooDatabaseName = 'odtshbrain';
   
+  // Warehouse Configuration - CRITICAL ARCHITECTURE RULE
+  // DO NOT MODIFY WITHOUT ARCHITECTURE TEAM APPROVAL
+  static const Map<String, String> warehouseMapping = {
+    'sales_representatives': 'main_wholesale_warehouse',  // مخزن الجملة
+    'sales_partners': 'retail_store_warehouse',          // مخزن المتجر
+    'customer_app': 'retail_store_warehouse',            // مخزن المتجر
+    'web_store': 'retail_store_warehouse',               // مخزن المتجر
+    'website': 'retail_store_warehouse',                 // مخزن المتجر
+  };
+  
+  // Warehouse Details
+  static const Map<String, Map<String, String>> warehouseDetails = {
+    'main_wholesale_warehouse': {
+      'name': 'Main Wholesale Warehouse',
+      'type': 'Wholesale',
+      'location': 'سريع الدورة، بغداد',
+      'description': 'مخزن الجملة الرئيسي - المندوبين الميدانيين',
+      'target_users': 'Sales Representatives',
+    },
+    'retail_store_warehouse': {
+      'name': 'Retail Store Warehouse', 
+      'type': 'Retail',
+      'location': 'الدورة، بغداد',
+      'description': 'مخزن المتجر - شركاء البيع والزبائن',
+      'target_users': 'Sales Partners, Store Staff, Customers',
+    },
+  };
+  
   // App Information
   static const String appName = 'TSH Salesperson';
   static const String appVersion = '1.0.0';
@@ -75,5 +103,15 @@ class AppConfig {
       return 'Please update the Odoo server configuration in lib/config/app_config.dart';
     }
     return '';
+  }
+  
+  /// Get warehouse for specific app type
+  static String getWarehouseForApp(String appType) {
+    return warehouseMapping[appType] ?? 'retail_store_warehouse';
+  }
+  
+  /// Get warehouse details
+  static Map<String, String>? getWarehouseDetails(String warehouseId) {
+    return warehouseDetails[warehouseId];
   }
 }

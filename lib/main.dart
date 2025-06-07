@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'pages/login_page.dart';
+import 'models/salesperson.dart';
+import 'models/collection_receipt.dart';
+import 'models/money_transfer.dart';
+import 'models/regional_summary.dart';
 import 'pages/dashboard_page.dart';
 import 'pages/items_page.dart';
 import 'pages/clients_page.dart';

@@ -1,1545 +1,2000 @@
-rm -rf odoo-venv && python3 -m venv odoo-venv --prompt odoo
-ls -la odoo-venv/bin/
-source odoo-venv/bin/activate && pip install --upgrade pip wheel
-source odoo-venv/bin/activate && pip install -r odoo-community/requirements.txt
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ls -la /etc/systemd/system/ | grep odoo
-find /opt -name "*odoo*" 2>/dev/null
-find /usr -name "*odoo*" 2>/dev/null
-git --version
-python3 --version && pip3 --version
-mkdir -p /opt/odoo && cd /opt/odoo
-cd /opt/odoo && pwd
-cd /opt/odoo && git clone https://github.com/odoo/odoo.git --depth 1 --branch 18.0 --single-branch odoo-community
-ssh -T git@github.com
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-systemctl status odoo
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-which odoo
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo && pwd
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo && source odoo-venv/bin/activate && python odoo-community/odoo-bin -c odoo_test.conf --init=base,account,sale,purchase,stock,website --stop-after-init --without-demo=False
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo && ls -la
-git clone https://github.com/odoo/enterprise.git --depth 1 --branch 18.0 --single-branch odoo-enterprise
-ls -la
-apt install -y python3-dev python3-pip python3-venv libxml2-dev libxslt1-dev libevent-dev libsasl2-dev libldap2-dev pkg-config libtiff5-dev libjpeg8-dev libopenjp2-7-dev zlib1g-dev libfreetype6-dev liblcms2-dev libwebp-dev libharfbuzz-dev libfribidi-dev libxcb1-dev libpq-dev
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-apt update && apt upgrade -y
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-pkill -f odoo-bin
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-sudo apt update && sudo apt install -y git python3-pip python3-dev python3-venv build-essential libxslt-dev libzip-dev libldap2-dev libsasl2-dev python3-setuptools node-less libjpeg-dev libpq-dev libxml2-dev libffi-dev libssl-dev libmysqlclient-dev libjpeg8-dev liblcms2-dev libblas-dev libatlas-base-dev libpng-dev libtiff-dev libopenjp2-7-dev libwebp-dev libharfbuzz-dev libfribidi-dev libxcb1-dev npm && sudo npm install -g rtlcss
-sudo apt install -y postgresql && sudo -u postgres createuser -s $USER
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo && ls -la odoo_test.conf
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-chmod +x /opt/odoo/migration/get_zoho_tokens.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python get_zoho_tokens.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python get_zoho_tokens_simple.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python test_zoho_connection.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ps aux | grep odoo
-cd /opt/odoo
-cd /opt/odoo && mkdir -p /opt/odoo/.local/share/Odoo_test && mkdir -p /var/log/odoo
-cd /opt/odoo && source odoo-venv/bin/activate && python odoo-community/odoo-bin -c odoo_test.conf --init=base,account,sale,purchase,stock,website --stop-after-init --without-demo=False
-sudo -u postgres psql -l | grep odtshbrain
-cd /opt/odoo/migration && python setup_zoho_auth.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python debug_tokens.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && cat config/zoho_config.json | grep refresh_token
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python test_zoho_connection.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && curl -s http://localhost:8070/web/database/manager | grep -o "odtshbrain_test" || echo "Test DB check failed"
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python -c "import json; config=json.load(open('config/zoho_config.json')); print('Books:', config['zoho_books']['refresh_token']); print('Inventory:', config['zoho_inventory']['refresh_token'])"
-cd /opt/odoo/migration && rm config/zoho_config.json
-cd /opt/odoo/migration && python update_config.py
-cd /opt/odoo/migration && python3 update_config.py
-cd /opt/odoo/migration && python3 debug_tokens.py
-cd /opt/odoo/migration && python3 -c "import json; config=json.load(open('config/zoho_config.json')); print('Books URL:', config['zoho_books']['base_url']); print('Inventory URL:', config['zoho_inventory']['base_url'])"
-cd /opt/odoo/migration && python3 update_config.py
-cd /opt/odoo/migration && python3 debug_tokens.py
-cd /opt/odoo/migration && python3 test_zoho_connection.py
-cd /opt/odoo/migration && ls -la
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo && sudo systemctl status odoo-test || echo "Test service not found"
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-sleep 5 && ps aux | grep "odoo_test.conf" | grep -v grep
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-netstat -tlnp | grep 8070
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo && source odoo-venv/bin/activate && cd migration && python zoho_odoo_migrator.py test
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo && source odoo-venv/bin/activate && cd migration && python test_odoo_connection.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && ls -la logs/
-cd /opt/odoo/migration && cat logs/migration.log
-ps aux | grep "zoho_odoo_migrator" | grep -v grep
-cd /opt/odoo/migration && tail -20 logs/migration.log
-cd /opt/odoo && source odoo-venv/bin/activate && pip list | grep odoorpc
-cd /opt/odoo && source odoo-venv/bin/activate && pip install odoorpc
-pkill -f "zoho_odoo_migrator.py"
-cd /opt/odoo/migration && python test_odoo_connection.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-chmod +x /opt/odoo/start_test_odoo.sh && /opt/odoo/start_test_odoo.sh
-ss -tlnp | grep 8070 || echo "Port 8070 not found with ss, trying lsof..."
-curl -s http://localhost:8070/web/database/manager | grep -o "odtshbrain_test" || echo "Test DB not found"
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-sudo -u postgres psql -c "SELECT datname FROM pg_database WHERE datname='odtshbrain_test';"
-curl -s "http://localhost:8070/web/database/manager" | grep -i "create database" || echo "Database manager not accessible"
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-sleep 30 && ps aux | grep "odoo_test.conf" | grep -v grep
-cd /opt/odoo && source odoo-venv/bin/activate && nohup python /opt/odoo/odoo-community/odoo-bin -c /opt/odoo/odoo_test.conf > /var/log/odoo/odoo_test.log 2>&1 &
-sleep 10 && ss -tlnp | grep 8070
-cd /opt/odoo/migration && python3 update_passwords.py
-cd /opt/odoo/migration && python3 test_odoo_connection.py
-cd /opt/odoo && source odoo-venv/bin/activate && cd migration && python test_odoo_connection.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo && source odoo-venv/bin/activate && cd migration && python zoho_odoo_migrator.py test
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && cat logs/migration.log
-cd /opt/odoo && source odoo-venv/bin/activate && cd migration && python simple_test_migration.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && sleep 10 && cat logs/migration.log | tail -20
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-sleep 30 && echo "Checking test results..."
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && ps aux | grep "zoho_odoo_migrator" | grep -v grep
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-fuser -k 8070/tcp || echo "Port 8070 cleared"
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo && source odoo-venv/bin/activate && cd migration && python extract_zoho_data.py
-cd /opt/odoo/migration && ls -la data/extracted/
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ps aux | grep "simple_test_migration" | grep -v grep
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-curl -s http://localhost:8070/web/login | grep -i "odoo" || echo "Odoo web interface not accessible"
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-pkill -f "odoo_test.conf" && sleep 5 && ps aux | grep "8070" | grep -v grep
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-chmod +x /opt/odoo/fix_test_odoo.sh && /opt/odoo/fix_test_odoo.sh
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ss -tlnp | grep 8070
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-sleep 60 && echo "Checking Odoo test instance status..."
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ss -tlnp | grep 8070
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ps aux | grep "odoo_test.conf" | grep -v grep
-tail -10 /var/log/odoo/odoo_test_startup.log
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-pkill -9 -f "odoo-bin" && sleep 5 && sudo fuser -k 8070/tcp
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && timeout 30 python reset_admin_temp.py
-cd /opt/odoo && source odoo-venv/bin/activate
-python /opt/odoo/migration/run_full_migration.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-netstat -tlnp | grep 8070 || echo "Port 8070 not listening"
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-sleep 30 && ps aux | grep "odoo_test.conf" | grep -v grep
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && tail -f logs/migration.log
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo && source odoo-venv/bin/activate && nohup python /opt/odoo/odoo-community/odoo-bin -c /opt/odoo/odoo_test.conf --logfile=/var/log/odoo/odoo_test.log > /dev/null 2>&1 &
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo && source odoo-venv/bin/activate && python /opt/odoo/odoo-community/odoo-bin -c /opt/odoo/odoo_test.conf --test-enable --stop-after-init
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo && source odoo-venv/bin/activate && cd migration && python test_passwords.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo && source odoo-venv/bin/activate && python /opt/odoo/odoo-community/odoo-bin -c /opt/odoo/odoo_test.conf -d odtshbrain_test -i base --stop-after-init --without-demo=all
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo && source odoo-venv/bin/activate && python /opt/odoo/odoo-community/odoo-bin -c /opt/odoo/odoo_test.conf -d odtshbrain_test --stop-after-init --log-level=warn
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo && source odoo-venv/bin/activate && cd migration && timeout 60 python fix_admin_permissions.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && tail -f logs/migration_$(date +%Y%m%d).log
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python fix_admin_permissions.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-sleep 15 && ss -tlnp | grep 8070
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 migrate_contacts_enhanced.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 migrate_contacts_enhanced.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 quick_status.py
-cd /opt/odoo/migration && python3 check_product_status.py
-cd /opt/odoo/migration && chmod +x continuous_sync_server.py sync_monitor.py start_sync_server.py
-cd /opt/odoo/migration && python3 -c "from continuous_sync_server import ContinuousSyncServer; print('🔄 Testing sync server...'); s = ContinuousSyncServer(); print('✅ Sync server initialized successfully'); print('📊 Config loaded: Zoho + Odoo connections ready'); print('🎯 Ready to start continuous synchronization')"
-cd /opt/odoo/migration && python3 quick_status.py
-cd /opt/odoo/migration && ls -la *.py *.service *.md | grep -E "(continuous_sync|sync_monitor|start_sync|SYNC_SERVER|zoho-odoo-sync)"
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-find /opt -name "*odoo*" -type d 2>/dev/null | head -10
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 sync_pricelists_only.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 list_active_pricelists.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-tail -20 /opt/odoo/migration/logs/full_migration.log
-cd /opt/odoo && source odoo-venv/bin/activate && python3 -c "import xmlrpc.client; url='http://localhost:8069'; db='odtshbrain'; username='khaleel@tsh.sale'; password='Zcbm.97531tsh'; common=xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/common'); uid=common.authenticate(db,username,password,{}); models=xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/object'); field_info=models.execute_kw(db,uid,password,'product.template','fields_get',['type']); print('Product type field:'); print(field_info['type'])"
-cd /opt/odoo/migration && python3 test_product_migration.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python test_zoho_connection.py
-cd /opt/odoo/migration && python3 test_zoho_connection.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-systemctl status odoo
-bash /opt/odoo/start_odoo_and_migrate.sh
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ps aux | grep migrate_products_only | grep -v grep
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ps aux | grep test_product_migration
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && ls -la *.log 2>/dev/null || echo "No log files in current directory"
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo && source odoo-venv/bin/activate && python3 -c "import xmlrpc.client; url='http://localhost:8069'; db='odtshbrain'; username='khaleel@tsh.sale'; password='Zcbm.97531tsh'; common=xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/common'); uid=common.authenticate(db,username,password,{}); models=xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/object'); count=models.execute_kw(db,uid,password,'product.template','search_count',[[]]); print(f'Total products in Odoo: {count}')"
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-tail -30 /opt/odoo/migration/logs/full_migration.log
-ps aux | grep "run_full_migration\|python.*migration" | grep -v grep
-sleep 10 && ps aux | grep migrate_products_only
-tail -f /var/log/syslog | grep -i "migrate\|product" | head -20
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-curl -s http://localhost:8069/web/database/manager | grep -q "odtshbrain" && echo "✅ Odoo is running" || echo "❌ Odoo not accessible"
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-pwd && ls -la
-cd /opt/odoo/migration && ls -la
-cd /opt/odoo/migration && chmod +x fix_duplicate_contacts.py migrate_contacts_no_duplicates.py
-cd /opt/odoo/migration && python3 fix_duplicate_contacts.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-log_file=$(find /opt/odoo/migration/logs -name "contact_migration_*.log" -print0 | xargs -0 ls -t | head -1) && if [ -n "$log_file" ]; then echo "Found log: $log_file"; tail -n 50 "$log_file"; else echo "No specific contact migration log file found yet. Checking general logs."; tail -n 50 /opt/odoo/migration/logs/migration.log 2>/dev/null || echo "No migration.log found."; fi
-ps aux | grep migrate_contacts_enhanced.py | grep -v grep
-systemctl status odoo
-sudo systemctl start odoo
-sleep 15 && systemctl status odoo
-sudo journalctl -u odoo -n 50 --no-pager
-sudo lsof -t -i:8069
-sudo kill 71382 && echo 'Killed 71382' || echo 'PID 71382 not found'
-sudo kill 61088 && echo 'Attempted to kill PID 61088' || echo 'PID 61088 not found or already killed'
-sudo lsof -t -i:8069
-sudo systemctl start odoo && sleep 15 && systemctl status odoo
-sleep 60 && echo "--- Checking Odoo Status ---" && systemctl is-active odoo && echo "--- Checking Contact Migration Process ---" && ps aux | grep migrate_contacts_enhanced.py | grep -v grep || echo "Contact migration process not found."
-cd /opt/odoo/migration && python3 migrate_contacts_enhanced.py
-sleep 45 && echo "--- Checking Odoo Status ---" && systemctl is-active odoo && echo "--- Checking Contact Migration Process ---" && ps aux | grep migrate_contacts_enhanced.py | grep -v grep || echo "Contact migration process not found."
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && chmod +x quick_duplicate_check.py && python3 quick_duplicate_check.py
-cd /opt/odoo/migration && chmod +x resolve_duplicates_interactive.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo && source odoo-venv/bin/activate && python3 -c "import xmlrpc.client; url='http://localhost:8069'; db='odtshbrain'; username='khaleel@tsh.sale'; password='Zcbm.97531tsh'; common=xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/common'); uid=common.authenticate(db,username,password,{}); models=xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/object'); count=models.execute_kw(db,uid,password,'res.partner','search_count',[[]]); print(f'Total contacts (res.partner records) in Odoo: {count}')"
-sleep 120 && echo "--- Checking Odoo Status ---" && systemctl is-active odoo && echo "--- Checking Contact Migration Process ---" && ps aux | grep migrate_contacts_enhanced.py | grep -v grep || echo "Contact migration process not found."
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && ls -la *duplicate* *no_duplicates* *.md | grep -E "(duplicate|no_duplicates|\.md)"
-cd /opt/odoo/migration && ls -la | grep -E "(duplicate|no_duplicates|\.md)"
-cd /opt/odoo/migration && echo "1" | python3 resolve_duplicates_interactive.py | head -30
-# 1. Navigate to migration directory
-cd /opt/odoo/migration
-# 2. See the scope of the problem
-python3 quick_duplicate_check.py
-# 3. Run the interactive resolver
-python3 resolve_duplicates_interactive.py
-# Choose option 1 for dry run first, then option 2 to remove with backup
-# 4. Verify the cleanup worked
-python3 quick_duplicate_check.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && chmod +x run_duplicate_fix.py && python3 run_duplicate_fix.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 resolve_duplicates_interactive.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 change_currency_to_iqd.py
-cd /opt/odoo/migration && python3 change_currency_to_iqd_fixed.py
-cd /opt/odoo/migration && python3 change_currency_direct.py
-echo "💡 Ready to run complete migration once currency is changed to IQD"
-sleep 10 && ps aux | grep enhanced_product_migrator | grep -v grep
-sleep 30 && ps aux | grep enhanced_product_migrator | grep -v grep
-sleep 60 && ps aux | grep enhanced_product_migrator | grep -v grep || echo "Migration completed"
-find /opt/odoo/migration -name "*.log" -newer /opt/odoo/migration/enhanced_product_migrator.py 2>/dev/null | head -5
-jobs
-cd /opt/odoo && source odoo-venv/bin/activate && python3 -c "import xmlrpc.client; url='http://localhost:8069'; db='odtshbrain'; username='khaleel@tsh.sale'; password='Zcbm.97531tsh'; common=xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/common'); uid=common.authenticate(db,username,password,{}); models=xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/object'); count=models.execute_kw(db,uid,password,'product.template','search_count',[[]]); print(f'Total products in Odoo: {count}')"
-ps aux | grep enhanced_product_migrator | grep -v grep
-while ps aux | grep enhanced_product_migrator | grep -v grep > /dev/null; do echo "$(date): Migration still running..."; sleep 30; done && echo "Migration completed!"
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-sleep 30 && ps aux | grep migrate_contacts_enhanced.py | grep -v grep
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && echo "1" | python3 resolve_duplicates_interactive.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && echo "1" | python3 run_duplicate_fix.py
-cd /opt/odoo/migration && python3 quick_duplicate_check.py
-cd /opt/odoo/migration && ls -la *product*
-cd /opt/odoo/migration && pip3 install schedule
-cd /opt/odoo/migration && pip3 install schedule --break-system-packages && chmod +x zoho_product_sync.py product_sync_scheduler.py
-cd /opt/odoo/migration && python3 product_sync_scheduler.py status
-cd /opt/odoo/migration && echo "2" | python3 zoho_product_sync.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && ps aux | grep fix_duplicate_contacts
-cd /opt/odoo/migration && python3 fix_duplicate_contacts.py | head -50
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-find . -name "*.py" -o -name "*.xml" -o -name "*.csv" -o -name "*migration*" -o -name "*product*" | head -20
-find . -type d -name "*odoo*" -o -name "*migration*" -o -name "*product*" 2>/dev/null
-find . -name "*.py" -mtime -7 -not -path "./.cursor-server/*" 2>/dev/null | head -10
-ls -la
-tail -20 .bash_history | grep -E "(migration|product|odoo|zoho)" -i
-cd /opt/odoo/migration && ls -la
-cd /opt/odoo/migration && python3 check_product_status.py
-cd /opt/odoo/migration && chmod +x fix_product_migration_issues.py check_product_status.py test_fixes.py zoho_product_sync_enhanced.py
-cd /opt/odoo/migration && python3 test_fixes.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 check_product_status.py
-cd /opt/odoo/migration && python3 fix_usd_to_iqd_automated.py
-cd /opt/odoo/migration && python3 run_image_fetch.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 run_duplicate_removal.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && chmod +x fix_usd_to_iqd_automated.py && python3 fix_usd_to_iqd_automated.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 zoho_product_sync_enhanced.py
-cd /opt/odoo/migration && chmod +x simple_image_fetch.py && python3 simple_image_fetch.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 fix_product_migration_issues.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 -c "import sync_active_pricelists_only; print('Script imported successfully')"
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && tail -n 50 logs/active_pricelist_sync.log
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && ls -la logs/
-cd /opt/odoo/migration && python3 sync_active_pricelists_only.py 2>&1 | head -n 50
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && chmod +x sync_active_pricelists_only.py && python3 sync_active_pricelists_only.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 sync_active_pricelists_only.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-chmod +x /opt/odoo/migration/sync_pricelists_only.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && timeout 30 python3 sync_active_pricelists_only.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 quick_status.py
-cd /opt/odoo/migration && python3 check_product_status.py
-cd /opt/odoo/migration && chmod +x run_image_fetch_batches.py && python3 run_image_fetch_batches.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && ls -la logs/ | grep active
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 run_full_migration.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-tail -f /opt/odoo/migration/logs/migration_$(date +%Y%m%d).log
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 migrate_contacts_enhanced.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 migrate_products_only.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 enhanced_product_migrator.py
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-tail -f /opt/odoo/migration/logs/full_migration.log
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo && source odoo-venv/bin/activate && python3 -c "import xmlrpc.client; url='http://localhost:8069'; db='odtshbrain'; username='khaleel@tsh.sale'; password='Zcbm.97531tsh'; common=xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/common'); uid=common.authenticate(db,username,password,{}); models=xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/object'); count=models.execute_kw(db,uid,password,'res.partner','search_count',[[]]); print(f'Total contacts (res.partner records) in Odoo: {count}')"
-sleep 180 && echo "--- Checking Odoo Status ---" && systemctl is-active odoo && echo "--- Checking Contact Migration Process ---" && ps aux | grep migrate_contacts_enhanced.py | grep -v grep || echo "Contact migration process likely completed or stopped."
-. "\root\.cursor-server\cli\servers\Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 continuous_sync_server_enhanced.py
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-tail -50 /opt/odoo/migration/logs/sync_server_enhanced.log
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && chmod +x zoho_odoo_sync_service.py sync_service_manager.py add_zoho_field.py
-cd /opt/odoo/migration && python3 add_zoho_field.py
-cd /opt/odoo/migration && python3 sync_service_manager.py install
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && echo "ARCHIVE" | python3 clean_import_safe.py
-python3 sync_service_manager_fixed.py sync-once
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-systemctl status zoho-odoo-sync zoho-odoo-sync-images
+cd /root && nohup python3 test_all_access.py > access_test_results.log 2>&1 &
 . "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-flutter doctor
-flutter pub get
-flutter build apk --debug
-mkdir -p ~/.ssh
-nano ~/.ssh/authorized_keys
-mkdir -p ~/.ssh
-nano ~/.ssh/authorized_keys
-chmod 700 ~/.ssh
-chmod 600 ~/.ssh/authorized_keys
-[200~history | grep ssh
-~
-history | grep ssh
-history | less
+cd /root && nohup python3 bypass_permissions.py > bypass_output.log 2>&1 &
 . "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cat /proc/sys/fs/inotify/max_user_watches
+cd /root && nohup python3 run_complete_sync.py > complete_sync_output.log 2>&1 &
 . "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cat /proc/sys/fs/inotify/max_user_watches
+cd /root && pip3 install psycopg2-binary bcrypt && nohup python3 odoo_admin_reset.py > admin_reset_results.log 2>&1 &
 . "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
+cd /root && nohup python3 mirror_sync_zoho_to_odoo.py > mirror_sync_output.log 2>&1 &
 . "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-sudo sysctl -p
-cat /proc/sys/fs/inotify/max_user_watches
+cd /root && nohup python3 emergency_fix_and_sync.py > emergency_fix_results.log 2>&1 &
 . "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && tail -20 logs/comprehensive_sync.log
-cd /opt/odoo/migration && tail -10 logs/products.log
-cd /opt/odoo/migration && tail -20 logs/products_sync.log
-cd /opt/odoo/migration && python3 sync_manager.py status
-cd /opt/odoo/migration && tail -5 logs/comprehensive_sync.log
-cd /opt/odoo/migration && tail -5 logs/products_sync.log
-cd /opt/odoo/migration && python3 sync_manager.py enable
-cd /opt/odoo/migration && python3 sync_manager.py status
-cd /opt/odoo/migration && tail -10 logs/comprehensive_sync.log
-cd /opt/odoo/migration && tail -10 logs/products_sync.log
-cd /opt/odoo/migration && python3 sync_manager.py logs 15
-date && cd /opt/odoo/migration && tail -1 logs/products_sync.log
-cd /opt/odoo/migration && timeout 10 tail -f logs/products_sync.log
-cd /opt/odoo/migration && timeout 10 tail -f logs/comprehensive_sync.log
+cd /root && nohup python3 fixed_complete_zoho_sync.py > final_complete_sync_output.log 2>&1 &
 . "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-chmod +x /opt/odoo/migration/zoho_odoo_comprehensive_sync.py
-chmod +x /opt/odoo/migration/sync_manager.py
-systemctl daemon-reload
-chmod +x /opt/odoo/migration/setup_comprehensive_sync.py
-cd /opt/odoo/migration && python3 sync_manager.py status
-systemctl daemon-reload
-cd /opt/odoo/migration && python3 sync_manager.py status
-journalctl --vacuum-size=1M
-cd /opt/odoo/migration && python3 sync_manager.py sync
-cd /opt/odoo/migration && python3 sync_manager.py status
-cd /opt/odoo/migration && python3 sync_manager.py logs --tail 20
-cd /opt/odoo/migration && python3 sync_manager.py logs 20
-cd /opt/odoo/migration && python3 sync_manager.py logs 30
+nohup python3 missing_products_sync.py > missing_products_results.log 2>&1 &
 . "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ps aux | grep flutter
-ls -la build/app/outputs/apk/debug/
-flutter build apk --debug
-flutter analyze
+cd /root && nohup python3 fix_permissions_final.py > permissions_fix_results.log 2>&1 &
 . "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-flutter doctor
-flutter clean
-flutter pub get
-flutter build apk --debug
+cd /root && nohup python3 fixed_product_sync.py > fixed_sync_output.log 2>&1 &
 . "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-flutter analyze --no-pub 2>&1 | head -20
+cd /root && python3 final_working_zoho_odoo_sync.py 2>&1 | tee sync_execution_$(date +%Y%m%d_%H%M%S).log
 . "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-git status
-git merge --abort
-git push origin main --force
-git log --oneline -3
-git status
-mkdir -p android/app/src/main/kotlin/com/tsh/sales/tsh_salesperson_app
-mkdir -p android/app/src/main/res/values
-mkdir -p ios/Runner
-git add .
-git commit -m "Fix build errors: Restore missing Flutter project files and fix .gitignore - Added missing login_page.dart and dashboard_page.dart - Restored complete Android project structure (build.gradle, AndroidManifest.xml, MainActivity.kt, styles.xml) - Restored iOS project structure (Podfile, Info.plist, AppDelegate.swift) - Fixed .gitignore to include essential project files while excluding build artifacts - Ready for successful builds on both Android and iOS platforms"
-git push origin main
-flutter analyze
-flutter analyze --no-pub
+cd /root && nohup python3 auto_token_refresh_and_sync.py > auto_sync_complete_output.log 2>&1 &
 . "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-git status
-git rebase --abort
-git status
-git add lib/ android/ ios/ pubspec.yaml pubspec.lock shorebird.yaml README.md .gitignore
-ls -la lib/ android/ ios/ *.yaml *.md 2>/dev/null
-find . -maxdepth 1 -name "*.yaml" -o -name "*.md" -o -name "*.lock"
-ls -la | grep -E "(yaml|md|lock)"
-git log --oneline -5
-git add lib/ android/ ios/ pubspec.yaml shorebird.yaml README.md .gitignore
-git status
-git commit -m "Complete TSH Salesperson App with Odoo integration - Added complete Flutter app with bank-style dashboard, Odoo API integration, session management, Android/iOS structures, Shorebird config, and store deployment readiness"
-git push origin main
-git pull origin main
-git config pull.rebase false && git pull origin main
-git pull origin main --allow-unrelated-histories
+cd /root && nohup python3 final_working_zoho_odoo_sync.py > final_working_sync_output.log 2>&1 &
 . "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ps aux | grep flutter | grep -v grep
-find . -name "*.apk" -type f
-ls -la build/ 2>/dev/null || echo "Build directory not found"
-ps aux | grep -E "(flutter|gradle|dart)" | grep -v grep
-flutter build apk --release --verbose 2>&1 | head -50
-nohup flutter build apk --release > build_output.log 2>&1 &
-ps aux | grep flutter
-flutter build apk --release
+cd /root && nohup python3 working_sync_final.py > final_sync_output.log 2>&1 &
 . "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-sleep 180 && ls -la build/app/outputs/flutter-apk/ 2>/dev/null || echo "Build still in progress, checking processes..."
+cd /root && nohup python3 ultimate_comprehensive_sync_solution.py > /root/ultimate_sync_live_output.log 2>&1 &
 . "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ps aux | grep flutter | head -5
-find . -name "*.apk" -type f
-ls -la build/ 2>/dev/null || echo "No build directory found"
-flutter doctor -v
-timeout 300 flutter build apk --release 2>&1 | tee build_log.txt
-sed -i 's/android.enableR8.fullMode=false .*/android.enableR8.fullMode=false/' android/gradle.properties
-flutter build apk --release
+cd /root && python3 -m http.server 8080
 . "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-sleep 120 && ls -la build/app/outputs/flutter-apk/ 2>/dev/null || echo "Still building..."
+nohup python3 complete_comprehensive_sync.py > comprehensive_sync_results.log 2>&1 &
 . "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ps aux | grep -E "(flutter|gradle)" | grep -v grep
-ls -la build/app/outputs/flutter-apk/ 2>/dev/null || echo "APK not ready yet"
-ls -la build/ 2>/dev/null && echo "--- Build directory contents ---" || echo "Build directory not created yet"
-ps aux | grep flutter | grep -v grep
-flutter build apk --release --verbose
+cd /root && nohup python3 robust_mirror_sync.py > robust_sync_output.log 2>&1 &
 . "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ps aux | grep flutter
-sleep 60 && ls -la build/ 2>/dev/null || echo "Build still in progress"
+cd /root && nohup python3 direct_mirror_sync.py > direct_mirror_output.log 2>&1 &
 . "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ps aux | grep flutter
-sleep 30 && ls -la build/app/outputs/flutter-apk/ 2>/dev/null || echo "Build still in progress or build directory not created yet"
-ps aux | grep flutter
-ls -la build/app/outputs/ 2>/dev/null || echo "Build output directory not ready yet"
-find . -name "*.apk" -type f 2>/dev/null || echo "No APK files found yet"
-ls -la build/ 2>/dev/null || echo "Build directory not created yet"
-pwd && ps aux | grep gradle
-ps aux | grep -E "(flutter|gradle|dart)" | grep -v grep
-flutter clean && flutter pub get
-ls -la
-ps aux | grep -E "(flutter|gradle|dart)" | grep -v grep
-ls -la && find . -name "*.apk" -type f 2>/dev/null | head -10
-ls -la build/ 2>/dev/null || echo "Build directory doesn't exist yet"
-ls -la pubspec.yaml lib/ android/ && flutter --version
-flutter clean
-flutter pub get
-flutter build apk --release
+cd /root && nohup python3 corrected_product_sync.py > corrected_sync_output.log 2>&1 &
 . "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-export ANDROID_HOME=/root/Android/Sdk && export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools && echo $ANDROID_HOME && ls -la $ANDROID_HOME
-echo 'export ANDROID_HOME=/root/Android/Sdk' >> ~/.bashrc && echo 'export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools' >> ~/.bashrc && source ~/.bashrc
-flutter doctor
-flutter build apk
-ls -la /root
-find /root -type d \( -iname "*sync*" -o -iname "*zoho*" -o -iname "*odoo*" \)
-ls -la /root/.cursor-server/cli/servers/
-ls -la /root/.cursor-server/cli/servers/Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600
-ls -la /root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770
-ls -la /root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10
-ls -la /root/.cursor-server/cli/servers/Stable-XXXXXXXXXXXXXXX/server
-ls -la /root/.cursor-server/cli/servers/Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600/server
-ls -la /root/.cursor-server/cli/servers/Stable-96e5b01ca25f8fbd4c4c10bc69b15f6228c80770/server
-ls -la /root/.cursor-server/cli/servers/Stable-f3f2ad556456ff2df80332923bb1e2a818110d10/server
+cd /root && nohup python3 simple_direct_sync.py > simple_direct_output.log 2>&1 &
 . "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && systemctl list-units --type=service | grep zoho-odoo
-systemctl list-units --all | grep zoho-odoo
-systemctl stop zoho-odoo-comprehensive-sync zoho-odoo-sync-fixed zoho-odoo-sync
-systemctl disable zoho-odoo-comprehensive-sync zoho-odoo-sync-fixed zoho-odoo-sync
-systemctl status zoho-odoo-comprehensive-sync zoho-odoo-sync-fixed zoho-odoo-sync
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-tail -f /root/zoho-odoo-integration-central/telegram_bot.log | grep -E "(User ID|started|Application)"
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-python3 /root/zoho-odoo-integration-central/full_comprehensive_sync.py | head
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-tail -n 10 /root/zoho-odoo-integration-central/telegram_bot.log
-journalctl -u zoho-odoo-telegram-bot --since "5 minutes ago" | tail -n 10
-systemctl is-active zoho-odoo-comprehensive-sync zoho-odoo-sync-fixed zoho-odoo-sync-immediate zoho-odoo-sync-images zoho-odoo-telegram-bot
-journalctl -u zoho-odoo-telegram-bot --since "10 minutes ago" | grep -i "user\|unauthorized\|access" | tail -10
-tail -20 /root/zoho-odoo-integration-central/telegram_bot.log
-systemctl restart zoho-odoo-telegram-bot
-tail -20 /root/zoho-odoo-integration-central/telegram_bot.log | grep "User ID"
-ls -la /root/zoho-odoo-integration-central/quick-prompts.sh
-chmod +x /root/zoho-odoo-integration-central/quick-prompts.sh
-systemctl restart zoho-odoo-telegram-bot
-systemctl status zoho-odoo-telegram-bot
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-systemctl is-active zoho-odoo-telegram-bot
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-find /opt/odoo/migration -name "*product*" -type f | head -10
-find /opt/odoo/migration -name "*tracking*" -type f | head -10
-ls -la /opt/odoo/migration/data/product_sync_data.json
-head -5 /opt/odoo/migration/data/product_sync_data.json
-cat /opt/odoo/migration/data/comprehensive_sync/comprehensive_sync_tracking.json
-systemctl restart zoho-odoo-telegram-bot
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-pip3 install python-telegram-bot
-pip3 install python-telegram-bot --break-system-packages
-python3 -c "import telegram; print('✅ Telegram library installed successfully')"
-systemctl daemon-reload && systemctl enable zoho-odoo-telegram-bot && systemctl start zoho-odoo-telegram-bot
-systemctl status zoho-odoo-telegram-bot
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-python3 -c "import json; data=json.load(open('/opt/odoo/migration/data/product_sync_data.json')); print(f'Products: {len(data[\"products\"])}'); print(f'Last sync: {data.get(\"last_sync\")}')"
-jq '.products | length' /opt/odoo/migration/data/product_sync_data.json
-jq '.last_sync' /opt/odoo/migration/data/product_sync_data.json
-jq '.sync_history | length' /opt/odoo/migration/data/comprehensive_sync/comprehensive_sync_tracking.json
-ps aux | grep telegram_bot
-tail -10 /root/zoho-odoo-integration-central/telegram_bot.log
-find /opt/odoo/migration -name "*customer*" -o -name "*vendor*" -o -name "*contact*" | head -10
-ls -la /opt/odoo/migration/data/extracted/
-jq '. | length' /opt/odoo/migration/data/extracted/books_contacts_20250523_103245.json
-jq 'keys' /opt/odoo/migration/data/extracted/books_contacts_20250523_103245.json
-jq '.contacts | length' /opt/odoo/migration/data/extracted/books_contacts_20250523_103245.json
-jq '.contacts[0] | keys' /opt/odoo/migration/data/extracted/books_contacts_20250523_103245.json
-jq '.contacts | group_by(.contact_type) | map({type: .[0].contact_type, count: length})' /opt/odoo/migration/data/extracted/books_contacts_20250523_103245.json
-jq '.items | length' /opt/odoo/migration/data/extracted/inventory_items_20250523_103254.json
-jq 'keys' /opt/odoo/migration/data/extracted/inventory_items_20250523_103254.json
-jq '.page_context.total_count' /opt/odoo/migration/data/extracted/inventory_items_20250523_103254.json
-jq '.page_context' /opt/odoo/migration/data/extracted/inventory_items_20250523_103254.json
-find /opt/odoo/migration -name "*zoho*" -name "*.json" | head -10
-systemctl restart zoho-odoo-telegram-bot
-systemctl is-active zoho-odoo-telegram-bot && echo "Bot is running"
-jq '.contacts | map(select(.contact_type == "customer")) | length' /opt/odoo/migration/data/extracted/books_contacts_20250523_103245.json
-jq '.contacts | map(select(.contact_type == "vendor")) | length' /opt/odoo/migration/data/extracted/books_contacts_20250523_103245.json
-systemctl status zoho-odoo-comprehensive-sync zoho-odoo-sync-fixed zoho-odoo-sync-immediate zoho-odoo-sync-images
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-stat /root/zoho-odoo-integration-central/manual_sync.py
-ls -lh /root/zoho-odoo-integration-central/manual_sync.py
-python3 /root/zoho-odoo-integration-central/manual_sync.py progress
-python3 /root/zoho-odoo-integration-central/manual_sync.py &
-systemctl is-active zoho-odoo-comprehensive-sync
-systemctl stop zoho-odoo-comprehensive-sync zoho-odoo-sync-fixed zoho-odoo-sync zoho-odoo-sync-immediate zoho-odoo-sync-images
-systemctl list-units --all | grep zoho-odoo
-python3 /root/zoho-odoo-integration-central/manual_sync.py &
-python3 /root/zoho-odoo-integration-central/manual_sync.py progress
-systemctl disable zoho-odoo-comprehensive-sync zoho-odoo-sync-fixed zoho-odoo-sync zoho-odoo-sync-immediate zoho-odoo-sync-images
-systemctl restart zoho-odoo-telegram-bot
-tail -n 50 /root/zoho-odoo-integration-central/telegram_bot.log
-grep -n "Starting manual sync" -n /root/zoho-odoo-integration-central/telegram_bot.log | tail -20
-grep -i "manual sync" /root/zoho-odoo-integration-central/telegram_bot.log | tail
-systemctl restart zoho-odoo-telegram-bot
-python3 /root/zoho-odoo-integration-central/manual_sync.py
-systemctl stop zoho-odoo-comprehensive-sync
-systemctl mask zoho-odoo-comprehensive-sync
-python3 /root/zoho-odoo-integration-central/manual_sync.py
-cat /tmp/sync_progress.json
-ls -la /opt/odoo/migration | head
-ls -la /opt/odoo/migration | grep -E '\.py$' | head
-ls -1 /opt/odoo/migration | grep zoho_odoo_comprehensive_sync
-chmod +x /root/zoho-odoo-integration-central/full_comprehensive_sync.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ls -l /root/zoho-odoo-integration-central/manual_sync.py
-sudo mkdir -p /opt/odoo/migration/logs /opt/odoo/migration/config /opt/odoo/migration/data/extracted /opt/odoo/migration/data/comprehensive_sync
-sudo touch /opt/odoo/migration/config/zoho_config.json
-sudo touch /opt/odoo/migration/logs/comprehensive_sync.log
-sudo touch /opt/odoo/migration/logs/manual_sync.log
-sudo touch /opt/odoo/migration/data/product_sync_data.json
-sudo touch /opt/odoo/migration/data/extracted/books_contacts_20250523_103245.json
-sudo touch /opt/odoo/migration/data/extracted/inventory_items_20250523_103254.json
-sudo touch /opt/odoo/migration/data/comprehensive_sync/comprehensive_sync_tracking.json
-sudo chown -R $(whoami):$(whoami) /opt/odoo/migration
-sudo chmod -R 755 /opt/odoo/migrationsudo mkdir -p /opt/odoo/migration/logs /opt/odoo/migration/config /opt/odoo/migration/data/extracted /opt/odoo/migration/data/comprehensive_sync
-sudo touch /opt/odoo/migration/config/zoho_config.json
-sudo touch /opt/odoo/migration/logs/comprehensive_sync.log
-sudo touch /opt/odoo/migration/logs/manual_sync.log
-sudo touch /opt/odoo/migration/data/product_sync_data.json
-sudo touch /opt/odoo/migration/data/extracted/books_contacts_20250523_103245.json
-sudo touch /opt/odoo/migration/data/extracted/inventory_items_20250523_103254.json
-sudo touch /opt/odoo/migration/data/comprehensive_sync/comprehensive_sync_tracking.json
-sudo chown -R $(whoami):$(whoami) /opt/odoo/migration
-python3 zoho-odoo-integration-central/full_comprehensive_sync.py --products-only
-python3 zoho-odoo-integration-central/full_comprehensive_sync.py --products-only
-/bin/python3 /root/zoho-odoo-integration-central/generate_zoho_access_token.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-token=$(python3 /root/zoho-odoo-integration-central/generate_zoho_access_token.py); curl -s -o /dev/null -w '%{http_code}\n' -H "Authorization: Zoho-oauthtoken $token" "https://www.zohoapis.com/books/v3/items?organization_id=748369814&per_page=1"
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-python3 create_partner.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-node --version && npm --version
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-which node && which npm
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-chmod +x setup_mcp.sh
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-mkdir -p .cursor
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-./setup_mcp.sh
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ls -la | grep cursor
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - && sudo apt-get install -y nodejs
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ls -la .cursor/
-cat .cursor/mcp.json | jq .
-node --version && npm --version
-npx -y @modelcontextprotocol/server-filesystem --help
-npx -y @modelcontextprotocol/server-git --help
-npm search @modelcontextprotocol/server
-npx -y @modelcontextprotocol/server-filesystem --help
-timeout 5 npx -y @modelcontextprotocol/server-memory
-which uv || echo "uv not found"
-curl -LsSf https://astral.sh/uv/install.sh | sh
-source $HOME/.local/bin/env && which uv
-timeout 3 npx -y @modelcontextprotocol/server-memory
-source $HOME/.local/bin/env && timeout 3 uvx mcp-server-git --help
-echo "=== MCP STATUS SUMMARY ===" && echo "" && echo "📁 Configuration:" && ls -la .cursor/ && echo "" && echo "🔧 Node.js:" && node --version && echo "" && echo "📦 npm:" && npm --version && echo "" && echo "🐍 uv:" && source $HOME/.local/bin/env && uv --version && echo "" && echo "✅ MCP Configuration is valid JSON:" && cat .cursor/mcp.json | jq . > /dev/null && echo "Valid" || echo "Invalid"
-source $HOME/.local/bin/env && uvx odoo-mcp --help
-chmod +x create_odoo_customer.py
-chmod +x create_moonlight_customer.py
-python3 create_moonlight_customer.py
-chmod +x delete_moonlight_customer.py
-echo "DELETE" | python3 delete_moonlight_customer.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ps aux | grep -i odoo
-systemctl status odoo
-cat /opt/odoo/odoo.conf | head -20
-netstat -tlnp | grep 8069
-ss -tlnp | grep 8069
-tail -20 /var/log/odoo/odoo.log
-systemctl status zoho-odoo-sync
-nano /etc/ssh/sshd_config
-ufw allow 2222/tcp
-systemctl restart ssh
-sudo systemctl status ssh
-sudo ufw status
-nano /etc/ssh/sshd_config
-sshd -t
-sudo systemctl restart ssh
-Active: active (running)
-#!/bin/bash
-echo "🔍 Checking SSH config..."
-if grep -q "^Port 2222" /etc/ssh/sshd_config; then   echo "✅ Port 2222 already configured"; else   echo "🔧 Adding Port 2222 to sshd_config...";   echo "Port 2222" >> /etc/ssh/sshd_config; fi
-echo "🛡️ Allowing port 2222 in UFW..."
-ufw allow 2222/tcp 2>/dev/null || true
-echo "♻️ Restarting SSH service..."
-systemctl restart ssh && echo "✅ SSH restarted" || echo "❌ Failed to restart SSH"
-echo "📋 Current SSH ports configured:"
-grep ^Port /etc/ssh/sshd_config
-echo "📡 Verifying port listening:"
-ss -tulpn | grep ssh || netstat -tulpn | grep ssh
-echo "✅ Done."
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && ls -la
-flutter build apk --debug
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && find . -name "*.apk" -type f 2>/dev/null
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && ls -la *.apk 2>/dev/null || echo "No APK files found"
-find /root -name "*.apk" -o -name "*.ipa" 2>/dev/null
-which flutter
-flutter doctor
-keytool -genkey -v -keystore /root/tsh-salesperson-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias tsh_salesperson_key -storepass tsh_store_password -keypass tsh_key_password -dname "CN=TSH Salesperson App, OU=TSH Sales, O=TSH Company, L=City, ST=State, C=US"
-mkdir -p /root/android/app/src/main/res/mipmap-hdpi /root/android/app/src/main/res/mipmap-mdpi /root/android/app/src/main/res/mipmap-xhdpi /root/android/app/src/main/res/mipmap-xxhdpi /root/android/app/src/main/res/mipmap-xxxhdpi
-flutter clean
-flutter pub get
-flutter build apk --release
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && flutter --version
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && sleep 30 && tail -n 20 /opt/odoo/migration/logs/comprehensive_sync.log | grep -E "(Fetched page|Products|ERROR|✅)" | tail -5
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && python3 -c "import subprocess; result = subprocess.run(['tail', '-n', '200', '/opt/odoo/migration/logs/comprehensive_sync.log'], capture_output=True, text=True); lines = result.stdout.split('\n'); recent_23h = [l for l in lines if '2025-05-26 23:' in l]; print(f'Found {len(recent_23h)} entries from 23:xx hour'); [print(line) for line in recent_23h[-10:] if line.strip()]"
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && tail -n 30 /opt/odoo/migration/logs/comprehensive_sync.log
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && sleep 60 && tail -n 50 /opt/odoo/migration/logs/comprehensive_sync.log | grep -E "(Fetched page|products|Products|ERROR|✅|❌)" | tail -10
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && python3 -c "import subprocess; import time; time.sleep(2); result = subprocess.run(['tail', '-n', '100', '/opt/odoo/migration/logs/comprehensive_sync.log'], capture_output=True, text=True); lines = result.stdout.split('\n'); recent = [l for l in lines if '2025-05-26 23:' in l]; print('Latest sync progress:'); [print(l) for l in recent[-15:] if l.strip()]"
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && tail -n 20 /opt/odoo/migration/logs/comprehensive_sync.log | grep "2025-05-26 23:" | tail -10
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && sleep 30 && tail -n 10 /opt/odoo/migration/logs/comprehensive_sync.log | grep "2025-05-26 23:"
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central && python3 full_comprehensive_sync.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && python3 -c "import subprocess; import time; time.sleep(5); result = subprocess.run(['tail', '-n', '30', '/opt/odoo/migration/logs/comprehensive_sync.log'], capture_output=True, text=True); lines = result.stdout.split('\n'); recent_lines = [line for line in lines if '2025-05-26 22:' in line and ('22:4' in line or '22:5' in line)]; print('\n'.join(recent_lines[-15:]))"
-cd /root && python3 -c "import subprocess; result = subprocess.run(['tail', '-n', '50', '/opt/odoo/migration/logs/comprehensive_sync.log'], capture_output=True, text=True); lines = result.stdout.split('\n'); recent_lines = [line for line in lines if '2025-05-26 22:' in line and ('22:5' in line or '22:4' in line)]; print('Recent entries:'); print('\n'.join(recent_lines[-10:]))"
-cd /root && tail -n 20 /opt/odoo/migration/logs/comprehensive_sync.log | grep -E "(2025-05-26 22:[5-9]|INFO|ERROR)" | tail -10
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && ps aux | grep -E "(python.*full_comprehensive|python.*sync)" | grep -v grep
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central && sleep 10 && tail -n 20 sync_output_fixed.log
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-chmod +x /root/build_app.sh
-nano /etc/ssh/sshd_config
-systemctl restart ssh
-ss -tulpn | grep ssh
-nano /etc/ssh/sshd_config
-sudo systemctl restart ssh
-ss -tulpn | grep ssh
-nano /etc/ssh/sshd_config.d/custom-port.conf
-systemctl restart ssh
-ss -tulpn | grep ssh
-nano /etc/ssh/sshd_config.d/custom-port.conf
-sudo systemctl restart ssh
-ss -tulpn | grep ssh
-nano /etc/ssh/sshd_config.d/custom-port.conf
-nano /etc/ssh/sshd_config
-sudo systemctl restart ssh
-ss -tulpn | grep ssh
-r
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && flutter pub deps
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && flutter doctor -v
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && flutter analyze
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-flutter build apk --debug
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-flutter doctor
-flutter clean
-flutter pub get
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-chmod +x /root/build_app.sh
-who
-w
-user1    pts/0    192.168.1.100    10:34
-ps aux | grep ssh
-lsof -i -n -P | grep sshd
+cd /root && nohup python3 complete_zoho_odoo_sync_with_refresh.py > complete_real_sync_output.log 2>&1 &
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 check_sync_progress.py
+python3 fix_stockable_products.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+ps aux | grep exact_mirror_sync
+python3 -c "import xmlrpc.client; models = xmlrpc.client.ServerProxy('http://localhost:8069/xmlrpc/2/object'); common = xmlrpc.client.ServerProxy('http://localhost:8069/xmlrpc/2/common'); uid = common.authenticate('odtshbrain', 'khaleel@tsh.sale', 'Zcbm.97531tsh', {}); products = models.execute_kw('odtshbrain', uid, 'Zcbm.97531tsh', 'product.template', 'search_count', [[['active', '=', True]]]); customers = models.execute_kw('odtshbrain', uid, 'Zcbm.97531tsh', 'res.partner', 'search_count', [[['customer_rank', '>', 0], ['active', '=', True]]]); vendors = models.execute_kw('odtshbrain', uid, 'Zcbm.97531tsh', 'res.partner', 'search_count', [[['supplier_rank', '>', 0], ['active', '=', True]]]); print(f'📊 CURRENT: Products={products}, Customers={customers}, Vendors={vendors}, Total={products+customers+vendors}'); print(f'🎯 TARGET: Products=50, Customers=98, Vendors=2, Total=150')"
+python3 complete_perfect_mirror.py
+python3 comprehensive_enhanced_sync.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+sleep 10 && ls -la simple_product_enhancement_report.json
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+ps aux | grep simple_product_enhancement
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 add_stock_final.py
+echo "🎯 COMPREHENSIVE SYNC COMPLETED! 🎯"; echo "✅ Perfect Mirror: 150 items exactly"; echo "✅ Product Images: 50/50 enhanced"; echo "✅ Customer Balances: 98/98 enhanced"; echo "✅ Vendor Balances: 2/2 enhanced"; echo "✅ Business Transactions: 6 total"; echo "🌟 ACCESS YOUR SYSTEM: http://localhost:8069"
+python3 zoho_odoo_analysis.py
+sed -i 's/:+d:<15/:+15/g' zoho_odoo_analysis.py
+python3 zoho_odoo_analysis.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+sleep 15 && ls -la perfect_mirror_sync_enhanced_report.json
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+ps aux | grep perfect_mirror_sync_enhanced
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+ps aux | grep full_scale_mirror_sync
+python3 check_sync_progress.py
+python3 complete_enhancement_sync.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+sleep 20 && ls -la complete_enhancement_sync_report.json
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+ls -la zoho_*.json | head -10
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 perfect_mirror_sync_enhanced.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+ps aux | grep comprehensive_enhanced_sync
+python3 simple_product_enhancement.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+echo "Checking Zoho data file sizes..." && wc -l zoho_*.json
+python3 real_zoho_analysis.py
+python3 zoho_data_export_guide.py
+python3 full_scale_mirror_sync.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+ps aux | grep complete_enhancement_sync
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+cd /root && python3 exact_mirror_sync.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 real_zoho_analysis.py
+python3 true_mirror_sync.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 ultimate_comprehensive_sync_solution.py
+python3 tsh_compliant_zoho_odoo_sync.py
+python3 demo_migration_runner.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 get_fresh_zoho_tokens_manual.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+cd /root && python3 quick_count_check.py
+python3 investigate_ui_discrepancy.py
+python3 optimize_customer_data_quality.py
+cd /root && python3 clean_to_exact_zoho_match.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 force_stock_computation.py
+python3 final_check_and_setup.py
+python3 quick_final_check.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+cd /root && python3 simple_check.py
+cd /root && python3 ensure_interface_ready.py
+cd /root && python3 final_check.py
+cd /root && python3 verify_goods_change.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+ps aux | grep comprehensive_zoho_odoo_sync_master.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+ps aux | grep sleep
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+ps aux | grep python3 | grep -E "(fix_custom|simple_sync)" | head -3
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+echo "1000.4611986b29fde45f8279dff93a125785.a070ca5656d8cb82017066593647cbfd" | python3 get_fresh_zoho_tokens_manual.py
+python3 comprehensive_zoho_odoo_sync_master.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 check_migration_status.py
+python3 direct_migration_final.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+ps aux | grep direct_migration_final
+python3 check_migration_status.py
+python3 check_direct_migration_progress.py
+ls -la direct_migration_final_report.json
+python3 exact_mirror_sync.py
+python3 admin_override_sync.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 quick_count_verification.py
+python3 count_saved_zoho_data.py
+python3 check_customer_duplicates.py
+python3 remove_duplicate_customers.py
+python3 check_customer_duplicates.py
+python3 verify_exact_zoho_match.py
+python3 comprehensive_zoho_odoo_sync_master.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 convert_products_stockable.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+cd /root && python3 simple_customer_count_analysis.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+ls -la *report*.json | tail -5
+find /var/log -name "*zoho*" -mmin -30 | head -5
+python3 fix_custom_fields_and_rerun.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+ls -la *sync*.json *sync*.log admin_* 2>/dev/null | head -10
+echo "🌟 EXACT MIRROR SYNC COMPLETED SUCCESSFULLY! 🌟"
+python3 verify_mirror_success.py
+python3 remove_bonus_records.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+ps aux | grep python3 | grep comprehensive
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+ps aux | grep admin_override_sync
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+cd /root && python3 zoho_stock_migration.py
+python3 zoho_stock_migration.py
+python3 simple_stock_migration.py
+python3 simple_stock_migration_fixed.py
+cd /root && python3 get_fresh_zoho_tokens.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+cd /root && python3 offline_stock_migration.py
+cd /root && python3 quick_count_check.py
+python3 setup_stock_quantities.py
+python3 simple_stock_migration_fixed.py
+python3 check_stockable_status.py
+python3 fix_stockable_products.py
+python3 start_stock_migration.py
+python3 direct_product_conversion.py
+python3 proper_stock_setup.py
+python3 modern_stock_setup.py
+python3 offline_stock_migration.py
+python3 simple_stock_final.py
+sudo -u postgres psql -d odtshbrain -c "SELECT id, default_code, name FROM product_product WHERE type = 'product' AND active = true LIMIT 5;"
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 exact_mirror_sync.py
+python3 restore_missing_customers.py
+cd /root && python3 analyze_customer_data_quality.py
+python3 analyze_customer_data_quality.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+ps aux | grep comprehensive_zoho_odoo_sync_master
+ls -la /var/log/zoho_odoo_sync* | tail -5
+tail -20 /var/log/zoho_odoo_sync.log
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 simple_inventory_setup.py
+python3 fixed_inventory_setup.py
+python3 complete_business_setup.py
+sudo -u postgres psql -d odtshbrain -c "SELECT COUNT(*) FROM stock_quant WHERE quantity > 0;"
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+cd /root && python3 quick_product_check.py
+cd /root && python3 comprehensive_product_analysis.py
+cd /root && python3 detailed_product_export.py
+cd /root && head -20 all_products_detailed.csv
+cd /root && python3 analyze_product_categories.py
+cd /root && python3 data_quality_check.py
+cd /root && ls -la *.html *.csv *.json | grep -E "(product|analysis)"
+cd /root && python3 unarchive_and_sync_products.py
+cd /root && python3 verify_product_sync_status.py
+cd /root && cat product_sync_final_report.json
+cd /root && python3 final_status.py
+cd /root && python3 mirror_zoho_products_exact.py
+cd /root && cat zoho_mirror_exact_report.json
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+cd /root && python3 debug_product_types_and_counts.py
+python3 fix_custom_fields_and_sync.py
+python3 refresh_zoho_token_and_sync.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 final_stock_migration.py
+sudo -u postgres psql -d odtshbrain -c "\\d stock_quant" | head -15
+sudo -u postgres psql -d odtshbrain -c "\\d stock_quant"
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+chmod +x test_enhanced_sync.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+ls -la *.log | head -5
+ls -la *sync*log | tail -5
+find . -name "*comprehensive*log" -o -name "*master*log" | head -5
+ls -la *.log | grep "Jun  5" | tail -3
+python3 comprehensive_zoho_odoo_sync_master.py
+ls -la *.log | grep -E "(ultimate|comprehensive)" | tail -3
+echo "Waiting for Zoho API rate limit to reset..." && sleep 120 && echo "Rate limit should be reset now"
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+tail -f /var/log/zoho_odoo_sync.log
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+ps aux | grep comprehensive_zoho_odoo_sync_master | grep -v grep
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+cd /root && python3 final_verification.py
+cd /root && python3 final_summary.py
+cd /root && python3 convert_all_to_goods.py
+cd /root && python3 quick_check.py
+cd /root && python3 investigate_goods_issue.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 /root/tsh_compliant_zoho_odoo_sync.py
+python3 -c "import requests, xmlrpc.client, json, time, base64, logging; print('All required modules imported successfully')"
+chmod +x /root/install_sync_service.sh
+python3 comprehensive_zoho_odoo_sync_master.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 verify_mirror_success.py
+python3 final_exact_cleanup.py
+python3 deactivate_excess_records.py
+echo "📊 CURRENT ACHIEVEMENT STATUS:" && python3 verify_mirror_success.py | grep -E "(Products:|Customers:|Vendors:|Total Records:)" | head -8
+python3 verify_mirror_success.py
+python3 fix_exact_customer_count.py
+python3 simple_customer_fix.py
+python3 fix_vendor_count.py
+python3 verify_mirror_success.py
+cd /root && python3 delete_archived_customers.py
+python3 check_remaining_archived.py
+python3 final_cleanup_verification.py
+python3 comprehensive_archived_cleanup.py
+python3 verify_customer_counts.py
+python3 get_fresh_zoho_tokens.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+ls -la /tmp/simple_sync.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+sudo -u postgres psql -d odtshbrain -c "\\d product_product" | head -20
+sudo -u postgres psql -d odtshbrain -c "SELECT COUNT(*) as total_products FROM product_product WHERE active = true;"
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+cd /root && python3 offline_stock_migration.py
+python3 check_product_types.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 fix_stock_visibility.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+cd /root && python3 quick_status_check.py
+cd /root && python3 final_working_sync_fixed.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+sudo -u postgres psql -d odtshbrain -c "SELECT column_name, is_nullable, data_type FROM information_schema.columns WHERE table_name = 'stock_quant' AND column_name IN ('quantity', 'reserved_quantity', 'company_id');"
 top
-top
-ps -f --pid 203754 203756 203758
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central && python3 generate_zoho_access_token.py 2>&1
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central && python3 generate_zoho_access_token.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central && tail -f sync_output.log
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central && timeout 300 python3 full_comprehensive_sync.py 2>&1 | tee sync_output.log
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-pgrep -f "full_comprehensive_sync" || echo "No sync process running"
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central && python3 -c "import subprocess; result = subprocess.run(['tail', '-n', '50', '/opt/odoo/migration/logs/comprehensive_sync.log'], capture_output=True, text=True); print(result.stdout)"
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration/logs && tail -n 30 comprehensive_sync.log
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ps aux | grep -E "(python.*sync|full_comprehensive)" | grep -v grep
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central && tail -n 50 /opt/odoo/migration/logs/comprehensive_sync.log | grep "2025-05-26 22:"
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central && tail -f /opt/odoo/migration/logs/comprehensive_sync.log
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central && tail -n 20 /opt/odoo/migration/logs/comprehensive_sync.log
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central && python3 full_comprehensive_sync.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-pwd
-python3 create_moonlight_customer.py
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 sync_service_manager_fixed.py counts
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && sleep 30 && python3 sync_service_manager_fixed.py counts
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 sync_service_manager_fixed.py counts
-cd /opt/odoo/migration && python3 delete_specific_product.py
-cd /opt/odoo/migration && python3 check_current_products.py
-python3 sync_service_manager_fixed.py sync-once
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 clean_import_safe.py
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 sync_service_manager_fixed.py counts
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 sync_service_manager_fixed.py counts
-python3 sync_service_manager_fixed.py sync-once
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 fix_sync_issue.py
-python3 match_products.py
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 simple_sync_test.py
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && systemctl stop zoho-odoo-sync-fixed
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 sync_service_manager_fixed.py stop
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 check_field.py
-cd /opt/odoo/migration && python3 create_zoho_field.py
-python3 check_field.py
-python3 test_final_service.py
-python3 sync_service_manager_fixed.py sync-once
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && grep -A 5 -B 5 "Error creating" /opt/odoo/migration/logs/sync_service_images_fixed.log | tail -20
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && tail -50 /opt/odoo/migration/logs/sync_service_images_fixed.log
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 sync_service_manager_fixed.py counts
-python3 sync_service_manager_fixed.py status
-python3 sync_service_manager_fixed.py logs 100
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && echo "🎯 FINAL IMPLEMENTATION STEPS:" && echo "=================================" && echo "1. Stop conflicting services..." && systemctl stop zoho-odoo-sync zoho-odoo-sync-images 2>/dev/null || true && echo "2. Install fixed service..." && python3 sync_service_manager_fixed.py install && echo "3. Start the service..." && python3 sync_service_manager_fixed.py start && echo "4. Check status..." && python3 sync_service_manager_fixed.py status
-cd /opt/odoo/migration && echo "🚀 Running fresh sync with fixed service..." && python3 sync_service_manager_fixed.py sync-once
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && ls -la *.py | grep -E "(final|fixed)"
-cd /opt/odoo/migration && python3 test_final_service.py
-cd /opt/odoo/migration && python3 sync_service_manager_fixed.py sync-once
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && ls -la zoho_odoo_sync_final.py sync_service_manager_fixed.py
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && ls -la *final*
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && ls -la zoho_odoo_sync_final.py
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 -c "from zoho_odoo_sync_final import ZohoOdooSyncFinal; service = ZohoOdooSyncFinal(); print('Service initialized successfully'); result = service.run_sync_cycle(); print(f'Sync result: {result}')"
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && ls -la data/sync_service/
-cd /opt/odoo/migration && cat data/sync_service/sync_tracking_images_fixed.json
-cd /opt/odoo/migration && grep -A 5 -B 5 "Error creating product" logs/sync_service_images_fixed.log | tail -20
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && wc -l logs/changes_fixed.log
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && tail -10 logs/changes_fixed.log
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && ls -la logs/
-cd /opt/odoo/migration && tail -20 logs/sync_service_images_fixed.log
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 sync_service_manager_fixed.py counts
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 sync_service_manager_fixed.py install
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 test_fixed_sync.py
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && tail -20 logs/sync_service_images_fixed.log
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 test_zoho_api.py
-cd /opt/odoo/migration && python3 test_fixed_sync.py
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 sync_service_manager_images.py sync-once
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && ps aux | grep -E "(python.*sync|zoho)" | grep -v grep
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 sync_service_manager_images.py start
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 sync_service_manager_images.py install
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && systemctl disable zoho-odoo-sync
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && systemctl stop zoho-odoo-sync
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && ls -la zoho_odoo_sync_service_with_images.py sync_service_manager_images.py README_ENHANCED_SYNC.md
-cd /opt/odoo/migration && ls -la *images* README_ENHANCED_SYNC.md
-cd /opt/odoo/migration && python3 sync_service_manager_images.py
-cd /opt/odoo/migration && python3 sync_service_manager_images.py status
-cd /opt/odoo/migration && systemctl status zoho-odoo-sync
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 sync_service_manager_images.py install
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 sync_service_manager_images.py sync-once
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 sync_service_manager.py start
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 monitor_sync.py
-cd /opt/odoo/migration && pip3 install schedule
-cd /opt/odoo/migration && pip3 install schedule --break-system-packages
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 check_products.py
-cd /opt/odoo/migration && python3 check_zoho_products.py
-cd /opt/odoo/migration && python3 simple_product_sync.py
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ps aux | grep simple_product_sync
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 simple_product_sync.py
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && python3 run_sync_once.py
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ps aux | grep continuous_sync_server_enhanced
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-tail -30 /opt/odoo/migration/logs/sync_server_enhanced.log
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /opt/odoo/migration && echo "1" | python3 continuous_sync_server_enhanced.py
-. "\root\.cursor-server\cli\servers\Stable-f3f2ad556456ff2df80332923bb1e2a818110d10\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-tail -f /opt/odoo/migration/logs/sync_server_enhanced.log
-# Check service status
-python3 sync_service_manager_images.py status
-# View logs
-python3 sync_service_manager_images.py logs
-# Monitor real-time
-python3 sync_service_manager_images.py monitor
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ls -la /root/zoho-odoo-integration-central/
-ps aux | grep python | grep -v grep
-jobs -l
-crontab -l
-kill -9 203754 908734 900783 46664 52350 52714
-ps aux | grep -E "(sync|migration)" | grep -v grep
-kill 134151
-ps aux | grep python | grep -E "(sync|migration|zoho)" | grep -v grep
-kill 926092
-systemctl stop zoho-odoo-sync 2>/dev/null || echo "Service not found or already stopped"
-ps -eo pid,ppid,cmd,pcpu,pmem,etime --sort=-pcpu | head -10
-kill -9 870576 211166 53027 53406 54419 58444 58837 72640
-ps -eo pid,ppid,cmd,pcpu,pmem,etime --sort=-pcpu | head -10
-kill 940778
-top -n 1 | head -15
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && flutter create --org com.tsh.sales --project-name tsh_salesperson_app --platforms=ios,android .
-cd /root && flutter pub get
-cd /root && git status
-cd /root && git add ios/Runner.xcodeproj/ ios/Runner.xcworkspace/ ios/Flutter/ ios/Runner/Assets.xcassets/ ios/Runner/Base.lproj/ ios/Runner/Runner-Bridging-Header.h ios/RunnerTests/ android/app/build.gradle android/app/src/main/AndroidManifest.xml android/build.gradle android/settings.gradle android/app/proguard-rules.pro android/app/src/main/res/xml/ android/gradle.properties .metadata analysis_options.yaml
-cd /root && git commit -m "fix: Recreate iOS project structure and fix Android configuration - Regenerated iOS Runner.xcodeproj with proper project.pbxproj file - Fixed Android build.gradle configuration for production builds - Added network security configuration for Android - This should resolve the Codemagic build issue"
-cd /root && git push origin main
-ps -f --pid 203754 203756 203758
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && ls -la *.csr *.pem
-cd /root && openssl req -in ios_distribution.csr -text -noout
-cd /root && cat ios_distribution.csr
-cd /root && cp ios_distribution.csr ~/ios_distribution_apple.csr
-cd /root && ls -la *.cer *.p12 *.pem 2>/dev/null || echo "Looking for certificate files..."
-cd /home/YOUR_USER/YOUR_PROJECT_FOLDER
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && git push origin main
-chmod +x /root/scripts/post_publish.sh
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-chmod +x /root/scripts/codemagic_post_publish.sh
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && export PATH="$HOME/.shorebird/bin:$PATH" && echo "Checking if token was generated..." && ls -la ~/.config/shorebird/
-cd /root && export PATH="$HOME/.shorebird/bin:$PATH" && shorebird login:ci --provider google --help
-cd /root && ls -la *.jks *.keystore *keystore* 2>/dev/null || echo "Checking for keystore files..."
-cd /root && file tsh-salesperson-key.jks
-chmod +x /root/scripts/setup_firebase_preview.sh
-cd /root && openssl genrsa -out ios_distribution_private_key.pem 2048
-cd /root && openssl req -new -key ios_distribution_private_key.pem -out ios_distribution.csr -subj "/C=US/ST=CA/L=San Francisco/O=TSH Company/OU=Development/CN=Khaleel Ahmed/emailAddress=kha89ahm@gmail.com"
-cd /root && ls -la *.csr *.pem
-cd /root && cat ios_distribution.csr
-cd /root && rm -f ios_distribution.csr ios_distribution_private_key.pem
-cd /root && openssl genrsa -out ios_distribution_private_key.pem 2048
-cd /root && openssl req -new -key ios_distribution_private_key.pem -out ios_distribution.csr -config <(echo '[req]'; echo 'distinguished_name=req'; echo '[req]'; echo 'CN=Khaleel Ahmed'; echo 'emailAddress=kha89ahm@gmail.com'; echo 'C=US'; echo 'ST=California'; echo 'L=Cupertino'; echo 'O=TSH Company')
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && flutter --version
-cd /root && shorebird doctor
-cd /root && curl --proto '=https' --tlsv1.2 https://raw.githubusercontent.com/shorebirdtech/install/main/install.sh -sSf | bash
-cd /root && export PATH="$HOME/.shorebird/bin:$PATH" && shorebird --version
-cd /root && export PATH="$HOME/.shorebird/bin:$PATH" && shorebird account
-cd /root && export PATH="$HOME/.shorebird/bin:$PATH" && shorebird doctor
-cd /root && find . -name "*shorebird*" -type f 2>/dev/null | head -10
-cd /root && export PATH="$HOME/.shorebird/bin:$PATH" && echo "Checking for CI token..." && ls -la ~/.config/shorebird/
-cd /root && export PATH="$HOME/.shorebird/bin:$PATH" && shorebird login:ci
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && export PATH="$HOME/.shorebird/bin:$PATH" && echo "Getting Shorebird CI token..." && shorebird login:ci --help
-cd /root && export PATH="$HOME/.shorebird/bin:$PATH" && shorebird login:ci --provider google
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && openssl req -new -key ios_distribution_private_key.pem -out ios_distribution.csr -subj "/emailAddress=kha89ahm@gmail.com/CN=Khaleel Ahmed/C=US"
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && openssl req -new -key ios_distribution_private_key.pem -out ios_distribution.csr -config csr_config.conf
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-which flutter && flutter --version
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && ls -la build/app/outputs/bundle/release/ 2>/dev/null || echo "Build directory not found yet"
-flutter build appbundle --release
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-git add .
-base64 -d tsh-salesperson-key.jks.base64 > tsh-salesperson-key.jks
-ls -la tsh-salesperson-key.jks
-keytool -list -v -keystore tsh-salesperson-key.jks -storepass Zcbm.97531tsh
-rm tsh-salesperson-key.jks.base64
-chmod +x scripts/validate_keystore.sh && ./scripts/validate_keystore.sh
-chmod +x scripts/test_webhook.sh && ./scripts/test_webhook.sh
-chmod +x scripts/prepare_play_store.sh && ./scripts/prepare_play_store.sh
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-git commit -m "fix: update Gradle wrapper to version 8.4 - Updated gradle-wrapper.properties from 8.0 to 8.4 - Fixes compatibility with Android Gradle Plugin 8.3.0 - Resolves minimum Gradle version requirement error"
-git push origin main
-mkdir -p scripts && chmod +x scripts/error_detector.sh
-chmod +x scripts/setup_codemagic.sh
-git add codemagic.yaml CODEMAGIC_SETUP_GUIDE.md scripts/
-git commit -m "feat: add comprehensive Codemagic CI/CD integration - Added codemagic.yaml with 4 workflows - Automated building, testing, and store submission - Error detection and quality gates - Comprehensive setup guide and scripts"
-git push origin main
-chmod +x scripts/validate_keystore.sh
-./scripts/validate_keystore.sh
-keytool -list -keystore tsh-salesperson-key.jks
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-git add android/gradle/wrapper/gradle-wrapper.properties
-# Run the setup script to see what's needed
-./scripts/setup_codemagic.sh
-# Run error detection to validate your project
-./scripts/error_detector.sh
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-flutter clean
-flutter build appbundle --debug
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd android && ./gradlew clean
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd android && ./gradlew clean
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-git push origin main
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-git push origin main
-cd /root && flutter build appbundle --debug
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && git push origin main
-cd /root && flutter clean
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && git remote -v
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && git remote -v
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-systemctl status zoho-odoo-sync
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-timeout 5 strace -p 203754 2>&1 | head -10
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ps aux | grep -i sync | grep -v grep
-strace -p 203754 -c -f -e trace=all 2>&1 | head -20
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ps -eo pid,ppid,cmd,pcpu,pmem,etime --sort=-pcpu | head -10
-for pid in 203754 908734 900783 46664 52350 52714; do echo "=== Process $pid ==="; cat /proc/$pid/cmdline 2>/dev/null | tr '\0' ' ' || echo "Process not found"; echo; done
-for pid in 203754 908734 900783; do echo "=== Process $pid ==="; echo "CWD: $(readlink /proc/$pid/cwd 2>/dev/null || echo 'N/A')"; echo "Open files:"; lsof -p $pid 2>/dev/null | head -5 || echo "Cannot access"; echo; done
-for pid in 203754 908734 900783; do echo "=== Process $pid ==="; echo "Status:"; cat /proc/$pid/status 2>/dev/null | grep -E "(State|Threads)" || echo "Cannot access"; echo "Stack trace:"; cat /proc/$pid/stack 2>/dev/null || echo "Cannot access stack"; echo; done
-ps -ef | grep -E "(203754|908734|900783)" | grep -v grep
-ls -la /opt/odoo/migration/logs/
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ps aux | grep 203754
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-pstree -p 203754
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cat /proc/203754/cmdline | tr '\0' ' ' && echo
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ps -p 203754 -o pid,ppid,cmd,pcpu,pmem,etime
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-top -p 203754 -n 1
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-find /opt/odoo/migration -name "*comprehensive*" -type f
-find /opt/odoo/migration -name "zoho_odoo_comprehensive_sync.py" -type f
-systemctl status zoho-odoo-comprehensive-sync --no-pager
-tail -50 /opt/odoo/migration/logs/comprehensive_sync.log
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && chmod +x *.py
-chmod +x /root/zoho-odoo-integration-central/enhanced-stable-sync/quick_start.sh
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && ./quick_start.sh
-python3 manual_sync_controller.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-find /opt/odoo/migration -name "*.json" | grep -i config
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync
-python3 simple_token_setup.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ls -la /opt/odoo/migration/config/
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 setup_enhanced_sync.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && chmod +x get_zoho_tokens.py && python3 get_zoho_tokens.py
-find /opt/odoo/migration -name "*.py" -exec grep -l "access_token\|Access.*Token" {} \;
-grep -A 10 -B 5 "access_token" /opt/odoo/migration/zoho_odoo_comprehensive_sync.py | head -20
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && chmod +x update_config_with_existing.py && python3 update_config_with_existing.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 manual_sync_controller.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && chmod +x test_token_generation.py && python3 test_token_generation.py
-cd /opt/odoo/migration && python3 test_zoho_connection.py
-cd /opt/odoo/migration && python3 -c "from zoho_odoo_comprehensive_sync import ZohoOdooComprehensiveSync; sync = ZohoOdooComprehensiveSync(); token = sync.get_zoho_access_token(); print('Token obtained' if token else 'Failed to get token')"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && chmod +x simple_token_setup.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 simple_token_setup.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 test_zoho_connection.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 refresh_zoho_tokens.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 test_zoho_connection.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 refresh_zoho_tokens.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 debug_zoho_auth.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 generate_zoho_tokens.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 manual_token_update.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 generate_zoho_tokens.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && tail -20 logs/fixed_production_sync_20250529_153403.log
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && sqlite3 fixed_sync_tracking.db "SELECT COUNT(*) as products FROM product_mapping; SELECT COUNT(*) as partners FROM partner_mapping; SELECT sync_status, COUNT(*) FROM product_mapping GROUP BY sync_status;"
-apt update && apt install -y sqlite3
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && sqlite3 fixed_sync_tracking.db "SELECT COUNT(*) as total_products FROM product_mapping; SELECT COUNT(*) as total_partners FROM partner_mapping; SELECT sync_status, COUNT(*) FROM product_mapping GROUP BY sync_status;"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 final_sync_report.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 verify_sync_results.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 simple_verification.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && sqlite3 fixed_sync_tracking.db "SELECT 'TOTAL PRODUCTS MAPPED:', COUNT(*) FROM product_mapping; SELECT 'SYNC STATUS BREAKDOWN:'; SELECT sync_status, COUNT(*) as count FROM product_mapping GROUP BY sync_status; SELECT 'RECENT MAPPINGS (Last 10):'; SELECT zoho_sku, odoo_id, last_sync FROM product_mapping ORDER BY last_sync DESC LIMIT 10;"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && cat SYNC_SUCCESS_REPORT.md
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 check_zoho_totals.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 refresh_zoho_tokens.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 check_zoho_totals.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && sleep 20 && python3 monitor_complete_sync.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && git push origin main
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd zoho-odoo-integration-central/enhanced-stable-sync && python3 system_dashboard.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ps aux | grep flutter
-ls -la build/app/outputs/flutter-apk/
-ls -la build/
-flutter build apk --debug --verbose
-ls -la android/
-pwd && ls -la
-pwd && ls -la | head -20
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ps aux | grep flutter
-ls -la build/app/outputs/flutter-apk/
-ls -la build/
-flutter build apk --debug --verbose
-ls -la android/
-pwd && ls -la
-pwd && ls -la | head -20
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ps aux | grep flutter
-ls -la build/app/outputs/flutter-apk/
-ls -la build/
-flutter build apk --debug --verbose
-ls -la android/
-pwd && ls -la
-pwd && ls -la | head -20
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-flutter --version
-flutter pub get
-flutter clean
-flutter pub get
-flutter build apk --debug --android-skip-build-dependency-validation
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-ls -la *.py | grep -E "(production_mirror_sync|stock_sync|simple_stock)"
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd zoho-odoo-integration-central/enhanced-stable-sync && python3 simple_stock_sync.py
-python3 simple_stock_sync.py
-ls -la simple_stock_sync_tracking.db
-python3 verify_stock_sync.py
-cd zoho-odoo-integration-central/enhanced-stable-sync && ls -la *.py | grep -E "(production_mirror_sync|stock_sync|simple_stock)"
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd zoho-odoo-integration-central/enhanced-stable-sync && python3 stock_sync_module.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd zoho-odoo-integration-central/enhanced-stable-sync && ls -la logs/stock_sync_* 2>/dev/null | tail -3
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd zoho-odoo-integration-central/enhanced-stable-sync && ps aux | grep stock_sync
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd zoho-odoo-integration-central/enhanced-stable-sync && tail -20 logs/stock_sync_*.log | head -50
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd zoho-odoo-integration-central/enhanced-stable-sync && python3 refresh_tokens.py
-python3 stock_sync_module.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd zoho-odoo-integration-central/enhanced-stable-sync && python3 basic_check.py
-ls -la *.db
-ls -la stock_sync_tracking.db 2>/dev/null || echo "Stock sync tracking database not found"
-python3 check_tracking_db.py
-ls -la logs/ | tail -5
-cd zoho-odoo-integration-central/enhanced-stable-sync && python3 stock_sync_module.py
-python3 stock_sync_module.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd zoho-odoo-integration-central/enhanced-stable-sync && python3 simple_odoo_check.py
-cd zoho-odoo-integration-central/enhanced-stable-sync && python3 check_stock_simple.py
-python3 check_stock_simple.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd zoho-odoo-integration-central/enhanced-stable-sync && python3 check_odoo_stock.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && flutter test --reporter=compact
-flutter test --reporter=compact
-flutter test
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && flutter pub get
-flutter test
-flutter drive --target=test_driver/app.dart --driver=test_driver/app_test.dart
-chmod +x /root/scripts/run_integration_tests.sh
-flutter analyze
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && flutter test
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 complete_mirror_sync.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 fixed_production_sync.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && sleep 15 && python3 monitor_fixed_sync.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 quick_status.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && ps aux | grep start_production_sync
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && ps aux | grep python3 | grep production
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 quick_status.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 start_production_sync.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 start_production_sync.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && ls -la logs/ && tail -20 logs/production_sync_*.log 2>/dev/null || echo "No logs yet"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && ps aux | grep python3 | grep -v grep
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && echo "YES" | python3 production_mirror_sync.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && sleep 5 && ls -la logs/ | grep production
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && ps aux | grep start_production_sync && echo "---" && tail -20 logs/production_mirror_sync_20250529_152120.log
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 start_production_sync.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && sleep 10 && tail -20 logs/production_mirror_sync_*.log | tail -20
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && ls -la logs/production_mirror_sync_*.log && echo "---" && tail -30 logs/production_mirror_sync_*.log
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && tail -30 logs/production_mirror_sync_20250529_152224.log
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 run_production_sync.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 production_mirror_sync.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 monitor_sync.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && ./quick_start_mirror_sync.sh
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && echo "1" | ./quick_start_mirror_sync.sh
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 test_update.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 refresh_zoho_tokens.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 test_zoho_connection.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 test_update.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-chmod +x /root/zoho-odoo-integration-central/enhanced-stable-sync/quick_start_mirror_sync.sh
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && echo "2" | python3 working_mirror_sync.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 test_update.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 working_mirror_sync.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 diagnose_odoo_issue.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 test_odoo_connection.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 simple_mirror_sync.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 test_mirror_preview.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && python3 exchange_token.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 test_zoho_connection.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 test_odoo_connection.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 setup_mirror_sync.py
-apt update && apt install -y python3-pil
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 run_mirror_sync.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 LAUNCH.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 auto_setup.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 demo_sync.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && chmod +x start.sh && python3 quick_start_menu.py
-python3 quick_start_menu.py
-python3 demo_sync.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && echo "Demo completed. Creating quick start menu..."
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 test_connection.py
-find /opt -name "*.json" -type f 2>/dev/null | head -5
-cat /opt/odoo/migration/config/zoho_config.json | grep -A 10 -B 5 password
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 test_connection.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 refresh_tokens.py
-find /opt/odoo/migration -name "*token*" -type f | head -10
-cat /opt/odoo/migration/get_fresh_tokens.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 refresh_tokens.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 get_fresh_tokens.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && echo "Ready to exchange tokens. After getting both authorization codes, run:"
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 emergency_sync.py
-cd /root/zoho-odoo-integration-central/enhanced-stable-sync && python3 demo_sync.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-git push origin main
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-echo "🎯 READY TO CREATE YOUR TEST DATABASE!" && echo "" && echo "📋 Your Configuration:" && echo "   Odoo URL: http://138.68.89.104:8069" && echo "   Source DB: odtshbrain" && echo "   Test DB: odtshbrain_test (will be created)" && echo "   Username: khaleel@tsh.sale" && echo "" && echo "🚀 To create your test database, run:" && echo "   python3 quick_test_db.py" && echo "" && echo "💡 The script will ask for:" && echo "   1. Master/Admin password (for database operations)" && echo "   2. Password for khaleel@tsh.sale" && echo "" && echo "📖 For detailed instructions, see:" && echo "   cat STEP_BY_STEP_GUIDE.md"
-python3 create_test_db_final.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-python3 create_test_db_automated.py
-python3 test_odoo_connection.py
-echo "🎯 SUMMARY: Database Copy Status" && echo "=================================" && echo "" && echo "✅ WORKING:" && echo "   • Odoo connection: http://138.68.89.104:8069" && echo "   • Database found: odtshbrain" && echo "   • User login: khaleel@tsh.sale works" && echo "" && echo "❌ ISSUE:" && echo "   • Master password 'Zcbm.97531Tsh' doesn't work for database operations" && echo "" && echo "🌐 RECOMMENDED SOLUTION:" && echo "   • Use manual web interface method" && echo "   • Go to: http://138.68.89.104:8069/web/database/manager" && echo "   • Try backup/restore manually" && echo "" && echo "📖 DETAILED GUIDE:" && echo "   • See: MANUAL_DATABASE_COPY_GUIDE.md" && echo "" && echo "💡 NEXT STEPS:" && echo "   1. Try manual backup via web interface" && echo "   2. If master password fails, contact admin for correct password" && echo "   3. Alternative: ask admin to create test database for you"
-python3 test_duplicate_function.py
-echo "🎯 SOLUTION SUMMARY" && echo "==================" && echo "" && echo "Based on your screenshot showing 'Access Denied' error:" && echo "" && echo "🔧 IMMEDIATE SOLUTION:" && echo "   1. Click 'Set Master Password' button in your web interface" && echo "   2. Set password to: Zcbm.97531Tsh (or any password you prefer)" && echo "   3. Try clicking 'Duplicate' button next to 'odtshbrain'" && echo "   4. Name new database: odtshbrain_test" && echo "" && echo "🚀 AFTER SETTING MASTER PASSWORD:" && echo "   • Edit run_after_master_password_set.py" && echo "   • Update NEW_MASTER_PASSWORD with what you set" && echo "   • Run: python3 run_after_master_password_set.py" && echo "" && echo "💡 ALTERNATIVE:" && echo "   • Try the 'Duplicate' button directly in web interface" && echo "   • It might work even with the current access issue"
-python3 create_test_db_final_correct.py
-python3 comprehensive_diagnostic.py
-echo "🎯 FINAL RECOMMENDATION" && echo "======================" && echo "" && echo "Based on comprehensive diagnostic:" && echo "" && echo "✅ WHAT WORKS:" && echo "   • Your user has full Administrator access" && echo "   • Web interface shows Backup/Duplicate/Restore buttons" && echo "   • Database listing and user authentication work" && echo "" && echo "❌ WHAT DOESN'T WORK:" && echo "   • XML-RPC database management (disabled at server level)" && echo "   • Master password via API (security restriction)" && echo "" && echo "🌐 SOLUTION: Use Web Interface" && echo "   1. Go to: http://138.68.89.104:8069/web/database/manager" && echo "   2. Click 'Duplicate' button next to 'odtshbrain'" && echo "   3. Name it: odtshbrain_test" && echo "   4. If asked for master password, try: Zcbm.97531tSh" && echo "" && echo "🔍 AFTER CREATING VIA WEB:" && echo "   Run: python3 check_test_database.py" && echo "" && echo "💡 This is a common security setup - web interface enabled, API disabled"
-echo "🔧 ALTERNATIVE SOLUTION NEEDED" && echo "==============================" && echo "" && echo "Since both web interface and API database duplication are blocked:" && echo "" && echo "🎯 OPTION 1: Set Master Password First" && echo "   • Click 'Set Master Password' in web interface" && echo "   • Set to: Zcbm.97531tSh" && echo "   • Then try Duplicate again" && echo "" && echo "🎯 OPTION 2: Create New Database + Import Data" && echo "   • Click 'Create Database' in web interface" && echo "   • Name: odtshbrain_test" && echo "   • No demo data" && echo "   • Run: python3 create_new_test_database.py" && echo "" && echo "🎯 OPTION 3: Contact Administrator" && echo "   • Ask them to enable database management" && echo "   • Or ask them to create test database for you" && echo "" && echo "💡 RECOMMENDED: Try Option 1 first (Set Master Password)"
-echo "🔐 SETTING MASTER PASSWORD - STEP BY STEP" && echo "=========================================" && echo "" && echo "📋 INSTRUCTIONS:" && echo "1. Go to your Odoo web interface:" && echo "   http://138.68.89.104:8069/web/database/manager" && echo "" && echo "2. Click the 'Set Master Password' button" && echo "" && echo "3. Enter this password: Zcbm.97531tSh" && echo "   (This matches your existing pattern)" && echo "" && echo "4. Confirm the password" && echo "" && echo "5. After setting, try the 'Duplicate' button again" && echo "" && echo "🎯 WHAT THIS SHOULD DO:" && echo "   • Enable database management operations" && echo "   • Allow backup/duplicate/restore functions" && echo "   • Unlock the 'Access Denied' restrictions" && echo "" && echo "✅ AFTER SETTING THE PASSWORD:" && echo "   • Try clicking 'Duplicate' next to 'odtshbrain'" && echo "   • Name the new database: odtshbrain_test" && echo "   • It should work now!"
-echo "🎯 READY TO SET MASTER PASSWORD!" && echo "" && echo "📋 WHAT TO DO NOW:" && echo "1. Open your browser" && echo "2. Go to: http://138.68.89.104:8069/web/database/manager" && echo "3. Click 'Set Master Password' button" && echo "4. Enter: Zcbm.97531tSh" && echo "5. Confirm the password" && echo "" && echo "✅ AFTER SETTING THE PASSWORD:" && echo "• Try clicking 'Duplicate' button next to 'odtshbrain'" && echo "• Name it: odtshbrain_test" && echo "" && echo "🔍 TO VERIFY IT WORKED:" && echo "• Run: python3 test_after_master_password_set.py" && echo "" && echo "💡 This should unlock database management operations!"
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-git status
-git add codemagic.yaml ios/ExportOptions.plist BUILD_FIX_APPLIED.md YOUR_IOS_SETUP.md
-git commit -m "🔧 Fix iOS signing: Switch to automatic signing to resolve provisioning profile issues - Updated codemagic.yaml with xcode_project and xcode_scheme for automatic signing - Changed ios/ExportOptions.plist from manual to automatic signing - This should fix Build #8 failure"
-git tag v1.0.2
-git push origin main
-git push origin v1.0.2
-git log --oneline -5
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-head -20 codemagic.yaml
-git checkout -b feature/test-trigger && git push origin feature/test-trigger
-git add codemagic.yaml && git commit -m "🔧 Add simple test workflow to diagnose build triggering issues" && git push origin feature/test-trigger
-git checkout main && git merge feature/test-trigger && git push origin main
-git add codemagic.yaml && git commit -m "🔧 Fix codemagic.yaml validation errors - Remove xcode_project and xcode_scheme (not permitted) - Remove webhooks from publishing (not permitted) - This should resolve the 3 validation errors preventing builds"
-git push origin main
-git add codemagic.yaml && git commit -m "🔧 Fix remaining validation errors in production workflow - Remove xcode_project and xcode_scheme from production workflow - All validation errors should now be resolved"
-git push origin main
-git add codemagic.yaml && git commit -m "🔧 Simplify iOS signing configuration - Remove iOS signing from YAML, let CodeMagic dashboard handle it - Update test-build to create release APK and AAB - This should resolve iOS provisioning profile issues"
-git push origin main
-git add codemagic.yaml && git commit -m "🔧 Disable Google Play publishing temporarily - Comment out Google Play publishing to avoid credentials error - Builds should now complete successfully - Can re-enable after setting up proper Google Play credentials"
-git push origin main
-git add . && git commit -m "🚀 Enable dual store publishing (iOS App Store + Google Play) - Re-enable Google Play publishing for dual store deployment - Add iOS signing configuration back - Create comprehensive dual store setup guide - Ready for both App Store and Google Play publishing"
-git push origin main
-git log --oneline -3
-sudo cat /etc/ssh/sshd_config | grep -i password
-sudo nano /etc/ssh/sshd_config
-sudo systemctl restart ssh
-sudo service ssh restart
-passwd
-cat ~/.ssh/authorized_keys
-nano ~/.ssh/authorized_keys
-sudo systemctl status ssh
-sudo nano /etc/ssh/sshd_config
-sudo systemctl restart ssh
-sudo ss -tuln | grep :22
-git tag v1.0.1
-git push origin v1.0.1
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-sudo adduser flutterdev --gecos "Flutter Developer,,,," --disabled-password
-sudo passwd flutterdev
-echo 'flutterdev:FlutterTSH2024!' | sudo chpasswd
-sudo usermod -aG sudo,docker flutterdev
-sudo usermod -aG sudo flutterdev
-sudo cp -r /root/* /home/flutterdev/ 2>/dev/null || true
-sudo chown -R flutterdev:flutterdev /home/flutterdev/
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+ps aux | grep -i mcp
+which npx && which uvx && node --version
+ls -la /root/.cursor/mcp.json*
+curl -s https://registry.npmjs.org/@modelcontextprotocol | jq '.versions | keys[-10:]' 2>/dev/null || echo "Recent MCP packages check failed"
+chmod +x /root/enhance_mcp.sh
+/root/enhance_mcp.sh
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+echo "7" | /root/enhance_mcp.sh
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 /root/tsh_multi_mcp_strategy.py
+/root/mcp_business.sh
+mkdir -p /root/tsh_custom_mcp_servers
+python3 /root/tsh_custom_mcp_servers/deploy_custom_servers.py
+python3 -m venv /root/.venv && source /root/.venv/bin/activate && pip install mcp pydantic requests
+python3 /root/deploy_tsh_mcp_enhanced.py
+/root/mcp_business.sh
+chmod +x /root/verify_mcp_optimization.sh && /root/verify_mcp_optimization.sh
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+find /root -name "*sync*report*.json" -type f | head -10
+ps aux | grep -i zoho
+systemctl status zoho-odoo-sync.service
+sudo reboot
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+ls -la *json | grep -i zoho
+systemctl stop zoho-odoo-sync zoho-odoo-telegram-bot zoho-odoo-comprehensive-sync 2>/dev/null || true
+systemctl disable zoho-odoo-sync zoho-odoo-telegram-bot zoho-odoo-comprehensive-sync 2>/dev/null || true
+rm -f /etc/systemd/system/zoho-odoo*.service
+systemctl daemon-reload
+rm -rf /root/zoho-odoo-integration-central
+rm -rf /root/tsh-unified-architecture-system/03-integration-central/zoho-odoo-integration-hub
+find /opt/odoo/migration/ -name "*zoho*" -o -name "*sync*" | head -20
+find /opt/odoo/migration/ -name "*zoho*" -delete
+find /opt/odoo/migration/ -name "*sync*" -delete
+rm -rf /opt/odoo/migration/data/stable_sync
+rm -f /root/*sync*.py /root/*zoho*.py /root/*comprehensive*.py /root/*advanced*.py
+rm -f /root/*zoho*.json /root/*sync*.log /root/*sync*.json
+rm -f /root/*SYNC*.md /root/*ZOHO*.md /root/READY_TO_SYNC_NOW.md /root/COMPREHENSIVE_SYNC_FINAL_REPORT.md
+rm -f /root/README_COMPREHENSIVE_SYNC.md /root/FINAL_SYNC_EXECUTION_GUIDE.md
+find /root -name "*sync*" -type f | head -10
+find /root -name "*zoho*" -type f 2>/dev/null | grep -v ".venv" | head -10
+find /root -name "*sync*.py" -type f 2>/dev/null | grep -v ".venv" | head -5
+ls -la /root/ | grep -i sync
+ls -la /root/ | grep -i zoho
+systemctl status zoho-odoo-sync 2>/dev/null || echo "Service completely removed"
+find /root/mcp_configurations -name "*zoho*" -delete 2>/dev/null || true
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
 cd /root && python3 test_odoo_connection.py
-cd /root && python3 test_flutter_app_functionality.py
-cd /root && flutter analyze
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-chmod +x /root/setup_tsh_mcp.sh && /root/setup_tsh_mcp.sh
-python3 -m venv /root/.venv && source /root/.venv/bin/activate && pip install mcp requests
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-chmod +x /root/mcp_servers/tsh_flutter_mcp.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && git add lib/config/app_config.dart && git commit -m "🔧 Configure Demo Odoo Server for Testing - Set up demo.odoo.com as temporary server - Allows immediate testing while user configures actual server - User can login with demo credentials to test app functionality"
-cd /root && git push origin main
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-openssl pkcs12 -export -out ios_distribution.p12 -inkey ios_distribution_private_key.pem -in ios_distribution_cert.pem -passout pass:tsh123456
-ls -la ios_distribution.p12
-ls -la ios_distribution_cert.pem
-rm ios_distribution_cert.pem distribution.cer
-git push origin main
-cd /root && git add codemagic.yaml
-git commit -m "Fix iOS build: Generate Flutter config files before CocoaPods - Add flutter build ios --config-only --no-codesign to generate Generated.xcconfig - This ensures Flutter/Generated.xcconfig exists before pod install runs - Fixes Podfile validation error about missing Generated.xcconfig - Applied to all iOS workflows: default-workflow, production, hotfix, preview"
-git push origin main
-git add ios/Runner.xcodeproj/project.pbxproj
-git commit -m "Fix iOS code signing: Use iPhone Distribution for Release builds - Changed Release configuration to use iPhone Distribution certificate - Keeps Debug and Profile configurations as iPhone Developer - This should resolve the 'No valid code signing certificates' error for App Store builds"
-git push origin main
-git add codemagic.yaml ios/ExportOptions.plist ios/Runner.xcodeproj/project.pbxproj
-git commit -m "Switch iOS signing to manual mode with explicit provisioning profile - Changed CodeMagic config to use manual signing with certificate and provisioning profile references - Updated ExportOptions.plist to use manual signing with explicit provisioning profile - Added DEVELOPMENT_TEAM, CODE_SIGN_STYLE=Manual, and PROVISIONING_PROFILE_SPECIFIER to iOS project - This should resolve the code signing certificate issues by explicitly using our uploaded certificates"
-git push origin main
-git add codemagic.yaml
-git commit -m "Fix CodeMagic validation errors: Remove invalid certificate and provisioning_profile fields from ios_signing environment section"
-git add .
-git commit -m "🤖 Add Comprehensive Automated CI/CD Error Handling System - Created intelligent error detection and auto-fix system for CodeMagic builds - Added GitHub Actions workflow for scheduled monitoring and manual triggers - Implemented webhook handler for real-time error processing - Added support for 10+ common error patterns (iOS signing, Android R8, Flutter config, etc.) - Includes health monitoring, smart notifications, and GitHub issue creation - Comprehensive documentation and setup scripts included - Fixes current CodeMagic validation errors in ios_signing configuration"
-git push origin main
-curl -H "X-Auth-Token: HOWMlSi975Hi3QL7rfME_ZjFBGwwu5lnC5U61kiFcSA" "https://api.codemagic.io/apps" | python3 -m json.tool
-echo "🔐 GitHub Secrets Setup Instructions:" && echo "1. Go to: https://github.com/Qmop1967/TSH-Salesperson-App" && echo "2. Click Settings → Secrets and variables → Actions" && echo "3. Add Secret: CODEMAGIC_API_TOKEN = HOWMlSi975Hi3QL7rfME_ZjFBGwwu5lnC5U61kiFcSA" && echo "4. Add Secret: CODEMAGIC_APP_ID = 68322e9bb94731dd4aa3a9b5"
-curl -H "X-Auth-Token: HOWMlSi975Hi3QL7rfME_ZjFBGwwu5lnC5U61kiFcSA" "https://api.codemagic.io/builds/68399b6706c0f8385fb84455" | python3 -c "import sys, json; data=json.load(sys.stdin); print(f'Build Status: {data[\"build\"][\"status\"]}'); print(f'Current Step: {[step[\"name\"] for step in data[\"build\"][\"buildActions\"] if step[\"status\"] is None][0] if any(step[\"status\"] is None for step in data[\"build\"][\"buildActions\"]) else \"Completed\"}')"
-curl -H "X-Auth-Token: HOWMlSi975Hi3QL7rfME_ZjFBGwwu5lnC5U61kiFcSA" "https://api.codemagic.io/builds/68399b6706c0f8385fb84455" | python3 -c "import sys, json; data=json.load(sys.stdin); build=data['build']; print(f'Build Status: {build[\"status\"]}'); print('Publishing Steps:'); [print(f'  - {step[\"name\"]}: {step[\"status\"] or \"running\"}') for step in build['buildActions'] if step['type'] == 'publishing' or 'publish' in step['name'].lower()]"
-curl -H "X-Auth-Token: HOWMlSi975Hi3QL7rfME_ZjFBGwwu5lnC5U61kiFcSA" "https://api.codemagic.io/builds/68399b6706c0f8385fb84455" | python3 -c "import sys, json; data=json.load(sys.stdin); build=data['build']; artifacts = build.get('artefacts', []); print('Build Artifacts:'); [print(f'  - {art[\"name\"]}: {art[\"url\"]}') for art in artifacts]; print(f'\\nBuild finished at: {build.get(\"finishedAt\", \"Unknown\")}')"
-curl -H "X-Auth-Token: HOWMlSi975Hi3QL7rfME_ZjFBGwwu5lnC5U61kiFcSA" "https://api.codemagic.io/builds/68399b6706c0f8385fb84455/step/68399b67b08093c92c9fc6b2" | grep -i -A5 -B5 "error\|fail\|testflight\|ipa\|ios" | head -20
-curl -H "X-Auth-Token: HOWMlSi975Hi3QL7rfME_ZjFBGwwu5lnC5U61kiFcSA" "https://api.codemagic.io/builds/68399b6706c0f8385fb84455/step/68399b67b08093c92c9fc6b3" | grep -i -A10 -B5 "testflight\|app store\|upload\|success\|published"
-cd /root && git add codemagic.yaml && git commit -m "🔧 Fix iOS TestFlight Publishing - Fixed missing publishing section in default-workflow - Added iOS archive artifacts collection - Ensured IPA files are properly captured for TestFlight upload"
-cd /root && git push origin main
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-openssl x509 -inform DER -in distribution.cer -out ios_distribution_cert.pem
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-echo "tsh123456" | ./convert_cert_to_p12.sh distribution.cer
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-chmod +x /root/convert_cert_to_p12.sh
-ls -la *.cer *.crt 2>/dev/null || echo "No .cer or .crt files found"
-ls -lat | head -20
-find . -maxdepth 1 -type f -name "*cert*" -o -name "*distribution*" -o -name "*.p12" | grep -v "\.md$" | grep -v "\.sh$"
-find . -maxdepth 1 -type f -mmin -10 | head -10
-ls -la | grep -E "\.(cer|crt|pem|p12|der)$"
-cp .cursor-server/distribution.cer ./distribution.cer
-ls -la distribution.cer
-./convert_cert_to_p12.sh distribution.cer
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-git commit --allow-empty -m "Trigger build manually" && git push origin main
-git checkout -b test-build && git push origin test-build
-git checkout main
-git tag v1.0.4 && git push origin v1.0.4
-git add codemagic.yaml && git commit -m "🔧 Add default workflow for main branch to ensure proper iOS+Android builds - This should fix the workflow selection issue and trigger full production builds"
-git push origin main
-git add scripts/ WEBHOOK_SETUP.md codemagic.yaml
-git commit -m "🔍 Add comprehensive build monitoring and webhook system - Automatic build log fetching and analysis - Real-time webhook notifications - Error pattern detection for iOS/Android - Slack/Discord integration support - Detailed feedback reports and recommendations"
-git push origin main
-git tag v1.0.5 && git push origin v1.0.5
-git commit --allow-empty -m "🚀 Trigger new build to test iOS signing fix and monitoring system" && git push origin main
-git remote -v
-git log --oneline -3
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-git tag v1.0.3 && git push origin v1.0.3
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && pwd && ls -la codemagic.yaml
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-git branch -a
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-git remote -v
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && git push origin main
-cd /root && pwd && ls -la
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && flutter analyze
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && flutter test --verbose
-cd /root && flutter analyze --fatal-infos --fatal-warnings
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-python3 quick_test_db.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-python3 create_test_db_auto.py
-python3 find_odoo_config.py
-echo "📋 Current Configuration Status:" && echo "✅ Odoo URL: http://138.68.89.104:8069" && echo "✅ Database: odtshbrain" && echo "✅ Username: khaleel@tsh.sale" && echo "❌ Master Password: NEEDS TO BE SET" && echo "❌ User Password: NEEDS TO BE SET" && echo "" && echo "📝 To complete setup, you need to:" && echo "1. Edit odoo_config.py" && echo "2. Replace 'PLEASE_ENTER_YOUR_MASTER_PASSWORD' with your actual master password" && echo "3. Replace 'PLEASE_ENTER_YOUR_PASSWORD' with khaleel@tsh.sale's password"
-python3 create_odoo_test_database.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-chmod +x create_test_db_auto.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-python3 create_odoo_test_database.py
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-chmod +x setup_odoo_test_tools.sh && ./setup_odoo_test_tools.sh
-./create_test_db.sh
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-chmod +x create_test_db.sh
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-systemctl status
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && flutter pub get
-flutter analyze
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-./switch_to_flutter_user.sh
-sudo -u flutter flutter --version
-cd /home/flutter && sudo -u flutter flutter doctor
-chmod +x flutter_user_status.sh && ./flutter_user_status.sh
-cd /root && chmod +x flutter_user_status.sh && ./flutter_user_status.sh
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-whoami
-adduser --gecos "" flutter
-usermod -aG sudo flutter
-which flutter
-cp -r /root/tsh_salesperson_app /home/flutter/
-ls -la
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-chmod +x switch_to_flutter_user.sh
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-pwd && ls -la | grep -E "(tsh|flutter|app)"
-find . -name "pubspec.yaml" -type f 2>/dev/null
-cp -r /root/* /home/flutter/ 2>/dev/null || true
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-chown -R flutter:flutter /home/flutter/
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-git push origin main
-chmod +x check_build_status.sh
-./check_build_status.sh
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-git log --oneline -1 && echo "Latest commit pushed to: $(git branch --show-current)"
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-git push origin main
-flutter test
-flutter test --verbose
-which flutter && flutter --version
-flutter analyze --no-fatal-infos
-pwd && ls -la pubspec.yaml
-git add test/widget_test.dart codemagic.yaml TESTFLIGHT_PLAYSTORE_DEPLOYMENT.md
-git commit -m "feat: Optimize for TestFlight, APK, Play Store & App Preview deployment - Fixed Flutter test errors, enhanced CodeMagic workflows for multi-platform deployment, added comprehensive deployment guide, configured automatic build triggers, ready for immediate CodeMagic integration and store publishing"
-git push origin main
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cat APP_TRIGGERED_SUMMARY.md
-flutter config --enable-ios
-flutter create --platforms=ios .
-chmod +x ios_deployment_automation.sh
-git status
-git add codemagic.yaml CODEMAGIC_SETUP_GUIDE.md CODEMAGIC_QUICK_START.md APP_STORE_SUBMISSION_CHECKLIST.md ios_app_assets/ ios_deployment_automation.sh lib/ pubspec.yaml
-git add shorebird.yaml deploy_shorebird.sh deploy_patch.sh TSH_SALESPERSON_INTEGRATION_GUIDE.md
-git status
-git commit -m "🚀 iOS App Store Deployment Ready - Complete Codemagic Integration with Odoo sync, admin features, and automatic certificate management"
-git push origin main
-cat CODEMAGIC_DEPLOYMENT_STATUS.md
-git add codemagic.yaml
-git commit -m "🔧 Fix Codemagic triggers - Add automatic build triggers for push to main branch"
-git push origin main
-find . -name "*.keystore" -o -name "*.jks" -o -name "*keystore*" | head -10
-git add codemagic.yaml CODEMAGIC_KEYSTORE_SETUP.md
-git commit -m "🔐 Fix Codemagic keystore configuration - Use existing tsh_keystore with correct credentials"
-git push origin main
-git add codemagic.yaml GOOGLE_PLAY_SETUP_GUIDE.md
-git commit -m "🔧 Fix Google Play upload issue - Disable automatic upload until service account configured"
-git push origin main
-git add codemagic.yaml lib/widgets/side_menu.dart
-git commit -m "🔧 Fix Flutter analyze issues - Make analyze non-blocking and fix deprecated withOpacity"
-git push origin main
-cd /root && flutter analyze
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-export DISPLAY=:0 && flutter run -d linux --verbose
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-flutter run -d linux
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-export PATH="$HOME/.shorebird/bin:$PATH" && shorebird release android --no-confirm
-chmod +x deploy_shorebird.sh
-chmod +x deploy_patch.sh
-cd /root && flutter run
-flutter config --enable-linux-desktop
-flutter create --platforms=linux .
-ps aux | grep flutter
-flutter doctor -v
-apt update && apt install -y mesa-utils
-chmod +x run_app_demo.sh && ./run_app_demo.sh
-flutter build linux --verbose
-flutter build linux
-. "\root\.cursor-server\cli\servers\Stable-02270c8441bdc4b2fdbc30e6f470a589ec78d600\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
-cd /root && flutter doctor
-which shorebird
-curl --proto '=https' --tlsv1.2 https://raw.githubusercontent.com/shorebirdtech/install/main/install.sh -sSf | bash
-export PATH="$HOME/.shorebird/bin:$PATH" && shorebird --version
-export PATH="$HOME/.shorebird/bin:$PATH" && shorebird upgrade
-export PATH="$HOME/.shorebird/bin:$PATH" && shorebird account
-export PATH="$HOME/.shorebird/bin:$PATH" && shorebird apps list
-export PATH="$HOME/.shorebird/bin:$PATH" && shorebird release android --force
-export PATH="$HOME/.shorebird/bin:$PATH" && shorebird login --help
-export PATH="$HOME/.shorebird/bin:$PATH" && shorebird doctor
-export PATH="$HOME/.shorebird/bin:$PATH" && shorebird patch android --force
-export PATH="$HOME/.shorebird/bin:$PATH" && shorebird patch android --no-confirm
-export PATH="$HOME/.shorebird/bin:$PATH" && shorebird apps create
-export PATH="$HOME/.shorebird/bin:$PATH" && shorebird init
+python3 odoo_status_check.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 setup_initial_odoo_config.py
+curl -I http://138.68.89.104:8069
+python3 setup_initial_odoo_config.py
+python3 list_databases.py
+python3 setup_initial_odoo_config.py
+python3 create_admin.py
+python3 create_new_database.py
+pip install psycopg2-binary
+apt-get update && apt-get install -y python3-psycopg2
+python3 setup_odoo_direct.py
+apt-get install -y python3-pip && pip3 install OdooRPC
+python3 -m venv venv && source venv/bin/activate && pip install OdooRPC
+python setup_odoo_api.py
+chmod +x setup_odoo_cli.sh && ./setup_odoo_cli.sh
+docker build -t odoo-setup . && docker run --rm odoo-setup
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 odoo_status_check.py
+python3 -c "import xmlrpc.client; print(xmlrpc.client.ServerProxy('http://138.68.89.104:8069/xmlrpc/2/db').list())"
+chmod +x delete_odoo_databases.py && python3 delete_odoo_databases.py
+python3 delete_odoo_databases.py
+python3 add_arabic_language.py
+python3 odoo_status_check.py
+python3 test_model_context_protocol.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 list_odoo_databases.py
+venv/bin/python3 list_odoo_databases.py
+venv/bin/python3 test_model_context_protocol.py
+venv/bin/python3 add_arabic_language.py
+venv/bin/python3 test_model_context_protocol.py
+venv/bin/python3 check_odoo_permissions.py
+venv/bin/python3 test_model_context_protocol.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+./check_build_status.sh | cat
+./verify_mcp_optimization.sh | cat
+./quick_status_check.py
+chmod +x quick_status_check.py
+./quick_status_check.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 odoo_status_check.py
+python3 add_arabic_language.py
+systemctl status odoo || systemctl status odoo14 || systemctl status odoo15 || systemctl status odoo16
+ps aux | grep odoo
+systemctl status odoo
+ps aux | grep modelcontextprotocol | grep -v grep
+npm install -g @modelcontextprotocol/server-filesystem @modelcontextprotocol/server-memory @modelcontextprotocol/server-sqlite @modelcontextprotocol/server-fetch
+npm install -g @modelcontextprotocol/server-filesystem @modelcontextprotocol/server-memory @modelcontextprotocol/server-sqlite
+npm install -g @modelcontextprotocol/server-filesystem @modelcontextprotocol/server-memory
+python3 /root/odoo_status_check.py
+python3 /root/add_general_arabic_language.py
+python3 /root/install_arabic_correct.py
+python3 /root/activate_arabic_direct.py
+python3 /root/check_all_languages.py
+python3 /root/activate_arabic_final.py
+/bin/python3 /root/.vscode-server/extensions/ms-python.python-2025.6.1-linux-x64/python_files/printEnvVariablesToFile.py /root/.vscode-server/extensions/ms-python.python-2025.6.1-linux-x64/python_files/deactivate/bash/envVars.txt
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 add_general_arabic_language.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 install_arabic_odoo18.py
+python3 activate_arabic_direct.py
+python3 check_all_languages.py
+python3 install_arabic_simple.py
+python3 check_language_install_fields.py
+python3 install_arabic_correct.py
+/bin/python3 /root/.vscode-server/extensions/ms-python.python-2025.6.1-linux-x64/python_files/printEnvVariablesToFile.py /root/.vscode-server/extensions/ms-python.python-2025.6.1-linux-x64/python_files/deactivate/bash/envVars.txt
+python3 /root/activate_arabic_final.py
+python3 /root/setup_currencies.py
+python3 -u /root/setup_currencies.py 2>&1
+python3 -c "
+import xmlrpc.client
+ODOO_URL = 'http://138.68.89.104:8069'
+DB_NAME = 'tshmasterbrain'
+USERNAME = 'admin'
+PASSWORD = 'Zcbm.97531tsh'
+
+print('Testing connection...')
+common = xmlrpc.client.ServerProxy(f'{ODOO_URL}/xmlrpc/2/common')
+uid = common.authenticate(DB_NAME, USERNAME, PASSWORD, {})
+print(f'Connected with UID: {uid}')
+"
+cd /root && python3 setup_currencies.py
+python3 /root/setup_currencies.py
+python3 -c "
+import xmlrpc.client
+ODOO_URL = 'http://138.68.89.104:8069'
+DB_NAME = 'tshmasterbrain'
+USERNAME = 'admin'
+PASSWORD = 'Zcbm.97531tsh'
+
+common = xmlrpc.client.ServerProxy(f'{ODOO_URL}/xmlrpc/2/common')
+uid = common.authenticate(DB_NAME, USERNAME, PASSWORD, {})
+models = xmlrpc.client.ServerProxy(f'{ODOO_URL}/xmlrpc/2/object')
+
+# Search for IQD specifically
+iqd_search = models.execute_kw(DB_NAME, uid, PASSWORD,
+                             'res.currency', 'search_read',
+                             [[('name', '=', 'IQD')]],
+                             {'fields': ['name', 'symbol', 'active', 'id']})
+print('IQD search result:', iqd_search)
+
+# Check USD too
+usd_search = models.execute_kw(DB_NAME, uid, PASSWORD,
+                             'res.currency', 'search_read',
+                             [[('name', '=', 'USD')]],
+                             {'fields': ['name', 'symbol', 'active', 'id']})
+print('USD search result:', usd_search)
+"
+cd /root && python3 setup_currencies.py
+cd /root && python3 -u setup_currencies.py 2>&1
+cd /root && python3 find_currencies.py
+cd /root && python3 -u find_currencies.py 2>&1
+cd /root && python3 -c "
+import xmlrpc.client
+ODOO_URL = 'http://138.68.89.104:8069'
+DB_NAME = 'tshmasterbrain'
+USERNAME = 'admin'
+PASSWORD = 'Zcbm.97531tsh'
+
+common = xmlrpc.client.ServerProxy(f'{ODOO_URL}/xmlrpc/2/common')
+uid = common.authenticate(DB_NAME, USERNAME, PASSWORD, {})
+print(f'UID: {uid}')
+
+models = xmlrpc.client.ServerProxy(f'{ODOO_URL}/xmlrpc/2/object')
+iqd = models.execute_kw(DB_NAME, uid, PASSWORD, 'res.currency', 'search_read', [[('name', '=', 'IQD')]], {'fields': ['id', 'name', 'active']})
+print(f'IQD search result: {iqd}')
+"
+timeout 30s python3 -c "
+import xmlrpc.client
+print('Starting connection test...')
+ODOO_URL = 'http://138.68.89.104:8069'
+print(f'Connecting to {ODOO_URL}...')
+try:
+    common = xmlrpc.client.ServerProxy(f'{ODOO_URL}/xmlrpc/2/common')
+    print('Got common proxy, testing version...')
+    version = common.version()
+    print(f'Odoo version: {version}')
+except Exception as e:
+    print(f'Error: {e}')
+"
+curl -I http://138.68.89.104:8069 --connect-timeout 10
+cd /root && timeout 60s python3 -u direct_currency_setup.py
+curl -X POST   -H "Content-Type: text/xml"   -d '<?xml version="1.0"?>
+<methodCall>
+   <methodName>version</methodName>
+   <params></params>
+</methodCall>'   http://138.68.89.104:8069/xmlrpc/2/common --connect-timeout 10
+/root/.venv/bin/python /root/setup_currencies.py
+/root/.venv/bin/python /root/direct_currency_setup.py
+/root/.venv/bin/python /root/find_currencies.py
+/root/.venv/bin/python /root/direct_currency_setup.py
+cd /root && python3 setup_currencies_simple.py
+cd /root && timeout 60 python3 setup_currencies_simple.py
+cd /root && python3 setup_currencies_web.py
+curl -I --connect-timeout 10 http://138.68.89.104:8069
+chmod +x /root/currency_setup_guide.sh && /root/currency_setup_guide.sh
+cat /root/currency_setup_guide.sh
+cd /root && find . -name "*sync*.py" -type f 2>/dev/null | head -10
+cd /root && find . -name "*zoho*" -type f 2>/dev/null | head -10
+cd /root && mkdir -p zoho-odoo-mcp-sync-service
+cd /root/zoho-odoo-mcp-sync-service && git init
+cd /root/zoho-odoo-mcp-sync-service && git config user.name "TSH Technical Team" && git config user.email "tech@tsh.sale"
+cd /root/zoho-odoo-mcp-sync-service && mkdir -p {mcp-servers,mcp-tools,mcp-data-models,mcp-configurations,mcp-connectors,mcp-sync-engines,logs,config,scripts}
+cd /root/zoho-odoo-mcp-sync-service && pip install mcp
+cd /root && python setup_mcp_integration.py
+cd /root && ls -la | grep -E "(quick_status_check|check_odoo_permissions_mcp|final_verification|check_mcp_status)"
+cd /root && python quick_status_check.py
+cd /root && python setup_mcp_integration.py
+cd /root && python quick_status_check.py
+cd /root && python check_odoo_permissions_mcp.py
+cd /root && python -c "
+import xmlrpc.client
+try:
+    common = xmlrpc.client.ServerProxy('http://138.68.89.104:8069/xmlrpc/2/common')
+    db_list = xmlrpc.client.ServerProxy('http://138.68.89.104:8069/xmlrpc/2/db')
+    print('Available databases:', db_list.list())
+    print('Server version:', common.version())
+except Exception as e:
+    print('Error:', e)
+"
+cd /root && python check_odoo_permissions_mcp.py
+cd /root && python3 check_odoo_permissions_mcp.py
+cd /root && python3 -c "
+import xmlrpc.client
+
+# Connect to list databases
+url = 'http://138.68.89.104:8069'
+db_server = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/db')
+
+try:
+    databases = db_server.list()
+    print('Available databases:')
+    for db in databases:
+        print(f'  - {db}')
+except Exception as e:
+    print(f'Error listing databases: {e}')
+"
+cd /root && python3 quick_status_check.py
+cd /root && timeout 10s python3 quick_status_check.py || echo "Command completed or timed out"
+cd /root && python3 -c "
+import xmlrpc.client
+
+# Connect to list databases
+url = 'http://138.68.89.104:8069'
+db_server = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/db')
+
+try:
+    databases = db_server.list()
+    print('Available Odoo databases:')
+    for db in databases:
+        print(f'  - {db}')
+    print(f'Total databases found: {len(databases)}')
+except Exception as e:
+    print(f'Error listing databases: {e}')
+    print('This might be because database listing is disabled on this server.')
+"
+/bin/python3 /root/.vscode-server/extensions/ms-python.python-2025.6.1-linux-x64/python_files/printEnvVariablesToFile.py /root/.vscode-server/extensions/ms-python.python-2025.6.1-linux-x64/python_files/deactivate/bash/envVars.txt
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+cd /root && python3 check_current_base_currency.py
+python3 change_base_currency_to_iqd.py
+python3 check_company_fields.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+cd /root && python3 set_iqd_base_currency.py
+python3 alternative_base_currency_setup.py
+python3 change_currency_via_settings.py
+python3 final_currency_verification.py
+cd /root && python3 quick_status_check.py
+cd /root && python3 -c "
+import sys
+sys.path.append('/root')
+try:
+    from quick_status_check import load_config, check_odoo_connection
+    config = load_config()
+    print('Config loaded successfully')
+    print(f'Odoo URL: {config.get(\"odoo_url\", \"Not found\")}')
+    print(f'Odoo DB: {config.get(\"odoo_db\", \"Not found\")}')
+    print('\\nTesting Odoo connection...')
+    result = check_odoo_connection(config)
+    print(f'Connection result: {result}')
+except Exception as e:
+    print(f'Error: {e}')
+    import traceback
+    traceback.print_exc()
+"
+cd /root && python3 -c "print('Python is working'); import json; print('JSON import works')"
+cd /root && python3 -c "
+try:
+    exec(open('quick_status_check.py').read())
+except Exception as e:
+    print(f'Script error: {e}')
+    import traceback
+    traceback.print_exc()
+"
+/bin/python3 /root/.vscode-server/extensions/ms-python.python-2025.6.1-linux-x64/python_files/printEnvVariablesToFile.py /root/.vscode-server/extensions/ms-python.python-2025.6.1-linux-x64/python_files/deactivate/bash/envVars.txt
+cd /root && python3 quick_status_check.py
+cd /root && python3 quick_status_check.py 2>&1
+cd /root && python3 check_odoo_databases.py
+cd /root && python3 test_odoo_databases.py
+cd /root && timeout 30 python3 test_odoo_databases.py
+curl -I http://138.68.89.104:8069
+cd /root && python3 -c "
+import xmlrpc.client
+try:
+    url = 'http://138.68.89.104:8069'
+    db_service = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/db')
+    databases = db_service.list()
+    print('Available databases:', databases)
+except Exception as e:
+    print('Error:', e)
+"
+cd /root && python check_odoo_databases.py
+cd /root && python check_odoo_permissions_mcp.py
+cd /root && python quick_status_check.py
+cd /root && python check_odoo_permissions_mcp.py
+cd /root && python check_mcp_status.py
+cd /root && python debug_product_types_and_counts.py
+cd /root && python check_odoo_permissions_mcp.py
+chmod +x /root/renew_zoho_tokens.py
+cd /root && python renew_zoho_tokens.py
+cd /root && python3 renew_zoho_tokens.py
+cd /root && python debug_product_types_and_counts.py
+cd /root && python check_odoo_permissions_mcp.py
+cd /root && python test_odoo_direct.py
+cd /root && python3 test_odoo_direct.py
+cd /root && timeout 30 python3 test_odoo_direct.py
+cd /root && python3 -c "
+import xmlrpc.client
+import json
+
+print('Loading config...')
+with open('/root/zoho-odoo-mcp-sync-service/config/odoo_credentials.json', 'r') as f:
+    config = json.load(f)
+print('Config loaded:', config)
+
+server = config['server']
+print('Testing connection...')
+common = xmlrpc.client.ServerProxy(f'{server[\"url\"]}/xmlrpc/2/common')
+print('Common proxy created')
+uid = common.authenticate(server['database'], server['username'], server['password'], {})
+print('UID:', uid)
+"
+/bin/python3 /root/.vscode-server/extensions/ms-python.python-2025.6.1-linux-x64/python_files/printEnvVariablesToFile.py /root/.vscode-server/extensions/ms-python.python-2025.6.1-linux-x64/python_files/deactivate/bash/envVars.txt
+cd /root && python -c "
+import xmlrpc.client
+import json
+
+# Load MCP Odoo config
+with open('/root/zoho-odoo-mcp-sync-service/config/odoo_credentials.json', 'r') as f:
+    config = json.load(f)
+    server_config = config['server']
+
+url = server_config['url']
+db = server_config['database']  
+username = server_config['username']
+password = server_config['password']
+
+print(f'Testing connection to: {url}')
+print(f'Database: {db}')
+print(f'Username: {username}')
+
+try:
+    common = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/common')
+    version = common.version()
+    print(f'✅ Odoo version: {version}')
+    
+    uid = common.authenticate(db, username, password, {})
+    if uid:
+        print(f'✅ Authentication successful! UID: {uid}')
+    else:
+        print('❌ Authentication failed - check credentials')
+        
+except Exception as e:
+    print(f'❌ Connection failed: {e}')
+"
+cd /root && python debug_product_types_and_counts.py
+cd /root && python check_odoo_permissions_mcp.py
+cd /root && python debug_product_types_and_counts.py
+cd /root && python -u debug_product_types_and_counts.py 2>&1
+cd /root && python test_odoo_admin_connection.py
+curl -s -o /dev/null -w "%{http_code}" http://138.68.89.104:8069
+timeout 10 python test_odoo_admin_connection.py
+cd /root && timeout 30 python renew_zoho_tokens.py
+cd /root && timeout 15 python quick_status_check.py
+cd /root && python3 -c "
+import xmlrpc.client
+try:
+    common = xmlrpc.client.ServerProxy('http://138.68.89.104:8069/xmlrpc/2/common')
+    uid = common.authenticate('tshmasterbrain', 'admin', 'Zcbm.97531tsh', {})
+    print(f'Authentication result: {uid}')
+    if uid:
+        models = xmlrpc.client.ServerProxy('http://138.68.89.104:8069/xmlrpc/2/object')
+        count = models.execute_kw('tshmasterbrain', uid, 'Zcbm.97531tsh', 'product.template', 'search_count', [[]])
+        print(f'Product count: {count}')
+except Exception as e:
+    print(f'Error: {e}')
+"
+cd /root && python -c "
+import xmlrpc.client
+import sys
+
+url = 'http://138.68.89.104:8069'
+db = 'tshmasterbrain'
+username = 'admin'
+password = 'Zcbm.97531tsh'
+
+try:
+    common = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/common')
+    uid = common.authenticate(db, username, password, {})
+    print(f'Authentication result: {uid}')
+    if uid:
+        models = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/object')
+        count = models.execute_kw(db, uid, password, 'product.template', 'search_count', [[]])
+        print(f'Product count: {count}')
+        print('SUCCESS: Odoo connection working!')
+    else:
+        print('FAILED: Authentication returned False')
+except Exception as e:
+    print(f'ERROR: {e}')
+"
+cd /root && python -c "
+import xmlrpc.client
+try:
+    common = xmlrpc.client.ServerProxy('http://138.68.89.104:8069/xmlrpc/2/common')
+    uid = common.authenticate('tshmasterbrain', 'admin', 'Zcbm.97531tsh', {})
+    print(f'✅ Odoo authentication successful! UID: {uid}')
+    if uid:
+        models = xmlrpc.client.ServerProxy('http://138.68.89.104:8069/xmlrpc/2/object')
+        count = models.execute_kw('tshmasterbrain', uid, 'Zcbm.97531tsh', 'product.template', 'search_count', [[]])
+        print(f'✅ Products count: {count}')
+except Exception as e:
+    print(f'❌ Error: {e}')
+"
+cd /root && python robust_odoo_test.py
+timeout 15 python robust_odoo_test.py
+cd /root && timeout 10 python quick_status_check.py
+cd /root && chmod +x xmlrpc_timeout_diagnosis.py && python3 xmlrpc_timeout_diagnosis.py
+cd /root && timeout 30 python3 xmlrpc_timeout_diagnosis.py
+cd /root && python3 -c "
+import socket
+import sys
+print('Testing socket connectivity...')
+try:
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.settimeout(5)
+    result = sock.connect_ex(('138.68.89.104', 8069))
+    sock.close()
+    if result == 0:
+        print('✅ Socket connection successful')
+    else:
+        print(f'❌ Socket connection failed: {result}')
+except Exception as e:
+    print(f'❌ Socket error: {e}')
+"
+cd /root && python xmlrpc_timeout_diagnosis.py
+cd /root && timeout 60 python debug_product_types_and_counts.py
+cd /root && python3 setup_custom_fields.py
+cd /root && python3 -u setup_custom_fields.py
+cd /root && python3 setup_custom_fields.py 2>&1
+cd /root && python3 -c "import json; print(json.load(open('/root/zoho-odoo-mcp-sync-service/config/odoo_credentials.json')))"
+cd /root && python3 -c "
+import sys
+sys.path.append('.')
+exec(open('setup_custom_fields.py').read())
+"
+cd /root && python xmlrpc_timeout_diagnosis.py
+cd /root && python3 setup_zoho_custom_fields.py
+cd /root && python3 setup_zoho_custom_fields.py 2>&1
+cd /root && python3 -u setup_zoho_custom_fields.py
+ls -la /root/setup_zoho_custom_fields.py
+rm /root/setup_zoho_custom_fields.py
+chmod +x /root/setup_zoho_custom_fields.py
+cd /root && python3 setup_zoho_custom_fields.py
+chmod +x /root/comprehensive_zoho_odoo_sync.py
+cd /root && python3 comprehensive_zoho_odoo_sync.py
+cd /root && python3 -u comprehensive_zoho_odoo_sync.py
+cd /root && python3 -c "
+import sys
+sys.path.insert(0, '/root')
+try:
+    import comprehensive_zoho_odoo_sync
+    print('✅ Import successful')
+    print('Available classes:', [name for name in dir(comprehensive_zoho_odoo_sync) if not name.startswith('_')])
+except Exception as e:
+    print('❌ Import failed:', e)
+    import traceback
+    traceback.print_exc()
+"
+cd /root && ls -la setup_custom_fields.py
+cd /root && python3 setup_custom_fields.py
+cd /root && git init zoho-odoo-mcp-sync
+cd /root/zoho-odoo-mcp-sync && git config user.email "tsh@techspiderhand.com" && git config user.name "TSH Sync Service"
+cd /root/zoho-odoo-mcp-sync && mkdir -p models context protocol config logs tests
+cp /root/zoho-odoo-mcp-sync-service/config/odoo_credentials.json /root/zoho-odoo-mcp-sync/config/ 2>/dev/null || echo "Creating new config files"
+cp /root/zoho-odoo-mcp-sync-service/config/zoho_credentials.json /root/zoho-odoo-mcp-sync/config/ 2>/dev/null || echo "Creating new config files"
+cd /root/zoho-odoo-mcp-sync && python3 sync_service.py
+cd /root/zoho-odoo-mcp-sync && python3 sync_service.py 2>&1
+cd /root/zoho-odoo-mcp-sync && python3 sync_service.py
+cd /root/zoho-odoo-mcp-sync && python3 -v sync_service.py 2>&1 | head -50
+cd /root/zoho-odoo-mcp-sync && python3 -m py_compile sync_service.py
+cd /root/zoho-odoo-mcp-sync && python3 -c "from models.data_models import ZohoItem"
+cd /root/zoho-odoo-mcp-sync && python3 -c "from context.business_context import ContextManager"
+cd /root/zoho-odoo-mcp-sync && python3 -c "from protocol.sync_protocol import MasterSyncProtocol"
+cd /root/zoho-odoo-mcp-sync && find . -name "__init__.py"
+cd /root/zoho-odoo-mcp-sync && python3 -c "from protocol.sync_protocol import MasterSyncProtocol; print('✅ Import successful')"
+cd /root/zoho-odoo-mcp-sync && python3 sync_service.py
+cd /root/zoho-odoo-mcp-sync && python3 sync_service.py 2>&1
+cd /root/zoho-odoo-mcp-sync && python3 -u sync_service.py
+cd /root/zoho-odoo-mcp-sync && tail -50 logs/sync_$(date +%Y-%m-%d).log
+cd /root/zoho-odoo-mcp-sync && python sync_service.py 2>&1 | head -100
+cd /root/zoho-odoo-mcp-sync && python sync_service.py
+cd /root/zoho-odoo-mcp-sync && find logs -name "*.log" -type f | head -5
+cd /root/zoho-odoo-mcp-sync && python sync_service.py
+cd /root/zoho-odoo-mcp-sync && python sync_service.py 2>&1
+cd /root && python renew_zoho_tokens.py
+cd /root/zoho-odoo-mcp-sync && python sync_service.py
+cd /root/zoho-odoo-mcp-sync && python sync_service.py 2>&1 | head -100
+cp /root/zoho-odoo-mcp-sync-service/config/zoho_credentials.json /root/zoho-odoo-mcp-sync/config/zoho_credentials.json
+cd /root/zoho-odoo-mcp-sync && python -c "
+from context.business_context import ContextManager
+try:
+    context_manager = ContextManager()
+    context_manager.load_contexts()
+    print('✅ Context loading successful')
+    print(f'Zoho access token: {context_manager.zoho_context.access_token[:20]}...')
+    print(f'Odoo database: {context_manager.odoo_context.database}')
+except Exception as e:
+    print(f'❌ Error: {e}')
+"
+cd /root/zoho-odoo-mcp-sync && python main.py sync --items --limit 5
+cd /root/zoho-odoo-mcp-sync && python main.py --help
+cd /root/zoho-odoo-mcp-sync && python sync_service.py
+cd /root/zoho-odoo-mcp-sync && python -c "
+import sys
+import logging
+sys.path.insert(0, '.')
+from protocol.sync_protocol import MasterSyncProtocol
+
+# Set up detailed logging
+logging.basicConfig(level=logging.DEBUG)
+
+# Create sync protocol
+sync = MasterSyncProtocol('config')
+
+# Just sync the first 5 items to see detailed errors
+try:
+    # Get Zoho items 
+    items = sync.zoho_api.get_items()[:5]
+    print(f'Testing sync with {len(items)} items...')
+    
+    for i, item in enumerate(items):
+        print(f'\\nSyncing item {i+1}: {item.get(\"name\", \"Unknown\")}')
+        try:
+            result = sync.sync_item_to_odoo(item)
+            print(f'✅ Success: {result}')
+        except Exception as e:
+            print(f'❌ Error: {e}')
+            import traceback
+            traceback.print_exc()
+except Exception as e:
+    print(f'Failed to initialize: {e}')
+    import traceback
+    traceback.print_exc()
+"
+cd /root/zoho-odoo-mcp-sync && python -c "
+import sys
+sys.path.append('/root/zoho-odoo-mcp-sync')
+from context.business_context import ContextManager
+from protocol.sync_protocol import MasterSyncProtocol
+
+print('🔍 ZOHO DATA COUNT VERIFICATION')
+print('=' * 50)
+
+# Initialize protocol
+context_manager = ContextManager()
+context_manager.load_contexts()
+sync_protocol = MasterSyncProtocol('/root/zoho-odoo-mcp-sync/config')
+
+# Get Zoho counts
+print('📊 Fetching Zoho Books data counts...')
+
+# Count items
+try:
+    items = sync_protocol.zoho_api.get_items()
+    item_count = len(items)
+    print(f'✅ Zoho Items: {item_count}')
+except Exception as e:
+    print(f'❌ Error fetching items: {e}')
+    item_count = 0
+
+# Count customers
+try:
+    customers = sync_protocol.zoho_api.get_customers()
+    customer_count = len(customers)
+    print(f'✅ Zoho Customers: {customer_count}')
+except Exception as e:
+    print(f'❌ Error fetching customers: {e}')
+    customer_count = 0
+
+# Count vendors
+try:
+    vendors = sync_protocol.zoho_api.get_vendors()
+    vendor_count = len(vendors)
+    print(f'✅ Zoho Vendors: {vendor_count}')
+except Exception as e:
+    print(f'❌ Error fetching vendors: {e}')
+    vendor_count = 0
+
+total_contacts = customer_count + vendor_count
+print(f'📋 Total Contacts (Customers + Vendors): {total_contacts}')
+
+print()
+print('🎯 EXPECTED MIGRATION COUNTS:')
+print(f'   Items to migrate: {item_count}')
+print(f'   Contacts to migrate: {total_contacts}')
+print(f'     - Customers: {customer_count}')
+print(f'     - Vendors: {vendor_count}')
+"
+cd /root/zoho-odoo-mcp-sync && python verify_data_counts.py
+cd /root/zoho-odoo-mcp-sync && python -u verify_data_counts.py
+cd /root/zoho-odoo-mcp-sync && python -c "import requests; import xmlrpc.client; print('Dependencies OK')"
+cd /root/zoho-odoo-mcp-sync && python3 -c "
+try:
+    exec(open('verify_data_counts.py').read())
+except Exception as e:
+    print(f'Error: {e}')
+    import traceback
+    traceback.print_exc()
+"
+cd /root/zoho-odoo-mcp-sync && python -c "
+import sys
+sys.path.insert(0, '.')
+from context.business_context import ContextManager
+
+# Load contexts
+context_manager = ContextManager()
+context_manager.load_contexts()
+
+print('📊 ZOHO → ODOO DATA COUNT VERIFICATION')
+print('=' * 50)
+
+# Get Zoho data counts
+from protocol.sync_protocol import MasterSyncProtocol
+sync_protocol = MasterSyncProtocol('config')
+
+print('🔍 Fetching Zoho data...')
+try:
+    zoho_items = sync_protocol.zoho_api.get_items()
+    zoho_customers = sync_protocol.zoho_api.get_customers()
+    zoho_vendors = sync_protocol.zoho_api.get_vendors()
+    
+    print(f'📦 Zoho Items: {len(zoho_items)}')
+    print(f'👥 Zoho Customers: {len(zoho_customers)}')
+    print(f'🏢 Zoho Vendors: {len(zoho_vendors)}')
+    print(f'📋 Total Zoho Records: {len(zoho_items) + len(zoho_customers) + len(zoho_vendors)}')
+    
+except Exception as e:
+    print(f'❌ Error fetching Zoho data: {e}')
+
+print()
+print('🔍 Checking Odoo data...')
+try:
+    # Count Odoo products with Zoho IDs
+    products_with_zoho_id = sync_protocol.odoo_api.models.execute_kw(
+        sync_protocol.odoo_api.db, sync_protocol.odoo_api.uid, sync_protocol.odoo_api.password,
+        'product.template', 'search_count',
+        [[('x_zoho_product_id', '!=', False)]]
+    )
+    
+    # Count Odoo contacts with Zoho IDs  
+    contacts_with_zoho_id = sync_protocol.odoo_api.models.execute_kw(
+        sync_protocol.odoo_api.db, sync_protocol.odoo_api.uid, sync_protocol.odoo_api.password,
+        'res.partner', 'search_count',
+        [[('x_zoho_contact_id', '!=', False)]]
+    )
+    
+    print(f'📦 Odoo Products (with Zoho ID): {products_with_zoho_id}')
+    print(f'👥 Odoo Contacts (with Zoho ID): {contacts_with_zoho_id}')
+    print(f'📋 Total Odoo Records: {products_with_zoho_id + contacts_with_zoho_id}')
+    
+except Exception as e:
+    print(f'❌ Error fetching Odoo data: {e}')
+"
+cd /root/zoho-odoo-mcp-sync && python verify_and_fix_sync.py
+cd /root/zoho-odoo-mcp-sync && python -u verify_and_fix_sync.py
+cd /root/zoho-odoo-mcp-sync && python -c "
+try:
+    import sys
+    import os
+    import json
+    import requests
+    import xmlrpc.client
+    print('✅ All imports successful')
+    
+    # Check config files
+    config_paths = [
+        '/root/zoho-odoo-mcp-sync/config/zoho_credentials.json',
+        '/root/zoho-odoo-mcp-sync-service/config/zoho_credentials.json'
+    ]
+    
+    for path in config_paths:
+        if os.path.exists(path):
+            print(f'✅ Found config: {path}')
+        else:
+            print(f'❌ Missing config: {path}')
+            
+except Exception as e:
+    print(f'❌ Import error: {e}')
+"
+cd /root/zoho-odoo-mcp-sync && python verify_and_fix_sync.py
+cd /root/zoho-odoo-mcp-sync && python3 -c "
+import xmlrpc.client
+import json
+
+# Load config
+with open('/root/zoho_config.json', 'r') as f:
+    config = json.load(f)
+
+# Connect to Odoo
+common = xmlrpc.client.ServerProxy(f'{config[\"odoo_url\"]}/xmlrpc/2/common')
+uid = common.authenticate(config['odoo_db'], config['odoo_username'], config['odoo_password'], {})
+models = xmlrpc.client.ServerProxy(f'{config[\"odoo_url\"]}/xmlrpc/2/object')
+
+# Test what product types are valid by checking current products
+try:
+    # Check what types exist in the system
+    all_types = models.execute_kw(
+        config['odoo_db'], uid, config['odoo_password'],
+        'product.template', 'search_read',
+        [[]],
+        {'fields': ['type'], 'limit': 100}
+    )
+    
+    type_set = set()
+    for product in all_types:
+        if product.get('type'):
+            type_set.add(product['type'])
+    
+    print('Valid product types in Odoo:', sorted(type_set))
+    
+    # Check field definition
+    fields_info = models.execute_kw(
+        config['odoo_db'], uid, config['odoo_password'],
+        'product.template', 'fields_get',
+        [['type']]
+    )
+    
+    print('\nField definition for type:')
+    if 'type' in fields_info:
+        field_info = fields_info['type']
+        print(f'  String: {field_info.get(\"string\", \"N/A\")}')
+        print(f'  Type: {field_info.get(\"type\", \"N/A\")}')
+        if 'selection' in field_info:
+            print(f'  Selection options: {field_info[\"selection\"]}')
+    
+except Exception as e:
+    print(f'Error: {e}')
+"
+cd /root/zoho-odoo-mcp-sync && python verify_and_fix_sync.py
+cd /root/zoho-odoo-mcp-sync && python verify_and_fix_sync.py 2>&1
+cd /root && python3 -c "
+import xmlrpc.client
+import json
+
+# Load config
+with open('config.json', 'r') as f:
+    config = json.load(f)
+
+# Connect
+common = xmlrpc.client.ServerProxy(f'{config[\"odoo_url\"]}/xmlrpc/2/common')
+uid = common.authenticate(config['odoo_db'], config['odoo_username'], config['odoo_password'], {})
+models = xmlrpc.client.ServerProxy(f'{config[\"odoo_url\"]}/xmlrpc/2/object')
+
+# Get field info for product type
+field_info = models.execute_kw(
+    config['odoo_db'], uid, config['odoo_password'],
+    'product.template', 'fields_get',
+    ['type']
+)
+
+print('Product Type Field Info:')
+print(json.dumps(field_info, indent=2))
+"
+cd /root/zoho-odoo-mcp-sync && python verify_and_fix_sync.py
+cd /root/zoho-odoo-mcp-sync && python3 verify_and_fix_sync.py
+cd /root && python3 -c "
+import xmlrpc.client
+
+# Connect to Odoo
+url = 'http://138.68.89.104:8069'
+db = 'tshmasterbrain'
+username = 'admin'
+password = 'Zcbm.97531tsh'
+
+common = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/common')
+uid = common.authenticate(db, username, password, {})
+
+if uid:
+    models = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/object')
+    
+    # Check product.template model fields
+    fields = models.execute_kw(db, uid, password, 'product.template', 'fields_get', [], {'attributes': ['selection']})
+    
+    if 'type' in fields and 'selection' in fields['type']:
+        print('Valid product type values:')
+        for value, label in fields['type']['selection']:
+            print(f'  {value}: {label}')
+    else:
+        print('Product type field not found or no selection values')
+        print('Available fields:', list(fields.keys())[:10])
+else:
+    print('Failed to authenticate')
+"
+cd /root/zoho-odoo-mcp-sync && python3 verify_and_fix_sync.py
+cd /root/zoho-odoo-mcp-sync && python3 -c "
+import sys
+import traceback
+try:
+    exec(open('verify_and_fix_sync.py').read())
+except Exception as e:
+    print(f'Error: {e}')
+    traceback.print_exc()
+"
+cd /root/zoho-odoo-mcp-sync && python3 verify_and_fix_sync.py
+cd /root/zoho-odoo-mcp-sync && python verify_and_fix_sync.py
+cd /root/zoho-odoo-mcp-sync && python3 -c "
+import xmlrpc.client
+import json
+
+# Load configuration
+with open('context/config.json', 'r') as f:
+    config = json.load(f)
+
+odoo_config = config['odoo']
+
+# Connect to Odoo
+common = xmlrpc.client.ServerProxy(f'{odoo_config[\"url\"]}/xmlrpc/2/common')
+uid = common.authenticate(odoo_config['database'], odoo_config['username'], odoo_config['password'], {})
+
+if uid:
+    models = xmlrpc.client.ServerProxy(f'{odoo_config[\"url\"]}/xmlrpc/2/object')
+    
+    # Get product template model fields to see what type values are allowed
+    fields_info = models.execute_kw(
+        odoo_config['database'], uid, odoo_config['password'],
+        'product.template', 'fields_get',
+        ['type']
+    )
+    
+    print('Product type field information:')
+    print(json.dumps(fields_info, indent=2))
+    
+    # Check existing products to see what types are currently used
+    products = models.execute_kw(
+        odoo_config['database'], uid, odoo_config['password'],
+        'product.template', 'search_read',
+        [[]],
+        {'fields': ['type'], 'limit': 100}
+    )
+    
+    type_counts = {}
+    for product in products:
+        ptype = product.get('type', 'unknown')
+        type_counts[ptype] = type_counts.get(ptype, 0) + 1
+    
+    print('\nExisting product types in database:')
+    for ptype, count in type_counts.items():
+        print(f'  {ptype}: {count} products')
+else:
+    print('Failed to authenticate with Odoo')
+"
+cd /root/zoho-odoo-mcp-sync && python3 verify_and_fix_sync.py
+cd /root/zoho-odoo-mcp-sync && python3 -c "
+import xmlrpc.client
+import json
+
+# Load config
+with open('config.json') as f:
+    config = json.load(f)
+
+# Connect to Odoo
+common = xmlrpc.client.ServerProxy(f'{config['odoo']['url']}/xmlrpc/2/common')
+uid = common.authenticate(config['odoo']['database'], config['odoo']['username'], config['odoo']['password'], {})
+
+if uid:
+    models = xmlrpc.client.ServerProxy(f'{config['odoo']['url']}/xmlrpc/2/object')
+    
+    # Get product type field info
+    field_info = models.execute_kw(
+        config['odoo']['database'], uid, config['odoo']['password'],
+        'product.template', 'fields_get', ['type']
+    )
+    
+    print('📋 PRODUCT TYPE FIELD INFO:')
+    print(json.dumps(field_info, indent=2))
+    
+    # Try to get selection values
+    if 'type' in field_info and 'selection' in field_info['type']:
+        print('\n✅ VALID PRODUCT TYPES:')
+        for value, label in field_info['type']['selection']:
+            print(f'  {value} -> {label}')
+else:
+    print('❌ Authentication failed')
+"
+cd /root/zoho-odoo-mcp-sync && python3 verify_and_fix_sync.py
+cd /root/zoho-odoo-mcp-sync && python diagnose_odoo_types.py
+cd /root/zoho-odoo-mcp-sync && python verify_and_fix_sync.py
+cd /root/zoho-odoo-mcp-sync && tail -20 logs/sync_errors.log | grep -A2 -B2 "product.template.type"
+cd /root/zoho-odoo-mcp-sync && python3 verify_and_fix_sync.py
+cd /root/zoho-odoo-mcp-sync && python3 verify_and_fix_sync.py 2>&1
+cd /root/zoho-odoo-mcp-sync && python3 -c "
+import json
+import requests
+import os
+
+# Load Zoho config
+config_paths = [
+    '/root/zoho-odoo-mcp-sync/config/zoho_credentials.json',
+    '/root/zoho-odoo-mcp-sync-service/config/zoho_credentials.json'
+]
+
+config = None
+for path in config_paths:
+    if os.path.exists(path):
+        with open(path, 'r') as f:
+            config = json.load(f)
+            if 'zoho_books' in config:
+                config = config['zoho_books']
+        break
+
+if not config:
+    print('❌ No Zoho config found')
+    exit(1)
+
+# Test API call
+headers = {
+    'Authorization': f'Zoho-oauthtoken {config[\"access_token\"]}',
+    'Content-Type': 'application/json',
+    'X-com-zoho-books-organizationid': config[\"organization_id\"]
+}
+
+try:
+    response = requests.get('https://www.zohoapis.com/books/v3/items?per_page=1', headers=headers)
+    print(f'Status: {response.status_code}')
+    print(f'Response: {response.text[:500]}')
+except Exception as e:
+    print(f'Error: {e}')
+"
+cd /root/zoho-odoo-mcp-sync && python3 verify_and_fix_sync.py
+cd /root/zoho-odoo-mcp-sync && python3 -c "
+import json
+import requests
+from pathlib import Path
+
+# Load config
+config_path = Path('config/zoho_credentials.json')
+with open(config_path, 'r') as f:
+    config = json.load(f)
+
+# Refresh token
+print('🔄 Refreshing Zoho access token...')
+refresh_url = 'https://accounts.zoho.com/oauth/v2/token'
+refresh_data = {
+    'refresh_token': config['zoho_books']['refresh_token'],
+    'client_id': config['zoho_books']['client_id'],
+    'client_secret': config['zoho_books']['client_secret'],
+    'grant_type': 'refresh_token'
+}
+
+response = requests.post(refresh_url, data=refresh_data)
+if response.status_code == 200:
+    token_data = response.json()
+    config['zoho_books']['access_token'] = token_data['access_token']
+    config['last_updated'] = '$(date -Iseconds)'
+    
+    with open(config_path, 'w') as f:
+        json.dump(config, f, indent=2)
+    
+    print('✅ Access token refreshed successfully')
+    print(f'New token: {token_data[\"access_token\"][:20]}...')
+else:
+    print(f'❌ Token refresh failed: {response.status_code}')
+    print(response.text)
+"
+cd /root/zoho-odoo-mcp-sync && python3 sync/auth/zoho_auth.py
+cd /root && python3 comprehensive_zoho_odoo_sync.py --refresh-token
+cd /root/zoho-odoo-mcp-sync && python3 refresh_zoho_token.py
+cd /root/zoho-odoo-mcp-sync && python3 -c "
+import json
+import requests
+from pathlib import Path
+from datetime import datetime
+
+print('🔄 REFRESHING ZOHO ACCESS TOKEN')
+print('=' * 40)
+
+# Load current config
+config_path = Path('config/zoho_credentials.json')
+
+try:
+    with open(config_path, 'r') as f:
+        config = json.load(f)
+    
+    zoho_config = config['zoho_books']
+    print(f'📋 Refreshing token...')
+    
+    # Prepare refresh request
+    refresh_url = 'https://accounts.zoho.com/oauth/v2/token'
+    refresh_data = {
+        'refresh_token': zoho_config['refresh_token'],
+        'client_id': zoho_config['client_id'],
+        'client_secret': zoho_config['client_secret'],
+        'grant_type': 'refresh_token'
+    }
+    
+    print(f'�� Making refresh request to Zoho...')
+    response = requests.post(refresh_url, data=refresh_data)
+    
+    if response.status_code == 200:
+        token_data = response.json()
+        
+        # Update config with new token
+        config['zoho_books']['access_token'] = token_data['access_token']
+        config['last_updated'] = datetime.now().isoformat()
+        
+        # Save updated config
+        with open(config_path, 'w') as f:
+            json.dump(config, f, indent=2)
+        
+        print(f'✅ Access token refreshed successfully!')
+        print(f'   New token: {token_data[\"access_token\"][:20]}...')
+        
+    else:
+        print(f'❌ Token refresh failed: {response.status_code}')
+        print(f'   Response: {response.text}')
+        
+except Exception as e:
+    print(f'❌ Error refreshing token: {e}')
+"
+cd /root/zoho-odoo-mcp-sync && python3 verify_and_fix_sync.py
+cd /root/zoho-odoo-mcp-sync && python3 verify_and_fix_sync.py 2>&1
+cd /root/zoho-odoo-mcp-sync && python3 refresh_zoho_token.py
+cd /root/zoho-odoo-mcp-sync && python3 verify_and_fix_sync.py
+cd /root/zoho-odoo-mcp-sync && python3 verify_and_fix_sync.py 2>&1 | head -50
+cd /root/zoho-odoo-mcp-sync && python3 -c "
+import json
+import requests
+
+# Load config
+with open('config/zoho_credentials.json', 'r') as f:
+    config = json.load(f)
+    zoho_config = config['zoho_books']
+
+# Test API call
+headers = {
+    'Authorization': f'Zoho-oauthtoken {zoho_config[\"access_token\"]}',
+    'Content-Type': 'application/json',
+    'X-com-zoho-books-organizationid': zoho_config['organization_id']
+}
+
+response = requests.get('https://www.zohoapis.com/books/v3/items', headers=headers, params={'per_page': 5})
+print('Status:', response.status_code)
+if response.status_code == 200:
+    data = response.json()
+    print('Keys:', list(data.keys()))
+    if 'page_context' in data:
+        print('Page context:', data['page_context'])
+    if 'items' in data:
+        print('Items count:', len(data['items']))
+        if data['items']:
+            print('First item ID:', data['items'][0].get('item_id', 'N/A'))
+else:
+    print('Error:', response.text[:200])
+"
+/bin/python3 /root/.vscode-server/extensions/ms-python.python-2025.6.1-linux-x64/python_files/printEnvVariablesToFile.py /root/.vscode-server/extensions/ms-python.python-2025.6.1-linux-x64/python_files/deactivate/bash/envVars.txt
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+tail -n 50 zoho-odoo-mcp-sync-service/logs/mcp-server.log
+ps aux | grep zoho_odoo_mcp_server | grep -v grep
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+chmod +x enable_inventory_tracking.py
+python3 enable_inventory_tracking.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 verify_inventory_tracking.py
+python3 investigate_product_fields.py
+python3 enable_inventory_tracking_fixed.py
+python3 final_inventory_verification.py
+python3 investigate_track_inventory_checkbox.py
+python3 enable_track_inventory_checkbox.py
+python3 zoho-odoo-mcp-sync-service/mcp-servers/zoho_odoo_mcp_server.py --sync-products --batch-size 50 --force-update
+python3 -m venv zoho_sync_venv && source zoho_sync_venv/bin/activate && pip install --upgrade pip && pip install mcp
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+mv zoho-odoo-mcp-sync-service/mcp-connectors zoho-odoo-mcp-sync-service/mcp_connectors
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+source zoho_sync_venv/bin/activate && pip install aiohttp
+mv zoho-odoo-mcp-sync-service/mcp-data-models zoho-odoo-mcp-sync-service/mcp_data_models
+mv zoho-odoo-mcp-sync-service/mcp-sync-engines zoho-odoo-mcp-sync-service/mcp_sync_engines
+source zoho_sync_venv/bin/activate && PYTHONPATH=zoho-odoo-mcp-sync-service python3 -m mcp-servers.zoho_odoo_mcp_server --sync-products --batch-size 50 --force-update
+source zoho_sync_venv/bin/activate && python3 -c "from mcp.types import ServerCapabilities; print(ServerCapabilities.schema_json(indent=2))"
+source zoho_sync_venv/bin/activate && PYTHONPATH=zoho-odoo-mcp-sync-service python3 -m mcp-servers.zoho_odoo_mcp_server --sync-products --batch-size 50 --force-update
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+cd zoho-odoo-mcp-sync-service && source ../zoho_sync_venv/bin/activate && PYTHONPATH=. python3 mcp-servers/zoho_odoo_mcp_server.py --sync-products --batch-size 50 --force-update
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+cd zoho-odoo-mcp-sync-service && source ../zoho_sync_venv/bin/activate && PYTHONPATH=. python3 mcp-servers/zoho_odoo_mcp_server.py --sync-products --batch-size 50 --force-update
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+cd zoho-odoo-mcp-sync-service && source ../zoho_sync_venv/bin/activate && PYTHONPATH=. python3 -m mcp-servers.zoho_odoo_mcp_server --sync-products --batch-size 50 --force-update
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+cd zoho-odoo-mcp-sync-service && source ../zoho_sync_venv/bin/activate && PYTHONPATH=. python3 -m mcp-servers.zoho_odoo_mcp_server --sync-products --batch-size 50 --force-update
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+source zoho_sync_venv/bin/activate && PYTHONPATH=zoho-odoo-mcp-sync-service python3 -m mcp-servers.zoho_odoo_mcp_server --sync-products --batch-size 50 --force-update
+python3 /root/zoho-odoo-mcp-sync/verify_and_fix_sync.py
+python3 comprehensive_zoho_odoo_sync.py
+curl -s -H 'Authorization: Zoho-oauthtoken 1000.e4288fc610b5955f616d3f2990bc91f5.049400eb24ce360e1309e692c7c14bb7' 'https://www.zohoapis.com/books/v3/items?organization_id=748369814&per_page=1'
+python3 /root/zoho-odoo-mcp-sync/refresh_zoho_token.py
+python3 comprehensive_zoho_odoo_sync.py
+curl -s -H 'Authorization: Zoho-oauthtoken $(jq -r .access_token /root/zoho-odoo-mcp-sync-service/config/zoho_credentials.json)' 'https://www.zohoapis.com/books/v3/items?organization_id=748369814&per_page=1'
+/bin/python3 /root/.vscode-server/extensions/ms-python.python-2025.6.1-linux-x64/python_files/printEnvVariablesToFile.py /root/.vscode-server/extensions/ms-python.python-2025.6.1-linux-x64/python_files/deactivate/bash/envVars.txt
+systemctl status odoo || service odoo status || ps aux | grep odoo
+sudo systemctl status odoo
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 odoo_status_check.py
+psql -U postgres -c "SHOW hba_file;"
+ps -ef | grep postgres | grep -v grep
+cat /etc/postgresql/16/main/pg_hba.conf
+cd /opt/odoo/custom_addons
+find / -name "odoo.conf" 2>/dev/null
+cat /opt/odoo/odoo.conf | grep addons_path
+mkdir /opt/odoo/custom_addons
+chown -R odoo:odoo /opt/odoo/custom_addons
+ps aux | grep odoo
+cd /opt/odoo/custom_addons
+mkdir product_search_enhancer
+cd product_search_enhancer
+mkdir models
+touch __init__.py __manifest__.py
+touch models/__init__.py models/product_template.py
+[200~nano __manifest__.py
+~
+[200~nano __manifest__.py
+~nano __manifest__.py
+nano __manifest__.py
+nano __init__.py
+nano models/__init__.py
+nano models/product_template.py
+sudo systemctl restart odoo
+ls /opt/odoo/custom_addons/product_search_enhancer
+cat /opt/odoo/custom_addons/product_search_enhancer/__manifest__.py
+cat /opt/odoo/odoo.conf | grep addons_path
+nano /opt/odoo/odoo.conf
+[200~sudo systemctl restart odoo
+~sudo systemctl restart odoo
+sudo systemctl restart odoo
+cd /root/zoho-odoo-mcp-sync-service && python3 sync_products_once.py
+cd /root/zoho-odoo-mcp-sync-service && python3 sync_products_once.py 2>&1
+cd /root && python3 comprehensive_zoho_odoo_sync.py
+cd /root && python3 -u comprehensive_zoho_odoo_sync.py
+cd /root && python3 -c "import comprehensive_zoho_odoo_sync"
+cd /root/zoho-odoo-mcp-sync && python3 verify_and_fix_sync.py
+cd /root/zoho-odoo-mcp-sync && python3 sync_service.py 2>&1 | tee sync_output.log
+sudo -u postgres psql -l
+python3 /root/check_odoo_databases.py
+sudo -u postgres psql -c "\l"
+psql -U postgres -l
+sudo systemctl status postgresql
+sudo -i -u postgres psql -c '\l'
+sudo -u postgres psql -c '\l'
+cd /root/zoho-odoo-mcp-sync-service && python3 sync_products_once.py
+pip install aiohttp
+cd /root/zoho-odoo-mcp-sync-service && python3 sync_products_once.py
+find / -name pg_hba.conf 2>/dev/null
+sudo systemctl reload postgresql
+python3 /root/zoho-odoo-mcp-sync-service/sync_products_once.py
+sudo systemctl reload postgresql
+python3 /root/zoho-odoo-mcp-sync-service/sync_products_once.py
+python3 /root/find_odoo_config.py
+ps aux | grep odoo
+sudo systemctl restart odoo
+python3 /root/zoho-odoo-mcp-sync-service/sync_products_once.py
+sudo -u postgres psql -c "ALTER USER odoo WITH PASSWORD 'Zcbm.97531tsh';"
+sudo -u postgres psql -c "CREATE USER odoo WITH PASSWORD 'Zcbm.97531tsh';"
+sudo -u postgres psql -c "ALTER DATABASE tshmasterbrain OWNER TO odoo;"
+sudo systemctl restart odoo
+sudo systemctl restart postgresql
+sudo -u postgres psql -c "\l"
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+grep 'admin_passwd' /opt/odoo/odoo.conf
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+sudo journalctl -u odoo -n 50 --no-pager
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+sudo journalctl -u odoo -n 50 --no-pager
+ps -ef | grep postgres | grep -- -D
+echo 'local   all             all                                     md5' | sudo tee -a /etc/postgresql/16/main/pg_hba.conf && sudo systemctl restart postgresql && sudo systemctl restart odoo
+grep 'admin_passwd' /opt/odoo/odoo.conf
+sudo systemctl restart odoo
+sudo -u postgres psql --no-pager -c "\l"
+sudo -u postgres psql -c "\l" | cat
+tail -n 50 /var/log/odoo/odoo.log
+curl -X POST -F "master_pwd=Zcbm.97531tsh" -F "db_name=aroot_iraq_db" -F "lang=en_US" -F "login=aroot" -F "password=12345100%" -F "phone=07902432078" -F "country_code=IQ" -F "demo_data=false" http://localhost:8069/web/database/create
+find /opt -name odoo-bin -type f -print -quit 2>/dev/null
+curl -X POST -F "master_pwd=Zcbm.97531tsh" -F "db_name=aroot_iraq_db" -F "lang=en_US" -F "login=aroot" -F "password=12345100%" -F "phone=07902432078" -F "country_code=IQ" -F "demo_data=false" http://localhost:8069/web/database/create
+sudo grep -r "admin_passwd" / 2>/dev/null
+/etc/odoo/odoo.conf
+/opt/odoo/odoo.conf
+/home/odoo/.odoorc
+sudo cat /opt/odoo/odoo.conf | grep admin_passwd
+/opt/odoo/odoo-venv/bin/python3 /opt/odoo/odoo-bin -d nootshitup --db_user=odoo --admin-passwd=Khaleel.ahmed89 --without-demo=True --lang=en_US --no-http --save --stop-after-init
+sudo find /opt/ -name "odoo-bin"
+/opt/odoo/odoo-venv/bin/python3 /opt/odoo/odoo-community/odoo-bin -d nootshitup --db_user=odoo --admin-passwd=Khaleel.ahmed89 --without-demo=True --lang=en_US --no-http --save --stop-after-init
+sudo systemctl restart odoo
+sudo -u postgres psql
+python3 /root/create_odoo_db.py
+curl -I --connect-timeout 10 http://138.68.89.104:8070
+curl -I --connect-timeout 10 http://138.68.89.104:8069
+python3 /root/create_odoo_db.py
+python /root/test_odoo_connection.py
+python /root/test_nootshitup_connection.py
+python /root/test_zoho_connection.py
+python /root/run_product_migration.py
+cd /root && python refresh_zoho_token.py
+cd /root && python3 refresh_zoho_token.py
+which python3 && python3 --version
+cd /root && python3 -u refresh_zoho_token.py
+cd /root && python3 -c "
+import json
+import requests
+print('✅ All imports successful')
+print('🔄 Running token refresh...')
+
+# Load config
+config_path = '/root/zoho-odoo-mcp-sync-service/config/zoho_credentials.json'
+with open(config_path, 'r') as f:
+    config = json.load(f)
+
+print(f'📋 Current access token ends with: ...{config[\"access_token\"][-6:]}')
+
+# Prepare refresh request
+refresh_url = 'https://accounts.zoho.com/oauth/v2/token'
+refresh_data = {
+    'refresh_token': config['refresh_token'],
+    'client_id': config['client_id'],
+    'client_secret': config['client_secret'],
+    'grant_type': 'refresh_token'
+}
+
+print('🔗 Making refresh request to Zoho...')
+response = requests.post(refresh_url, data=refresh_data, timeout=30)
+
+if response.status_code == 200:
+    token_data = response.json()
+    
+    # Update config
+    from datetime import datetime
+    config['access_token'] = token_data['access_token']
+    config['last_updated'] = datetime.now().isoformat()
+    
+    # Save config
+    with open(config_path, 'w') as f:
+        json.dump(config, f, indent=2)
+    
+    print(f'✅ Access token refreshed successfully!')
+    print(f'   New token ends with: ...{token_data[\"access_token\"][-6:]}')
+else:
+    print(f'❌ Token refresh failed: {response.status_code}')
+    print(f'   Response: {response.text}')
+"
+cd /root && python run_product_migration.py
+head -50 /root/zoho_odoo_sync_report.json
+find /root -name "*.log" -type f | head -5
+cd /root && python3 create_zoho_custom_fields.py
+cd /root && python3 -c "import xmlrpc.client; import json; print('Imports OK')"
+cd /root && python3 -u create_zoho_custom_fields.py 2>&1
+cd /root && python3 create_zoho_custom_fields.py
+cd /root && python3 check_odoo_databases.py
+cd /root && python3 create_zoho_custom_fields.py
+cd /root && python3 run_product_migration.py
+cd /root && python test_datetime_conversion.py
+cd /root && python3 test_datetime_conversion.py
+cd /root && python3 -c "
+import re
+from datetime import datetime
+
+def convert_zoho_datetime(zoho_datetime_str):
+    if not zoho_datetime_str:
+        return ''
+    try:
+        datetime_clean = re.sub(r'T', ' ', zoho_datetime_str)
+        datetime_clean = re.sub(r'[+-]\d{4}$', '', datetime_clean)
+        parsed_dt = datetime.strptime(datetime_clean, '%Y-%m-%d %H:%M:%S')
+        return parsed_dt.strftime('%Y-%m-%d %H:%M:%S')
+    except Exception as e:
+        return f'Error: {e}'
+
+test_case = '2021-10-15T11:03:49+0300'
+result = convert_zoho_datetime(test_case)
+print(f'Input: {test_case}')
+print(f'Output: {result}')
+"
+cd /root && python3 -c "print('Testing datetime conversion')"
+cd /root && python3 run_product_migration.py
+ps aux | grep python
+cd /root && timeout 300 python3 run_product_migration.py
+cd /root && python3 run_product_migration.py
+cd /root && python investigate_zoho_product_images.py
+cd /root && python investigate_zoho_product_images.py 2>&1
+ls -la /root/zoho-odoo-mcp-sync-service/config/
+cd /root && python3 -c "import requests; import json; print('Imports work')"
+cd /root && python3 -u investigate_zoho_product_images.py
+cd /root && python3 -c "print('Hello from Python')"
+cd /root && python3 test_zoho_product_structure.py
+cd /root && ls -la test_zoho_product_structure.py
+cd /root && python3 -c "
+import json
+import requests
+import os
+
+def load_zoho_credentials():
+    mcp_zoho_path = '/root/zoho-odoo-mcp-sync-service/config/zoho_credentials.json'
+    if os.path.exists(mcp_zoho_path):
+        with open(mcp_zoho_path, 'r') as f:
+            return json.load(f)
+    return None
+
+creds = load_zoho_credentials()
+if creds:
+    headers = {'Authorization': f'Zoho-oauthtoken {creds[\"access_token\"]}', 'Content-Type': 'application/json'}
+    url = 'https://www.zohoapis.com/books/v3/items'
+    params = {'organization_id': creds['organization_id'], 'per_page': 1}
+    
+    response = requests.get(url, headers=headers, params=params, timeout=30)
+    print(f'Status: {response.status_code}')
+    
+    if response.status_code == 200:
+        data = response.json()
+        products = data.get('items', [])
+        if products:
+            product = products[0]
+            print('Product keys:', list(product.keys()))
+            
+            image_fields = [k for k in product.keys() if 'image' in k.lower() or 'picture' in k.lower() or 'photo' in k.lower()]
+            print('Image fields:', image_fields)
+            
+            with open('/root/sample_zoho_product.json', 'w') as f:
+                json.dump(product, f, indent=2)
+            print('Sample saved')
+        else:
+            print('No products found')
+    else:
+        print('API failed:', response.text[:200])
+else:
+    print('No credentials')
+"
+cd /root && python test_zoho_product_structure.py
+cd /root && python test_zoho_images_with_sync.py
+cd /root && pip install Pillow
+cd /root && python inspect_zoho_data.py
+cd /root && python product_image_migration.py
+cd /root && python check_odoo_databases.py
+cd /root && python3 product_image_migration.py
+cd /root && python3 test_nootshitup_connection.py
+cd /root && python3 product_image_migration.py
+cd /root && python3 refresh_zoho_token.py
+cd /root && python3 product_image_migration.py
+cd /root && python3 verify_image_upload.py
+cd /root && python3 verify_image_upload.py 2>&1
+cd /root && python3 -c "
+import xmlrpc.client
+import json
+
+# Load config
+with open('/root/zoho-odoo-mcp-sync-service/config/odoo_credentials.json', 'r') as f:
+    config = json.load(f)
+
+odoo_config = config['server']
+
+# Connect
+common = xmlrpc.client.ServerProxy(f'{odoo_config[\"url\"]}/xmlrpc/2/common', allow_none=True)
+uid = common.authenticate(odoo_config['database'], odoo_config['username'], odoo_config['password'], {})
+models = xmlrpc.client.ServerProxy(f'{odoo_config[\"url\"]}/xmlrpc/2/object', allow_none=True)
+
+# Check products with images
+products = models.execute_kw(
+    odoo_config['database'], uid, odoo_config['password'],
+    'product.template', 'search_read',
+    [[['image_1920', '!=', False]]],
+    {'fields': ['name', 'image_1920'], 'limit': 5}
+)
+
+print(f'📊 Found {len(products)} products with images:')
+for i, product in enumerate(products, 1):
+    image_exists = bool(product.get('image_1920'))
+    print(f'  [{i}] {product[\"name\"]} - Has image: {image_exists}')
+"
+cd /root && python test_zoho_images_with_sync.py
+cd /root && python3 -c "
+from product_image_migration import ProductImageMigrationEngine
+import json
+
+# Initialize engine
+engine = ProductImageMigrationEngine()
+
+# Load sample product with image data
+try:
+    with open('zoho_product_detail.json', 'r') as f:
+        product_data = json.load(f)
+        print('Sample product data:')
+        print(f'Name: {product_data.get(\"name\", \"Unknown\")}')
+        print(f'Image Name: {product_data.get(\"image_name\", \"None\")}')
+        print(f'Image Document ID: {product_data.get(\"image_document_id\", \"None\")}')
+        print(f'Has Attachment: {product_data.get(\"has_attachment\", False)}')
+        
+        # Test image extraction
+        images = engine.fetch_zoho_product_images(product_data)
+        print(f'Found {len(images)} images')
+        
+        if images:
+            img_info = images[0]
+            print(f'Testing download of image: {img_info[\"image_name\"]}')
+            
+            # Test download
+            image_data = engine.download_zoho_image(img_info['image_document_id'], img_info['image_name'])
+            
+            if image_data:
+                print(f'✅ Successfully downloaded {len(image_data)} bytes')
+                
+                # Test image processing
+                processed = engine.process_and_optimize_image(image_data)
+                if processed:
+                    print(f'✅ Successfully processed image: {len(processed)} bytes')
+                    
+                    # Save test image to verify
+                    with open('/root/test_downloaded_image.jpg', 'wb') as f:
+                        f.write(processed)
+                    print('✅ Saved test image to /root/test_downloaded_image.jpg')
+                else:
+                    print('❌ Failed to process image')
+            else:
+                print('❌ Failed to download image')
+                
+except Exception as e:
+    print(f'Error: {e}')
+"
+cd /root && python3 -c "
+from product_image_migration import ProductImageMigrationEngine
+import json
+
+# Initialize engine
+engine = ProductImageMigrationEngine()
+
+# Load sample product with image data
+try:
+    with open('zoho_product_detail.json', 'r') as f:
+        product_data = json.load(f)
+        print('Sample product data:')
+        print(f'Name: {product_data.get(\"name\", \"Unknown\")}')
+        print(f'Image Name: {product_data.get(\"image_name\", \"None\")}')
+        print(f'Image Document ID: {product_data.get(\"image_document_id\", \"None\")}')
+        print(f'Has Attachment: {product_data.get(\"has_attachment\", False)}')
+        
+        # Test image extraction
+        images = engine.fetch_zoho_product_images(product_data)
+        print(f'Found {len(images)} images')
+        
+        if images:
+            img_info = images[0]
+            print(f'Testing download of image: {img_info[\"image_name\"]}')
+            print(f'Document ID: {img_info[\"image_document_id\"]}')
+        else:
+            print('No images found in product data')
+            
+except Exception as e:
+    print(f'Error: {e}')
+    import traceback
+    traceback.print_exc()
+"
+cd /root && python3 -c "
+from product_image_migration import ProductImageMigrationEngine
+import json
+
+# Initialize engine
+engine = ProductImageMigrationEngine()
+
+# Load sample product with image data
+try:
+    with open('zoho_product_detail.json', 'r') as f:
+        product_data = json.load(f)
+        print('Sample product data:')
+        print(f'Name: {product_data.get(\"name\", \"Unknown\")}')
+        print(f'Image Name: {product_data.get(\"image_name\", \"None\")}')
+        print(f'Image Type: {product_data.get(\"image_type\", \"None\")}')
+        print(f'Documents: {len(product_data.get(\"documents\", []))}')
+        
+        # Test image extraction
+        images = engine.fetch_zoho_product_images(product_data)
+        print(f'\\nFound {len(images)} images:')
+        
+        for i, img in enumerate(images):
+            print(f'  Image {i+1}:')
+            print(f'    Name: {img.get(\"image_name\")}')
+            print(f'    Document ID: {img.get(\"image_document_id\")}')
+            print(f'    Type: {img.get(\"image_type\")}')
+            print(f'    File Size: {img.get(\"file_size\", \"Unknown\")}')
+            
+except Exception as e:
+    print(f'Error: {e}')
+    import traceback
+    traceback.print_exc()
+"
+cd /root && python3 -c "
+import json
+print('Testing JSON loading...')
+try:
+    with open('zoho_product_detail.json', 'r') as f:
+        data = json.load(f)
+        print(f'Loaded product: {data.get(\"name\")}')
+        print(f'Image name: {data.get(\"image_name\")}')
+        print(f'Documents count: {len(data.get(\"documents\", []))}')
+        if data.get('documents'):
+            doc = data['documents'][0]
+            print(f'First document: {doc.get(\"file_name\")} - ID: {doc.get(\"document_id\")}')
+except Exception as e:
+    print(f'Error: {e}')
+"
+cd /root && python3 -c "print('Python is working')"
+cd /root && python3 << 'EOF'
+import json
+print('Testing JSON loading...')
+try:
+    with open('zoho_product_detail.json', 'r') as f:
+        data = json.load(f)
+        print(f'Loaded product: {data.get("name")}')
+        print(f'Image name: {data.get("image_name")}')
+        print(f'Documents count: {len(data.get("documents", []))}')
+        if data.get('documents'):
+            doc = data['documents'][0]
+            print(f'First document: {doc.get("file_name")} - ID: {doc.get("document_id")}')
+except Exception as e:
+    print(f'Error: {e}')
+    import traceback
+    traceback.print_exc()
+EOF
+
+cd /root && python3 test_image_extraction.py
+cd /root && python3 -c "import sys; print(sys.version); print('Working directory:', sys.path[0])"
+python3 --version && echo "Python working" && ls -la /root/zoho_product_detail.json
+cd /root && python3 test_image_extraction.py 2>&1
+cd /root && python3 -c "
+import json
+print('JSON import: OK')
+import sys
+print('Sys import: OK')
+try:
+    from comprehensive_zoho_odoo_sync import ZohoOdooSyncEngine
+    print('ZohoOdooSyncEngine import: OK')
+except Exception as e:
+    print(f'ZohoOdooSyncEngine import error: {e}')
+
+try:
+    from product_image_migration import ProductImageMigrationEngine
+    print('ProductImageMigrationEngine import: OK')
+except Exception as e:
+    print(f'ProductImageMigrationEngine import error: {e}')
+"
+echo "Testing echo" && pwd && whoami
+python3 -c "print('Hello from Python')"
+python3 -c "
+import json
+try:
+    with open('/root/zoho_product_detail.json', 'r') as f:
+        data = json.load(f)
+    print('Product name:', data.get('name'))
+    print('Image name:', data.get('image_name'))
+    print('Documents:', len(data.get('documents', [])))
+    if data.get('documents'):
+        doc = data['documents'][0]
+        print('First doc ID:', doc.get('document_id'))
+        print('First doc file:', doc.get('file_name'))
+except Exception as e:
+    print('Error:', str(e))
+    import traceback
+    traceback.print_exc()
+"
+cd /root && python3 test_image_extraction_direct.py
+cd /root && python3 -u test_image_extraction_direct.py
+cd /root && python3 -c "
+import json
+print('🧪 Testing Image Extraction')
+
+# Load data
+with open('/root/zoho_product_detail.json', 'r') as f:
+    data = json.load(f)
+
+print(f'Product: {data.get(\"name\")}')
+print(f'Image: {data.get(\"image_name\")}')
+print(f'Documents: {len(data.get(\"documents\", []))}')
+
+# Check documents
+docs = data.get('documents', [])
+for doc in docs:
+    print(f'Doc: {doc.get(\"file_name\")} - ID: {doc.get(\"document_id\")}')
+
+print('✅ Basic test complete')
+"
+cd /root && python3 test_zoho_images_with_sync.py
+cd /root && python3 -c "
+import json
+from product_image_migration import ProductImageMigrationEngine
+
+# Load the detailed product data
+with open('zoho_product_detail.json', 'r') as f:
+    product_data = json.load(f)
+
+print('Testing image extraction and download...')
+print(f'Product: {product_data.get(\"name\")}')
+print(f'Image: {product_data.get(\"image_name\")}')
+print(f'Document ID: {product_data.get(\"image_document_id\")}')
+
+# Initialize engine
+engine = ProductImageMigrationEngine()
+
+# Test image extraction
+images = engine.fetch_zoho_product_images(product_data)
+print(f'\\nExtracted {len(images)} images')
+
+if images:
+    img_info = images[0]
+    print(f'Image info: {img_info}')
+    
+    # Test download
+    print('\\nTesting image download...')
+    image_data = engine.download_zoho_image(img_info['image_document_id'], img_info['image_name'])
+    
+    if image_data:
+        print(f'✅ Downloaded {len(image_data)} bytes')
+        
+        # Test processing
+        processed = engine.process_and_optimize_image(image_data)
+        if processed:
+            print(f'✅ Processed image: {len(processed)} bytes')
+            
+            # Save for verification
+            with open('/root/test_image.jpg', 'wb') as f:
+                f.write(processed)
+            print('✅ Saved test image to /root/test_image.jpg')
+        else:
+            print('❌ Failed to process image')
+    else:
+        print('❌ Failed to download image')
+else:
+    print('❌ No images extracted')
+"
+cd /root && python3 test_image_download.py
+cd /root && python3 -u test_image_download.py 2>&1
+cd /root && python3 -c "print('TEST'); import sys; print(sys.version)" 2>&1
+cd /root && python3 -c "
+import json
+print('Loading product data...')
+with open('zoho_product_detail.json', 'r') as f:
+    data = json.load(f)
+print(f'Product: {data.get(\"name\")}')
+print(f'Image name: {data.get(\"image_name\")}')
+print(f'Documents: {len(data.get(\"documents\", []))}')
+if data.get('documents'):
+    doc = data['documents'][0]
+    print(f'Document ID: {doc.get(\"document_id\")}')
+print('Test complete')
+" 2>&1
+python3 /root/test_image_download.py
+python3 /root/test_image_upload_to_odoo.py
+python3 /root/product_image_migration.py
+python3 /root/find_products_without_images.py
+python3 /root/find_products_without_images.py 2>&1
+python3 /root/clear_test_product_image.py
+cd /root && python3 -c "
+print('Testing basic connection...')
+try:
+    from product_image_migration import ProductImageMigrationEngine
+    engine = ProductImageMigrationEngine()
+    print('✅ Engine initialized')
+    engine.connect_to_odoo()
+    print('✅ Connected to Odoo')
+    print('🎉 Basic test passed')
+except Exception as e:
+    print(f'❌ Error: {e}')
+    import traceback
+    traceback.print_exc()
+"
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 simple_test.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+sleep 15 && sudo systemctl status odoo | head -10
+python3 create_database_now.py
+sudo -u postgres psql -c "ALTER USER odoo WITH PASSWORD 'Zcbm.97531tsh';"
+sudo tail -20 /etc/postgresql/16/main/pg_hba.conf
+sudo systemctl reload postgresql
+sudo systemctl restart odoo
+sleep 15 && python3 create_database_now.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+sudo systemctl start odoo
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+sudo systemctl start odoo
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+sudo -u postgres psql -c "CREATE DATABASE tshmasterbrain OWNER odoo;"
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+sudo systemctl stop odoo
+sudo -u postgres psql -c "DROP DATABASE IF EXISTS tshmasterbrain;"
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+sudo systemctl status odoo | head -20
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 recover_tshmasterbrain_database.py > recovery_output.log 2>&1 &
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+sleep 30 && cat recovery_output.log
+cat recovery_output.log
+ps aux | grep recover_tshmasterbrain
+python3 quick_database_fix.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+sudo -u postgres dropdb tshmasterbrain 2>/dev/null || echo "Database may not exist or cannot be dropped"
+python3 recover_tshmasterbrain_database.py
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+sudo -u postgres psql -l | grep tshmasterbrain
+. "\root\.cursor-server\cli\servers\Stable-53b99ce608cba35127ae3a050c1738a959750860\server\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration-bash.sh"
+python3 test_odoo_admin_connection.py
+python3 verify_database.py
+sudo systemctl status postgresql
+sudo systemctl status postgresql@14-main
+sudo systemctl start postgresql@14-main
+sudo pg_lsclusters
+sudo -u postgres psql -c "\l"

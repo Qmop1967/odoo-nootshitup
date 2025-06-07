@@ -1,629 +1,534 @@
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:http/http.dart' as http;
 import 'dart:convert';
-import '../models/client.dart';
-import '../models/product.dart';
-import '../models/sale_order.dart';
-import '../models/invoice.dart';
-import '../models/payment.dart';
+import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class OdooService {
+  static const String baseUrl = 'http://138.68.89.104:8069';
+  static const String database = 'odtshbrain';
+  
   static final OdooService _instance = OdooService._internal();
   factory OdooService() => _instance;
   OdooService._internal();
 
-  String? _sessionId;
-  String? _baseUrl;
-  String? _database;
   int? _userId;
+  String? _sessionId;
+  String? _userName;
   String? _userEmail;
-  bool _isAdmin = false;
-  Map<String, dynamic>? _userInfo;
-  final Map<String, String> _headers = {'Content-Type': 'application/json'};
+  List<int> _assignedClientIds = [];
+  List<int> _assignedWarehouseIds = [];
+  List<String> _assignedRegions = [];
 
-  // Getters for session status
-  bool get isAuthenticated => _sessionId != null && _baseUrl != null;
-  String? get sessionId => _sessionId;
-  String? get baseUrl => _baseUrl;
   int? get userId => _userId;
+  String? get sessionId => _sessionId;
+  String? get userName => _userName;
   String? get userEmail => _userEmail;
-  bool get isAdmin => _isAdmin;
-  Map<String, dynamic>? get userInfo => _userInfo;
+  List<int> get assignedClientIds => _assignedClientIds;
+  List<int> get assignedWarehouseIds => _assignedWarehouseIds;
+  List<String> get assignedRegions => _assignedRegions;
 
-  // Initialize with base URL
-  void initialize(String baseUrl) {
-    _baseUrl = baseUrl;
+  bool get isLoggedIn => _userId != null && _sessionId != null;
+
+  Future<Map<String, dynamic>> _makeRequest(String endpoint, Map<String, dynamic> data) async {
+    final url = Uri.parse('$baseUrl$endpoint');
+    final headers = {
+      'Content-Type': 'application/json',
+      if (_sessionId != null) 'Cookie': 'session_id=$_sessionId',
+    };
+
+    final response = await http.post(
+      url,
+      headers: headers,
+      body: jsonEncode(data),
+    );
+
+    if (response.statusCode == 200) {
+      final responseData = jsonDecode(response.body);
+      if (responseData['error'] != null) {
+        throw Exception(responseData['error']['message'] ?? 'Unknown error');
+      }
+      return responseData;
+    } else {
+      throw Exception('HTTP ${response.statusCode}: ${response.body}');
+    }
   }
 
-  Future<void> saveSession() async {
-    if (_sessionId != null && _baseUrl != null && _database != null) {
-      final prefs = await SharedPreferences.getInstance();
-      await prefs.setString('session_id', _sessionId!);
-      await prefs.setString('base_url', _baseUrl!);
-      await prefs.setString('database', _database!);
-      if (_userId != null) {
+  Future<bool> login(String email, String password) async {
+    try {
+      final data = {
+        'jsonrpc': '2.0',
+        'method': 'call',
+        'params': {
+          'service': 'common',
+          'method': 'authenticate',
+          'args': [database, email, password, {}]
+        },
+        'id': 1,
+      };
+
+      final response = await _makeRequest('/jsonrpc', data);
+      
+      if (response['result'] != null && response['result'] != false) {
+        _userId = response['result'];
+        
+        // Get user details and salesperson info
+        await _getUserDetails();
+        await _getSalespersonInfo();
+        
+        // Save session
+        final prefs = await SharedPreferences.getInstance();
         await prefs.setInt('user_id', _userId!);
+        await prefs.setString('user_email', email);
+        
+        return true;
       }
-      if (_userEmail != null) {
-        await prefs.setString('user_email', _userEmail!);
-      }
-      await prefs.setBool('is_admin', _isAdmin);
-      if (_userInfo != null) {
-        await prefs.setString('user_info', jsonEncode(_userInfo!));
-      }
+      return false;
+    } catch (e) {
+      print('Login error: $e');
+      return false;
     }
   }
 
-  Future<void> loadSession() async {
-    final prefs = await SharedPreferences.getInstance();
-    _sessionId = prefs.getString('session_id');
-    _baseUrl = prefs.getString('base_url');
-    _database = prefs.getString('database');
-    _userId = prefs.getInt('user_id');
-    _userEmail = prefs.getString('user_email');
-    _isAdmin = prefs.getBool('is_admin') ?? false;
-    
-    final userInfoString = prefs.getString('user_info');
-    if (userInfoString != null) {
-      try {
-        _userInfo = jsonDecode(userInfoString);
-      } catch (e) {
-        print('Error loading user info: $e');
+  Future<void> _getUserDetails() async {
+    try {
+      final data = {
+        'jsonrpc': '2.0',
+        'method': 'call',
+        'params': {
+          'service': 'object',
+          'method': 'execute_kw',
+          'args': [
+            database,
+            _userId,
+            'password',
+            'res.users',
+            'read',
+            [_userId],
+            {'fields': ['name', 'email']}
+          ]
+        },
+        'id': 1,
+      };
+
+      final response = await _makeRequest('/jsonrpc', data);
+      if (response['result'] != null && response['result'].isNotEmpty) {
+        final userInfo = response['result'][0];
+        _userName = userInfo['name'];
+        _userEmail = userInfo['email'];
       }
+    } catch (e) {
+      print('Error getting user details: $e');
     }
-    
-    if (_sessionId != null) {
-      _headers['Cookie'] = 'session_id=$_sessionId';
+  }
+
+  Future<void> _getSalespersonInfo() async {
+    try {
+      // Get salesperson record for current user
+      final data = {
+        'jsonrpc': '2.0',
+        'method': 'call',
+        'params': {
+          'service': 'object',
+          'method': 'execute_kw',
+          'args': [
+            database,
+            _userId,
+            'password',
+            'res.partner',
+            'search_read',
+            [[['user_id', '=', _userId], ['is_salesperson', '=', true]]],
+            {'fields': ['assigned_client_ids', 'assigned_warehouse_ids', 'assigned_regions']}
+          ]
+        },
+        'id': 1,
+      };
+
+      final response = await _makeRequest('/jsonrpc', data);
+      if (response['result'] != null && response['result'].isNotEmpty) {
+        final salespersonInfo = response['result'][0];
+        _assignedClientIds = List<int>.from(salespersonInfo['assigned_client_ids'] ?? []);
+        _assignedWarehouseIds = List<int>.from(salespersonInfo['assigned_warehouse_ids'] ?? []);
+        _assignedRegions = List<String>.from(salespersonInfo['assigned_regions'] ?? []);
+      }
+    } catch (e) {
+      print('Error getting salesperson info: $e');
+    }
+  }
+
+  Future<bool> loadSession() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final userId = prefs.getInt('user_id');
+      final userEmail = prefs.getString('user_email');
+      
+      if (userId != null && userEmail != null) {
+        _userId = userId;
+        _userEmail = userEmail;
+        await _getUserDetails();
+        await _getSalespersonInfo();
+        return true;
+      }
+      return false;
+    } catch (e) {
+      print('Error loading session: $e');
+      return false;
     }
   }
 
   Future<void> logout() async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.remove('session_id');
-    await prefs.remove('base_url');
-    await prefs.remove('database');
-    await prefs.remove('user_id');
-    await prefs.remove('user_email');
-    await prefs.remove('is_admin');
-    await prefs.remove('user_info');
-    
-    _sessionId = null;
-    _baseUrl = null;
-    _database = null;
     _userId = null;
+    _sessionId = null;
+    _userName = null;
     _userEmail = null;
-    _isAdmin = false;
-    _userInfo = null;
-    _headers.remove('Cookie');
+    _assignedClientIds = [];
+    _assignedWarehouseIds = [];
+    _assignedRegions = [];
+    
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.clear();
   }
 
-  Future<bool> login(String baseUrl, String database, String username, String password) async {
-    _baseUrl = baseUrl;
-    _database = database;
-    
-    final url = Uri.parse('$baseUrl/web/session/authenticate');
-    
-    try {
-      final response = await http.post(
-        url,
-        headers: _headers,
-        body: jsonEncode({
-          'params': {
-            'db': database,
-            'login': username,
-            'password': password,
-          }
-        }),
-      );
-      
-      if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-        if (data['result'] != null && data['result']['uid'] != null) {
-          _userId = data['result']['uid'];
-          _userEmail = username;
-          
-          // Extract session_id from cookies
-          final cookies = response.headers['set-cookie'];
-          if (cookies != null) {
-            final sessionMatch = RegExp(r'session_id=([^;]+);').firstMatch(cookies);
-            if (sessionMatch != null) {
-              _sessionId = sessionMatch.group(1);
-              _headers['Cookie'] = 'session_id=$_sessionId';
-              
-              // Get user information and check admin privileges
-              await _loadUserInfo();
-              
-              await saveSession();
-              return true;
-            }
-          }
-        }
-      }
-    } catch (e) {
-      print('Login error: $e');
-    }
-    
-    return false;
-  }
-
-  Future<void> _loadUserInfo() async {
-    try {
-      // Get current user information
-      final userResult = await searchRead(
-        'res.users',
-        domain: [['id', '=', _userId]],
-        fields: ['name', 'email', 'login', 'groups_id', 'partner_id'],
-        limit: 1,
-      );
-      
-      if (userResult.isNotEmpty) {
-        _userInfo = userResult[0];
-        
-        // Check if user is admin by checking groups
-        final groupIds = _userInfo?['groups_id'] ?? [];
-        
-        // Check for admin groups (Administration/Settings or Administration/Access Rights)
-        final adminGroups = await searchRead(
-          'res.groups',
-          domain: [['id', 'in', groupIds], ['category_id.name', '=', 'Administration']],
-          fields: ['name', 'category_id'],
-        );
-        
-        _isAdmin = adminGroups.isNotEmpty;
-        
-        // Also check if user has Settings access
-        if (!_isAdmin) {
-          final settingsGroups = await searchRead(
-            'res.groups',
-            domain: [['id', 'in', groupIds], ['name', 'ilike', 'Settings']],
-            fields: ['name'],
-          );
-          _isAdmin = settingsGroups.isNotEmpty;
-        }
-      }
-    } catch (e) {
-      print('Error loading user info: $e');
-      _isAdmin = false;
-    }
-  }
-
-  Future<Map<String, dynamic>> getDashboardData() async {
-    if (_baseUrl == null || _sessionId == null) {
-      throw Exception('Not authenticated');
-    }
+  // Dashboard data with salesperson-specific filtering
+  Future<Map<String, dynamic>> getSalespersonDashboardData() async {
+    if (!isLoggedIn) throw Exception('Not logged in');
 
     try {
-      // Get sales data
-      final salesData = await searchRead(
-        'sale.order',
-        domain: [['state', 'in', ['sale', 'done']]],
-        fields: ['amount_total', 'partner_id', 'date_order', 'state'],
-        limit: 100,
-      );
-
-      // Get invoice data
-      final invoiceData = await searchRead(
-        'account.move',
-        domain: [['move_type', '=', 'out_invoice'], ['state', '=', 'posted']],
-        fields: ['amount_total', 'partner_id', 'invoice_date', 'payment_state'],
-        limit: 100,
-      );
-
-      // Get client data with better error handling
-      final clientData = await searchRead(
-        'res.partner',
-        domain: [['is_company', '=', true], ['customer_rank', '>', 0]],
-        fields: ['name', 'country_id', 'email', 'phone'],
-        limit: 100,
-      );
-
-      // Get product data with image support
-      final productData = await searchRead(
-        'product.product',
-        domain: [['sale_ok', '=', true]],
-        fields: ['name', 'list_price', 'image_1920', 'default_code', 'categ_id'],
-        limit: 50,
-      );
+      // Get collection receipts for commission calculation
+      final receiptsData = await getCollectionReceipts();
+      final receipts = receiptsData.map((data) => {
+        'amount': (data['amount'] ?? 0.0).toDouble(),
+        'status': data['status'] ?? 'collected',
+        'payment_type': data['payment_type'] ?? 'cash',
+        'region': data['region'] ?? '',
+        'is_settled': data['is_settled'] ?? false,
+      }).toList();
 
       // Calculate totals
-      double totalRevenue = 0.0;
-      for (var sale in salesData) {
-        totalRevenue += (sale['amount_total'] ?? 0.0).toDouble();
+      double totalCommission = 0.0;
+      double totalCashCollected = 0.0;
+      double totalDigitalCollected = 0.0;
+      double cashOnHand = 0.0;
+      Map<String, double> outstandingByRegion = {};
+      Map<String, Map<String, double>> collectionsByRegion = {};
+
+      for (final receipt in receipts) {
+        final amount = receipt['amount'] as double;
+        final commission = amount * 0.0225; // 2.25%
+        final paymentType = receipt['payment_type'] as String;
+        final region = receipt['region'] as String;
+        final isSettled = receipt['is_settled'] as bool;
+
+        totalCommission += commission;
+
+        if (!isSettled) {
+          if (paymentType == 'cash') {
+            totalCashCollected += amount;
+            cashOnHand += amount;
+          } else {
+            totalDigitalCollected += amount;
+          }
+
+          // Regional breakdown
+          if (!collectionsByRegion.containsKey(region)) {
+            collectionsByRegion[region] = {'cash': 0.0, 'digital': 0.0};
+          }
+          collectionsByRegion[region]![paymentType == 'cash' ? 'cash' : 'digital'] = 
+              (collectionsByRegion[region]![paymentType == 'cash' ? 'cash' : 'digital'] ?? 0.0) + amount;
+        }
       }
 
-      // Calculate regional breakdown (simplified)
-      Map<String, Map<String, dynamic>> regionMap = {};
-      for (var sale in salesData) {
-        String region = 'Unknown Region';
-        if (sale['partner_id'] != null && sale['partner_id'] is List) {
-          region = sale['partner_id'][1]?.toString().split(',').first ?? 'Unknown Region';
+      // Get outstanding amounts by region
+      for (final region in _assignedRegions) {
+        final outstanding = await _getOutstandingAmountForRegion(region);
+        if (outstanding > 0) {
+          outstandingByRegion[region] = outstanding;
         }
-        
-        if (!regionMap.containsKey(region)) {
-          regionMap[region] = {'name': region, 'amount': 0.0, 'orders': 0};
-        }
-        
-        regionMap[region]!['amount'] = (regionMap[region]!['amount'] as double) + 
-                                      (sale['amount_total'] ?? 0.0).toDouble();
-        regionMap[region]!['orders'] = (regionMap[region]!['orders'] as int) + 1;
       }
 
-      // Count pending invoices
-      int pendingInvoices = 0;
-      for (var invoice in invoiceData) {
-        if (invoice['payment_state'] != 'paid') {
-          pendingInvoices++;
-        }
-      }
+      // Build regional summaries
+      final regionalSummaries = collectionsByRegion.entries.map((entry) {
+        return {
+          'region': entry.key,
+          'cash_collected': entry.value['cash'] ?? 0.0,
+          'digital_collected': entry.value['digital'] ?? 0.0,
+          'outstanding_amount': outstandingByRegion[entry.key] ?? 0.0,
+          'clients_count': _assignedClientIds.length, // Simplified
+          'last_update': DateTime.now().toIso8601String(),
+        };
+      }).toList();
 
       return {
-        'total_amount': totalRevenue,
-        'regions': regionMap.values.toList(),
-        'active_orders': salesData.where((s) => s['state'] == 'sale').length,
-        'pending_invoices': pendingInvoices,
-        'total_clients': clientData.length,
-        'products_sold': productData.length,
+        'total_commission': totalCommission,
+        'total_cash_collected': totalCashCollected,
+        'total_digital_collected': totalDigitalCollected,
+        'cash_on_hand': cashOnHand,
+        'outstanding_amounts': {
+          'total': outstandingByRegion.values.fold(0.0, (sum, amount) => sum + amount),
+          ...outstandingByRegion,
+        },
+        'regional_summaries': regionalSummaries,
       };
     } catch (e) {
-      print('Dashboard data error: $e');
-      // Return mock data if API fails
-      return {
-        'total_amount': 125000.0,
-        'regions': [
-          {'name': 'North Region', 'amount': 45000.0, 'orders': 12},
-          {'name': 'South Region', 'amount': 38000.0, 'orders': 8},
-          {'name': 'East Region', 'amount': 42000.0, 'orders': 15},
-        ],
-        'active_orders': 25,
-        'pending_invoices': 8,
-        'total_clients': 45,
-        'products_sold': 120,
+      print('Error getting dashboard data: $e');
+      throw Exception('Failed to load dashboard data');
+    }
+  }
+
+  Future<double> _getOutstandingAmountForRegion(String region) async {
+    // This would typically query invoices or account receivables
+    // For now, return a mock value
+    return 0.0;
+  }
+
+  // Get clients assigned to current salesperson
+  Future<List<Map<String, dynamic>>> getClients() async {
+    if (!isLoggedIn) throw Exception('Not logged in');
+
+    try {
+      final data = {
+        'jsonrpc': '2.0',
+        'method': 'call',
+        'params': {
+          'service': 'object',
+          'method': 'execute_kw',
+          'args': [
+            database,
+            _userId,
+            'password',
+            'res.partner',
+            'search_read',
+            [
+              [
+                ['id', 'in', _assignedClientIds],
+                ['is_company', '=', true],
+                ['customer_rank', '>', 0]
+              ]
+            ],
+            {
+              'fields': ['name', 'email', 'phone', 'street', 'city', 'country_id'],
+              'order': 'name'
+            }
+          ]
+        },
+        'id': 1,
       };
-    }
-  }
 
-  Future<List<dynamic>> searchRead(String model, {List<dynamic>? domain, List<String>? fields, int? limit}) async {
-    if (_baseUrl == null || _sessionId == null) {
-      throw Exception('Not authenticated');
-    }
-
-    final url = Uri.parse('$_baseUrl/web/dataset/call_kw');
-    
-    try {
-      final response = await http.post(
-        url,
-        headers: _headers,
-        body: jsonEncode({
-          'params': {
-            'model': model,
-            'method': 'search_read',
-            'args': [domain ?? []],
-            'kwargs': {
-              'fields': fields ?? [],
-              'limit': limit ?? 80,
-            },
-          }
-        }),
-      );
-      
-      if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-        if (data['result'] != null) {
-          return data['result'];
-        }
-      } else {
-        print('Search read failed with status: ${response.statusCode}');
-        print('Response body: ${response.body}');
-      }
+      final response = await _makeRequest('/jsonrpc', data);
+      return List<Map<String, dynamic>>.from(response['result'] ?? []);
     } catch (e) {
-      print('Search read error: $e');
+      print('Error getting clients: $e');
+      return [];
     }
-    
-    return [];
   }
 
-  Future<Map<String, dynamic>?> create(String model, Map<String, dynamic> values) async {
-    if (_baseUrl == null || _sessionId == null) {
-      throw Exception('Not authenticated');
-    }
+  // Get products from assigned warehouses
+  Future<List<Map<String, dynamic>>> getProducts() async {
+    if (!isLoggedIn) throw Exception('Not logged in');
 
-    final url = Uri.parse('$_baseUrl/web/dataset/call_kw');
-    
     try {
-      final response = await http.post(
-        url,
-        headers: _headers,
-        body: jsonEncode({
-          'params': {
-            'model': model,
-            'method': 'create',
-            'args': [values],
-            'kwargs': {},
-          }
-        }),
-      );
-      
-      if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-        return data['result'];
-      }
-    } catch (e) {
-      print('Create error: $e');
-    }
-    
-    return null;
-  }
-
-  Future<bool> write(String model, List<int> ids, Map<String, dynamic> values) async {
-    if (_baseUrl == null || _sessionId == null) {
-      throw Exception('Not authenticated');
-    }
-
-    final url = Uri.parse('$_baseUrl/web/dataset/call_kw');
-    
-    try {
-      final response = await http.post(
-        url,
-        headers: _headers,
-        body: jsonEncode({
-          'params': {
-            'model': model,
-            'method': 'write',
-            'args': [ids, values],
-            'kwargs': {},
-          }
-        }),
-      );
-      
-      return response.statusCode == 200;
-    } catch (e) {
-      print('Write error: $e');
-      return false;
-    }
-  }
-
-  // Enhanced method to get products with images
-  Future<List<Product>> getItems() async {
-    try {
-      final data = await searchRead(
-        'product.product',
-        domain: [['sale_ok', '=', true]],
-        fields: ['name', 'list_price', 'default_code', 'categ_id', 'image_1920', 'image_medium', 'image_small'],
-        limit: 100,
-      );
-      
-      if (data.isEmpty) {
-        print('No products found, returning mock data');
-        // Return mock data if no products found
-        return [
-          Product.fromJson({
-            'id': 1,
-            'name': 'Sample Product 1',
-            'list_price': 99.99,
-            'default_code': 'PROD001',
-            'categ_id': [1, 'Sample Category'],
-            'image_1920': null,
-          }),
-          Product.fromJson({
-            'id': 2,
-            'name': 'Sample Product 2',
-            'list_price': 149.99,
-            'default_code': 'PROD002',
-            'categ_id': [1, 'Sample Category'],
-            'image_1920': null,
-          }),
-        ];
-      }
-      
-      return data.map((item) => Product.fromJson(item)).toList();
-    } catch (e) {
-      print('Error fetching products: $e');
-      // Return mock data on error
-      return [
-        Product.fromJson({
-          'id': 1,
-          'name': 'Sample Product 1',
-          'list_price': 99.99,
-          'default_code': 'PROD001',
-          'categ_id': [1, 'Sample Category'],
-          'image_1920': null,
-        }),
-        Product.fromJson({
-          'id': 2,
-          'name': 'Sample Product 2',
-          'list_price': 149.99,
-          'default_code': 'PROD002',
-          'categ_id': [1, 'Sample Category'],
-          'image_1920': null,
-        }),
-      ];
-    }
-  }
-
-  // Enhanced method to get clients with better error handling
-  Future<List<Client>> getClients() async {
-    try {
-      final data = await searchRead(
-        'res.partner',
-        domain: [['is_company', '=', true], ['customer_rank', '>', 0]],
-        fields: ['name', 'email', 'phone', 'street', 'city', 'country_id', 'image_1920'],
-        limit: 100,
-      );
-      
-      if (data.isEmpty) {
-        print('No clients found, returning mock data');
-        // Return mock data if no clients found
-        return [
-          Client.fromJson({
-            'id': 1,
-            'name': 'Sample Client 1',
-            'email': 'client1@example.com',
-            'phone': '+1234567890',
-            'street': '123 Main St',
-            'city': 'Sample City',
-            'country_id': [1, 'Sample Country'],
-          }),
-          Client.fromJson({
-            'id': 2,
-            'name': 'Sample Client 2',
-            'email': 'client2@example.com',
-            'phone': '+0987654321',
-            'street': '456 Oak Ave',
-            'city': 'Another City',
-            'country_id': [1, 'Sample Country'],
-          }),
-        ];
-      }
-      
-      return data.map((item) => Client.fromJson(item)).toList();
-    } catch (e) {
-      print('Error fetching clients: $e');
-      // Return mock data on error
-      return [
-        Client.fromJson({
-          'id': 1,
-          'name': 'Sample Client 1',
-          'email': 'client1@example.com',
-          'phone': '+1234567890',
-          'street': '123 Main St',
-          'city': 'Sample City',
-          'country_id': [1, 'Sample Country'],
-        }),
-        Client.fromJson({
-          'id': 2,
-          'name': 'Sample Client 2',
-          'email': 'client2@example.com',
-          'phone': '+0987654321',
-          'street': '456 Oak Ave',
-          'city': 'Another City',
-          'country_id': [1, 'Sample Country'],
-        }),
-      ];
-    }
-  }
-
-  // Helper method to get image URL for products
-  String? getImageUrl(int productId, {String imageField = 'image_medium'}) {
-    if (_baseUrl == null || _sessionId == null) return null;
-    return '$_baseUrl/web/image/product.product/$productId/$imageField';
-  }
-
-  // Helper method to get image URL for partners/clients
-  String? getPartnerImageUrl(int partnerId, {String imageField = 'image_medium'}) {
-    if (_baseUrl == null || _sessionId == null) return null;
-    return '$_baseUrl/web/image/res.partner/$partnerId/$imageField';
-  }
-
-  Future<List<SaleOrder>> getSaleOrders() async {
-    final data = await searchRead(
-      'sale.order',
-      domain: [],
-      fields: ['name', 'partner_id', 'date_order', 'amount_total', 'state'],
-      limit: 100,
-    );
-    return data.map((item) => SaleOrder.fromJson(item)).toList();
-  }
-
-  Future<List<Invoice>> getInvoices() async {
-    final data = await searchRead(
-      'account.move',
-      domain: [['move_type', '=', 'out_invoice']],
-      fields: ['name', 'partner_id', 'invoice_date', 'amount_total', 'state', 'payment_state'],
-      limit: 100,
-    );
-    return data.map((item) => Invoice.fromJson(item)).toList();
-  }
-
-  Future<List<Payment>> getPayments() async {
-    final data = await searchRead(
-      'account.payment',
-      domain: [['payment_type', '=', 'inbound']],
-      fields: ['name', 'partner_id', 'date', 'amount', 'state'],
-      limit: 100,
-    );
-    return data.map((item) => Payment.fromJson(item)).toList();
-  }
-
-  // Create a new payment record
-  Future<bool> createPayment({
-    required int partnerId,
-    required double amount,
-    required String paymentMethod,
-    String? reference,
-    DateTime? date,
-  }) async {
-    try {
-      final paymentData = {
-        'partner_id': partnerId,
-        'amount': amount,
-        'payment_type': 'inbound',
-        'partner_type': 'customer',
-        'date': (date ?? DateTime.now()).toIso8601String().split('T')[0],
-        'payment_method_line_id': 1, // Default payment method
-        'ref': reference ?? 'Mobile Payment',
+      final data = {
+        'jsonrpc': '2.0',
+        'method': 'call',
+        'params': {
+          'service': 'object',
+          'method': 'execute_kw',
+          'args': [
+            database,
+            _userId,
+            'password',
+            'product.product',
+            'search_read',
+            [
+              [
+                ['sale_ok', '=', true],
+                ['active', '=', true]
+              ]
+            ],
+            {
+              'fields': ['name', 'list_price', 'standard_price', 'categ_id', 'qty_available'],
+              'order': 'name'
+            }
+          ]
+        },
+        'id': 1,
       };
-      
-      final result = await create('account.payment', paymentData);
-      return result != null;
+
+      final response = await _makeRequest('/jsonrpc', data);
+      return List<Map<String, dynamic>>.from(response['result'] ?? []);
     } catch (e) {
-      // Error creating payment: $e
-      return false;
+      print('Error getting products: $e');
+      return [];
     }
   }
 
-  // Create a new sale order
-  Future<bool> createSaleOrder({
-    required int partnerId,
-    required List<Map<String, dynamic>> orderLines,
-    String? reference,
-  }) async {
+  // Collection receipts management
+  Future<List<Map<String, dynamic>>> getCollectionReceipts() async {
+    if (!isLoggedIn) throw Exception('Not logged in');
+
+    // Mock data for now - in real implementation, this would query custom collection receipt model
+    return [
+      {
+        'id': 1,
+        'receipt_number': 'RCP001',
+        'client_id': 1,
+        'client_name': 'شركة النجف التجارية',
+        'amount': 500000.0,
+        'payment_type': 'cash',
+        'payment_method': 'cash',
+        'collection_date': DateTime.now().subtract(const Duration(days: 1)).toIso8601String(),
+        'region': 'النجف',
+        'salesperson_id': _userId,
+        'is_settled': false,
+        'status': 'collected',
+      },
+      {
+        'id': 2,
+        'receipt_number': 'RCP002',
+        'client_id': 2,
+        'client_name': 'مؤسسة بابل للتجارة',
+        'amount': 750000.0,
+        'payment_type': 'digital',
+        'payment_method': 'bank_transfer',
+        'collection_date': DateTime.now().subtract(const Duration(days: 2)).toIso8601String(),
+        'region': 'بابل',
+        'salesperson_id': _userId,
+        'is_settled': false,
+        'status': 'collected',
+      },
+    ];
+  }
+
+  Future<void> createCollectionReceipt(Map<String, dynamic> receiptData) async {
+    if (!isLoggedIn) throw Exception('Not logged in');
+
+    // Mock implementation - in real app, this would create a record in Odoo
+    await Future.delayed(const Duration(seconds: 1));
+    print('Creating collection receipt: $receiptData');
+  }
+
+  // Money transfers management
+  Future<List<Map<String, dynamic>>> getMoneyTransfers() async {
+    if (!isLoggedIn) throw Exception('Not logged in');
+
+    // Mock data for now
+    return [
+      {
+        'id': 1,
+        'transfer_number': 'TRF001',
+        'amount': 1250000.0,
+        'transfer_type': 'cash',
+        'transfer_method': 'altayf_exchange',
+        'transfer_date': DateTime.now().subtract(const Duration(days: 3)).toIso8601String(),
+        'salesperson_id': _userId,
+        'salesperson_name': _userName,
+        'destination': 'main_treasury',
+        'status': 'received',
+        'received_date': DateTime.now().subtract(const Duration(days: 2)).toIso8601String(),
+        'received_by': 'أحمد محمد',
+      },
+      {
+        'id': 2,
+        'transfer_number': 'TRF002',
+        'amount': 800000.0,
+        'transfer_type': 'digital',
+        'transfer_method': 'development_bank',
+        'transfer_date': DateTime.now().subtract(const Duration(days: 1)).toIso8601String(),
+        'salesperson_id': _userId,
+        'salesperson_name': _userName,
+        'destination': 'main_treasury',
+        'status': 'sent',
+        'notes': 'تحويل عبر مصرف التنمية',
+      },
+    ];
+  }
+
+  Future<void> processComprehensiveSettlement(Map<String, dynamic> settlementData) async {
+    if (!isLoggedIn) throw Exception('Not logged in');
+
+    // Mock implementation - in real app, this would:
+    // 1. Create money transfer record
+    // 2. Update collection receipts status to 'settled'
+    // 3. Create accounting entries
+    await Future.delayed(const Duration(seconds: 2));
+    print('Processing comprehensive settlement: $settlementData');
+  }
+
+  // Other existing methods...
+  Future<List<Map<String, dynamic>>> getOrders() async {
+    if (!isLoggedIn) throw Exception('Not logged in');
+
     try {
-      final orderData = {
-        'partner_id': partnerId,
-        'order_line': orderLines.map((line) => [
-          0, 0, {
-            'product_id': line['product_id'],
-            'product_uom_qty': line['quantity'],
-            'price_unit': line['price_unit'],
-          }
-        ]).toList(),
-        'client_order_ref': reference,
+      final data = {
+        'jsonrpc': '2.0',
+        'method': 'call',
+        'params': {
+          'service': 'object',
+          'method': 'execute_kw',
+          'args': [
+            database,
+            _userId,
+            'password',
+            'sale.order',
+            'search_read',
+            [
+              [
+                ['partner_id', 'in', _assignedClientIds],
+                ['state', 'in', ['draft', 'sent', 'sale']]
+              ]
+            ],
+            {
+              'fields': ['name', 'partner_id', 'amount_total', 'state', 'date_order'],
+              'order': 'date_order desc'
+            }
+          ]
+        },
+        'id': 1,
       };
-      
-      final result = await create('sale.order', orderData);
-      return result != null;
+
+      final response = await _makeRequest('/jsonrpc', data);
+      return List<Map<String, dynamic>>.from(response['result'] ?? []);
     } catch (e) {
-      // Error creating sale order: $e
-      return false;
+      print('Error getting orders: $e');
+      return [];
     }
   }
 
-  // Create a new customer
-  Future<bool> createCustomer({
-    required String name,
-    String? email,
-    String? phone,
-    String? street,
-    String? city,
-    int? countryId,
-  }) async {
+  Future<List<Map<String, dynamic>>> getInvoices() async {
+    if (!isLoggedIn) throw Exception('Not logged in');
+
     try {
-      final customerData = {
-        'name': name,
-        'is_company': true,
-        'customer_rank': 1,
-        'email': email,
-        'phone': phone,
-        'street': street,
-        'city': city,
-        'country_id': countryId,
+      final data = {
+        'jsonrpc': '2.0',
+        'method': 'call',
+        'params': {
+          'service': 'object',
+          'method': 'execute_kw',
+          'args': [
+            database,
+            _userId,
+            'password',
+            'account.move',
+            'search_read',
+            [
+              [
+                ['partner_id', 'in', _assignedClientIds],
+                ['move_type', '=', 'out_invoice'],
+                ['state', 'in', ['draft', 'posted']]
+              ]
+            ],
+            {
+              'fields': ['name', 'partner_id', 'amount_total', 'state', 'invoice_date', 'payment_state'],
+              'order': 'invoice_date desc'
+            }
+          ]
+        },
+        'id': 1,
       };
-      
-      final result = await create('res.partner', customerData);
-      return result != null;
+
+      final response = await _makeRequest('/jsonrpc', data);
+      return List<Map<String, dynamic>>.from(response['result'] ?? []);
     } catch (e) {
-      // Error creating customer: $e
-      return false;
+      print('Error getting invoices: $e');
+      return [];
     }
   }
 }

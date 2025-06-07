@@ -14,7 +14,7 @@ ODOO_CONFIG = {
     
     # Master/Admin password for database operations
     # NOTE: You need to provide the master password for database operations
-    'master_password': 'PLEASE_ENTER_YOUR_MASTER_PASSWORD',
+    'master_password': 'admin123',
     
     # Username for connecting to Odoo (found from existing scripts)
     'username': 'khaleel@tsh.sale',

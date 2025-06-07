@@ -11,7 +11,7 @@ import requests
 ODOO_URL = "http://138.68.89.104:8069"
 SOURCE_DB = "odtshbrain"
 USERNAME = "khaleel@tsh.sale"
-MASTER_PASSWORD = "Zcbm.97531Tsh"
+MASTER_PASSWORD = "admin123"
 USER_PASSWORD = "Zcbm.97531tsh"
 
 def test_basic_connection():

@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 import '../services/odoo_service.dart';
+import '../pages/salesperson_dashboard.dart';
+import '../pages/clients_page.dart';
+import '../pages/products_page.dart';
+import '../pages/orders_page.dart';
+import '../pages/invoices_page.dart';
+import '../pages/collection_receipts_page.dart';
+import '../pages/transfers_tracking_page.dart';
 import '../pages/login_page.dart';
 
 class SideMenu extends StatelessWidget {
@@ -7,14 +14,12 @@ class SideMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final odoo = OdooService();
-    final userName = odoo.userInfo?['name'] ?? odoo.userEmail ?? 'User';
+    final odooService = OdooService();
     
     return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
+      child: Column(
         children: [
-          UserAccountsDrawerHeader(
+          DrawerHeader(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
@@ -22,348 +27,212 @@ class SideMenu extends StatelessWidget {
                 colors: [Color(0xFF1E88E5), Color(0xFF1565C0)],
               ),
             ),
-            accountName: Text(
-              userName,
-              style: const TextStyle(fontWeight: FontWeight.bold),
-            ),
-            accountEmail: Text(odoo.userEmail ?? ''),
-            currentAccountPicture: CircleAvatar(
-              backgroundColor: Colors.white,
-              child: Text(
-                userName.substring(0, 1).toUpperCase(),
-                style: const TextStyle(
-                  color: Color(0xFF1E88E5),
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                ),
-              ),
-            ),
-            otherAccountsPictures: [
-              if (odoo.isAdmin)
-                Container(
-                  padding: const EdgeInsets.all(4),
-                  decoration: BoxDecoration(
-                    color: Colors.orange,
-                    borderRadius: BorderRadius.circular(12),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                const CircleAvatar(
+                  radius: 30,
+                  backgroundColor: Colors.white,
+                  child: Icon(
+                    Icons.person,
+                    size: 40,
+                    color: Color(0xFF1E88E5),
                   ),
-                  child: const Icon(
-                    Icons.admin_panel_settings,
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  odooService.userName ?? 'مندوب المبيعات',
+                  style: const TextStyle(
                     color: Colors.white,
-                    size: 16,
-                  ),
-                ),
-            ],
-          ),
-          ListTile(
-            leading: const Icon(Icons.dashboard),
-            title: const Text('Dashboard'),
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.pushReplacementNamed(context, '/dashboard');
-            },
-          ),
-          const Divider(),
-          ListTile(
-            leading: const Icon(Icons.people),
-            title: const Text('Customers'),
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.pushReplacementNamed(context, '/clients');
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.inventory),
-            title: const Text('Products'),
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.pushReplacementNamed(context, '/items');
-            },
-          ),
-          const Divider(),
-          ListTile(
-            leading: const Icon(Icons.shopping_cart),
-            title: const Text('Sale Orders'),
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.pushReplacementNamed(context, '/sale_orders');
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.receipt_long),
-            title: const Text('Invoices'),
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.pushReplacementNamed(context, '/invoices');
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.payment),
-            title: const Text('Payments Received'),
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.pushReplacementNamed(context, '/payments');
-            },
-          ),
-          if (odoo.isAdmin) ...[
-            const Divider(),
-            Container(
-              color: Colors.orange.withValues(alpha: 0.1),
-              child: const ListTile(
-                leading: Icon(Icons.admin_panel_settings, color: Colors.orange),
-                title: Text(
-                  'Admin Features',
-                  style: TextStyle(
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Colors.orange,
                   ),
                 ),
-              ),
-            ),
-            ListTile(
-              leading: const Icon(Icons.person_add),
-              title: const Text('Add Customer'),
-              onTap: () {
-                Navigator.pop(context);
-                _showAddCustomerDialog(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.add_shopping_cart),
-              title: const Text('Create Sale Order'),
-              onTap: () {
-                Navigator.pop(context);
-                _showCreateOrderDialog(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.add_card),
-              title: const Text('Record Payment'),
-              onTap: () {
-                Navigator.pop(context);
-                _showRecordPaymentDialog(context);
-              },
-            ),
-          ],
-          const Divider(),
-          ListTile(
-            leading: const Icon(Icons.settings),
-            title: const Text('Settings'),
-            onTap: () {
-              Navigator.pop(context);
-              _showSettingsDialog(context);
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.logout, color: Colors.red),
-            title: const Text('Logout', style: TextStyle(color: Colors.red)),
-            onTap: () async {
-              await odoo.logout();
-              if (context.mounted) {
-                Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute(builder: (context) => const LoginPage()),
-                  (route) => false,
-                );
-              }
-            },
-          ),
-        ],
-      ),
-    );
-  }
-
-  void _showAddCustomerDialog(BuildContext context) {
-    final nameController = TextEditingController();
-    final emailController = TextEditingController();
-    final phoneController = TextEditingController();
-    final streetController = TextEditingController();
-    final cityController = TextEditingController();
-
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Add New Customer'),
-        content: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              TextField(
-                controller: nameController,
-                decoration: const InputDecoration(
-                  labelText: 'Company Name *',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              const SizedBox(height: 16),
-              TextField(
-                controller: emailController,
-                decoration: const InputDecoration(
-                  labelText: 'Email',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              const SizedBox(height: 16),
-              TextField(
-                controller: phoneController,
-                decoration: const InputDecoration(
-                  labelText: 'Phone',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              const SizedBox(height: 16),
-              TextField(
-                controller: streetController,
-                decoration: const InputDecoration(
-                  labelText: 'Street Address',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              const SizedBox(height: 16),
-              TextField(
-                controller: cityController,
-                decoration: const InputDecoration(
-                  labelText: 'City',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ],
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Cancel'),
-          ),
-          ElevatedButton(
-            onPressed: () async {
-              if (nameController.text.isNotEmpty) {
-                final success = await OdooService().createCustomer(
-                  name: nameController.text,
-                  email: emailController.text.isEmpty ? null : emailController.text,
-                  phone: phoneController.text.isEmpty ? null : phoneController.text,
-                  street: streetController.text.isEmpty ? null : streetController.text,
-                  city: cityController.text.isEmpty ? null : cityController.text,
-                );
-                
-                if (context.mounted) {
-                  Navigator.pop(context);
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(success ? 'Customer created successfully' : 'Failed to create customer'),
-                      backgroundColor: success ? Colors.green : Colors.red,
+                if (odooService.userEmail != null)
+                  Text(
+                    odooService.userEmail!,
+                    style: const TextStyle(
+                      color: Colors.white70,
+                      fontSize: 12,
                     ),
-                  );
-                }
-              }
-            },
-            child: const Text('Create'),
-          ),
-        ],
-      ),
-    );
-  }
-
-  void _showCreateOrderDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Create Sale Order'),
-        content: const Text('This feature will open a detailed order creation form.'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Cancel'),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pop(context);
-              // TODO: Navigate to order creation page
-            },
-            child: const Text('Continue'),
-          ),
-        ],
-      ),
-    );
-  }
-
-  void _showRecordPaymentDialog(BuildContext context) {
-    final amountController = TextEditingController();
-    final referenceController = TextEditingController();
-
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Record Payment'),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            TextField(
-              controller: amountController,
-              keyboardType: TextInputType.number,
-              decoration: const InputDecoration(
-                labelText: 'Amount *',
-                border: OutlineInputBorder(),
-                prefixText: '\$ ',
-              ),
+                  ),
+              ],
             ),
-            const SizedBox(height: 16),
-            TextField(
-              controller: referenceController,
-              decoration: const InputDecoration(
-                labelText: 'Reference',
-                border: OutlineInputBorder(),
-              ),
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Cancel'),
           ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pop(context);
-              // TODO: Implement payment recording
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Payment recording feature coming soon'),
+          Expanded(
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: [
+                _buildMenuItem(
+                  context,
+                  icon: Icons.dashboard,
+                  title: 'لوحة التحكم',
+                  onTap: () => _navigateTo(context, const SalespersonDashboard()),
                 ),
-              );
-            },
-            child: const Text('Record'),
+                _buildMenuItem(
+                  context,
+                  icon: Icons.people,
+                  title: 'العملاء',
+                  onTap: () => _navigateTo(context, const ClientsPage()),
+                ),
+                _buildMenuItem(
+                  context,
+                  icon: Icons.inventory,
+                  title: 'المنتجات',
+                  onTap: () => _navigateTo(context, const ProductsPage()),
+                ),
+                _buildMenuItem(
+                  context,
+                  icon: Icons.shopping_cart,
+                  title: 'الطلبات',
+                  onTap: () => _navigateTo(context, const OrdersPage()),
+                ),
+                _buildMenuItem(
+                  context,
+                  icon: Icons.receipt,
+                  title: 'الفواتير',
+                  onTap: () => _navigateTo(context, const InvoicesPage()),
+                ),
+                const Divider(),
+                _buildMenuItem(
+                  context,
+                  icon: Icons.payment,
+                  title: 'وصولات القبض',
+                  onTap: () => _navigateTo(context, const CollectionReceiptsPage()),
+                ),
+                _buildMenuItem(
+                  context,
+                  icon: Icons.swap_horiz,
+                  title: 'متابعة الحوالات',
+                  onTap: () => _navigateTo(context, const TransfersTrackingPage()),
+                ),
+                const Divider(),
+                _buildMenuItem(
+                  context,
+                  icon: Icons.settings,
+                  title: 'الإعدادات',
+                  onTap: () {
+                    Navigator.pop(context);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('الإعدادات قيد التطوير')),
+                    );
+                  },
+                ),
+                _buildMenuItem(
+                  context,
+                  icon: Icons.help,
+                  title: 'المساعدة',
+                  onTap: () {
+                    Navigator.pop(context);
+                    _showHelpDialog(context);
+                  },
+                ),
+              ],
+            ),
           ),
+          const Divider(),
+          _buildMenuItem(
+            context,
+            icon: Icons.logout,
+            title: 'تسجيل الخروج',
+            onTap: () => _logout(context),
+            isDestructive: true,
+          ),
+          const SizedBox(height: 16),
         ],
       ),
     );
   }
 
-  void _showSettingsDialog(BuildContext context) {
-    final odoo = OdooService();
-    
+  Widget _buildMenuItem(
+    BuildContext context, {
+    required IconData icon,
+    required String title,
+    required VoidCallback onTap,
+    bool isDestructive = false,
+  }) {
+    return ListTile(
+      leading: Icon(
+        icon,
+        color: isDestructive ? Colors.red : const Color(0xFF1E88E5),
+      ),
+      title: Text(
+        title,
+        style: TextStyle(
+          color: isDestructive ? Colors.red : null,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+      onTap: onTap,
+      dense: true,
+    );
+  }
+
+  void _navigateTo(BuildContext context, Widget page) {
+    Navigator.pop(context); // Close drawer
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => page),
+    );
+  }
+
+  void _showHelpDialog(BuildContext context) {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Settings'),
-        content: Column(
+        title: const Text('المساعدة'),
+        content: const Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Server: ${odoo.baseUrl ?? 'Not connected'}'),
-            const SizedBox(height: 8),
-            Text('User: ${odoo.userEmail ?? 'Not logged in'}'),
-            const SizedBox(height: 8),
-            Text('Role: ${odoo.isAdmin ? 'Administrator' : 'Salesperson'}'),
-            const SizedBox(height: 16),
-            const Text(
-              'TSH Salesperson App v1.0.0',
-              style: TextStyle(fontSize: 12, color: Colors.grey),
-            ),
+            Text('تطبيق مندوبي المبيعات TSH'),
+            SizedBox(height: 8),
+            Text('الميزات الرئيسية:'),
+            Text('• إدارة العملاء المخصصين'),
+            Text('• عرض المنتجات من المخازن المرتبطة'),
+            Text('• متابعة الطلبات والفواتير'),
+            Text('• إدارة وصولات القبض'),
+            Text('• التسوية الشاملة للمبالغ'),
+            Text('• متابعة الحوالات المالية'),
+            SizedBox(height: 8),
+            Text('للدعم التقني: support@tsh.com'),
           ],
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('Close'),
+            child: const Text('موافق'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _logout(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('تسجيل الخروج'),
+        content: const Text('هل أنت متأكد من تسجيل الخروج؟'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('إلغاء'),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context); // Close dialog
+              Navigator.pop(context); // Close drawer
+              OdooService().logout();
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => const LoginPage()),
+                (route) => false,
+              );
+            },
+            style: TextButton.styleFrom(foregroundColor: Colors.red),
+            child: const Text('تسجيل الخروج'),
           ),
         ],
       ),
