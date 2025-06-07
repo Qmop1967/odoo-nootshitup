@@ -100,17 +100,168 @@ build_output.log
 .flutter
 .config/
 
-# Python scripts (if not part of the main app)
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+zoho_sync_venv/
+
+# Logs and output files
+*.log
+*.logs
+access_test_results.log
+admin_fix_output.log
+bypass_output.log
+recovery_output.log
+missing_products_results.log
+
+# Database backups and data files
+*.sql
+*.db
+*.sqlite
+*.sqlite3
+*backup*.sql
+
+# Configuration files with sensitive data
+zoho_config.json
+database_access_info.json
+odoo_config.py
+
+# Generated reports and data files
+*.csv
+all_products_detailed.*
+product_analysis_report.*
+product_summary.json
+inventory_tracking_report.json
+inventory_tracking_final_report.json
+quick_status_report.json
+zoho_odoo_sync_report.json
+custom_fields_setup_report.json
+zoho_product_detail.json
+sample_zoho_product.json
+zoho_product_sample.json
+
+# Test images and media
+test_*.jpg
+*.jpg
+test_image.*
+
+# IDE and development tools
+.codeium/
+.windsurf-server/
+.vscode-server/
+.dotnet/
+
+# Comprehensive Python script exclusions (development/utility scripts)
+activate_*.py
+add_*.py
+advanced_*.py
+alternative_*.py
+analyze_*.py
+archive_*.py
+assign_*.py
+bypass_*.py
+change_*.py
+check_*.py
+clean_*.py
+clear_*.py
+completely_*.py
+comprehensive_*.py
+convert_*.py
 create_*.py
+data_quality_*.py
+debug_*.py
 delete_*.py
+deploy_*.py
+detailed_*.py
+direct_*.py
+download_*.py
+enable_*.py
+ensure_*.py
+final_*.py
+find_*.py
+fix_*.py
+force_*.py
+hide_*.py
+inspect_*.py
+install_*.py
+investigate_*.py
+issue_*.py
+manage_*.py
+nuclear_*.py
+odoo_*.py
+optimize_*.py
+product_*.py
+quick_*.py
+recover_*.py
+refresh_*.py
+renew_*.py
+reset_*.py
+robust_*.py
+run_*.py
+set_*.py
+setup_*.py
+simple_*.py
+start_*.py
+terminal_*.py
+test_*.py
+ultimate_*.py
+update_*.py
+verify_*.py
+web_*.py
+xmlrpc_*.py
 
-# Documentation files (keep only if they're part of the app)
-BUILD_STATUS.md
-DEVELOPMENT_SETUP.md
-MCP_SETUP_README.md
-ODOO_SETUP_GUIDE.md
-STORE_SUBMISSION_GUIDE.md
-setup_mcp.sh
+# Shell scripts
+*.sh
+currency_setup_guide.sh
+setup_iyad_complete.sh
+start_mcp_service.sh
+start_tsh_system.sh
 
-# Other directories
-zoho-odoo-integration-central/
+# HTML demo and test files
+app_demo.html
+enhanced_app_demo.html
+enterprise_architecture_dashboard.html
+test_app.html
+
+# Additional project directories
+architectural-governance-system/
+tsh-mobile-ecosystem/
+tsh-unified-architecture-system/
+tsh_custom_mcp_servers/
+zoho-odoo-mcp-sync-service/
+zoho-odoo-mcp-sync/
+
+# Documentation files (development guides)
+ACCOUNTING_SYSTEMS_KNOWLEDGE_SUMMARY.md
+APP_SHOWCASE.md
+ARCHITECTURE_GOVERNANCE_README.md
+CODEMAGIC_SHOREBIRD_DISABLE_GUIDE.md
+CODE_STRUCTURE_OVERVIEW.md
+DEMO_ACCESS_GUIDE.md
+ENHANCED_TSH_APP_README.md
+ENTERPRISE_ARCHITECTURE_GOVERNANCE_OVERVIEW.md
+FINAL_APP_SUMMARY.md
+HOW_TO_RUN_APP.md
+IMAGE_MIGRATION_COMPLETE.md
+IYAD_SALESPERSON_SETUP_GUIDE.md
+MANUAL_DATABASE_ACCESS_GUIDE.md
+ODOO_CLEAN_INTERFACE_GUIDE.md
+PERMISSIONS_SOLUTION_GUIDE.md
+PRODUCT_CLEANUP_GUIDE.md
+PRODUCT_SOURCING_CORRECTION_SUMMARY.md
+SERVER_COMPONENT_ANALYSIS.md
+SOLUTION_SUMMARY.md
+TSH_APP_PRESENTATION.md
+TSH_SALESPERSON_ENHANCED_FEATURES.md
+WAREHOUSE_ARCHITECTURE_GUIDE.md
+
+# Arabic documentation files (encoded names)
+"*\330\252\331\202\330\261\331\212\330\261*"

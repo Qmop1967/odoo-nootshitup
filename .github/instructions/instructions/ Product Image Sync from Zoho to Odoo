@@ -1,0 +1,10 @@
+# 🧠 Copilot Instruction: Product Image Sync from Zoho to Odoo
+
+# When syncing product data from Zoho to Odoo, you must also:
+# 1. Fetch the product image from Zoho. This could be a URL or binary file depending on the API.
+# 2. Convert or encode the image properly to match Odoo's requirements (e.g., base64 if using XML-RPC).
+# 3. Attach the image to the product record in Odoo.
+# 4. If the image already exists in Odoo and has not changed, do not re-upload it.
+# 5. Log the image sync status (success, skipped, or failed) for each product.
+#
+# The image must be linked to the appropriate product using its unique identifier (e.g., SKU or default_code).
