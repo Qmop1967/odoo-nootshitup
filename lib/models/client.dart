@@ -18,16 +18,39 @@ class Client {
   });
 
   factory Client.fromJson(Map<String, dynamic> json) {
+    // Helper function to safely get string value
+    String safeString(dynamic value) {
+      if (value == null || value == false) return '';
+      return value.toString();
+    }
+
+    // Helper function to get phone number (try mobile first, then phone)
+    String getPhoneNumber() {
+      String mobile = safeString(json['mobile']);
+      String phone = safeString(json['phone']);
+      
+      if (mobile.isNotEmpty) return mobile;
+      if (phone.isNotEmpty) return phone;
+      return '';
+    }
+
+    // Helper function to get country name from country_id
+    String getCountryName() {
+      var countryId = json['country_id'];
+      if (countryId is List && countryId.length > 1) {
+        return safeString(countryId[1]);
+      }
+      return safeString(countryId);
+    }
+
     return Client(
       id: json['id'] ?? 0,
-      name: json['name'] ?? '',
-      email: json['email'] ?? '',
-      phone: json['phone'] ?? '',
-      street: json['street'] ?? '',
-      city: json['city'] ?? '',
-      country: json['country_id'] is List 
-          ? json['country_id'][1] ?? ''
-          : '',
+      name: safeString(json['name']),
+      email: safeString(json['email']),
+      phone: getPhoneNumber(),
+      street: safeString(json['street']),
+      city: safeString(json['city']),
+      country: getCountryName(),
     );
   }
 

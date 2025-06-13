@@ -1,7 +1,9 @@
 name: tsh_salesperson_app
-description: "TSH Salesperson App with Odoo Integration"
+description: "TSH Salesperson App - Spider Hand Technical Company (شركة يد العنكبوت التقنية)"
+# TSH Unified Architecture System - Mobile Ecosystem v2.0.0
+# Author: TSH Technical Team | Date: 2025-06-04
 publish_to: 'none'
-version: 1.0.0+1
+version: 2.0.0+2
 
 environment:
   sdk: '>=3.8.0 <4.0.0'

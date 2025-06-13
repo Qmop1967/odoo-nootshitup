@@ -1,22 +1,56 @@
 /// TSH Salesperson App Configuration
 /// 
+/// Spider Hand Technical Company (شركة يد العنكبوت التقنية)
+/// TSH Unified Architecture System - Mobile Ecosystem
+/// 
+/// Author: TSH Technical Team
+/// Date: 2025-06-04
+/// Architecture Version: 2.0.0
+/// 
 /// Update these values with your actual Odoo server details
+
+import 'architecture_info.dart';
+
 class AppConfig {
   // Odoo Server Configuration
   // TSH Odoo Server Details
+  // Direct connection to Odoo server
   static const String odooServerUrl = 'http://138.68.89.104:8069';
-  static const String odooDatabaseName = 'odtshbrain';
+  static const String odooDatabaseName = 'nootshitup';
+
+  // Web-specific configuration for CORS proxy
+  static const String corsProxyUrl = 'http://138.68.89.104:3000';
+  static const String webOdooProxyUrl = 'http://138.68.89.104:3000/api/odoo';
   
+  // Platform-specific URL getter
+  static String get effectiveOdooUrl {
+    // Check if running on web platform and use CORS proxy
+    try {
+      // Always use CORS proxy for web to avoid CORS issues
+      // Check if we're in a web browser context
+      if (Uri.base.scheme == 'http' || Uri.base.scheme == 'https') {
+        print('🌐 Using CORS proxy URL: $webOdooProxyUrl');
+        return webOdooProxyUrl;
+      }
+    } catch (e) {
+      print('⚠️ Could not determine platform, using CORS proxy: $e');
+      // If we can't determine the platform, assume web and use CORS proxy
+      return webOdooProxyUrl;
+    }
+    print('📱 Using direct Odoo URL: $odooServerUrl');
+    return odooServerUrl;
+  }
+
   // Warehouse Configuration - CRITICAL ARCHITECTURE RULE
   // DO NOT MODIFY WITHOUT ARCHITECTURE TEAM APPROVAL
   static const Map<String, String> warehouseMapping = {
-    'sales_representatives': 'main_wholesale_warehouse',  // مخزن الجملة
-    'sales_partners': 'retail_store_warehouse',          // مخزن المتجر
-    'customer_app': 'retail_store_warehouse',            // مخزن المتجر
-    'web_store': 'retail_store_warehouse',               // مخزن المتجر
-    'website': 'retail_store_warehouse',                 // مخزن المتجر
+    'sales_representatives': 'main_wholesale_warehouse', // مخزن الجملة
+    'sales_partners': 'retail_store_warehouse', // مخزن المتجر
+    'customer_app': 'retail_store_warehouse', // مخزن المتجر
+    'web_store': 'retail_store_warehouse', // مخزن المتجر
+    'website': 'retail_store_warehouse', // مخزن المتجر
   };
-  
+
   // Warehouse Details
   static const Map<String, Map<String, String>> warehouseDetails = {
     'main_wholesale_warehouse': {
@@ -27,18 +61,30 @@ class AppConfig {
       'target_users': 'Sales Representatives',
     },
     'retail_store_warehouse': {
-      'name': 'Retail Store Warehouse', 
+      'name': 'Retail Store Warehouse',
       'type': 'Retail',
       'location': 'الدورة، بغداد',
       'description': 'مخزن المتجر - شركاء البيع والزبائن',
       'target_users': 'Sales Partners, Store Staff, Customers',
     },
   };
+
+  // Company Information (from Architecture System)
+  static String get companyName => ArchitectureInfo.companyName;
+  static String get companyNameArabic => ArchitectureInfo.companyNameArabic;
+  static String get systemName => ArchitectureInfo.systemName;
+  static String get systemVersion => ArchitectureInfo.architectureVersion;
+  static String get architectureVersion => ArchitectureInfo.architectureVersion;
+  static String get authorTeam => ArchitectureInfo.authorTeam;
+  static String get releaseDate => ArchitectureInfo.releaseDate;
   
   // App Information
   static const String appName = 'TSH Salesperson';
-  static const String appVersion = '1.0.0';
-  static const String appBuildNumber = '1';
+  static const String appDisplayName = 'TSH Salesperson - مندوب المبيعات';
+  static const String appVersion = '2.0.0';
+  static const String appBuildNumber = '2';
+  static const String appDescription = 'TSH Salesperson App with Odoo Integration';
+  static const String appTagline = 'Powered by TSH Unified Architecture System';
 
   // Default Odoo Configuration
   static const String defaultOdooUrl = 'http://138.68.89.104:8069';
@@ -84,19 +130,23 @@ class AppConfig {
   static const String defaultTimeFormat = 'HH:mm';
 
   // Error Messages
-  static const String networkErrorMessage = 'Network connection error. Please check your internet connection.';
-  static const String authErrorMessage = 'Authentication failed. Please check your credentials.';
-  static const String serverErrorMessage = 'Server error. Please try again later.';
-  static const String unknownErrorMessage = 'An unexpected error occurred. Please try again.';
+  static const String networkErrorMessage =
+      'Network connection error. Please check your internet connection.';
+  static const String authErrorMessage =
+      'Authentication failed. Please check your credentials.';
+  static const String serverErrorMessage =
+      'Server error. Please try again later.';
+  static const String unknownErrorMessage =
+      'An unexpected error occurred. Please try again.';
 
   /// Validates if the configuration is properly set
   static bool get isConfigured {
     return odooServerUrl.isNotEmpty &&
-           odooDatabaseName.isNotEmpty &&
-           odooServerUrl != 'https://demo.odoo.com' &&
-           odooDatabaseName != 'demo';
+        odooDatabaseName.isNotEmpty &&
+        odooServerUrl != 'https://demo.odoo.com' &&
+        odooDatabaseName != 'demo';
   }
-  
+
   /// Returns a user-friendly error message if configuration is incomplete
   static String get configurationError {
     if (!isConfigured) {
@@ -104,12 +154,12 @@ class AppConfig {
     }
     return '';
   }
-  
+
   /// Get warehouse for specific app type
   static String getWarehouseForApp(String appType) {
     return warehouseMapping[appType] ?? 'retail_store_warehouse';
   }
-  
+
   /// Get warehouse details
   static Map<String, String>? getWarehouseDetails(String warehouseId) {
     return warehouseDetails[warehouseId];
